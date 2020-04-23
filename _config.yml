@@ -1,1 +1,11 @@
-theme: jekyll-theme-minimal
+title: malukenho
+description: >
+  Sorrow of a programmer.
+baseurl: ""
+url: "http://malukenho.dev"
+twitter_username: malukenho
+github_username: malukenho
+
+markdown: kramdown
+kramdown:
+   math_engine: mathjax
