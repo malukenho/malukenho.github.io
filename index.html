@@ -1,22 +1,20 @@
 ---
 layout: default
 ---
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
+			
+<div class="post-list">
+    <h2>Latest From The Blog</h2>
+    <ul>				
     {% for post in site.posts %}
-      {% if post.categories contains 'post' %}
+        {% if post.categories contains 'post' %}
         <li>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-          <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h2>
+            <h3>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h3>
+                                    
+            <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
         </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+        {% endif %}
+    {% endfor %}		
+    </ul>
 </div>
