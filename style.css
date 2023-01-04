@@ -1,14 +1,14 @@
-html { font-size:100%; }
+html { font-size: 100% }
 body { line-height:1.6; overflow-x: hidden; }
 img { max-width:100%; height:auto; }
-iframe { border:0; outline:none; }
+iframe { border:0; outline:none; width: 100%; height: auto; overflow: auto}
 video, audio { width:100%; }
 object, embed, video, iframe { max-width:100%; }
-h1, h2, h3, h4, h5, h6 { line-height:1.5; font-weight:400; }
-a { color: #CE6607; text-decoration:none; }
+h1, h2, h3, h4, h5, h6 { line-height:1.5; font-weight:700; color: #fbef8a}
+a { color: #7bcdab; text-decoration: none; }
 a:hover { color:#A35208; }
 a:focus { outline: none; }
-h1 a { color:#333; }
+h1 a { color:#fff; }
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after { content: " "; display: table; }
@@ -21,16 +21,17 @@ h1 a { color:#333; }
 
 
 /* FONTS */
-html, button, input, select, textarea, .toggle h4 { font-family: 'Lora', Georgia, serif !important;}
-h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt { font-family:"Coustard", Georgia, serif; }
+html, button, input, select, textarea, .toggle h4 { font-family: 'Avenir', Georgia, serif !important;}
+h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt { font-family:"Avenir", Georgia, serif; }
 h1.site-title, h1.site-title a { font-family:"UnifrakturMaguntia", Georgia, serif; }
 
 /* COLORS */
 /* Text Selection */
 ::selection { text-shadow:none; color:#333; background:#FFFFCF; }
 ::-moz-selection { text-shadow:none; color:#333; background:#FFFFCF; }
-body { color:#444; background: #fff; }
+body { color: #f4f4f4; background-color: #18181f; }
 
+.blog-simple a { color: #7bcdab }
 #content > div > article > p { font-size: 18px !important }
 
 /* LAYOUT */
@@ -683,22 +684,6 @@ a.loadmore { display:block; position:relative; margin: 3em auto 0 auto; max-widt
           transition-duration: 0s;
 }
 
-
-/* -------------------------------------------- */
-/* PORTFOLIO DETAILS */
-.department { margin: -0.6em 0 1.2em 0; text-transform: uppercase; font-size: .825em; letter-spacing: 3px; color: #999; }
-.portfolio-single .nav-single, .navigation { padding-top: 0; }
-.portfolio-single .nav-single h4 { color: #E7E7E7; font-size: 1.5em; margin-bottom: .1em; }
-.portfolio-single .entry-content img, .portfolio-single .entry-content .media-wrap { margin-bottom: 2em; }
-.portfolio-text { max-width: 960px; margin: auto; padding-bottom: 2em; text-align: center; }
-.portfolio-text p { margin-top: 0; color: #999; }
-.portfolio-text .launch-wrap { margin-top: 2em; }
-.launch-wrap a { color: #333; font-style: italic; min-width: 12em; border-bottom: 1px solid #DDD; display: inline-block; padding: .4em 1em; }
-.launch-wrap a:after { content: " â†’"; }
-.back-to-portfolio a { font-style: normal; letter-spacing: 3px; }
-.back-to-portfolio a:after { content: ""; }
-.back-to-portfolio a:before { content: "â†’ "; }
-
 /* Lightbox */
 .lightbox.hidden { display: none; }
 .fancy-ico, #fancybox-close { font-size: 1em; position: relative; top: 0.1em; }
@@ -726,15 +711,15 @@ a.loadmore { display:block; position:relative; margin: 3em auto 0 auto; max-widt
 /* POST LIST */
 .post-list h2 { text-align: center; font-size: 1.9em; }
 .post-list ul { list-style: none; padding: .4em 0 2em 0; }
-.post-list a { color: #444; }
-.post-list a:hover { color: #000; }
+.post-list a { color: #fff; }
+.post-list a:hover { color: black; background-color: #fff}
 .post-list h3 { margin-top: 0; margin-bottom: 0; float: left; }
 .post-list .date { color: #aaa; font-size: .9em; float: right; }
 .post-list ul li { padding: 1.2em 0 .6em 0; border-bottom: 1px dashed #ddd; }
 .post-list ul li:before,
 .post-list ul li:after { content: " "; display: table; }
 .post-list ul li:after { clear: both; }
-.label { display: inline-block; padding: 0 .4em; color: #fff; background: #333; border-radius: 2px; }
+.label { display: inline-block; padding: 0 .4em; color: #000; background: #fff; border-radius: 2px; }
 
 /* CONTACT PAGE - MAP */
 .map { margin-bottom: 3em; }
