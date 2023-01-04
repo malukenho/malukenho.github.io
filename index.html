@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-			
+
 <div class="post-list">
     <h2>Latest From The Blog</h2>
-    <ul>				
+    <ul>
     {% for post in site.posts %}
         {% if post.categories contains 'post' %}
         <li>
@@ -15,6 +15,6 @@ layout: default
             <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
         </li>
         {% endif %}
-    {% endfor %}		
+    {% endfor %}
     </ul>
 </div>
