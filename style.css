@@ -21,8 +21,8 @@ h1 a { color:#fff; }
 
 
 /* FONTS */
-html, button, input, select, textarea, .toggle h4 { font-family: 'Avenir', Georgia, serif !important;}
-h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt { font-family:"Avenir", Georgia, serif; }
+html, button, input, select, textarea, .toggle h4 { font-family: "Segoe UI", "Avenir", Georgia, serif !important;}
+h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt { font-family: "Segoe UI", "Avenir", Georgia, serif; }
 h1.site-title, h1.site-title a { font-family:"UnifrakturMaguntia", Georgia, serif; }
 
 /* COLORS */
