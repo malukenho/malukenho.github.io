@@ -282,13 +282,13 @@ tr:nth-child(even) td { background: #1f1f27 }
 .drop-cap:first-letter {  font-size:300%; font-weight:bold; line-height: 1; float:left; padding: 0px 16px 0px 0; }
 
 /* code and pre */
-.executable-fragment.darcula, .sample[theme=darcula] {
+.executable-fragment.darcula, .language-kotlin[theme=darcula] {
     background: #1b1b1b !important;
     border-radius: 8px !important;
     border: 0 transparent !important;
 }
 
-.kotlin[theme=darcula] {
+.language-kotlin[theme=darcula] {
     padding: 20px 0 0 !important;
 }
 
