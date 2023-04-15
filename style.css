@@ -21,18 +21,51 @@ h1 a { color:#fff; }
 
 
 /* FONTS */
-html, button, input, select, textarea, .toggle h4 { font-family: "Segoe UI", "Avenir", Georgia, serif !important;}
-h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt { font-family: "Segoe UI", "Avenir", Georgia, serif; }
-h1.site-title, h1.site-title a { font-family:"UnifrakturMaguntia", Georgia, serif; }
+html, button, input, select, textarea, .toggle h4 { font-family: "JetBrains Sans",Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Droid Sans","Helvetica Neue",Arial,sans-serif; }
+h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt { font-family: "JetBrains Sans",Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Droid Sans","Helvetica Neue",Arial,sans-serif; }
+h1.site-title, h1.site-title a { font-family: "UnifrakturMaguntia", Georgia, serif; }
 
 /* COLORS */
 /* Text Selection */
 ::selection { text-shadow:none; color:#333; background:#FFFFCF; }
 ::-moz-selection { text-shadow:none; color:#333; background:#FFFFCF; }
-body { color: #f4f4f4; background-color: #18181f; }
+body { color: #f4f4f4; background-color: rgba(39, 40, 44, 1); }
 
-.blog-simple a { color: #7bcdab }
+/* Blog post links */
+.blog-simple a:not(.compiler-info__open-editor-link) {
+    font-style: normal;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    z-index: 1;
+}
+
+.blog-simple a:not(.compiler-info__open-editor-link)::before {
+    transition: height .3s;
+    z-index: -1;
+}
+
+.blog-simple a:not(.compiler-info__open-editor-link):hover {
+    color: #27282c;
+}
+
+.blog-simple a:not(.compiler-info__open-editor-link)::after,
+.blog-simple a:not(.compiler-info__open-editor-link)::before  {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.blog-simple a:not(.compiler-info__open-editor-link):hover::before {
+    height: 100%;
+}
+
 #content > div > article > p { font-size: 18px !important }
+#content > div > article > * { font-size: 18px }
 #content img { border-radius: 10px; }
 
 /* LAYOUT */
@@ -150,8 +183,82 @@ tr:nth-child(even) td { background: #1f1f27 }
 .drop-cap:first-letter {  font-size:300%; font-weight:bold; line-height: 1; float:left; padding: 0px 16px 0px 0; }
 
 /* code and pre */
+.executable-fragment.darcula, .sample[theme=darcula] {
+    background: #1b1b1b !important;
+    border-radius: 8px !important;
+    border: 0 transparent !important;
+}
+
+.kotlin[theme=darcula] {
+    padding: 20px 0 0 !important;
+}
+
+.cm-s-darcula.CodeMirror, .output-wrapper.darcula {
+    background: 0 0 !important;
+}
+pre.CodeMirror-line {
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+
+.CodeMirror-gutters {
+    background: 0 0!important;
+    border-right: none!important;
+}
+
+.CodeMirror-scroll {
+    height: auto!important;
+}
+
+.js-code-output-executor.darcula {
+    border: 0 transparent !important;
+}
+
+.output-wrapper.darcula {
+    min-height: 120px !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    border: 0 transparent !important;
+    border-top: 1px solid rgba(255,255,255,.2) !important;
+}
+
+.run-button {
+    top: 10px !important;
+    right: 10px !important;
+}
+.console-close {
+    top: 5px !important;
+    right: 5px !important;
+    height: 16px !important;
+    width: 16px !important;
+}
+
+/* Reset link styles */
+.compiler-info__open-editor-link {
+    font-size: 13px !important;
+    line-height: 20px !important;
+    color: rgba(255,255,255,.5) !important;
+    text-decoration: none !important;
+}
+
+.code-output {
+    flex-grow: 1;
+    overflow: auto;
+    padding-left: 10px !important;
+    padding-top: 15px !important;
+}
+
 code,
-pre { padding: 0 3px 2px; margin-bottom:2em; font-family: Monaco, Menlo, Consolas, "Courier New", monospace; font-size: 12px; color: #333333; }
+pre {
+    font-family: "JetBrainsMono","Times","Baskerville","Georgia",serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 23px;
+    background: #f4f4f4;
+    border-radius: 4px;
+    padding: 12px 16px;
+}
 code { display: inline-block; margin:0 .4em; padding: 1px 6px; background: #fff; border: 1px solid #DDD; box-shadow: 1px 1px 0 #fff, 2px 2px 0 #ddd; }
 
 /* lists */
