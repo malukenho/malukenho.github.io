@@ -22,6 +22,32 @@
                         {{ content }}
 
                     </article>
+
+                    <div class="layout layout--container-content layout--scroll-element" data-test="layout">
+                        <nav class="navigation-links">
+
+                            {% if page.previous.url %}
+                            <a data-test="internal-link prev-page"
+                               class="navigation-links__prev no-highlight"
+                               href="{{page.previous.url}}">
+                                <svg viewBox="0 0 24 24" class="wt-icon wt-icon_size_m navigation-links__prev-icon">
+                                    <path d="M2 11.857L10 5v5.857h11v2H10v5.857l-8-6.857z"></path>
+                                </svg>
+                                &nbsp; {{page.previous.title}}
+                            </a>
+                            {% endif %}
+
+                            {% if page.next.url %}
+                            <a data-test="internal-link next-page" class="navigation-links__next no-highlight"
+                               href="{{page.next.url}}">
+                                {{page.next.title}} &nbsp;
+                                <svg viewBox="0 0 24 24" class="wt-icon wt-icon_size_m navigation-links__next-icon">
+                                    <path d="M21 12l-8-6.857V11H2v2h11v5.857L21 12z"></path>
+                                </svg>
+                            </a>
+                            {% endif %}
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
