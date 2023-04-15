@@ -13,6 +13,7 @@ The reward for success in this endeavor is not gold or silver, but rather a star
 
 We, the illustrious at [codelicia](https://github.com/codelicia) have resolved to indulge in the delight of coding challenges by revisiting the past **Advent of Codes**. Behold, we shall undertake the [Aoc of 2021](https://adventofcode.com/2021)! In our wisdom, we have set forth certain common principles to govern our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and lucid solutions, but...
 
-- We prioritize crystal-clear code over speed/memory/whatever optimization.
-- Solutions of all participants will be posted on a [common repository](https://github.com/codelicia/adventofcode/tree/main/2021).
-- We have real-world obligations (job and family), so we'll deliver solutions every other day, but delays may happen. 😅
+1. We prioritize crystal-clear code over speed/memory/whatever optimization.
+2. Solutions of all participants will be posted on a [common repository](https://github.
+   com/codelicia/adventofcode/tree/main/2021).
+3. We have real-world obligations (job and family), so we'll deliver solutions every other day, but delays may happen. 😅
