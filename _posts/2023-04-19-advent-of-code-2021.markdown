@@ -1,0 +1,91 @@
+---
+layout: post
+title:  "✨ Advent of Code — Day 1 <2021 />"
+author: Jefersson Nathan
+date:   Sat Apr 19 18:37:54 CEST 2023
+categories: post
+description: "Day 1 - Soner Sweep"
+---
+
+## Foundation
+
+The way I've decided to organize the kotlin code for this year's Advent of Code is by creating a class for each day. 
+Each class will contain the solutions for part 1 and 2. Generally the class will have a constructor that receives the 
+input for the problem and a method that solves the problem. The classes will be named `Day1`, `Day2`, and so on.
+
+The code responsible to run the solutions for each day is actually a test class. The test class will have a test for
+each part of the solution. The tests will not be covered in these articles, but you can check the code on our
+[codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021).
+
+## Day 1: Sonar Sweep
+
+If you did not read the problem for the day yet, you can access it [here](https://adventofcode.com/2021/day/1){: 
+class="external no-highlight"}. 
+There you will learn that submarines are not only used to explore the ocean, but also to search for lost keys.
+
+Let's start by defining a class for the problem. The class will receive the input as a list of integers. The input
+is the sonar report. The sonar report is a list of depths. The depths are measured in meters.
+
+{: class="language-kotlin" theme="darcula" from="1" to="3"}
+```kotlin
+package com.codelicia.advent2021
+
+class Day1(private val sonarReport: List<Int>)
+
+fun main(): Unit = println("Nothing to see here")
+```
+
+### Part 1
+
+There is someways to solve this problem. The first one that comes to mind is to use a `for` loop to iterate over the
+list of depths and count the number of times the depth increases. But I'm not a fan of `for` loops. I prefer to use
+functional programming constructs. So, I'll use the `zipWithNext` function to iterate over the list of depths and
+count the number of times the depth increases.
+
+{: class="language-kotlin" theme="darcula"  from="1" to="6"}
+```kotlin
+class Day1(private val sonarReport: List<Int>) {
+    fun part1(): Int =
+        sonarReport
+            .zipWithNext()
+            .count { it.second > it.first }
+}
+
+fun main(): Unit = println(Day1(listOf(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)).part1())
+```
+
+The `zipWithNext` function returns a list of pairs. Each pair contains the current depth and the next depth. The
+`count` function counts the number of times the predicate returns `true`. The predicate is a lambda that receives
+a pair of depths and returns `true` if the next depth is greater than the current depth.
+
+Note: **predicate** is a fancy name for function that returns a boolean value.
+
+This should give us our first star. 🌟
+
+## Part 2
+
+The second part of the problem requires us to group the depths in groups of three and count the number of times
+the sum of the depths in the group increases. The `windowed` function is perfect for this problem. It returns a
+list of lists. Each list contains the depths in a group of three.
+
+Basically we need to add the `.windowed(size = 3, step = 1) { it.sum() }` before calling the `zipWithNext` function.
+
+{: class="language-kotlin" theme="darcula" from="1" to="9"}
+```kotlin
+package com.codelicia.advent2021
+
+class Day1(private val sonarReport: List<Int>) {
+    fun part2(): Int =
+        sonarReport
+            .windowed(size = 3, step = 1) { it.sum() }
+            .zipWithNext()
+            .count { it.second > it.first }
+}
+
+fun main(): Unit = println(Day1(listOf(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)).part2())
+```
+
+This should give us our second star. 🌟
+
+TIL: submarines are safer than airplanes. Hence, you'll find lots of airplanes in the bottom of the ocean. But no 
+submarines at the top of the sky.
