@@ -1,19 +1,32 @@
 ---
 layout: post
-title:  "✨ Advent of Code <2021 />"
+title: "✨ Advent of Code <2021 />"
 author: Jefersson Nathan
-date:   Sat Apr 14 14:21:54 CEST 2023
-categories: post
+date: Sat Apr 14 14:21:54 CEST 2023
+categories: [ "post" ]
 description: "Old challenges, new solutions: Advent of Code 2021"
 ---
 
-🤓 Ah, the Advent of Code, a delightful quest for the intrepid programmer seeking to hone their craft! It presents two problems each day, with the second being locked until the first is satisfactorily conquered.
+🤓 Ah, the Advent of Code, a delightful quest for the intrepid programmer seeking to hone their craft! It presents two
+problems each day, with the second being locked until the first is satisfactorily conquered.
 
-The reward for success in this endeavor is not gold or silver, but rather a star ✨, symbolizing the hard-won victory of the mind over matter. And what is the ultimate goal, you may ask? Why, it is to collect 50 such stars, a veritable constellation of intellectual achievement! 🌟 — where else you could won such celestial prizes?
+The reward for success in this endeavor is not gold or silver, but rather a star ✨, symbolizing the hard-won victory
+of the mind over matter. And what is the ultimate goal, you may ask? Why, it is to collect 50 such stars, a veritable
+constellation of intellectual achievement! 🌟 — where else you could win such celestial prizes?
 
-We, the illustrious at [codelicia](https://github.com/codelicia) have resolved to indulge in the delight of coding challenges by revisiting the past **Advent of Codes**. Behold, we shall undertake the [Aoc of 2021](https://adventofcode.com/2021)! In our wisdom, we have set forth certain common principles to govern our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and lucid solutions, but...
+We, the illustrious at [codelicia](https://github.com/codelicia) have resolved to indulge in the delight of coding
+challenges by revisiting the past **Advent of Codes**. Behold, we shall undertake
+the [Aoc of 2021](https://adventofcode.com/2021)! In our wisdom, we have set forth certain common principles to govern
+our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and lucid solutions, but...
 
 1. We prioritize crystal-clear code over speed/memory/whatever optimization.
-2. Solutions of all participants will be posted on a [common repository](https://github.
-   com/codelicia/adventofcode/tree/main/2021).
-3. We have real-world obligations (job and family), so we'll deliver solutions every other day, but delays may happen. 😅
+2. Solutions of all participants will be posted on
+   a [common repository](https://github.com/codelicia/adventofcode/tree/main/2021).
+3. We have real-world obligations (job and family), so we'll deliver solutions every other day, but delays may happen.
+   😅
+
+## Advent of Code 2021
+
+1. [Sonar Sweep]({% post_url 2023-04-19-advent-of-code-2021 %})
+2. [Dive!]({% post_url 2023-05-06-advent-of-code-2021 %})
+
