@@ -2,12 +2,14 @@
 layout: post
 title: "✨ Advent of Code — Day 2 <2021 />"
 author: Jefersson Nathan
-date: Sat May 5 20:31:30 CEST 2023
+date: Sat May 6 20:31:30 CEST 2023
 categories: [ post ]
 description: "Day 2 - Dive!"
 ---
 
 ## Day 2: Dive!
+
+Let's dive into the challenge and explore the depths of the submarine! 🌊
 
 I'll take you through my thought process as I approached this challenge and explain how I came up with my
 solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
@@ -104,3 +106,56 @@ We've got our first star! 🌟
 
 ## Part 2
 
+Unfortunately, for the second part of the challenge, we can't use the same approach. We need to iterate over the list
+of commands and calculate the depth of the submarine for each command and calculate the aim. But it still pretty straightforward.
+
+{: class="language-kotlin" theme="darcula" from="18" to="37"}
+```kotlin
+class Day02(plannedCourse: List<String>) {
+
+    val submarine =
+        plannedCourse
+            .map {
+                val (orientation, to) = it.split(" ")
+                orientation to to.toInt()
+            }
+            
+    private fun List<Pair<String, Int>>.sumOfCoordinate(coordinate: String): Int =
+        this.filter { it.first == coordinate }.sumOf { it.second }
+        
+    fun part1(): Int =
+        submarine.sumOfCoordinate("down")
+            .minus(submarine.sumOfCoordinate("up"))
+            .times(submarine.sumOfCoordinate("forward"))
+            
+    fun part2(): Int {
+
+        var depth = 0
+        var horizontal = 0
+        var aim = 0
+
+        submarine
+            .forEach { x ->
+                when (x.first) {
+                    "down" -> aim += x.second
+                    "up" -> aim -= x.second
+                    "forward" -> {
+                        depth += (aim * x.second)
+                        horizontal += x.second
+                    }
+                }
+            }
+
+        return horizontal * depth
+    }
+}
+
+fun Day02.submarine(): List<Pair<String, Int>> = this.submarine
+
+fun main(): Unit {
+   println("Part 1: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part1())
+   println("Part 2: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part2())
+}
+```
+
+Yay! We've got our second star! 🌟
