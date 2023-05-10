@@ -25,6 +25,8 @@ our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and luci
 3. We have real-world obligations (job and family), so we'll deliver solutions every other day, but delays may happen.
    😅
 
+---
+
 ## Advent of Code 2021
 
 1. [Sonar Sweep]({% post_url 2023-04-19-advent-of-code-2021 %})

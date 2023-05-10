@@ -9,7 +9,10 @@ description: "Day 2 - Dive!"
 
 ## Day 2: Dive!
 
-Let's dive into the challenge and explore the depths of the submarine! 🌊
+{: class="marginalia" }
+Cf. [aoc. d. ii](https://adventofcode.com/2021/day/2)
+
+Let's dive into the challenge and explore the depths of the ocean * with our submarine! 🌊
 
 I'll take you through my thought process as I approached this challenge and explain how I came up with my
 solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
@@ -17,14 +20,22 @@ solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
 If you want to go straight to the code, you can check it out on
 our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021).
 
-If you did not read the problem for the day yet, you can access it [here](https://adventofcode.com/2021/day/2){:
-class="external no-highlight"}.
+---
 
-### Part 1
+### PART 1
+
+{: class="marginalia" }
+\* The raw payload is something like the following: <br/>
+`forward 5`<br />
+`down 5`<br />
+`forward 8`<br />
+`up 3`<br />
+`down 8`<br />
+`forward 2`
 
 As always the first thing we need to do is to parse the input. The input for this problem is a list of strings. Each
 string represents a command to the submarine. The command is composed by an orientation and a number. The orientation
-can be `forward`, `up`, `down`. The number is the distance the submarine should move in the given orientation.
+can be * `forward`, `up`, `down`. The number is the distance the submarine should move in the given orientation.
 
 My first thought was to represent each direction as a tuple. The first element of the tuple would be the orientation and
 the second element would be the distance.
@@ -104,7 +115,9 @@ fun main(): Unit = println(Day02(listOf( "forward 5", "down 5", "forward 8", "up
 
 We've got our first star! 🌟
 
-## Part 2
+---
+
+### PART 2
 
 Unfortunately, for the second part of the challenge, we can't use the same approach. We need to iterate over the list
 of commands and calculate the depth of the submarine for each command and calculate the aim. But it still pretty straightforward.
