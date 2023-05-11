@@ -58,11 +58,12 @@ class Day01(private val sonarReport: List<Int>) {
 fun main(): Unit = println(Day01(listOf(199, 200, 208, 210, 200, 207, 240, 269, 260, 263)).part1())
 ```
 
-The `zipWithNext` function returns a list of pairs. Each pair contains the current depth and the next depth. The
-`count` function counts the number of times the predicate returns `true`. The predicate is a lambda that receives
-a pair of depths and returns `true` if the next depth is greater than the current depth.
+{: class="marginalia" }
+\* **predicate** is a fancy name for functions that returns a boolean value.
 
-Note: **predicate** is a fancy name for function that returns a boolean value.
+The `zipWithNext` function returns a list of pairs. Each pair contains the current depth and the next depth. The
+`count` function counts the number of times the * _predicate_ returns `true`. The predicate is a lambda that receives
+a pair of depths and returns `true` if the next depth is greater than the current depth.
 
 This should give us our first star. 🌟
 
@@ -74,7 +75,11 @@ The second part of the problem requires us to group the depths in groups of thre
 the sum of the depths in the group increases. The `windowed` function is perfect for this problem. It returns a
 list of lists. Each list contains the depths in a group of three.
 
-Basically we need to add the `.windowed(size = 3, step = 1) { it.sum() }` before calling the `zipWithNext` function.
+{: class="marginalia" }
+α
+
+Basically we need to add the `.windowed(size = 3, step = 1) { it.sum() }` <sup>α</sup> before calling the `zipWithNext` 
+function.
 
 {: class="language-kotlin" theme="darcula" from="1" to="9"}
 ```kotlin
@@ -95,3 +100,10 @@ This should give us our second star. 🌟
 
 TIL: submarines are safer than airplanes. Hence, you'll find lots of airplanes in the bottom of the ocean. But no 
 submarines at the top of the sky.
+
+---
+
+<div class="footnotes">
+    <p>α) we could also solve the first case by using the <code>windowed</code> function with the parameter 
+<code>size = 2</code>. At the end it will depend more on personal taste than any other thing.</p>
+</div>
