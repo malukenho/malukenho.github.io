@@ -400,7 +400,10 @@ body #content div > article .marginalia {
     column-rule-style: solid;
     column-rule-width: 1px;
 }
-.footnotes * {font-size: 13px !important;}
+.footnotes * {
+    font-size: 13px !important;
+    margin: 0;
+}
 
 /* lists */
 ol, ul { margin: .2em 0 1em 0; }
