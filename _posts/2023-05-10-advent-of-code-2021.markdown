@@ -1,0 +1,246 @@
+---
+layout: post
+title: "✨ Advent of Code — Day 3 <2021 />"
+author: Jefersson Nathan
+date: Sat May 9 16:29:13 CEST 2023
+categories: [ post ]
+description: "Day 3 - Binary Diagnostic"
+---
+
+## Day 3: Binary Diagnostic
+
+{: class="marginalia" }
+\* Cf. [aoc. d. iii](https://adventofcode.com/2021/day/3)
+
+Now it is time for some optimization * 🚀 — At least for the submarine's energy consumption. 😅
+
+If you want to go straight to the code, you can check it out on
+our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021){: class="external no-highlight"}.
+
+---
+
+### PART 1
+
+The first challenge of the day is to find the most common bit in the corresponding position and preserve it.
+
+{: class="marginalia" }
+\* Cf. kotlin [groupingBy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html)<br />
+et [eachCount](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/each-count.html)
+
+The way I approached this problem was to combine the * `groupingBy` function with the * `eachCount` function.
+Run the code below to see the data transformation step by step.
+
+{: class="language-kotlin" theme="darcula" from="1" to="19"}
+```kotlin
+class Day03(private val input: List<String>) {
+
+    private val numberOfDigits = input.first().length
+
+    val diagnosticReport = buildList {
+        
+        println("Initial data: $input")
+        
+        repeat(numberOfDigits) { i ->
+            val ofBit = input
+                .groupingBy { it[i].digitToInt() }
+                .eachCount().also { println("After eachCount: $it") }
+                .maxBy { s -> s.value }.also { println("After maxBy: $it") }
+                .key.also { println("Final value: $it") }
+
+            add(ofBit)
+        }
+    }
+}
+
+fun Day03.diagnosticReport() = this.diagnosticReport
+
+fun main(): Unit = println(Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010")).diagnosticReport())
+```
+
+The `groupingBy` are being used here to group the elements of the list by the index of the bit. Which will give us a 
+map of the items grouped by position. After that we need to determine which digit is the most common, which we do by
+using the `eachCount` function. This function will return a map with the number of occurrences of each digit. Finally,
+we use the `maxBy` function to get the digit with the most occurrences.
+
+To solve part one, we just need to calculate the values.
+
+{: class="language-kotlin" theme="darcula" from="1" to="27"}
+```kotlin
+class Day03(private val input: List<String>) {
+
+    private val numberOfDigits = input.first().length
+
+    private val diagnosticReport = buildList {
+        repeat(numberOfDigits) { i ->
+            val ofBit = input
+                .groupingBy { it[i].digitToInt() }
+                .eachCount()
+                .maxBy { s -> s.value }
+                .key
+
+            add(ofBit)
+        }
+    }
+    
+    private fun invertBit(n: Int) = if (n == 1) 0 else 1
+    
+    private fun List<Int>.toInt() =
+        this.joinToString("").toInt(2)
+
+    private fun List<Int>.gamma() = this.toInt()
+
+    private fun List<Int>.epsilon() = this.map(::invertBit).toInt()
+    
+    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
+}
+
+fun main(): Unit {
+ println("Part 1: " + Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", 
+"10000", "11001", "00010", "01010")).part1())
+}
+```
+
+A couple of helper functions were added here: 
+
+- The `invert` function is used to invert the bits. 
+- The `List<Int>.toInt()` function is used to convert the list of bits to an integer.
+- The `List<Int>.gamma()` function is used to convert the list of bits to an integer.
+- The `List<Int>.epsilon()` function is used to invert the list of bits and convert it to an integer.
+
+The `gamma` and `epsilon` functions were created to reflect the domain of the problem in our code.
+
+Checkpoint 🌟
+
+---
+
+### PART 2
+
+For our second challenge, we need to filter out values that are not in the range of the most common bit
+to find the `oxygen generator rating` and the `CO2 scrubber rating`.
+
+{: class="marginalia" }
+\* Cf. [aoc. d. i, pars i]({% post_url 2023-04-19-advent-of-code-2021 %})
+
+The process to find both values are very similar, which makes me think that we can extract the common logic
+to a function and reuse it. As for the part of the code that changes, we can pass a * predicate here again.
+
+I'll first define a helper function to count the number of bits in a given position. It should return us
+a sorted map with the number of occurrences of each bit.
+
+{: class="language-kotlin" theme="darcula" from="5" to="11"}
+```kotlin
+import java.util.SortedMap
+
+class Day03(private val input: List<String>) {
+
+    private fun Set<String>.countBits(n: Int): List<SortedMap<Int, Int>> =
+        listOf(
+            this.map { v -> v[n].digitToInt() }
+                .groupingBy { it }
+                .eachCount()
+                .toSortedMap()
+        )
+        
+}
+
+fun main(): Unit = println("Nothing to see here")
+```
+
+Now we can use this function to find the `oxygen generator rating` and the `CO2 scrubber rating`.
+
+{: class="language-kotlin" theme="darcula" from="13" to="25"}
+```kotlin
+import java.util.SortedMap
+
+class Day03(private val input: List<String>) {
+
+    private fun Set<String>.countBits(n: Int): List<SortedMap<Int, Int>> =
+        listOf(
+            this.map { v -> v[n].digitToInt() }
+                .groupingBy { it }
+                .eachCount()
+                .toSortedMap()
+        )
+        
+    private fun calculateRating(
+        remainingNumbers: Set<String>,
+        predicate: (String, Int, List<SortedMap<Int, Int>>) -> Boolean,
+        index: Int = 0,
+    ): Int {
+        if (remainingNumbers.count() == 1) return remainingNumbers.first().toInt(radix = 2)
+
+        val sortedList = remainingNumbers.countBits(index)
+
+        val filteredNumbers = remainingNumbers.filterNot { v -> predicate(v, index, sortedList) }.toSet()
+
+        return calculateRating(filteredNumbers, predicate, index + 1)
+    }
+}
+
+fun main(): Unit = println("Nothing to see here")
+```
+
+Now we can finally calculate the result for part two.
+
+{: class="language-kotlin" theme="darcula" from="27" to="48"}
+```kotlin
+import java.util.SortedMap
+
+class Day03(private val input: List<String>) {
+        
+    private fun Set<String>.countBits(n: Int): List<SortedMap<Int, Int>> =
+        listOf(
+            this.map { v -> v[n].digitToInt() }
+                .groupingBy { it }
+                .eachCount()
+                .toSortedMap()
+        )
+        
+    private fun calculateRating(
+        remainingNumbers: Set<String>,
+        predicate: (String, Int, List<SortedMap<Int, Int>>) -> Boolean,
+        index: Int = 0,
+    ): Int {
+        if (remainingNumbers.count() == 1) return remainingNumbers.first().toInt(radix = 2)
+
+        val sortedList = remainingNumbers.countBits(index)
+
+        val filteredNumbers = remainingNumbers.filterNot { v -> predicate(v, index, sortedList) }.toSet()
+
+        return calculateRating(filteredNumbers, predicate, index + 1)
+    }
+    
+    private fun SortedMap<Int, Int>.bit(): Int =
+        if (this.getValue(0) > this.getValue(1)) 0 else 1
+
+    private fun SortedMap<Int, Int>.invBit(): Int =
+        if (this.getValue(0) > this.getValue(1)) 1 else 0
+        
+    fun part2(): Int {
+
+        val binaryNumbers = input.toSet()
+
+        val co2ScrubberRating = calculateRating(
+            binaryNumbers,
+            { v, n, sl -> v[n].digitToInt() == sl[0].invBit() }
+        )
+
+        val oxygenGeneratorRating = calculateRating(
+            binaryNumbers,
+            { v, n, sl -> v[n].digitToInt() == sl[0].bit() }
+        )
+
+        return oxygenGeneratorRating * co2ScrubberRating
+    }
+}
+
+fun main(): Unit {
+ println("Part 2: " + Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", 
+"10000", "11001", "00011", "01010")).part2())
+}
+```
+
+The `SortedMap<Int, Int>.bit()` and `SortedMap<Int, Int>.invBit()` helper functions are used together with the
+predicates to filter out the values.
+
+This should give us our final result for part two, and our second celestial prize of the day 🌟.

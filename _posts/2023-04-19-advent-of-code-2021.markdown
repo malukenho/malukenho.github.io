@@ -39,7 +39,7 @@ fun main(): Unit = println("Nothing to see here")
 
 ---
 
-### Part 1
+### PART 1
 
 There is someways to solve this problem. The first one that comes to mind is to use a `for` loop to iterate over the
 list of depths and count the number of times the depth increases. But I'm not a fan of `for` loops. I prefer to use
@@ -69,7 +69,7 @@ This should give us our first star. 🌟
 
 ---
 
-## Part 2
+## PART 2
 
 The second part of the problem requires us to group the depths in groups of three and count the number of times
 the sum of the depths in the group increases. The `windowed` function is perfect for this problem. It returns a
