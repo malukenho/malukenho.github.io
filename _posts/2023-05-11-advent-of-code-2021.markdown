@@ -1,0 +1,423 @@
+---
+layout: post
+title: "✨ Advent of Code — Day 4 <2021 />"
+author: Jefersson Nathan
+date: Sat May 10 16:29:13 CEST 2023
+categories: [ post ]
+description: "Day 4 - Giant Squid"
+---
+
+## Day 4: Giant Squid
+
+{: class="marginalia" }
+\* Cf. [aoc. d. iv](https://adventofcode.com/2021/day/4)
+
+Today we are going to play _bingo_ * with a giant squid. 🦑<br />
+Imagine being almost 1.5km below the surface of the ocean, unable to see any sunlight, and suddenly encountering a
+giant squid attached to your submarine. While you try to figure out why the squid is there, you decide to pass the time
+by playing bingo with him on the submarine's bingo subsystem.
+
+If you want to go straight to the code, you can check it out on
+our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021){: class="external no-highlight"}.
+
+---
+
+### MOUNTING THE BINGO BOARD
+
+The first challenge of the day is to mount the bingo board. The board is a 5x5 matrix, where each cell is a number.
+
+We need to split the input into a list of boards. Each board is a list of lists of drawn numbers.
+
+The first line of our input is a list of numbers separated by commas. This list represents the numbers drawn.
+Let's parse it into a list of integers.
+
+{: class="language-kotlin" theme="darcula" from="1" to="19"}
+```kotlin
+private val sections = input.split(section)
+
+private val draws = sections[0].trim().split(ON_COMMA).map(String::toInt)
+```
+
+---
+
+```
+7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+
+22 13 17 11  0
+ 8  2 23  4 24
+21  9 14 16  7
+ 6 10  3 18  5
+ 1 12 20 15 19
+
+ 3 15  0  2 22
+ 9 18 13 17  5
+19  8  7 25 23
+20 11 10 24  4
+14 21 16 12  6
+
+14 21 17 24  4
+10 16 15  9 19
+18  8 23 26 20
+22 11 13  6  5
+ 2  0 12  3  7
+```
+
+```kotlin
+private val sections = input.split(IN_SECTION)
+
+private val draws = sections[0].trim().split(ON_COMMA).map(String::toInt)
+```
+
+### PART 1
+
+The first challenge of the day is to find the most common bit in the corresponding position and preserve it.
+
+{: class="marginalia" }
+\* Cf. kotlin [groupingBy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html)<br />
+et [eachCount](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/each-count.html)
+
+The way I approached this problem was to combine the * `groupingBy` function with the * `eachCount` function.
+Run the code below to see the data transformation step by step.
+
+{: class="language-kotlin" theme="darcula" from="1" to="19"}
+```kotlin
+class Day03(private val input: List<String>) {
+
+    private val forEachDigit = input.first().length
+
+    val diagnosticReport = buildList {
+        
+        println("Initial data: $input")
+        
+        repeat(forEachDigit) { i ->
+            val ofBit = input
+                .groupingBy { it[i].digitToInt() }
+                .eachCount().also { println("After eachCount: $it") }
+                .maxBy { s -> s.value }.also { println("After maxBy: $it") }
+                .key.also { println("Final value: $it") }
+
+            add(ofBit)
+        }
+    }
+}
+
+fun Day03.diagnosticReport() = this.diagnosticReport
+
+fun main(): Unit = println(Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010")).diagnosticReport())
+```
+
+The `groupingBy` are being used here to group the elements of the list by the index of the bit. Which will give us a
+map of the items grouped by position. After that we need to determine which digit is the most common, which we do by
+using the `eachCount` function. This function will return a map with the number of occurrences of each digit. Finally,
+we use the `maxBy` function to get the digit with the most occurrences.
+
+To solve part one, we just need to calculate the values.
+
+{: class="language-kotlin" theme="darcula" from="1" to="27"}
+
+```kotlin
+class Day03(private val input: List<String>) {
+
+    private val forEachDigit = input.first().length
+
+    private val diagnosticReport = buildList {
+        repeat(forEachDigit) { i ->
+            val ofBit = input
+                .groupingBy { it[i].digitToInt() }
+                .eachCount()
+                .maxBy { s -> s.value }
+                .key
+
+            add(ofBit)
+        }
+    }
+    
+    private fun invert(n: Int) = if (n == 1) 0 else 1
+    
+    private fun List<Int>.toInt() =
+        this.joinToString("").toInt(2)
+
+    private fun List<Int>.gamma() = this.toInt()
+
+    private fun List<Int>.epsilon() = this.map(::invert).toInt()
+    
+    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
+}
+
+fun main(): Unit {
+ println("Part 1: " + Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", 
+"10000", "11001", "00010", "01010")).part1())
+}
+```
+
+A couple of helper functions were added here:
+
+- The `invert` function is used to invert the bits.
+- The `List<Int>.toInt()` function is used to convert the list of bits to an integer.
+- The `List<Int>.gamma()` function is used to convert the list of bits to an integer.
+- The `List<Int>.epsilon()` function is used to invert the list of bits and convert it to an integer.
+
+The `gamma` and `epsilon` functions were created to reflect the domain of the problem in our code.
+
+Checkpoint 🌟
+
+---
+
+### PART 2
+
+X. Ad _primum_ Durandi *, concesso antecedente, negatur sequela. Ad probationem dicitur, quod ex perversa
+interpretatione procedit. Poni enim propter excellentiam obiecti supra potentiam , contingit uno modo, ut adaequetur ex-
+cessus, augendo potentiam: et iuxta hunc sensum pro- cedit probatio, sed contra nullum militat. Alio modo, ut
+excessus non prohibeat attinctionem potentiae ad tam ex- cellens obiectum : et ad hunc sensum ponitur lumen glo- riae
+propter excellentiam obiecti supra potentiam. Contra autem hunc sensum, manifeste patet probationem non pro- cedere. -
+Quod si fiat vis in hoc, quod de non proportio- nato fieri dicitur proportionatus , iam habita est responsio in littera,
+in art. i, in responsione ad ultimum, declarando quomodo intelligitur proportionis nomen in proposito.
+Ad secundum dicitur, quod Durandus noluit intelligere illa s. Thomae verba, qu. n, art. 7. Lumen siquidem glo- riae
+potest dupliciter haberi : uno modo per modum pas- sionis, alio modo per modum habitus. Primo modo, non ponit hominem
+extra viam : secundo modo , est propria patriae dispositio. Et ideo , cum in solis dispositionibus viae dicitur, idest
+in dispositionibus non ponentibus ho- minem extra viam simpliciter, intelligitur. Et quod haec sit mens vera s. Thomae,
+ex eo liquet, quod in Qu. de Ver., qu. x, art. 1 1 , ponit idem quod in IV, et tamen in eisdem Qu. de Ver., qu. xiii,
+art. 2, et qu. xx, art. 2, sic exponit; et
+similiter in II'' 11''^ nendum est. , qu. clxxv, art. 3. Quare indubie sic te- -
+
+Let's dive into the challenge and * explore the depths of the submarine! 🌊
+
+I'll take you through my thought process as I approached this challenge and explain how I came up with my
+solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
+
+If you want to go straight to the code, you can check it out on
+our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021).
+
+If you did not read the problem for the day yet, you can access it [here](https://adventofcode.com/2021/day/2){:
+class="external no-highlight"}.
+
+Unfortunately, for the second part of the challenge, we can't use the same approach. We need to iterate over the list
+of commands and calculate the depth of the submarine for each command and calculate the aim. But it still pretty
+straightforward.
+
+{: class="language-kotlin" theme="darcula" from="18" to="37"}
+
+```kotlin
+package com.codelicia.advent2021
+
+import java.util.SortedMap
+
+class Day03(private val input: List<String>) {
+
+    private val forEachDigit = input.first().length
+
+    private fun List<Int>.toInt() =
+        this.joinToString("").toInt(2)
+
+    private fun List<Int>.gamma() = this.toInt()
+
+    private fun List<Int>.epsilon() = this.map(::invert).toInt()
+
+    private fun SortedMap<Int, Int>.bit(): Int =
+        if (this.getValue(0) > this.getValue(1)) 0 else 1
+
+    private fun SortedMap<Int, Int>.invBit(): Int =
+        if (this.getValue(0) > this.getValue(1)) 1 else 0
+
+    private fun MutableSet<String>.rank(n: Int): List<SortedMap<Int, Int>> =
+        listOf(
+            this.map { v -> v[n].digitToInt() }
+                .groupingBy { it }
+                .eachCount()
+                .toSortedMap()
+        )
+
+    private val diagnosticReport = buildList {
+        repeat(forEachDigit) { i ->
+            val ofBit = input
+                .groupingBy { it[i].digitToInt() }
+                .eachCount()
+                .maxBy { s -> s.value }
+                .key
+
+            add(ofBit)
+        }
+    }
+
+    private fun invert(n: Int) = if (n == 1) 0 else 1
+
+    private fun reduce(
+        s: MutableSet<String>,
+        predicate: (String, Int, List<SortedMap<Int, Int>>) -> Boolean,
+        n: Int = 0,
+    ): Int {
+        if (s.count() == 1) return s.first().toInt(radix = 2)
+
+        val sl = s.rank(n)
+
+        s.toList().forEach { v -> if (predicate(v, n, sl)) s.remove(v) }
+
+        return reduce(s, predicate, n + 1)
+    }
+
+    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
+
+    fun part2(): Int {
+
+        val l = buildSet { input.forEach(::add) }
+
+        val co2ScrubberRating = reduce(
+            l.toMutableSet(),
+            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
+                v.getOrElse(n) { '0' }.digitToInt() == sl[0].invBit()
+        )
+
+        val oxygenGeneratorRating = reduce(
+            l.toMutableSet(),
+            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
+                v.getOrElse(n) { '0' }.digitToInt() == sl[0].bit()
+        )
+
+        return oxygenGeneratorRating * co2ScrubberRating
+    }
+}
+
+fun Day03.submarine(): List<Pair<String, Int>> = this.submarine
+
+fun main(): Unit {
+   println("Part 1: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part1())
+   println("Part 2: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part2())
+}
+```
+
+Yay! We've got our second star! 🌟
+
+<div class="footnotes">
+<p>(i) « Albertus Castellanus, anno i5o7 ad Thomam Caietanum tum Ordinis Vicarium Generalem scribens, et 
+Constitutiones nostras nuncupans , ab annis iam viginti librorum edendorum accurationi, Magistrorum Ordinis loachimi 
+Turriani, Vincentiique Bandelli auctoritate praefectum se testatur. » Echardus, Tom. II, pag. 48. - De Augustino 
+vero Di Nale , seu Natali , ut ipse se nuncupat, qtiem lulius II Ragusinae Ecclesiae anno i 5 1 2 prae- fecit, haec habet idem Echardus : « Caietano sic probata erat et explorata eius eruditio, ut recognoscenda illi commisisse ferant quae in s. Thomae Summam scripserat, ac in lucem emittenda parabat Commentciria. » Ibid. pag. 67.</p>
+
+<p>(2) Haec editio continet Commentaria Caietani sine textu s. Thomae, et in fine haec habet: « Commentaria... Thomae de Vio Caietani, totius Ordinis Praedicatorum Generalis, summa cum di- ligentia, maximoque studio, in nominatissimo Parisiensi Gymnasio, noviter impressa, studio et labore Fr. loannis Nocliart, conventus</p>
+<p>Insulensis divi Ordinis Fratrum Praedicatorum , expensis ac sum- ptibus providi viri Claudii Chevallon et Aegidii Sourmont, eiusdem Academiae librariorum, expliciunt feliciter. Anno Domini MDXIV, die vero xvi mensis Novembris.</p>
+
+<p>(3) Pag. 180, in principio Commentarii ad art. 8, qu. xrv, post vocem quoniam excidit adverbium hirtc. - Notamus etiam non- nuUas citationes quas in operis progressu reperimus. In textu s. Thomae qu. viii, art. 3, corp., pro /'' 11"^, qu. cix, art. i, 3, iege qu. XLin, art. 3. - Qu. xv, art. i, corp., pro qu. xix, art. 4', qu. XLiv, art. 3, lege qu. XLvn, art. i. - Qu. xvi, art. 2 , arg. 2 post Cf. etiam etc. adde et Averroem, Destruct. Destruction., disput. I, inter med. et fin. - Qu. xxxii, art. i, arg. i, pro Vide Averr. in hunc locum, lege Ex versione Arabico-latina. - In Commentario Caieteuii, qu. xn, art. 5, n. ix, ad illud, sententiam tene etc, supplenda est citatio: S. Aug. de Civit. Dei, lib. V, cap. I.</p>
+</div>
+
+
+X. Ad _primum_ Durandi *, concesso antecedente, negatur sequela. Ad probationem dicitur, quod ex perversa interpretatione procedit. Poni enim propter excellentiam obiecti supra potentiam , contingit uno modo, ut adaequetur ex- cessus, augendo potentiam: et iuxta hunc sensum pro- cedit probatio, sed contra nullum militat. Alio modo, ut
+excessus non prohibeat attinctionem potentiae ad tam ex- cellens obiectum : et ad hunc sensum ponitur lumen glo- riae propter excellentiam obiecti supra potentiam. Contra autem hunc sensum, manifeste patet probationem non pro- cedere. - Quod si fiat vis in hoc, quod de non proportio- nato fieri dicitur proportionatus , iam habita est responsio in littera, in art. i, in responsione ad ultimum, declarando quomodo intelligitur proportionis nomen in proposito.
+Ad secundum dicitur, quod Durandus noluit intelligere illa s. Thomae verba, qu. n, art. 7. Lumen siquidem glo- riae potest dupliciter haberi : uno modo per modum pas- sionis, alio modo per modum habitus. Primo modo, non ponit hominem extra viam : secundo modo , est propria patriae dispositio. Et ideo , cum in solis dispositionibus viae dicitur, idest in dispositionibus non ponentibus ho- minem extra viam simpliciter, intelligitur. Et quod haec sit mens vera s. Thomae, ex eo liquet, quod in Qu. de Ver., qu. x, art. 1 1 , ponit idem quod in IV, et tamen in eisdem Qu. de Ver., qu. xiii, art. 2, et qu. xx, art. 2, sic exponit; et
+similiter in II'' 11''^ nendum est. , qu. clxxv, art. 3. Quare indubie sic te- -
+
+Let's dive into the challenge and * explore the depths of the submarine! 🌊
+
+I'll take you through my thought process as I approached this challenge and explain how I came up with my
+solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
+
+If you want to go straight to the code, you can check it out on
+our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021).
+
+If you did not read the problem for the day yet, you can access it [here](https://adventofcode.com/2021/day/2){:
+class="external no-highlight"}.
+
+Unfortunately, for the second part of the challenge, we can't use the same approach. We need to iterate over the list
+of commands and calculate the depth of the submarine for each command and calculate the aim. But it still pretty straightforward.
+
+{: class="language-kotlin" theme="darcula" from="18" to="37"}
+```kotlin
+package com.codelicia.advent2021
+
+import java.util.SortedMap
+
+class Day03(private val input: List<String>) {
+
+    private val forEachDigit = input.first().length
+
+    private fun List<Int>.toInt() =
+        this.joinToString("").toInt(2)
+
+    private fun List<Int>.gamma() = this.toInt()
+
+    private fun List<Int>.epsilon() = this.map(::invert).toInt()
+
+    private fun SortedMap<Int, Int>.bit(): Int =
+        if (this.getValue(0) > this.getValue(1)) 0 else 1
+
+    private fun SortedMap<Int, Int>.invBit(): Int =
+        if (this.getValue(0) > this.getValue(1)) 1 else 0
+
+    private fun MutableSet<String>.rank(n: Int): List<SortedMap<Int, Int>> =
+        listOf(
+            this.map { v -> v[n].digitToInt() }
+                .groupingBy { it }
+                .eachCount()
+                .toSortedMap()
+        )
+
+    private val diagnosticReport = buildList {
+        repeat(forEachDigit) { i ->
+            val ofBit = input
+                .groupingBy { it[i].digitToInt() }
+                .eachCount()
+                .maxBy { s -> s.value }
+                .key
+
+            add(ofBit)
+        }
+    }
+
+    private fun invert(n: Int) = if (n == 1) 0 else 1
+
+    private fun reduce(
+        s: MutableSet<String>,
+        predicate: (String, Int, List<SortedMap<Int, Int>>) -> Boolean,
+        n: Int = 0,
+    ): Int {
+        if (s.count() == 1) return s.first().toInt(radix = 2)
+
+        val sl = s.rank(n)
+
+        s.toList().forEach { v -> if (predicate(v, n, sl)) s.remove(v) }
+
+        return reduce(s, predicate, n + 1)
+    }
+
+    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
+
+    fun part2(): Int {
+
+        val l = buildSet { input.forEach(::add) }
+
+        val co2ScrubberRating = reduce(
+            l.toMutableSet(),
+            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
+                v.getOrElse(n) { '0' }.digitToInt() == sl[0].invBit()
+        )
+
+        val oxygenGeneratorRating = reduce(
+            l.toMutableSet(),
+            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
+                v.getOrElse(n) { '0' }.digitToInt() == sl[0].bit()
+        )
+
+        return oxygenGeneratorRating * co2ScrubberRating
+    }
+}
+
+fun Day03.submarine(): List<Pair<String, Int>> = this.submarine
+
+fun main(): Unit {
+   println("Part 1: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part1())
+   println("Part 2: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part2())
+}
+```
+
+Yay! We've got our second star! 🌟
+
+<div class="footnotes">
+<p>(i) « Albertus Castellanus, anno i5o7 ad Thomam Caietanum tum Ordinis Vicarium Generalem scribens, et 
+Constitutiones nostras nuncupans , ab annis iam viginti librorum edendorum accurationi, Magistrorum Ordinis loachimi 
+Turriani, Vincentiique Bandelli auctoritate praefectum se testatur. » Echardus, Tom. II, pag. 48. - De Augustino 
+vero Di Nale , seu Natali , ut ipse se nuncupat, qtiem lulius II Ragusinae Ecclesiae anno i 5 1 2 prae- fecit, haec habet idem Echardus : « Caietano sic probata erat et explorata eius eruditio, ut recognoscenda illi commisisse ferant quae in s. Thomae Summam scripserat, ac in lucem emittenda parabat Commentciria. » Ibid. pag. 67.</p>
+
+<p>(2) Haec editio continet Commentaria Caietani sine textu s. Thomae, et in fine haec habet: « Commentaria... Thomae de Vio Caietani, totius Ordinis Praedicatorum Generalis, summa cum di- ligentia, maximoque studio, in nominatissimo Parisiensi Gymnasio, noviter impressa, studio et labore Fr. loannis Nocliart, conventus</p>
+<p>Insulensis divi Ordinis Fratrum Praedicatorum , expensis ac sum- ptibus providi viri Claudii Chevallon et Aegidii Sourmont, eiusdem Academiae librariorum, expliciunt feliciter. Anno Domini MDXIV, die vero xvi mensis Novembris.</p>
+
+<p>(3) Pag. 180, in principio Commentarii ad art. 8, qu. xrv, post vocem quoniam excidit adverbium hirtc. - Notamus etiam non- nuUas citationes quas in operis progressu reperimus. In textu s. Thomae qu. viii, art. 3, corp., pro /'' 11"^, qu. cix, art. i, 3, iege qu. XLin, art. 3. - Qu. xv, art. i, corp., pro qu. xix, art. 4', qu. XLiv, art. 3, lege qu. XLvn, art. i. - Qu. xvi, art. 2 , arg. 2 post Cf. etiam etc. adde et Averroem, Destruct. Destruction., disput. I, inter med. et fin. - Qu. xxxii, art. i, arg. i, pro Vide Averr. in hunc locum, lege Ex versione Arabico-latina. - In Commentario Caieteuii, qu. xn, art. 5, n. ix, ad illud, sententiam tene etc, supplenda est citatio: S. Aug. de Civit. Dei, lib. V, cap. I.</p>
+</div>
