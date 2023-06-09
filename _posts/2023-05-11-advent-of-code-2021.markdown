@@ -31,393 +31,347 @@ We need to split the input into a list of boards. Each board is a list of lists 
 The first line of our input is a list of numbers separated by commas. This list represents the numbers drawn.
 Let's parse it into a list of integers.
 
-{: class="language-kotlin" theme="darcula" from="1" to="19"}
+{: class="language-kotlin" theme="darcula" from="2" to="8"}
 ```kotlin
-private val sections = input.split(section)
+class Day04(input: String) {
+    private val newline = "\n"
+    private val section = "\n\n"
 
-private val draws = sections[0].trim().split(ON_COMMA).map(String::toInt)
+    private val sections = input.split(section)
+
+    private val draws = sections[0].trim().split(",").map(String::toInt)
+    
+    init { println("Draws: $draws") }
+}
+
+val input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n 22 13 17 11  0\n8  2 23  4 24\n21  9 14 16  7\n6 10  3 18  5\n1 12 20 15 19\n\n 3 15  0  2 22\n 9 18 13 17  5\n 19  8  7 25 23\n 20 11 10 24  4\n 14 21 16 12  6\n\n 14 21 17 24  4\n 10 16 15  9 19\n 18  8 23 26 20\n 22 11 13  6  5\n 2  0 12  3  7"
+fun main(): Unit { Day04(input) }
 ```
+
+The rest of the input is a list of boards. Each board consists of a list of lists of numbers `List<List<Int>>`.
+But I also want to know if the number has already been drawn. So I will use a `Pair<Int, Boolean>` to represent each
+number. The first element of the pair is the number, and the second element is a boolean indicating whether the number
+has already been drawn.
+
+Let's parse it!
+
+{: class="language-kotlin" theme="darcula" from="9" to="15"}
+```kotlin
+class Day04(input: String) {
+    private val newline = "\n"
+    private val section = "\n\n"
+
+    private val sections = input.split(section)
+
+    private val draws = sections[0].trim().split(",").map(String::toInt)
+    
+    private val cards : List<BingoBoard> = buildList {
+        for (i in 1 until sections.size) {
+            val numbers = sections[i].split(newline).map { it.split(" ").filter(String::isNotBlank).map(String::toInt) }
+
+            add(BingoBoard(numbers.map { row -> row.map { it to false } }))
+        }
+    }
+    class BingoBoard(public var numbers: List<List<Pair<Int, Boolean>>>) {}
+    
+    init { 
+    val xs = cards.map { it.numbers }
+    println("Boards: $xs") }
+}
+
+val input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n 22 13 17 11  0\n8  2 23  4 24\n21  9 14 16  7\n6 10  3 18  5\n1 12 20 15 19\n\n 3 15  0  2 22\n 9 18 13 17  5\n 19  8  7 25 23\n 20 11 10 24  4\n 14 21 16 12  6\n\n 14 21 17 24  4\n 10 16 15  9 19\n 18  8 23 26 20\n 22 11 13  6  5\n 2  0 12  3  7"
+fun main(): Unit { Day04(input) }
+```
+
+I've also used a `BingoBoard` class to represent the board. This class is not doing much right now, but it will be useful
+later on.
 
 ---
 
-```
-7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+### PARS I
 
-22 13 17 11  0
- 8  2 23  4 24
-21  9 14 16  7
- 6 10  3 18  5
- 1 12 20 15 19
+For the first part of the challenge, we need to find the winner board. As we have a `BingoBoard` class, I will use it
+to implement the logic to check if a board is a winner, and to mark a number as drawn.
 
- 3 15  0  2 22
- 9 18 13 17  5
-19  8  7 25 23
-20 11 10 24  4
-14 21 16 12  6
-
-14 21 17 24  4
-10 16 15  9 19
-18  8 23 26 20
-22 11 13  6  5
- 2  0 12  3  7
-```
-
+{: class="language-kotlin" theme="darcula" from="17" to="41"}
 ```kotlin
-private val sections = input.split(IN_SECTION)
+class Day04(input: String) {
+    private val newline = "\n"
+    private val section = "\n\n"
 
-private val draws = sections[0].trim().split(ON_COMMA).map(String::toInt)
-```
+    private val sections = input.split(section)
 
-### PART 1
+    private val draws = sections[0].trim().split(",").map(String::toInt)
+    
+    private val cards : List<BingoBoard> = buildList {
+        for (i in 1 until sections.size) {
+            val numbers = sections[i].split(newline).map { it.split(" ").filter(String::isNotBlank).map(String::toInt) }
 
-The first challenge of the day is to find the most common bit in the corresponding position and preserve it.
-
-{: class="marginalia" }
-\* Cf. kotlin [groupingBy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html)<br />
-et [eachCount](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/each-count.html)
-
-The way I approached this problem was to combine the * `groupingBy` function with the * `eachCount` function.
-Run the code below to see the data transformation step by step.
-
-{: class="language-kotlin" theme="darcula" from="1" to="19"}
-```kotlin
-class Day03(private val input: List<String>) {
-
-    private val forEachDigit = input.first().length
-
-    val diagnosticReport = buildList {
-        
-        println("Initial data: $input")
-        
-        repeat(forEachDigit) { i ->
-            val ofBit = input
-                .groupingBy { it[i].digitToInt() }
-                .eachCount().also { println("After eachCount: $it") }
-                .maxBy { s -> s.value }.also { println("After maxBy: $it") }
-                .key.also { println("Final value: $it") }
-
-            add(ofBit)
-        }
-    }
-}
-
-fun Day03.diagnosticReport() = this.diagnosticReport
-
-fun main(): Unit = println(Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010")).diagnosticReport())
-```
-
-The `groupingBy` are being used here to group the elements of the list by the index of the bit. Which will give us a
-map of the items grouped by position. After that we need to determine which digit is the most common, which we do by
-using the `eachCount` function. This function will return a map with the number of occurrences of each digit. Finally,
-we use the `maxBy` function to get the digit with the most occurrences.
-
-To solve part one, we just need to calculate the values.
-
-{: class="language-kotlin" theme="darcula" from="1" to="27"}
-
-```kotlin
-class Day03(private val input: List<String>) {
-
-    private val forEachDigit = input.first().length
-
-    private val diagnosticReport = buildList {
-        repeat(forEachDigit) { i ->
-            val ofBit = input
-                .groupingBy { it[i].digitToInt() }
-                .eachCount()
-                .maxBy { s -> s.value }
-                .key
-
-            add(ofBit)
+            add(BingoBoard(numbers.map { row -> row.map { it to false } }))
         }
     }
     
-    private fun invert(n: Int) = if (n == 1) 0 else 1
-    
-    private fun List<Int>.toInt() =
-        this.joinToString("").toInt(2)
+    class BingoBoard(private var numbers: List<List<Pair<Int, Boolean>>>) {
 
-    private fun List<Int>.gamma() = this.toInt()
+      fun mark(number: Int) {
+        numbers = numbers.map {
+          it.map { pair ->
+            if (pair.first == number) pair.first to true else pair
+          }
+        }
+      }
 
-    private fun List<Int>.epsilon() = this.map(::invert).toInt()
-    
-    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
+      fun unmarkedSum(): Int = numbers.flatten().filter { !it.second }.sumOf { it.first }
+
+      fun hasBingo(): Boolean {
+        val diagonal = List(numbers[0].size) { column -> List(numbers[0].size) { numbers[it][column] } }
+        val merge = numbers + diagonal
+
+        merge.forEach { row ->
+          row.forEach { _ ->
+            if (row.count { it.second } == row.size) return true
+          }
+       }
+
+        return false
+      }
+    }
 }
 
-fun main(): Unit {
- println("Part 1: " + Day03(listOf("00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", 
-"10000", "11001", "00010", "01010")).part1())
-}
+val input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n 22 13 17 11  0\n8  2 23  4 24\n21  9 14 16  7\n6 10  3 18  5\n1 12 20 15 19\n\n 3 15  0  2 22\n 9 18 13 17  5\n 19  8  7 25 23\n 20 11 10 24  4\n 14 21 16 12  6\n\n 14 21 17 24  4\n 10 16 15  9 19\n 18  8 23 26 20\n 22 11 13  6  5\n 2  0 12  3  7"
+fun main(): Unit { println("Definition of the BingoBoard") }
 ```
 
-A couple of helper functions were added here:
+* `hasBingo()` checks if a bingo occured on the board. It does so by checking if all the numbers in a row or a column
+  have been drawn. The trick here is to add the diagonal to the board, so that we can check the diagonals as well.
+* `unmarkedSum()` returns the sum of the numbers that have not been drawn yet.
+* `mark(n: Int)` marks a number as drawn.
 
-- The `invert` function is used to invert the bits.
-- The `List<Int>.toInt()` function is used to convert the list of bits to an integer.
-- The `List<Int>.gamma()` function is used to convert the list of bits to an integer.
-- The `List<Int>.epsilon()` function is used to invert the list of bits and convert it to an integer.
+Last but not least, we need to find the winner board. To do so, we will iterate over the draws and mark the numbers
+on the boards. If a board has a bingo, we return the sum of the unmarked numbers. But if you think a little bit more
+about it, we can actually get all the winner boards at once, just by appending the boards to a list when they have a
+bingo.
 
-The `gamma` and `epsilon` functions were created to reflect the domain of the problem in our code.
+{: class="language-kotlin" theme="darcula" from="43" to="58"}
+```kotlin
+class Day04(input: String) {
+    private val newline = "\n"
+    private val section = "\n\n"
 
-Checkpoint 🌟
+    private val sections = input.split(section)
+
+    private val draws = sections[0].trim().split(",").map(String::toInt)
+    
+    private val cards : List<BingoBoard> = buildList {
+        for (i in 1 until sections.size) {
+            val numbers = sections[i].split(newline).map { it.split(" ").filter(String::isNotBlank).map(String::toInt) }
+
+            add(BingoBoard(numbers.map { row -> row.map { it to false } }))
+        }
+    }
+    
+    class BingoBoard(private var numbers: List<List<Pair<Int, Boolean>>>) {
+
+      fun mark(number: Int) {
+        numbers = numbers.map {
+          it.map { pair ->
+            if (pair.first == number) pair.first to true else pair
+          }
+        }
+      }
+
+      fun unmarkedSum(): Int = numbers.flatten().filter { !it.second }.sumOf { it.first }
+
+      fun hasBingo(): Boolean {
+        val diagonal = List(numbers[0].size) { column -> List(numbers[0].size) { numbers[it][column] } }
+        val merge = numbers + diagonal
+
+        merge.forEach { row ->
+          row.forEach { _ ->
+            if (row.count { it.second } == row.size) return true
+          }
+       }
+
+        return false
+      }
+    }
+    
+    private fun cardsScore(): MutableSet<Pair<Int, Int>> {
+        val cardsInBingoOrder = mutableSetOf<Pair<Int, Int>>()
+
+        draws.forEach { numberCalled ->
+            cards.forEach { it.mark(numberCalled) }
+
+            val isBingo = cards.filter { it.hasBingo() }
+
+            isBingo.forEach { card ->
+                if (false == cardsInBingoOrder.map { it.first }.contains(card.hashCode())) {
+                    cardsInBingoOrder.add(card.hashCode() to numberCalled * card.unmarkedSum())
+                }
+            }
+        }
+        return cardsInBingoOrder
+    }
+    
+    fun part1(): Int = cardsScore().first().second
+
+    fun part2(): Int = cardsScore().last().second
+}
+
+val input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n 22 13 17 11  0\n8  2 23  4 24\n21  9 14 16  7\n6 10  3 18  5\n1 12 20 15 19\n\n 3 15  0  2 22\n 9 18 13 17  5\n 19  8  7 25 23\n 20 11 10 24  4\n 14 21 16 12  6\n\n 14 21 17 24  4\n 10 16 15  9 19\n 18  8 23 26 20\n 22 11 13  6  5\n 2  0 12  3  7"
+fun main(): Unit { Day04(input) }
+```
+
+To get the solution for part 1, we just need to get the first element of the list.
+
+{: class="language-kotlin" theme="darcula" from="60" to="60"}
+```kotlin
+class Day04(input: String) {
+    private val newline = "\n"
+    private val section = "\n\n"
+
+    private val sections = input.split(section)
+
+    private val draws = sections[0].trim().split(",").map(String::toInt)
+    
+    private val cards : List<BingoBoard> = buildList {
+        for (i in 1 until sections.size) {
+            val numbers = sections[i].split(newline).map { it.split(" ").filter(String::isNotBlank).map(String::toInt) }
+
+            add(BingoBoard(numbers.map { row -> row.map { it to false } }))
+        }
+    }
+    
+    class BingoBoard(private var numbers: List<List<Pair<Int, Boolean>>>) {
+
+      fun mark(number: Int) {
+        numbers = numbers.map {
+          it.map { pair ->
+            if (pair.first == number) pair.first to true else pair
+          }
+        }
+      }
+
+      fun unmarkedSum(): Int = numbers.flatten().filter { !it.second }.sumOf { it.first }
+
+      fun hasBingo(): Boolean {
+        val diagonal = List(numbers[0].size) { column -> List(numbers[0].size) { numbers[it][column] } }
+        val merge = numbers + diagonal
+
+        merge.forEach { row ->
+          row.forEach { _ ->
+            if (row.count { it.second } == row.size) return true
+          }
+       }
+
+        return false
+      }
+    }
+    
+    private fun cardsScore(): MutableSet<Pair<Int, Int>> {
+        val cardsInBingoOrder = mutableSetOf<Pair<Int, Int>>()
+
+        draws.forEach { numberCalled ->
+            cards.forEach { it.mark(numberCalled) }
+
+            val isBingo = cards.filter { it.hasBingo() }
+
+            isBingo.forEach { card ->
+                if (false == cardsInBingoOrder.map { it.first }.contains(card.hashCode())) {
+                    cardsInBingoOrder.add(card.hashCode() to numberCalled * card.unmarkedSum())
+                }
+            }
+        }
+        return cardsInBingoOrder
+    }
+    
+    fun part1(): Int = cardsScore().first().second
+
+    fun part2(): Int = cardsScore().last().second
+}
+
+val input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n 22 13 17 11  0\n8  2 23  4 24\n21  9 14 16  7\n6 10  3 18  5\n1 12 20 15 19\n\n 3 15  0  2 22\n 9 18 13 17  5\n 19  8  7 25 23\n 20 11 10 24  4\n 14 21 16 12  6\n\n 14 21 17 24  4\n 10 16 15  9 19\n 18  8 23 26 20\n 22 11 13  6  5\n 2  0 12  3  7"
+fun main(): Unit { println(Day04(input).part1()) }
+```
+
+Star of the day granted 💫
 
 ---
 
-### PART 2
+### PARS II
 
-X. Ad _primum_ Durandi *, concesso antecedente, negatur sequela. Ad probationem dicitur, quod ex perversa
-interpretatione procedit. Poni enim propter excellentiam obiecti supra potentiam , contingit uno modo, ut adaequetur ex-
-cessus, augendo potentiam: et iuxta hunc sensum pro- cedit probatio, sed contra nullum militat. Alio modo, ut
-excessus non prohibeat attinctionem potentiae ad tam ex- cellens obiectum : et ad hunc sensum ponitur lumen glo- riae
-propter excellentiam obiecti supra potentiam. Contra autem hunc sensum, manifeste patet probationem non pro- cedere. -
-Quod si fiat vis in hoc, quod de non proportio- nato fieri dicitur proportionatus , iam habita est responsio in littera,
-in art. i, in responsione ad ultimum, declarando quomodo intelligitur proportionis nomen in proposito.
-Ad secundum dicitur, quod Durandus noluit intelligere illa s. Thomae verba, qu. n, art. 7. Lumen siquidem glo- riae
-potest dupliciter haberi : uno modo per modum pas- sionis, alio modo per modum habitus. Primo modo, non ponit hominem
-extra viam : secundo modo , est propria patriae dispositio. Et ideo , cum in solis dispositionibus viae dicitur, idest
-in dispositionibus non ponentibus ho- minem extra viam simpliciter, intelligitur. Et quod haec sit mens vera s. Thomae,
-ex eo liquet, quod in Qu. de Ver., qu. x, art. 1 1 , ponit idem quod in IV, et tamen in eisdem Qu. de Ver., qu. xiii,
-art. 2, et qu. xx, art. 2, sic exponit; et
-similiter in II'' 11''^ nendum est. , qu. clxxv, art. 3. Quare indubie sic te- -
+Predictably, part 2 is actually asking for us to provide the last board that has a bingo. 
+Luckily, we already have a function that returns the boards in the order they get a bingo,
+so we just need to get the last one.
 
-Let's dive into the challenge and * explore the depths of the submarine! 🌊
-
-I'll take you through my thought process as I approached this challenge and explain how I came up with my
-solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
-
-If you want to go straight to the code, you can check it out on
-our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021).
-
-If you did not read the problem for the day yet, you can access it [here](https://adventofcode.com/2021/day/2){:
-class="external no-highlight"}.
-
-Unfortunately, for the second part of the challenge, we can't use the same approach. We need to iterate over the list
-of commands and calculate the depth of the submarine for each command and calculate the aim. But it still pretty
-straightforward.
-
-{: class="language-kotlin" theme="darcula" from="18" to="37"}
-
+{: class="language-kotlin" theme="darcula" from="62" to="62"}
 ```kotlin
-package com.codelicia.advent2021
+class Day04(input: String) {
+    private val newline = "\n"
+    private val section = "\n\n"
 
-import java.util.SortedMap
+    private val sections = input.split(section)
 
-class Day03(private val input: List<String>) {
+    private val draws = sections[0].trim().split(",").map(String::toInt)
+    
+    private val cards : List<BingoBoard> = buildList {
+        for (i in 1 until sections.size) {
+            val numbers = sections[i].split(newline).map { it.split(" ").filter(String::isNotBlank).map(String::toInt) }
 
-    private val forEachDigit = input.first().length
-
-    private fun List<Int>.toInt() =
-        this.joinToString("").toInt(2)
-
-    private fun List<Int>.gamma() = this.toInt()
-
-    private fun List<Int>.epsilon() = this.map(::invert).toInt()
-
-    private fun SortedMap<Int, Int>.bit(): Int =
-        if (this.getValue(0) > this.getValue(1)) 0 else 1
-
-    private fun SortedMap<Int, Int>.invBit(): Int =
-        if (this.getValue(0) > this.getValue(1)) 1 else 0
-
-    private fun MutableSet<String>.rank(n: Int): List<SortedMap<Int, Int>> =
-        listOf(
-            this.map { v -> v[n].digitToInt() }
-                .groupingBy { it }
-                .eachCount()
-                .toSortedMap()
-        )
-
-    private val diagnosticReport = buildList {
-        repeat(forEachDigit) { i ->
-            val ofBit = input
-                .groupingBy { it[i].digitToInt() }
-                .eachCount()
-                .maxBy { s -> s.value }
-                .key
-
-            add(ofBit)
+            add(BingoBoard(numbers.map { row -> row.map { it to false } }))
         }
     }
+    
+    class BingoBoard(private var numbers: List<List<Pair<Int, Boolean>>>) {
 
-    private fun invert(n: Int) = if (n == 1) 0 else 1
-
-    private fun reduce(
-        s: MutableSet<String>,
-        predicate: (String, Int, List<SortedMap<Int, Int>>) -> Boolean,
-        n: Int = 0,
-    ): Int {
-        if (s.count() == 1) return s.first().toInt(radix = 2)
-
-        val sl = s.rank(n)
-
-        s.toList().forEach { v -> if (predicate(v, n, sl)) s.remove(v) }
-
-        return reduce(s, predicate, n + 1)
-    }
-
-    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
-
-    fun part2(): Int {
-
-        val l = buildSet { input.forEach(::add) }
-
-        val co2ScrubberRating = reduce(
-            l.toMutableSet(),
-            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
-                v.getOrElse(n) { '0' }.digitToInt() == sl[0].invBit()
-        )
-
-        val oxygenGeneratorRating = reduce(
-            l.toMutableSet(),
-            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
-                v.getOrElse(n) { '0' }.digitToInt() == sl[0].bit()
-        )
-
-        return oxygenGeneratorRating * co2ScrubberRating
-    }
-}
-
-fun Day03.submarine(): List<Pair<String, Int>> = this.submarine
-
-fun main(): Unit {
-   println("Part 1: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part1())
-   println("Part 2: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part2())
-}
-```
-
-Yay! We've got our second star! 🌟
-
-<div class="footnotes">
-<p>(i) « Albertus Castellanus, anno i5o7 ad Thomam Caietanum tum Ordinis Vicarium Generalem scribens, et 
-Constitutiones nostras nuncupans , ab annis iam viginti librorum edendorum accurationi, Magistrorum Ordinis loachimi 
-Turriani, Vincentiique Bandelli auctoritate praefectum se testatur. » Echardus, Tom. II, pag. 48. - De Augustino 
-vero Di Nale , seu Natali , ut ipse se nuncupat, qtiem lulius II Ragusinae Ecclesiae anno i 5 1 2 prae- fecit, haec habet idem Echardus : « Caietano sic probata erat et explorata eius eruditio, ut recognoscenda illi commisisse ferant quae in s. Thomae Summam scripserat, ac in lucem emittenda parabat Commentciria. » Ibid. pag. 67.</p>
-
-<p>(2) Haec editio continet Commentaria Caietani sine textu s. Thomae, et in fine haec habet: « Commentaria... Thomae de Vio Caietani, totius Ordinis Praedicatorum Generalis, summa cum di- ligentia, maximoque studio, in nominatissimo Parisiensi Gymnasio, noviter impressa, studio et labore Fr. loannis Nocliart, conventus</p>
-<p>Insulensis divi Ordinis Fratrum Praedicatorum , expensis ac sum- ptibus providi viri Claudii Chevallon et Aegidii Sourmont, eiusdem Academiae librariorum, expliciunt feliciter. Anno Domini MDXIV, die vero xvi mensis Novembris.</p>
-
-<p>(3) Pag. 180, in principio Commentarii ad art. 8, qu. xrv, post vocem quoniam excidit adverbium hirtc. - Notamus etiam non- nuUas citationes quas in operis progressu reperimus. In textu s. Thomae qu. viii, art. 3, corp., pro /'' 11"^, qu. cix, art. i, 3, iege qu. XLin, art. 3. - Qu. xv, art. i, corp., pro qu. xix, art. 4', qu. XLiv, art. 3, lege qu. XLvn, art. i. - Qu. xvi, art. 2 , arg. 2 post Cf. etiam etc. adde et Averroem, Destruct. Destruction., disput. I, inter med. et fin. - Qu. xxxii, art. i, arg. i, pro Vide Averr. in hunc locum, lege Ex versione Arabico-latina. - In Commentario Caieteuii, qu. xn, art. 5, n. ix, ad illud, sententiam tene etc, supplenda est citatio: S. Aug. de Civit. Dei, lib. V, cap. I.</p>
-</div>
-
-
-X. Ad _primum_ Durandi *, concesso antecedente, negatur sequela. Ad probationem dicitur, quod ex perversa interpretatione procedit. Poni enim propter excellentiam obiecti supra potentiam , contingit uno modo, ut adaequetur ex- cessus, augendo potentiam: et iuxta hunc sensum pro- cedit probatio, sed contra nullum militat. Alio modo, ut
-excessus non prohibeat attinctionem potentiae ad tam ex- cellens obiectum : et ad hunc sensum ponitur lumen glo- riae propter excellentiam obiecti supra potentiam. Contra autem hunc sensum, manifeste patet probationem non pro- cedere. - Quod si fiat vis in hoc, quod de non proportio- nato fieri dicitur proportionatus , iam habita est responsio in littera, in art. i, in responsione ad ultimum, declarando quomodo intelligitur proportionis nomen in proposito.
-Ad secundum dicitur, quod Durandus noluit intelligere illa s. Thomae verba, qu. n, art. 7. Lumen siquidem glo- riae potest dupliciter haberi : uno modo per modum pas- sionis, alio modo per modum habitus. Primo modo, non ponit hominem extra viam : secundo modo , est propria patriae dispositio. Et ideo , cum in solis dispositionibus viae dicitur, idest in dispositionibus non ponentibus ho- minem extra viam simpliciter, intelligitur. Et quod haec sit mens vera s. Thomae, ex eo liquet, quod in Qu. de Ver., qu. x, art. 1 1 , ponit idem quod in IV, et tamen in eisdem Qu. de Ver., qu. xiii, art. 2, et qu. xx, art. 2, sic exponit; et
-similiter in II'' 11''^ nendum est. , qu. clxxv, art. 3. Quare indubie sic te- -
-
-Let's dive into the challenge and * explore the depths of the submarine! 🌊
-
-I'll take you through my thought process as I approached this challenge and explain how I came up with my
-solution. So, grab a cup of coffee and let's dive into the challenge! ☕️
-
-If you want to go straight to the code, you can check it out on
-our [codelicia's repository](https://github.com/codelicia/adventofcode/tree/main/2021).
-
-If you did not read the problem for the day yet, you can access it [here](https://adventofcode.com/2021/day/2){:
-class="external no-highlight"}.
-
-Unfortunately, for the second part of the challenge, we can't use the same approach. We need to iterate over the list
-of commands and calculate the depth of the submarine for each command and calculate the aim. But it still pretty straightforward.
-
-{: class="language-kotlin" theme="darcula" from="18" to="37"}
-```kotlin
-package com.codelicia.advent2021
-
-import java.util.SortedMap
-
-class Day03(private val input: List<String>) {
-
-    private val forEachDigit = input.first().length
-
-    private fun List<Int>.toInt() =
-        this.joinToString("").toInt(2)
-
-    private fun List<Int>.gamma() = this.toInt()
-
-    private fun List<Int>.epsilon() = this.map(::invert).toInt()
-
-    private fun SortedMap<Int, Int>.bit(): Int =
-        if (this.getValue(0) > this.getValue(1)) 0 else 1
-
-    private fun SortedMap<Int, Int>.invBit(): Int =
-        if (this.getValue(0) > this.getValue(1)) 1 else 0
-
-    private fun MutableSet<String>.rank(n: Int): List<SortedMap<Int, Int>> =
-        listOf(
-            this.map { v -> v[n].digitToInt() }
-                .groupingBy { it }
-                .eachCount()
-                .toSortedMap()
-        )
-
-    private val diagnosticReport = buildList {
-        repeat(forEachDigit) { i ->
-            val ofBit = input
-                .groupingBy { it[i].digitToInt() }
-                .eachCount()
-                .maxBy { s -> s.value }
-                .key
-
-            add(ofBit)
+      fun mark(number: Int) {
+        numbers = numbers.map {
+          it.map { pair ->
+            if (pair.first == number) pair.first to true else pair
+          }
         }
+      }
+
+      fun unmarkedSum(): Int = numbers.flatten().filter { !it.second }.sumOf { it.first }
+
+      fun hasBingo(): Boolean {
+        val diagonal = List(numbers[0].size) { column -> List(numbers[0].size) { numbers[it][column] } }
+        val merge = numbers + diagonal
+
+        merge.forEach { row ->
+          row.forEach { _ ->
+            if (row.count { it.second } == row.size) return true
+          }
+       }
+
+        return false
+      }
     }
+    
+    private fun cardsScore(): MutableSet<Pair<Int, Int>> {
+        val cardsInBingoOrder = mutableSetOf<Pair<Int, Int>>()
 
-    private fun invert(n: Int) = if (n == 1) 0 else 1
+        draws.forEach { numberCalled ->
+            cards.forEach { it.mark(numberCalled) }
 
-    private fun reduce(
-        s: MutableSet<String>,
-        predicate: (String, Int, List<SortedMap<Int, Int>>) -> Boolean,
-        n: Int = 0,
-    ): Int {
-        if (s.count() == 1) return s.first().toInt(radix = 2)
+            val isBingo = cards.filter { it.hasBingo() }
 
-        val sl = s.rank(n)
-
-        s.toList().forEach { v -> if (predicate(v, n, sl)) s.remove(v) }
-
-        return reduce(s, predicate, n + 1)
+            isBingo.forEach { card ->
+                if (false == cardsInBingoOrder.map { it.first }.contains(card.hashCode())) {
+                    cardsInBingoOrder.add(card.hashCode() to numberCalled * card.unmarkedSum())
+                }
+            }
+        }
+        return cardsInBingoOrder
     }
+    
+    fun part1(): Int = cardsScore().first().second
 
-    fun part1(): Int = diagnosticReport.gamma() * diagnosticReport.epsilon()
-
-    fun part2(): Int {
-
-        val l = buildSet { input.forEach(::add) }
-
-        val co2ScrubberRating = reduce(
-            l.toMutableSet(),
-            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
-                v.getOrElse(n) { '0' }.digitToInt() == sl[0].invBit()
-        )
-
-        val oxygenGeneratorRating = reduce(
-            l.toMutableSet(),
-            fun(v: String, n: Int, sl: List<SortedMap<Int, Int>>): Boolean =
-                v.getOrElse(n) { '0' }.digitToInt() == sl[0].bit()
-        )
-
-        return oxygenGeneratorRating * co2ScrubberRating
-    }
+    fun part2(): Int = cardsScore().last().second
 }
 
-fun Day03.submarine(): List<Pair<String, Int>> = this.submarine
-
-fun main(): Unit {
-   println("Part 1: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part1())
-   println("Part 2: " + Day02(listOf( "forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2" )).part2())
-}
+val input = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1\n\n 22 13 17 11  0\n8  2 23  4 24\n21  9 14 16  7\n6 10  3 18  5\n1 12 20 15 19\n\n 3 15  0  2 22\n 9 18 13 17  5\n 19  8  7 25 23\n 20 11 10 24  4\n 14 21 16 12  6\n\n 14 21 17 24  4\n 10 16 15  9 19\n 18  8 23 26 20\n 22 11 13  6  5\n 2  0 12  3  7"
+fun main(): Unit { println(Day04(input).part2()) }
 ```
 
-Yay! We've got our second star! 🌟
-
-<div class="footnotes">
-<p>(i) « Albertus Castellanus, anno i5o7 ad Thomam Caietanum tum Ordinis Vicarium Generalem scribens, et 
-Constitutiones nostras nuncupans , ab annis iam viginti librorum edendorum accurationi, Magistrorum Ordinis loachimi 
-Turriani, Vincentiique Bandelli auctoritate praefectum se testatur. » Echardus, Tom. II, pag. 48. - De Augustino 
-vero Di Nale , seu Natali , ut ipse se nuncupat, qtiem lulius II Ragusinae Ecclesiae anno i 5 1 2 prae- fecit, haec habet idem Echardus : « Caietano sic probata erat et explorata eius eruditio, ut recognoscenda illi commisisse ferant quae in s. Thomae Summam scripserat, ac in lucem emittenda parabat Commentciria. » Ibid. pag. 67.</p>
-
-<p>(2) Haec editio continet Commentaria Caietani sine textu s. Thomae, et in fine haec habet: « Commentaria... Thomae de Vio Caietani, totius Ordinis Praedicatorum Generalis, summa cum di- ligentia, maximoque studio, in nominatissimo Parisiensi Gymnasio, noviter impressa, studio et labore Fr. loannis Nocliart, conventus</p>
-<p>Insulensis divi Ordinis Fratrum Praedicatorum , expensis ac sum- ptibus providi viri Claudii Chevallon et Aegidii Sourmont, eiusdem Academiae librariorum, expliciunt feliciter. Anno Domini MDXIV, die vero xvi mensis Novembris.</p>
-
-<p>(3) Pag. 180, in principio Commentarii ad art. 8, qu. xrv, post vocem quoniam excidit adverbium hirtc. - Notamus etiam non- nuUas citationes quas in operis progressu reperimus. In textu s. Thomae qu. viii, art. 3, corp., pro /'' 11"^, qu. cix, art. i, 3, iege qu. XLin, art. 3. - Qu. xv, art. i, corp., pro qu. xix, art. 4', qu. XLiv, art. 3, lege qu. XLvn, art. i. - Qu. xvi, art. 2 , arg. 2 post Cf. etiam etc. adde et Averroem, Destruct. Destruction., disput. I, inter med. et fin. - Qu. xxxii, art. i, arg. i, pro Vide Averr. in hunc locum, lege Ex versione Arabico-latina. - In Commentario Caieteuii, qu. xn, art. 5, n. ix, ad illud, sententiam tene etc, supplenda est citatio: S. Aug. de Civit. Dei, lib. V, cap. I.</p>
-</div>
+That is it for today! See you tomorrow!
