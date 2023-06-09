@@ -32,4 +32,5 @@ our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and luci
 1. [Sonar Sweep]({% post_url 2023-04-19-advent-of-code-2021 %})
 2. [Dive!]({% post_url 2023-05-06-advent-of-code-2021 %})
 3. [Binary Diagnostic]({% post_url 2023-05-10-advent-of-code-2021 %})
+4. [Giant Squid]({% post_url 2023-05-11-advent-of-code-2021 %})
 
