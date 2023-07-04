@@ -33,4 +33,15 @@ our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and luci
 2. [Dive!]({% post_url 2023-05-06-advent-of-code-2021 %})
 3. [Binary Diagnostic]({% post_url 2023-05-10-advent-of-code-2021 %})
 4. [Giant Squid]({% post_url 2023-05-11-advent-of-code-2021 %})
+5. [Hydrothermal Venture]({% post_url 2023-06-26-advent-of-code-2021-day-05 %})
+6. --
+7. --
+8. --
+9. --
+10. --
+11. --
+12. --
+13. --
+14. --
+15. [Chiton]({% post_url 2023-06-10-advent-of-code-2021-day-15 %})
 
