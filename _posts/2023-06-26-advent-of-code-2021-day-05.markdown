@@ -7,7 +7,7 @@ categories: [ post ]
 description: "Day 05 - Hydrothermal Venture"
 ---
 
- ## DAY 5: HYDROTHERMAL VENTURE
+## DAY 5: HYDROTHERMAL VENTURE
 
 {: class="marginalia" }
 \* Cf. [aoc. d. v](https://adventofcode.com/2021/day/5)<br/><br/>
@@ -348,7 +348,7 @@ fun main(): Unit = println(Day05("""
 
 You can notice that I had to ignore the diagonal vents, otherwise it would give me a wrong answer.
 
-In order to solve part1, we just need to call the `overlaps` function.
+Now, in order to solve part1, we just need to call the `overlaps` function.
 
 {: class="language-kotlin" theme="darcula" from="50" to="50"}
 ```kotlin
@@ -427,3 +427,79 @@ fun main(): Unit = println(Day05("""
 ---
 
 ### PARS II
+
+{: class="marginalia" }
+\* **predicate** is a fancy name for functions that returns a boolean value. It is a common name in functional 
+programming.
+
+To solve our next challenge, I've introduced a * **predicate** function to treat each case individually.
+In this way I can reuse the `overlaps` function to solve both parts.
+
+{: class="language-kotlin" theme="darcula" from="38" to="55"}
+```kotlin
+package com.codelicia.advent2021
+
+import kotlin.math.max
+import kotlin.math.min
+
+typealias Vent = Pair<Int, Int>
+typealias VentLine = Pair<Vent, Vent>
+
+class Day05(input: String) {
+
+    private val vents: List<VentLine> = input.trimIndent()
+        .lines()
+        .map { x ->
+            val xs = x.split(" -> ")
+
+            Vent(xs[0]) to Vent(xs[1])
+        }
+
+    private fun VentLine.diagonalRange(): List<Vent> =
+        (if (first.second < second.second) horizontalRange().reversed() else horizontalRange())
+            .zip(if (first.first < second.first) verticalRange().reversed() else verticalRange())
+
+    private fun VentLine.horizontalRange(): IntRange =
+        min(first.first, second.first)..max(first.first, second.first)
+
+    private fun VentLine.verticalRange(): IntRange =
+        min(first.second, second.second)..max(first.second, second.second)
+
+    private fun VentLine.isDiagonal() =
+        first.first != second.first && first.second != second.second
+
+    private fun VentLine.isHorizontal() =
+        first.first != second.first
+
+    private fun VentLine.isVertical() =
+        first.second != second.second
+        
+    fun part1(): Int = overlaps { vent -> vent.isDiagonal() }
+
+    fun part2(): Int = overlaps { false }
+
+    private fun overlaps(predicate: (VentLine) -> Boolean): Int =
+        vents.map { line ->
+            return@map when {
+                predicate(line) -> emptyList<String>()
+                line.isDiagonal() -> line.diagonalRange().map { "${it.first},${it.second}" }
+                line.isHorizontal() -> line.horizontalRange().map { "$it,${line.first.second}" }
+                line.isVertical() -> line.verticalRange().map { "${line.first.first},$it" }
+                else -> emptyList<String>()
+            }
+        }
+            .flatten()
+            .groupingBy { it }
+            .eachCount()
+            .count { it.value > 1 }
+
+    companion object {
+        private fun Vent(s: String): Vent =
+            s.split(",").first().toInt() to s.split(",").last().toInt()
+    }
+}
+```
+
+Remember that this solution is not the most efficient one, but my goal is not to solve it in the most efficient way.
+
+That is it for today! See you in the next one!
