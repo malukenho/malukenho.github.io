@@ -498,7 +498,407 @@ class Day05(input: String) {
             s.split(",").first().toInt() to s.split(",").last().toInt()
     }
 }
+
+fun main(): Unit { 
+    val day5 = Day05("""
+            0,9 -> 5,9
+            8,0 -> 0,8
+            9,4 -> 3,4
+            2,2 -> 2,1
+            7,0 -> 7,4
+            6,4 -> 2,0
+            0,9 -> 2,9
+            3,4 -> 1,4
+            0,0 -> 8,8
+            5,5 -> 8,2
+        """)
+        
+    println("Part 1: " + day5.part1())
+    println("Part 2: " + day5.part2())
+}
 ```
+
+Let's see in details what is happening in this code.
+
+{: class="language-kotlin" theme="darcula" from="43" to="51"}
+```kotlin
+package com.codelicia.advent2021
+
+import kotlin.math.max
+import kotlin.math.min
+
+typealias Vent = Pair<Int, Int>
+typealias VentLine = Pair<Vent, Vent>
+
+class Day05(input: String) {
+
+    private val vents: List<VentLine> = input.trimIndent()
+        .lines()
+        .map { x ->
+            val xs = x.split(" -> ")
+
+            Vent(xs[0]) to Vent(xs[1])
+        }
+
+    private fun VentLine.diagonalRange(): List<Vent> =
+        (if (first.second < second.second) horizontalRange().reversed() else horizontalRange())
+            .zip(if (first.first < second.first) verticalRange().reversed() else verticalRange())
+
+    private fun VentLine.horizontalRange(): IntRange =
+        min(first.first, second.first)..max(first.first, second.first)
+
+    private fun VentLine.verticalRange(): IntRange =
+        min(first.second, second.second)..max(first.second, second.second)
+
+    private fun VentLine.isDiagonal() =
+        first.first != second.first && first.second != second.second
+
+    private fun VentLine.isHorizontal() =
+        first.first != second.first
+
+    private fun VentLine.isVertical() =
+        first.second != second.second
+        
+    fun part1(): Int = overlaps { vent -> vent.isDiagonal() }
+
+    fun part2(): Int = overlaps { false }
+
+    private fun overlaps(predicate: (VentLine) -> Boolean): Int =
+        vents.map { line ->
+            return@map when {
+                predicate(line) -> emptyList<String>()
+                line.isDiagonal() -> line.diagonalRange().map { "${it.first},${it.second}" }
+                line.isHorizontal() -> line.horizontalRange().map { "$it,${line.first.second}" }
+                line.isVertical() -> line.verticalRange().map { "${line.first.first},$it" }
+                else -> emptyList<String>()
+            }
+        }
+            .also { println(it) }
+            .flatten()
+            .groupingBy { it }
+            .eachCount()
+            .count { it.value > 1 }
+
+    companion object {
+        private fun Vent(s: String): Vent =
+            s.split(",").first().toInt() to s.split(",").last().toInt()
+    }
+}
+
+fun main(): Unit { 
+    Day05("""
+        0,9 -> 5,9
+        0,9 -> 2,9
+    """).part2()
+}
+```
+
+This part is converting each `VentLine` into a `List<String>` that represents the coordinates of each point in the
+line. For example, the line `0,9 -> 5,9` and `0,9 -> 2,9` will be converted into `["0,9", "1,9", "2,9", "3,9", "4,9",
+"5,9"]` and `["0,9", "1,9", "2,9"]` respectively. With this we have all the points that are covered by the line.
+At the end of this map operation, we will have a `List<List<String>>`.
+
+{: class="language-kotlin" theme="darcula" from="52" to="52"}
+```kotlin
+package com.codelicia.advent2021
+
+import kotlin.math.max
+import kotlin.math.min
+
+typealias Vent = Pair<Int, Int>
+typealias VentLine = Pair<Vent, Vent>
+
+class Day05(input: String) {
+
+    private val vents: List<VentLine> = input.trimIndent()
+        .lines()
+        .map { x ->
+            val xs = x.split(" -> ")
+
+            Vent(xs[0]) to Vent(xs[1])
+        }
+
+    private fun VentLine.diagonalRange(): List<Vent> =
+        (if (first.second < second.second) horizontalRange().reversed() else horizontalRange())
+            .zip(if (first.first < second.first) verticalRange().reversed() else verticalRange())
+
+    private fun VentLine.horizontalRange(): IntRange =
+        min(first.first, second.first)..max(first.first, second.first)
+
+    private fun VentLine.verticalRange(): IntRange =
+        min(first.second, second.second)..max(first.second, second.second)
+
+    private fun VentLine.isDiagonal() =
+        first.first != second.first && first.second != second.second
+
+    private fun VentLine.isHorizontal() =
+        first.first != second.first
+
+    private fun VentLine.isVertical() =
+        first.second != second.second
+        
+    fun part1(): Int = overlaps { vent -> vent.isDiagonal() }
+
+    fun part2(): Int = overlaps { false }
+
+    private fun overlaps(predicate: (VentLine) -> Boolean): Int =
+        vents.map { line ->
+            return@map when {
+                predicate(line) -> emptyList<String>()
+                line.isDiagonal() -> line.diagonalRange().map { "${it.first},${it.second}" }
+                line.isHorizontal() -> line.horizontalRange().map { "$it,${line.first.second}" }
+                line.isVertical() -> line.verticalRange().map { "${line.first.first},$it" }
+                else -> emptyList<String>()
+            }
+        }
+            .flatten()
+            .also { println(it) }
+            .groupingBy { it }
+            .eachCount()
+            .count { it.value > 1 }
+
+    companion object {
+        private fun Vent(s: String): Vent =
+            s.split(",").first().toInt() to s.split(",").last().toInt()
+    }
+}
+
+fun main(): Unit { 
+    Day05("""
+        0,9 -> 5,9
+        0,9 -> 2,9
+    """).part2()
+}
+```
+
+The `flatten` function will convert a `List<List<String>>` into a `List<String>`. In our example, we will have
+`["0,9", "1,9", "2,9", "3,9", "4,9", "5,9", "0,9", "1,9", "2,9"]`. Note the duplicate values.
+
+{: class="language-kotlin" theme="darcula" from="53" to="53"}
+```kotlin
+package com.codelicia.advent2021
+
+import kotlin.math.max
+import kotlin.math.min
+
+typealias Vent = Pair<Int, Int>
+typealias VentLine = Pair<Vent, Vent>
+
+class Day05(input: String) {
+
+    private val vents: List<VentLine> = input.trimIndent()
+        .lines()
+        .map { x ->
+            val xs = x.split(" -> ")
+
+            Vent(xs[0]) to Vent(xs[1])
+        }
+
+    private fun VentLine.diagonalRange(): List<Vent> =
+        (if (first.second < second.second) horizontalRange().reversed() else horizontalRange())
+            .zip(if (first.first < second.first) verticalRange().reversed() else verticalRange())
+
+    private fun VentLine.horizontalRange(): IntRange =
+        min(first.first, second.first)..max(first.first, second.first)
+
+    private fun VentLine.verticalRange(): IntRange =
+        min(first.second, second.second)..max(first.second, second.second)
+
+    private fun VentLine.isDiagonal() =
+        first.first != second.first && first.second != second.second
+
+    private fun VentLine.isHorizontal() =
+        first.first != second.first
+
+    private fun VentLine.isVertical() =
+        first.second != second.second
+        
+    fun part1(): Int = overlaps { vent -> vent.isDiagonal() }
+
+    fun part2(): Int = overlaps { false }
+
+    private fun overlaps(predicate: (VentLine) -> Boolean): Int =
+        vents.map { line ->
+            return@map when {
+                predicate(line) -> emptyList<String>()
+                line.isDiagonal() -> line.diagonalRange().map { "${it.first},${it.second}" }
+                line.isHorizontal() -> line.horizontalRange().map { "$it,${line.first.second}" }
+                line.isVertical() -> line.verticalRange().map { "${line.first.first},$it" }
+                else -> emptyList<String>()
+            }
+        }
+            .flatten()
+            .groupingBy { it }
+            .also { println(it) }
+            .eachCount()
+            .count { it.value > 1 }
+
+    companion object {
+        private fun Vent(s: String): Vent =
+            s.split(",").first().toInt() to s.split(",").last().toInt()
+    }
+}
+
+fun main(): Unit { 
+    Day05("""
+        0,9 -> 5,9
+        0,9 -> 2,9
+    """).part2()
+}
+```
+
+The `groupingBy` function will group the values by their value (`it`). The duplicate values will be grouped together.
+
+{: class="language-kotlin" theme="darcula" from="54" to="54"}
+```kotlin
+package com.codelicia.advent2021
+
+import kotlin.math.max
+import kotlin.math.min
+
+typealias Vent = Pair<Int, Int>
+typealias VentLine = Pair<Vent, Vent>
+
+class Day05(input: String) {
+
+    private val vents: List<VentLine> = input.trimIndent()
+        .lines()
+        .map { x ->
+            val xs = x.split(" -> ")
+
+            Vent(xs[0]) to Vent(xs[1])
+        }
+
+    private fun VentLine.diagonalRange(): List<Vent> =
+        (if (first.second < second.second) horizontalRange().reversed() else horizontalRange())
+            .zip(if (first.first < second.first) verticalRange().reversed() else verticalRange())
+
+    private fun VentLine.horizontalRange(): IntRange =
+        min(first.first, second.first)..max(first.first, second.first)
+
+    private fun VentLine.verticalRange(): IntRange =
+        min(first.second, second.second)..max(first.second, second.second)
+
+    private fun VentLine.isDiagonal() =
+        first.first != second.first && first.second != second.second
+
+    private fun VentLine.isHorizontal() =
+        first.first != second.first
+
+    private fun VentLine.isVertical() =
+        first.second != second.second
+        
+    fun part1(): Int = overlaps { vent -> vent.isDiagonal() }
+
+    fun part2(): Int = overlaps { false }
+
+    private fun overlaps(predicate: (VentLine) -> Boolean): Int =
+        vents.map { line ->
+            return@map when {
+                predicate(line) -> emptyList<String>()
+                line.isDiagonal() -> line.diagonalRange().map { "${it.first},${it.second}" }
+                line.isHorizontal() -> line.horizontalRange().map { "$it,${line.first.second}" }
+                line.isVertical() -> line.verticalRange().map { "${line.first.first},$it" }
+                else -> emptyList<String>()
+            }
+        }
+            .flatten()
+            .groupingBy { it }
+            .eachCount()
+            .also { println(it) }
+            .count { it.value > 1 }
+
+    companion object {
+        private fun Vent(s: String): Vent =
+            s.split(",").first().toInt() to s.split(",").last().toInt()
+    }
+}
+
+fun main(): Unit { 
+    Day05("""
+        0,9 -> 5,9
+        0,9 -> 2,9
+    """).part2()
+}
+```
+
+The `eachCount` function will count how many times each value appears in the list. The result will be a `Map<String, 
+Int>`.
+
+{: class="language-kotlin" theme="darcula" from="55" to="55"}
+```kotlin
+package com.codelicia.advent2021
+
+import kotlin.math.max
+import kotlin.math.min
+
+typealias Vent = Pair<Int, Int>
+typealias VentLine = Pair<Vent, Vent>
+
+class Day05(input: String) {
+
+    private val vents: List<VentLine> = input.trimIndent()
+        .lines()
+        .map { x ->
+            val xs = x.split(" -> ")
+
+            Vent(xs[0]) to Vent(xs[1])
+        }
+
+    private fun VentLine.diagonalRange(): List<Vent> =
+        (if (first.second < second.second) horizontalRange().reversed() else horizontalRange())
+            .zip(if (first.first < second.first) verticalRange().reversed() else verticalRange())
+
+    private fun VentLine.horizontalRange(): IntRange =
+        min(first.first, second.first)..max(first.first, second.first)
+
+    private fun VentLine.verticalRange(): IntRange =
+        min(first.second, second.second)..max(first.second, second.second)
+
+    private fun VentLine.isDiagonal() =
+        first.first != second.first && first.second != second.second
+
+    private fun VentLine.isHorizontal() =
+        first.first != second.first
+
+    private fun VentLine.isVertical() =
+        first.second != second.second
+        
+    fun part1(): Int = overlaps { vent -> vent.isDiagonal() }
+
+    fun part2(): Int = overlaps { false }
+
+    private fun overlaps(predicate: (VentLine) -> Boolean): Int =
+        vents.map { line ->
+            return@map when {
+                predicate(line) -> emptyList<String>()
+                line.isDiagonal() -> line.diagonalRange().map { "${it.first},${it.second}" }
+                line.isHorizontal() -> line.horizontalRange().map { "$it,${line.first.second}" }
+                line.isVertical() -> line.verticalRange().map { "${line.first.first},$it" }
+                else -> emptyList<String>()
+            }
+        }
+            .flatten()
+            .groupingBy { it }
+            .eachCount()
+            .count { it.value > 1 }
+            .also { println(it) }
+
+    companion object {
+        private fun Vent(s: String): Vent =
+            s.split(",").first().toInt() to s.split(",").last().toInt()
+    }
+}
+
+fun main(): Unit { 
+    Day05("""
+        0,9 -> 5,9
+        0,9 -> 2,9
+    """).part2()
+}
+```
+
+We finalize the operation by counting how many values have a count greater than 1. This will be our result.
 
 Remember that this solution is not the most efficient one, but my goal is not to solve it in the most efficient way.
 
