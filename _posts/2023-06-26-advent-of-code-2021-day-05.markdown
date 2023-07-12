@@ -898,6 +898,8 @@ fun main(): Unit {
 }
 ```
 
+<embed type="image/svg+xml" src="/imgs/aoc-2021-day-5.svg" />
+
 We finalize the operation by counting how many values have a count greater than 1. This will be our result.
 
 Remember that this solution is not the most efficient one, but my goal is not to solve it in the most efficient way.
