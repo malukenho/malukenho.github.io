@@ -2,7 +2,7 @@
 layout: post
 title: "📚 2748. Number of Beautiful Pairs"
 author: Jefersson Nathan
-date: Sat Jun 10 11:23:16 CEST 2023
+date: Sat Jan 1 11:23:16 CEST 2023
 categories: [ post ]
 description: "Weekly Contest 351"
 ---

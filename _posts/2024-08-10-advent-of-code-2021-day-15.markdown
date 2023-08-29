@@ -2,7 +2,7 @@
 layout: post
 title: "✨ Advent of Code — Day 15 <2021 />"
 author: Jefersson Nathan
-date: Sat Jun 10 11:23:16 CEST 2023
+date: Sat Aug 28 11:23:16 CEST 2023
 categories: [ post ]
 description: "Day 15 - Chiton"
 ---
