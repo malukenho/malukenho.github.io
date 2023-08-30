@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "✨ Advent of Code — Day 4 <2021 />"
+title: "✨ Advent of Code — Day 04 <2021 />"
 author: Jefersson Nathan
 date: Sat May 10 16:29:13 CEST 2023
 categories: [ post ]
