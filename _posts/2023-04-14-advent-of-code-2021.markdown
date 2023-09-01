@@ -35,7 +35,7 @@ our endeavor. 🤓 We'll try to solve each day's puzzles with idiomatic and luci
 4. [Giant Squid]({% post_url 2023-05-11-advent-of-code-2021 %})
 5. [Hydrothermal Venture]({% post_url 2023-06-26-advent-of-code-2021-day-05 %})
 6. [Lanternfish]({% post_url 2023-08-30-advent-of-code-2021-day-06 %})
-7. --
+7. [The Treachery Of Whales]({% post_url 2023-08-30-advent-of-code-2021-day-07 %})
 8. --
 9. --
 10. --
