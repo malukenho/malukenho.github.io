@@ -1,0 +1,12 @@
+<div class="wt-row wt-row_size_m wt-row_wide wt-row_wrap wt-row_align-items_stretch home-page__products-list">
+    {% for item in site.data.aoc-2023 %}
+        <div class="wt-col-3 home-page__product-column">
+            <a href="{{ item.href }}"
+               class="home-page__product-card__link no-highlight home-page__product-card">
+                <div class="emoji">{{ item.icon }}</div>
+                <h3 class="rs-h3 wt-offset-top-24 home-page__product-card__title">{{ item.name }}</h3>
+                <div class="home-page__product-card__text">{{ item.description }}</div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
