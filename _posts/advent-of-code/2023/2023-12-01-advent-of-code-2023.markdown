@@ -24,6 +24,6 @@ The code repository is available at [malukenho/aoc2023](https://github.com/maluk
 
 {% include tip.html content=wip %}
 
-## Advent Calendar 2023
+## 📆 Advent Calendar 2023
 
 {% include grid.html content=site.data.aoc-2023 %}
