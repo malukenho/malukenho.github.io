@@ -584,6 +584,12 @@ a.home-page__product-card__link {
 .wt-row, .wt-row_wide {
     display: flex;
 }
+
+@media screen and (max-width: 640px) {
+    .wt-row, .wt-row_wide {
+        flex-direction: column;
+    }
+}
 .wt-row {
     flex-wrap: wrap;
     margin-right: calc(16px*-1);
@@ -608,6 +614,12 @@ a.home-page__product-card__link {
     flex-basis: calc(9.9999%*3 - 16px*2);
     max-width: calc(9.9999%*3 - 16px*2);
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 640px) {
+    [class*=wt-col] {
+        max-width: 100%;
+    }
 }
 
 .jetbrains-logo--size-1.jetbrains-logo--full-size {
