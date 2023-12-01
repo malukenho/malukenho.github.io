@@ -29,6 +29,12 @@
 
                         <header class="entry-header"><h1 class="entry-title">{{ page.title }}</h1></header>
 
+                        <span class="sub-title sub-title--related-h1">
+                            <span class="sub-title__edit-info">
+                                <span> Published data: {{ page.date | date: "%-d %B %Y" }}</span>
+                            </span>
+                        </span>
+
                         {{ content }}
 
                     </article>
