@@ -252,11 +252,7 @@ p { margin: 1.2em 0; }
 /* tagline and blockquote */
 .tagline, blockquote { text-align:center; }
 .tagline *:first-child { margin-top:0; }
-blockquote { position: relative; margin:2em 0; padding:1em 3em 2em 3em; }
-blockquote:before { display: block; content: "\201C"; line-height:1; font-size: 6em; font-family:Georgia, "Times New Roman", Times, serif; position: absolute; left: 0; top: -0.1em; color: #ddd; }
-blockquote { font-size:1.3em; }
-blockquote cite { color: #999; font-size: .85em; display: block; margin-top: .8em; }
-blockquote cite:before { content: "\2014 \2009"; }
+
 .tagline { margin:3em 0; padding:1em 2em; border-width:1px 0; border-style:dashed; border-color:#ccc; }
 .tagline * { padding-bottom:0; margin-bottom:0; }
 .tagline p { font-size:1.4em; }
@@ -285,7 +281,7 @@ tr:nth-child(even) td { background: #1f1f27 }
 .executable-fragment.darcula, .language-kotlin[theme=darcula] {
     background: #1b1b1b !important;
     border-radius: 8px !important;
-    border: 0 transparent !important;
+    border: 1px solid #1a1a1a !important;
 }
 
 .language-kotlin[theme=darcula] {
@@ -293,7 +289,9 @@ tr:nth-child(even) td { background: #1f1f27 }
 }
 
 .cm-s-darcula.CodeMirror, .output-wrapper.darcula {
-    background: 0 0 !important;
+    background-color: hsla(0,0%,100%,0.05) !important;
+    border: 1px solid #1b1b1b !important;
+    border-radius: 8px !important;
 }
 pre.CodeMirror-line {
     font-size: 16px !important;
@@ -368,7 +366,7 @@ code {
     border-radius: 3px;
     word-break: break-word;
     color: #ffffff;
-    background-color: #1c011c;
+    background-color: hsla(0,0%,100%,0.05);
     line-height: inherit;
     font-variant-ligatures: none;
 }
@@ -882,11 +880,7 @@ input[type=submit].grass:active, input[type=button].grass:active, button.grass:a
 /* Ajax loadmore link */
 a.loadmore { display:block; position:relative; margin: 3em auto 0 auto; max-width:25em; padding: 10px;  font-size: .9em; letter-spacing: 3px; text-align: center; text-transform: uppercase; color: #fff; background: #ddd; cursor: pointer; }
 .loadmore:hover { background: #333; }
-.loading, .loadmore.loading:after { background: transparent url(../images/bckg/loader_light.gif) no-repeat center center; }
 .loadmore.loading:after { content: ""; position:absolute; top: 100%; left: 50%; margin: 24px 0 0 -35px; width:80px; height: 24px; z-index: -1; }
-@media  (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) {
-    .loading, .loadmore.loading:after { background-size: 70px 24px; background-image: url(../images/bckg/loader_light@2x.gif); }
-}
 
 /**** Isotope Filtering ****/
 .isotope-item { z-index: 2; }
