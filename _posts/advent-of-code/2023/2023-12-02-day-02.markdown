@@ -256,8 +256,8 @@ static int part1(string &game_records) {
 }
 ```
 
-After the refactoring, we can easily solve the second part. We just need to change the
-`aggregate` and `predicate` functions.
+With this refactoring in place, the second part becomes more manageable. It merely requires
+adjustments to the `aggregate` and `predicate` functions.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
 ```cpp
@@ -273,7 +273,7 @@ static int part2(string &game_records) {
 }
 ```
 
-That is it! Second star unlocked! 🌟🌟
+And there it is! The second star is now within reach! 🌟
 
 {% include micro.html content="
 Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}

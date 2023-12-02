@@ -29,7 +29,7 @@ h1.site-title, h1.site-title a { font-family: "UnifrakturMaguntia", Georgia, ser
 /* Text Selection */
 ::selection { text-shadow:none; color:#333; background:#FFFFCF; }
 ::-moz-selection { text-shadow:none; color:#333; background:#FFFFCF; }
-body { color: #f4f4f4; background-color: #19191c; }
+body { color: rgba(255, 255, 255, 0.8); background-color: #19191c; }
 
 /* Header */
 header.nav-header {
@@ -128,7 +128,7 @@ a.logo:hover { color: rgba(255,255,255,.7) !important }
     flex-direction: row;
     justify-content: space-between;
     padding: 48px 0;
-    border-top: 1px solid #d1d1d2;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .navigation-links__prev {
@@ -164,6 +164,7 @@ a.logo:hover { color: rgba(255,255,255,.7) !important }
 }
 
 #content > div > article > p { font-size: 16px !important }
+#content i, #content b, #content em, #content strong { color: rgb(255, 255, 255); }
 #content img { border-radius: 10px; }
 
 /* LAYOUT */
