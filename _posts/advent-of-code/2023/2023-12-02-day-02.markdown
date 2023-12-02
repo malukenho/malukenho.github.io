@@ -282,11 +282,9 @@ Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of
 
 <div class="footnotes">
     <p>
-        α) by getting the maximum value * `upper_bound` we cen say that this is the minimum
+        α) by getting the maximum value * <code>upper_bound</code> we can say that this is the minimum
            number of cubes that could have been in the bag to make the game possible.
     </p>
 
-    <p>
-        β) a `predicate` is a function that returns a boolean value.
-    </p>
+    <p>β) a `predicate` is a function that returns a boolean value.</p>
 </div>
