@@ -29,7 +29,7 @@ them all up.
 
 ---
 
-### PART 1
+### PARS I
 
 {% include tip.html content="I'm going to be honest with you, It was quite a 
 challenge to solve this problem. I'm not proficient in C++. I'm actually learning
@@ -182,7 +182,7 @@ With that we unlock the second part of the challenge and won our first star! �
 
 ---
 
-### PART 2
+### PARS II
 
 In the second part of the challenge, we discovered that the digit can actually be
 spelled out with words. So both `1` and `one` are valid digits.
@@ -292,7 +292,7 @@ public:
 And with that we unlock the second star! 🌟🌟
 
 {% include micro.html content="
-Click here to access the blogpost from [@fefas](https://blog.fefas.dev/){: class='external no-highlight'}" %}
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
 
 ---
 

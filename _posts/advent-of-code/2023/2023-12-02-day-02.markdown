@@ -1,0 +1,292 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 02"
+author: Jefersson Nathan
+date: Sat Dec 02 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 02"
+---
+
+{: class="marginalia" }
+\* Cf. [aoc. d. ii xxiii](https://adventofcode.com/2023/day/2)
+
+## Day 02: Cube Conundrum
+
+Today we're playing a game with cubes. The game consists of a series of rounds, and
+each line of the input represents a game. Each game has three rounds, and each round
+has a series of cubes with a color and a quantity.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+```
+
+---
+
+### Parsing The Input
+
+I started the challenge by creating a new method on my `Utils` class to break the
+`string` down in a list of `vector<string>`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static std::string read_file(const std::string& file_path) {
+    std::string line;
+    std::fstream file(file_path);
+
+    std::string input;
+    while(getline(file, line)) {
+        input += line + "\n";
+    }
+
+    return input;
+}
+```
+
+Later on, I've also added a `;` at the end of each line, so I don't need to add an extra
+check after processing all the data.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+round = round.substr(round.find(':') + 2) + ";";
+```
+
+Now we can use it on our solution to easily work with each isolated round. Note that
+I've also added a `possible_rounds` vector to store the possible rounds for each game, and
+as we know that we should return a sum of all possible games, I'm already returning it at the
+end of the function.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int part1(string &game_records) {
+    vector<string> rounds = Utils::split_lines(game_records);
+    vector<int> possible_rounds;
+    
+    return accumulate(possible_rounds.begin(), possible_rounds.end(), 0);
+}
+```
+
+---
+
+### PARS I
+
+For each line, we should determine if the game is possible given that the player
+has exactly **12 red cubes**, **13 green cubes**, and **14 blue cubes**. After that,
+we should sum up the game round of all possible games.
+
+My goal was to build a table where key is the color of the cube, and the value is
+the max numbers that appear in the line for that given color. So I've created a 
+`roud_map` to store the values of the current game.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+unordered_map<string, int> round_map;
+```
+
+### Building the `round_map`
+
+The first thing I did was to remove the prefix `Game *: `, I also don't care about the round,
+because as I'm iterating over it, I could access it by incrementing `i`.
+
+That done, we need to iterate over each character of the line, and do the following:
+
+- If the current character is a `,` or a `;`, we know that we have a color and a quantity,
+  because it signifies the end of a round. We just keep track of the largest `cube_quantity`
+  and reset all the other variables.
+- If the current character is a digit, we know that we have a quantity.
+- If the current character is a space, we can ignore it.
+- If the current character is a letter, we just append it to our `cube_color` variable.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+cube_quantity = "";
+cube_color = "";
+for (char &current_char: round) {
+    if (current_char == ',' || current_char == ';') {
+        round_map[cube_color]  = max(round_map[cube_color], stoi(cube_quantity));
+        cube_color = "";
+        cube_quantity = "";
+        continue;
+    }
+
+    if (current_char == ' ') continue;
+
+    if (current_char >= '0' && current_char <= '9') cube_quantity += current_char;
+    else cube_color += current_char;
+}
+```
+
+### Back To Pars I
+
+The last thing to do is to check the constraints of the game. If the game is possible,
+we add the round to the `possible_rounds` vector, and clear the `round_map` for the next
+game.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+if (round_map["red"] <= 12 && round_map["green"] <= 13 && round_map["blue"] <= 14) {
+    possible_rounds.push_back(i+1);
+    round_map.clear();
+}
+```
+
+The whole code looks like this:
+
+{: class="language-kotlin" theme="darcula" mode="c" from="9" to="44"}
+```cpp
+#include <algorithm>
+#include <string>
+#include <numeric>
+
+using namespace std;
+
+class Solution_02 {
+public:
+    static int part1(string &game_records) {
+        vector<string> rounds = Utils::split_lines(game_records);
+        vector<int> possible_rounds;
+
+        string cube_color;
+        string cube_quantity;
+        for (int i = 0; i < rounds.size(); ++i) {
+            unordered_map<string, int> round_map;
+            string round = rounds[i];
+
+            round = round.substr(round.find(':') + 2) + ";";
+
+            cube_quantity = "";
+            cube_color = "";
+            for (char &current_char: round) {
+                if (current_char == ',' || current_char == ';') {
+                    round_map[cube_color]  = max(round_map[cube_color], stoi(cube_quantity));
+                    cube_color = "";
+                    cube_quantity = "";
+                    continue;
+                }
+
+                if (current_char == ' ') continue;
+
+                if (current_char >= '0' && current_char <= '9') cube_quantity += current_char;
+                else cube_color += current_char;
+            }
+
+            if (round_map["red"] <= 12 && round_map["green"] <= 13 && round_map["blue"] <= 14) {
+                possible_rounds.push_back(i+1);
+                round_map.clear();
+            }
+        }
+
+        return accumulate(possible_rounds.begin(), possible_rounds.end(), 0);
+    }
+};
+```
+
+Quite lengthy, but it works! And with that we have our first start prize of the day! 🌟
+
+---
+
+### PARS II
+
+{: class="marginalia" }
+α
+
+In the second part, we are asked in for the **fewest number of cubes of each color that
+could have been in the bag to make the game possible.** Since we have the `round_map` with
+the max number * of cubes for each color, we already have the answer for the second part.
+
+The tricky part is that we should multiply all the colours in each game `red * green * blue` and
+them sum them all up at the end to get our answer. So let's do a little bit of refactoring.
+
+### Refactoring
+
+There is basically two things that differ from the first part to the second part:
+
+- The calculation based on the `round_map` values.
+- The constraint check.
+
+{: class="marginalia" }
+β
+
+We could refactor part one and abstract this specific logic in a predicate and a function.
+I've created a `calculate` method to keep the common logic between the two parts. The only
+difference here is that we are receiving the changing logic as a parameter.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+private:
+    static int calculate(
+        string &game_records,
+        const function<void(vector<int>&, unordered_map<string, int>&, int)> aggregate,
+        const function<bool(unordered_map<string, int>)> predicate
+    ) {
+        // previous code
+        for (int i = 0; i < rounds.size(); ++i) {
+            // previous code
+            for (char &current_char: round) {
+                // previous code
+            }
+
+            // this is the only line that changed
+            if (predicate(round_map)) aggregate(possible_rounds, round_map, i);
+        }
+
+        return accumulate(possible_rounds.begin(), possible_rounds.end(), 0);
+    }
+```
+
+That looks much better! Our refactored version of part one looks like this:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int part1(string &game_records) {
+    return calculate(
+        game_records,
+        [=](vector<int> &possible_rounds, unordered_map<string, int> &round_map, int index) -> bool {
+            possible_rounds.push_back(index + 1);
+            round_map.clear();
+        },
+        [=](unordered_map<string, int> round_map) -> bool {
+            return round_map["red"] <= 12 && round_map["green"] <= 13 && round_map["blue"] <= 14;
+        }
+    );
+}
+```
+
+After the refactoring, we can easily solve the second part. We just need to change the
+`aggregate` and `predicate` functions.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int part2(string &game_records) {
+    return calculate(
+            game_records,
+            [=](vector<int> &possible_rounds, unordered_map<string, int> &round_map, int index) -> bool {
+                possible_rounds.push_back(round_map["red"] * round_map["green"] * round_map["blue"]);
+                round_map.clear();
+            },
+            [=](unordered_map<string, int> round_map) -> bool { return true; }
+    );
+}
+```
+
+That is it! Second star unlocked! 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>
+        α) by getting the maximum value * `upper_bound` we cen say that this is the minimum
+           number of cubes that could have been in the bag to make the game possible.
+    </p>
+
+    <p>
+        β) a `predicate` is a function that returns a boolean value.
+    </p>
+</div>
