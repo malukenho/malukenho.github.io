@@ -1,0 +1,15 @@
+<section>
+    <div class="tabs">
+        <input class="radiotab" name="tabs" tabindex="1" type="radio" id="tabone" checked="checked">
+        <label class="label" for="tabone">{{ include.first_tab }}</label>
+        <div class="panel" tabindex="1">
+            {{ include.first_content|markdownify }}
+        </div>
+
+        <input class="radiotab" tabindex="1" name="tabs" type="radio" id="tabtwo">
+        <label class="label" for="tabtwo">{{ include.second_tab }}</label>
+        <div class="panel" tabindex="1">
+            {{ include.second_content|markdownify }}
+        </div>
+    </div>
+</section>
