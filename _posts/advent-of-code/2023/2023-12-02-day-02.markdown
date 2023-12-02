@@ -7,10 +7,10 @@ categories: [ "post" ]
 description: "🎄 Advent of Code 2'023 - Day 02"
 ---
 
+## Day 02: Cube Conundrum
+
 {: class="marginalia" }
 \* Cf. [aoc. d. ii xxiii](https://adventofcode.com/2023/day/2)
-
-## Day 02: Cube Conundrum
 
 Today we're playing a game with cubes. The game consists of a series of rounds, and
 each line of the input represents a game. Each game has three rounds, and each round
