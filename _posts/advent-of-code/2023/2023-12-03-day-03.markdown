@@ -1,0 +1,316 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 03"
+author: Jefersson Nathan
+date: Mon Dec 03 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 03"
+---
+
+## Day 03: Gear Ratios
+
+{: class="marginalia" }
+\* Cf. [aoc. d. iii xxiii](https://adventofcode.com/2023/day/3)
+
+In today's problem we are given a map containing numbers and special chars; and or job
+is to find the all the numbers adjacent to a special character other than dot `.`. **diagonals
+are also valid**.
+
+My first thought was to create an array containing all the possible directions, because
+for sure we will need to use in the future.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+private:
+    static constexpr int P[8][2] = { {0,  1},
+                                     {1,  0},
+                                     {0,  -1},
+                                     {-1, 0},
+                                     {1,  1},
+                                     {-1, -1},
+                                     {-1, 1},
+                                     {1,  -1} };
+```
+
+{: class="marginalia" }
+\* Cf. Comment. art. praeced., parsing.
+
+And as we will have to find numeric chars in the input, I've decided to add a * `Utils::is_digit` method
+to check if a given char is a digit.
+
+{: class="marginalia" }
+α
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static bool is_digit(char c) {
+    return c >= '0' && c <= '9';
+}
+```
+
+---
+
+### Parsing The Input
+
+Our input looks like this:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..
+```
+
+{: class="marginalia" }
+β
+
+The only thing I'd like to do here is to add an extra `.` at the beginning and end of each line,
+so we don't need to add an extra check after processing all the data. 
+
+
+---
+
+### PARS I
+
+{: class="marginalia" }
+\* Cf. ibid. Comment. <br/>art. praeced.
+
+Just as yesterday I've started with a * simple template.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+public:
+    static int part1(vector<string> &engine_schematic) {
+        vector<long long> ans;
+
+        // The following line is passing the input
+        for (auto &L: engine_schematic) L = "." + L + ".";
+
+        return accumulate(ans.begin(), ans.end(), 0);
+    }
+```
+
+I could've parse the numbers first and then check for the special chars, but I've decided to
+do all at once. So while I'm iterating over the input, I'm storing the numbers and checking if
+it is next to a special char. For that I'm keeping track of the number with a `string number`
+and if there is a special char for that specific number I'll change the value of `valid` to `true`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+for (int i = 0; i < engine_schematic.size(); ++i) {
+    string number;
+    bool valid = false;
+ 
+    string line = engine_schematic[i];
+ 
+    for (int j = 0; j < line.size(); ++j) {
+        // ...
+    }
+}
+```
+
+Now let's go to the big brain 🧠 logic part.
+
+1. If the current char is a digit, we should add it to the `number` string.
+2. We should check if there is a special char anywhere around the current char. If there is,
+   we should change the `valid` flag to `true`.
+3. If the current char is not a digit, we should check if the `number` string is not empty and
+   if the `valid` flag is `true`. If both conditions are met, we should add the number to the
+   `ans` vector; we also should reset the `number` string and the `valid` flag.
+
+{: class="marginalia" }
+ɣ
+
+{: class="language-kotlin" theme="darcula" mode="c" from="12" to="36"}
+```cpp
+static int part1(vector<string> &engine_schematic) {
+    vector<long long> ans;
+
+    for (auto &L: engine_schematic) L = "." + L + ".";
+
+    for (int i = 0; i < engine_schematic.size(); ++i) {
+        string number;
+        bool valid = false;
+
+        string line = engine_schematic[i];
+
+        for (int j = 0; j < line.size(); ++j) {
+            if (Utils::is_digit(line[j])) {
+                number += line[j];
+
+                for (auto &k: P) {
+                    int x = i + k[0];
+                    int y = j + k[1];
+
+                    if (x < 0 || x >= engine_schematic.size()) continue;
+                    if (y < 0 || y >= line.size()) continue;
+
+                    if (!Utils::is_digit(engine_schematic[x][y])) {
+                        if (engine_schematic[x][y] != '.') valid = true;
+
+                        continue;
+                    }
+
+                }
+                continue;
+            }
+
+            if (!number.empty() && valid) ans.push_back(stol(number));
+            number = "";
+            valid = false;
+        }
+    }
+
+    return accumulate(ans.begin(), ans.end(), 0);
+}
+```    
+
+Ta-da! We just solved part one! We deserve our first star! 🌟
+
+---
+
+### PARS II
+
+For the second part we need to find the special char `*` and from there we need to find the
+number **adjacent** to it. After that we need to multiply them. At the end we should return
+the sum of all the multiplications.
+
+{: class="marginalia" }
+\* Cf. ibid. Comment. <br/>art. praeced.
+
+I've started with the same * basic layout as pars I, using the **padding** and the `ans` vector.
+
+My idea here is to register the beginning and end position of the numbers adjacent to the `*`, so
+that I don't have problems with the diagonals. Because the same number can be adjacent to the `*`
+in different directions.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+123...
+...*..
+..35..
+```
+    
+{: class="marginalia" }
+ð
+
+In the example above, the number `3` and `5` are adjacent to the `*`, but it is actually the same
+number. So I should only register it once. I've created a helper method `expand_bounds` that will
+expand for the left and right until it finds a non-digit char. With that I'll have the beginning
+and end position of the number. I'm also returning the number itself, because I'll need to multiply
+it later.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static tuple<int, int, int> expand_bounds(vector<string> &engine_schematic, int x, int y) {
+    string ans;
+    ans += engine_schematic[x][y];
+
+    int init = y;
+    int end = y;
+
+    int i = -1;
+    while (Utils::is_digit(engine_schematic[x][y + i]) && y + i >= 0) {
+        init = y + i;
+        ans = engine_schematic[x][y + i] + ans;
+        i--;
+    }
+
+    int k = 1;
+    while (Utils::is_digit(engine_schematic[x][y + k]) && y + k < engine_schematic[x].size()) {
+        end = y + k;
+        ans += engine_schematic[x][y + k];
+        k++;
+    }
+
+    return {init, end, stoi(ans)};
+}
+```
+
+{: class="marginalia" }
+ε
+
+To make sure I don't have duplicated numbers, I'm using a `set` to store it. At the end I'm multiplying
+all the numbers and adding to the `ans` vector which will be summed and returned at the end of the method.
+
+{: class="language-kotlin" theme="darcula" mode="c" from="10" to="37"}
+```cpp
+static int part2(vector<string> &engine_schematic) {
+    vector<long long> ans;
+
+    for (auto &L: engine_schematic) L = "." + L + ".";
+
+    for (int i = 0; i < engine_schematic.size(); ++i) {
+        string number;
+        string line = engine_schematic[i];
+
+        for (int j = 0; j < line.size(); ++j) {
+            if (line[j] == '*') {
+                set<tuple<int, int, int>> seen;
+
+                for (auto &k: P) {
+                    int x = i + k[0];
+                    int y = j + k[1];
+
+                    if (x < 0 || x >= engine_schematic.size()) continue;
+                    if (y < 0 || y >= line.size()) continue;
+
+                    if (Utils::is_digit(engine_schematic[x][y])) {
+                        tuple<int, int, int> r = expand_bounds(engine_schematic, x, y);
+                        seen.insert(r);
+                    }
+                }
+
+                if (seen.size() > 1) {
+                    int sum = 1;
+                    for (auto &r: seen) {
+                        sum *= get<2>(r);
+                    }
+
+                    ans.push_back(sum);
+                }
+                seen.clear();
+            }
+        }
+    }
+
+    return accumulate(ans.begin(), ans.end(), 0);
+}
+```
+
+Easy-peasy lemon squeezy! Make sure to collect your second celestial prize of the day! 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>
+        α) The <code>Utils</code> class was introduced in the previous day, in <b>Parsing The Input</b> section.
+    </p>
+
+    <p>β) That technique is called <b>padding</b>.</p>
+
+    <p>
+        ɣ) You can see that I didn't optmize this code for speed. That was a deliberate choice. One quick
+        way to improve the performance is to use a avoid aditional checks if valid is already true.
+    </p>
+
+    <p>
+        ð) This solution could be improved by using some sort of <b>memoization</b> technique. But I've decided
+        to keep it simple. The performance is still good enough, and the code is easy to read as it is.
+    </p>
+
+    <p>
+        ε) <code>unordered_set</code> is a better option here, and it is also faster. But I've decided to use
+        <code>set</code> because it is a more known data structure.
+    </p>
+</div>
