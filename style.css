@@ -878,6 +878,8 @@ body #content div > article .marginalia {
     margin: 0;
 }
 
+.footnotes p { margin-bottom: 7px; }
+
 /* lists */
 ol, ul { margin: .2em 0 1em 0; }
 ul { list-style: disc; }
