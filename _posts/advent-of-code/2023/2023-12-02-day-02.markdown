@@ -286,5 +286,5 @@ Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of
            number of cubes that could have been in the bag to make the game possible.
     </p>
 
-    <p>β) a `predicate` is a function that returns a boolean value.</p>
+    <p>β) a <b>predicate</b> is a function that returns a boolean value.</p>
 </div>
