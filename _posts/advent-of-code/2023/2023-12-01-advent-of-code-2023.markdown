@@ -10,8 +10,7 @@ description: "A new year, a new Advent(ure) of C(pp)ode 2'023"
 Finally! The moment we've all been waiting for! 🎉 The time has come to embark on a new adventure to save Christmas! 🎄
 
 Similar as previous years, we'll be using the [Advent of Code](https://adventofcode.com/2023){: class="external no-highlight"}
-challenges to practice our coding skills. This year, we'll be using C++ as our main language, but we'll also be using
-other languages to solve the challenges.
+challenges to practice our coding skills. This year, we'll be using C++ as our main language.
 
 [@fefas](https://blog.fefas.dev/){: class="external no-highlight"} and I will be blogging about our solutions, 
 and we'll cross-reference each other's posts. So keep an eye on both of our blogs! 🤓

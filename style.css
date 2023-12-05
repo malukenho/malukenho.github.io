@@ -670,8 +670,8 @@ a.home-page__product-card__link {
     margin-left: 16px;
 }
 [class*=wt-col] {
-    flex-basis: calc(9.9999%*3 - 16px*2);
-    max-width: calc(9.9999%*3 - 16px*2);
+    flex-basis: calc(100%/3 - 16px*2);
+    max-width: 100%;
     box-sizing: border-box;
 }
 
