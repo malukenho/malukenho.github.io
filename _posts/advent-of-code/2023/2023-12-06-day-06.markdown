@@ -1,0 +1,104 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 06"
+author: Jefersson Nathan
+date: Mon Dec 06 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 06"
+---
+
+## Day 06: Wait For It
+
+{: class="marginalia" }
+\* Cf. [aoc. d. vi xxiii](https://adventofcode.com/2023/day/6)
+
+Today's challenge was surprisingly easy in comparison to the previous ones.
+
+The problem involves participating in toy boat races with a fixed time limit.
+The goal is to maximize the distance traveled by adjusting the time the boat's button
+is held down at the start. The races have different durations and existing record distances.
+The challenge is to calculate the number of ways the boat can beat the record in each
+race and find the product of these values.
+
+We have a simple input that looks like this:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+Time:      7  15   30
+Distance:  9  40  200
+```
+
+The first line is the time limit of the race. The distance is the record distance for the
+above race.
+
+---
+
+### Parsing The Input
+
+{: class="marginalia" }
+\* `using int64 = long long`;
+
+We have very few numbers as the input, so we don't really need to do any parsing. I just added it to
+a `vector` of `int64` * and I'm good to go.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<long long> A = { {61, 67, 75, 71}, {430, 1036, 1307, 1150} };
+```
+
+---
+
+### PARS I
+
+The only thing we need to figure out is the math behind the problem. If you spend `n` seconds
+holding the button down, the boat will travel `n * (time - n)` distance. If this value is greater
+than the record distance, the boat will beat the record. We just need to find the number of ways
+to do this.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int64 solve(const vector<int64> &times, const vector<int64> &distance) {
+    vector<int64> A;
+    for (int i = 0; i < times.size(); ++i) {
+        int64 ans = 0;
+        int64 n = 1;
+        while (n < times[i]) {
+            if ((n * (times[i] - n)) > distance[i]) ans++;
+            n++;
+        }
+        A.push_back(ans);
+    }
+
+    int64 ans = 1;
+    for (const int64 &i: A) ans *= i;
+
+    return ans;
+}
+ ```
+
+Here is a gift: 🌟
+
+---
+
+### PARS II
+
+Surprisingly, part two can be solved using the same code as part one. We just need to change
+the input. I've encapsulated the previous logic in the `solve` function, so I just need to
+call it with the new input.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+public:
+    static int64 part1() {
+        return solve({61, 67, 75, 71}, {430, 1036, 1307, 1150});
+    }
+
+    static int64 part2() {
+        return solve({61677571ll}, {430103613071150ll});
+    }
+```
+
+ We got them 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
