@@ -1,0 +1,202 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 04"
+author: Jefersson Nathan
+date: Mon Dec 04 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 04"
+---
+
+## Day 04: Scratchcards
+
+{: class="marginalia" }
+\* Cf. [aoc. d. iv xxiii](https://adventofcode.com/2023/day/4)
+
+Look at how far we've come! We're already at the fourth day of the challenge 🎉
+
+Today's challenge is about scratchcards. We have a list of scratchcards
+and we need to find the sum of the prizes of the winning scratchcards.
+Lot of fun, right?
+
+---
+
+### Parsing The Input
+
+Our input looks like this:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
+Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
+Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
+Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
+Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
+Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
+```
+
+{: class="marginalia" }
+α
+
+The first part of the input after the `Card <n>:` is the winning numbers,
+and the second part is the scratchcard numbers. Let's get both of them.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+string winning_numbers = scratchcard.substr(
+   scratchcard.find(':') + 2,
+   scratchcard.find('|') - 2 - scratchcard.find(':')
+);
+
+string scratchcard_numbers = scratchcard.substr(scratchcard.find('|') + 1);
+```
+
+You can see that I'm ignoring the Game ID, because we don't need it.
+We can simply use the `index + 1` of the scratchcard to identify it.
+
+As we now we need to get the intersection between the winning numbers and the scratchcard numbers,
+I've decided to use a `set` to store both of them. The `set` will automatically remove the duplicates
+and sort the numbers for us.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+set<int> S = Utils::parse_numbers(winning_numbers);
+set<int> T = Utils::parse_numbers(scratchcard_numbers);
+````
+
+You can see that I've introduced a `Utils::parse_numbers` method. This method is responsible for
+parsing the numbers from the string and adding them to a `set`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static std::set<int> parse_numbers(std::string text) {
+    std::set<int> S;
+
+    text += ' ';
+    std::string n;
+    for (char &c: text) {
+        if (c == ' ') {
+            if (!n.empty()) S.insert(stoi(n));
+            n = "";
+            continue;
+        }
+        n += c;
+    }
+    return S;
+}
+```
+
+I know that if we do the intersection between the two sets, we will go
+further than just parsing. But let's do it.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+set<int> intersect;
+set_intersection(S.begin(), S.end(), T.begin(), T.end(),
+             inserter(intersect, intersect.begin()));
+
+return intersect;
+```
+
+At the end, our code looks as follows:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+private:
+    static set<int> intersection(const string &scratchcard) {
+        string winning_numbers = scratchcard.substr(scratchcard.find(':') + 2,
+                                                    scratchcard.find('|') - 2 - scratchcard.find(':'));
+
+        string scratchcard_numbers = scratchcard.substr(scratchcard.find('|') + 1);
+
+        set<int> S = Utils::parse_numbers(winning_numbers);
+        set<int> T = Utils::parse_numbers(scratchcard_numbers);
+
+        set<int> intersect;
+        set_intersection(S.begin(), S.end(), T.begin(), T.end(),
+                         inserter(intersect, intersect.begin()));
+
+        return intersect;
+    }
+```
+
+---
+
+### PARS I
+
+{: class="marginalia" }
+\* Cf. ibid. Comment. <br/>art. praeced.
+
+Now that the heavy work is done, we can solve the actual problem.
+
+For each scratchcard, we need to find the intersection between the
+winning numbers and the scratchcard numbers. If the intersection is
+empty, we should skip to the next scratchcard. If the intersection
+is not empty, we should calculate `2 ^ n`, where `n` is the size of
+the intersection. At the end we should sum all the results.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int part1(vector<string> &scratchcards) {
+  vector<int> ans;
+
+  for (string &scratchcard: scratchcards) {
+      set<int> intersect = intersection(scratchcard);
+
+      unsigned long size = intersect.size();
+
+      if (size <= 0) continue;
+      int calc = 1;
+      while (--size) { calc *= 2; }
+      ans.push_back(calc);
+  }
+
+  return accumulate(ans.begin(), ans.end(), 0);
+}
+```
+
+Look what I've found here laying at the floor: 🌟
+
+---
+
+### PARS II
+
+The only difference between part one and part two is that we need to adjust
+the calculation. Instead of calculating `2 ^ n`, we need to increment the
+number of cards after the one we are processing. For example, if we are
+processing the first card, and we had 3 intersections, we gained a copy of
+the cards 2, 3 and 4. That means that we have to process this cards twice.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int part2(vector<string> &scratchcards) {
+    vector<int> ans;
+    map<int, int> M;
+
+    M[0] = 0;
+    for (int i = 0; i < scratchcards.size(); ++i) {
+        set<int> intersect = intersection(scratchcards[i]);
+
+        for (auto j = 0; j < intersect.size(); ++j) {
+            M[i + j + 1] += M[i] + 1;
+        }
+
+        ans.push_back(M[i] + 1);
+    }
+
+    return accumulate(ans.begin(), ans.end(), 0);
+}
+```
+
+That is as easy as it gets 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>
+        α) The game number is not important for the solution, so we can ignore it. Even if it
+        was important, we could use the `key + 1` in a for loop to get it back.
+    </p>
+</div>
