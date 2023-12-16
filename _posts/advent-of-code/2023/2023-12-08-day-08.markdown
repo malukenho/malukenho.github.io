@@ -1,0 +1,148 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 08"
+author: Jefersson Nathan
+date: Mon Dec 08 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 08"
+---
+
+## Day 08: Wait For It
+
+{: class="marginalia" }
+\* Cf. [aoc. d. viii xxiii](https://adventofcode.com/2023/day/8)
+
+**Abridged Problem Description**: Given a graph, we need to apply a series of
+operations to it, until we end up in a certain required position.
+
+---
+
+### Parsing The Input
+
+I've decided to use a `map<string, pair<string, string>>` to store the graph. The key
+is the node's name, `p.first` represents the left node and `p.second` represents the
+right node.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+map<string, pair<string, string>> M;
+```
+
+To populate the map, we just need to parse the input. The input looks like this:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+for (int i = 2; i < lines.size(); ++i) {
+    string key = lines[i].substr(0, 3);
+
+    M[key] = {lines[i].substr(7, 3), lines[i].substr(12, 3)};
+}
+```
+
+**Bene Nota**: I'm ignoring the first line because that is our instructions.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+string instructions = lines[0];
+```
+
+---
+
+### PARS I
+
+The first part of the challenge can be solved in a very straightforward way. We just need to
+apply the whole operation until we end up on `ZZZ`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int64 ans = 0;
+
+const string NEEDLE = "ZZZ";
+string haystack = "AAA";
+
+while (haystack != NEEDLE) {
+    for (const char &c: instructions) {
+        if (c == 'R') haystack = M[haystack].second;
+        else haystack = M[haystack].first;
+        ans++;
+    }
+
+    if (haystack == NEEDLE) break;
+}
+ ```
+
+That was an easy star 🌟
+
+---
+
+### PARS II
+
+**Abridged Problem Description**: We should find the number of steps required to
+make sure every node `**A` ends up in the `**Z` position simultaneously.
+
+As you might have guessed, the second part of the challenge is a bit more tricky. The same
+algorithm won't work here, because it would take too long to finish. We need to find a way
+to optimize it.
+
+First, let's make sure to find all nodes that follow the `**A` pattern. We could do it while
+we're parsing the input. I've decided to store them in a `vector<string> ans`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+string instructions = lines[0];
+
+map<string, pair<string, string>> M;
+
+vector<string> ans;
+for (int i = 2; i < lines.size(); ++i) {
+    string key = lines[i].substr(0, 3);
+
+    if (key[2] == 'A') ans.push_back(key);
+    M[key] = {lines[i].substr(7, 3), lines[i].substr(12, 3)};
+}
+```
+
+With that in place, we should calculate the cycles for each of these nodes.
+
+{: class="marginalia" }
+\* `using int64 = long long`;
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<int64> step_counts;
+
+for (const auto &k: ans) {
+    string current = k;
+    while (true) {
+        for (const char &c: instructions) {
+            if (c == 'R') current = M[current].second;
+            else current = M[current].first;
+            steps++;
+        }
+
+        if (current.ends_with('Z')) {
+            step_counts.push_back(steps);
+            steps = 0;
+            break;
+        }
+    }
+}
+```
+
+Now we just need to find the least common multiple of all these cycles. I've used the
+`gcd` function to help with the calculation.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int64 lcm = step_counts[0];
+for (int i = 1; i < step_counts.size(); ++i) {
+    lcm = lcm * step_counts[i] / gcd(lcm, step_counts[i]);
+}
+
+return lcm;
+```
+
+ Awesome 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
