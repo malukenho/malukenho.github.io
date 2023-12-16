@@ -7,13 +7,15 @@ categories: [ "post" ]
 description: "🎄 Advent of Code 2'023 - Day 08"
 ---
 
-## Day 08: Wait For It
+## Day 08: Haunted Wasteland
 
 {: class="marginalia" }
 \* Cf. [aoc. d. viii xxiii](https://adventofcode.com/2023/day/8)
 
-**Abridged Problem Description**: Given a graph, we need to apply a series of
-operations to it, until we end up in a certain required position.
+**Abridged Problem Description**: Picture yourself lost in a haunted wasteland, with
+only a map of cryptic instructions and a tangled network of nodes to guide you. Your
+ultimate goal? To escape this spooky realm by reaching the node labeled `ZZZ`, starting
+from the ominous `AAA`.
 
 ---
 
@@ -50,8 +52,9 @@ string instructions = lines[0];
 
 ### PARS I
 
-The first part of the challenge can be solved in a very straightforward way. We just need to
-apply the whole operation until we end up on `ZZZ`.
+The first part of this challenge is straightforward – we just need to keep following the 
+instructions until we reach `ZZZ`. It's like being trapped in a labyrinth where you only
+have one direction to go – forward.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
 ```cpp
@@ -77,12 +80,12 @@ That was an easy star 🌟
 
 ### PARS II
 
-**Abridged Problem Description**: We should find the number of steps required to
-make sure every node `**A` ends up in the `**Z` position simultaneously.
+**Abridged Problem Description**: Now, for the real challenge – We should find the number of
+steps required to make sure every node `**A` ends up in the `**Z` position simultaneously.
 
-As you might have guessed, the second part of the challenge is a bit more tricky. The same
-algorithm won't work here, because it would take too long to finish. We need to find a way
-to optimize it.
+Part two is where things get spooky. As you might have guessed, the second part of the challenge
+is a bit more tricky. The same algorithm won't work here, because it would take too long to finish.
+We need to find a way to optimize it.
 
 First, let's make sure to find all nodes that follow the `**A` pattern. We could do it while
 we're parsing the input. I've decided to store them in a `vector<string> ans`.
@@ -142,7 +145,7 @@ for (int i = 1; i < step_counts.size(); ++i) {
 return lcm;
 ```
 
- Awesome 🌟🌟
+Awesome! We solved the spooky puzzle! 🌟🌟
 
 {% include micro.html content="
 Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
