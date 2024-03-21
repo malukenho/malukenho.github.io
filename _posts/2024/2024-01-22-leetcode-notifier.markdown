@@ -1,6 +1,6 @@
 ---
 layout: post
-title: <embed type="image/svg+xml" src="/imgs/bird_color.svg" /> Leetcode daily challenge slack notifier
+title: 🦩 Leetcode daily challenge slack notifier
 author: Jefersson Nathan
 date: Mon Jan 21 14:21:54 CEST 2024
 categories: [ "post" ]
