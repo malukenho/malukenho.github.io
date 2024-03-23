@@ -18,12 +18,32 @@
   description: Scratchcards
   href: /post/2023/12/04/day-04.html
 
+- name: Day 05
+  icon: ⚙️
+  description: Work in progress
+  href: #
+
 - name: Day 06 ⭐️⭐️
   icon: 💫
   description: Wait For It
   href: /post/2023/12/06/day-06.html
 
+- name: Day 07
+  icon: ⚙️
+  description: Work in progress
+  href: #
+
 - name: Day 08 ⭐️⭐️
   icon: 👻
   description: Haunted Wasteland
   href: /post/2023/12/08/day-08.html
+
+- name: Day 09 ⭐️⭐️
+  icon: 🏜️
+  description: Mirage Maintenance
+  href: /post/2023/12/09/day-09.html
+
+- name: Day 10 ⭐️⭐️
+  icon: 🤶
+  description: Pipe Maze
+  href: /post/2023/12/10/day-10.html
