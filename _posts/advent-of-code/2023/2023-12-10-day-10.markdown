@@ -1,0 +1,410 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 10"
+author: Jefersson Nathan
+date: Mon Dec 10 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 10"
+---
+
+## Day 10: Pipe Maze
+
+{: class="marginalia" }
+\* Cf. [aoc. d. x xxiii](https://adventofcode.com/2023/day/10)
+
+**Abridged Problem Description**: We need to find the loop in a maze starting from a location `S`. 
+
+---
+
+{: class="marginalia" }
+α
+
+### Parsing The Input
+
+{: class="marginalia" }
+\* Usually, when dealing with mazes, we can apply `DFS`, `BFS`, `Dynamic Programming`, `Dijkstra`, `A*`, or similar.
+
+Today's problem is a <b>*</b> maze problem! So, out of the box, we know that we need to 
+use a graph to solve it. We can use an `vector<vector<char>> map_sketch` to 
+represent our maze. We will consider our edges to be our neighboring columns
+and rows.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<vector<char>> map_sketch;
+
+string input;
+while (getline(cin, input)) {
+    vector<char> chars;
+    for (auto &c: input) chars.push_back(c);
+    map_sketch.push_back(chars);
+}
+```
+
+---
+
+### PARS I
+
+Before we start solving the problem, we need to find the starting point of the maze.
+I'm using a `tuple` to represent the initial position of the maze. The tuple will
+have the following structure: `(x, y, distance)`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+tuple<int, int, int> initial_position = {0, 0, 0};
+for (int i = 0; i < map_sketch.size(); ++i)
+    for (int j = 0; j < map_sketch[i].size(); ++j)
+        if (map_sketch[i][j] == 'S') {
+            initial_position = {i, j, 0};
+            break;
+        }
+```
+
+### Moving Through The Maze
+
+We're provided with a set of movements we are allowed to do based on the character
+we find in the maze. We can represent these movements in a `map<char, vector<vector<int>>> moves`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+map<char, vector<vector<int>>> moves;
+    moves['|'] = { {1, 0}, {-1, 0} };
+    moves['-'] = { {0, 1}, {0, -1} };
+    moves['L'] = { {-1, 0}, {0, 1} };
+
+    moves['J'] = { {-1, 0}, {0, -1} };
+    moves['7'] = { {1, 0}, {0, -1} };
+    moves['F'] = { {-1, 0}, {0, 1}, {1, 0} };
+    moves['.'] = {};
+    moves['S'] = { {1, 0}, {0, 1}, {-1, 0}, {0, 1} };
+```
+
+### Solving The Maze
+
+After we have the initial position and the movements, and we figured out how to move
+through the maze, it is just a matter of implementing some of the knows Algorithms
+to solve the problem. In this case, we are going to use a `stack` to keep track of
+the positions we want to visite next, and a `set` to keep track of the visited
+positions. At this point you already know that we are going to use a `DFS` here.
+
+The key element here is that I'm incrementing the distance by `1` every time I move
+further in the maze.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+stack<tuple<int, int, int>> S;
+set<pair<int, int>> visited;
+
+S.push(initial_position);
+visited.insert({get<0>(initial_position), get<1>(initial_position)});
+
+while (!S.empty()) {
+    auto [x, y, dist] = S.top(); S.pop();
+
+    if (map_sketch[x][y] == 'S' && dist > 1) {
+        cout << "Found 'S' after " << dist << " steps." << endl;
+        break;
+    }
+
+    for (vector<int> adj_pos: moves[map_sketch[x][y]]) {
+        if (x + adj_pos[0] >= 0 && y + adj_pos[1] >= 0
+            && x + adj_pos[0] < map_sketch[0].size() 
+            && y + adj_pos[1] < map_sketch.size()
+            && (map_sketch[x + adj_pos[0]][y + adj_pos[1]] == 'S' && dist > 1) || !visited.contains({x + adj_pos[0], y + adj_pos[1]})) {
+            S.push({x + adj_pos[0], y + adj_pos[1], dist + 1});
+        }
+    }
+
+    visited.insert({x, y});
+}
+```
+
+**Bene Nota**: We've found the steps to reach the loop in the maze! But the problem 
+requires us to find the most distant point from the starting point. In this case, 
+we just need to divide the answer by `2` to get the correct result.
+
+First star of the day! ⭐
+
+---
+
+### PARS II
+
+{: class="marginalia" }
+β
+
+Now things are getting interesting. The next challenge is to find the number of
+tiles closed by the loop in the maze. I can tell you that I spent a lot of time
+trying to figure out how to solve this problem. But here is how I did it.
+
+### Enlarging The Maze
+
+I've come up with a map for enlarging the maze to tree time as big as the original one.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+map<char, string> expander = {
+    {'|', " | "},
+    {'F', " F-"},
+    {'L', " L-"},
+    {'J', "-J "},
+    {'7', "-7 "},
+    {'-', "---"},
+    {'.', " . "},
+    {'S', "-S-"}
+};
+```
+
+Using this map, I can enlarge the maze by three times its size. The other very important
+thing we're doing here is to make sure we have a border around the maze. This is important
+because we want to avoid having edge cases to find unreachable tiles.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<vector<char>> sketch;
+vector<vector<char>> enlarged_sketch;
+
+string input;
+while (getline(cin, input)) {
+    vector<char> chars;
+    chars.push_back('.');
+    for (auto &c: input)
+        for (auto &e: expander[c])
+            chars.push_back(e);
+    chars.push_back('.');
+    sketch.push_back(chars);
+}
+
+// Add top border
+vector<char> line;
+for (auto c: sketch[0]) line.push_back('.');
+enlarged_sketch.push_back(line);
+
+for (int i = 0; i < sketch.size(); ++i) {
+    vector<char> down;
+    for (int j = 0; j < sketch[i].size(); ++j) {
+        switch (sketch[i][j]) {
+            case '|': case 'F': case '7': case 'S':
+                down.push_back('[');
+                break;
+            case ' ': case '.': case '-': case 'J': case 'L':
+                down.push_back(' ');
+                break;
+        }
+    }
+    enlarged_sketch.push_back(sketch[i]);
+    enlarged_sketch.push_back(down);
+}
+
+// Add bottom border
+enlarged_sketch.push_back(line);
+```
+
+If you look closely, you'll notice that I've added this weird character `[` to the
+maze. This is important to keep track of what we artificially added to the maze. Let's
+not forget to add this new character to our `moves` map.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+moves['['] = { {1, 0}, {-1, 0} };
+```
+
+For the dfs, I want to change the pipes characters, so that we have a wall represented. For
+that I'll use the `#` symbol.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+stack<tuple<int, int, int>> S;
+set<pair<int, int>> visited;
+
+S.push(initial_position);
+visited.insert({get<0>(initial_position), get<1>(initial_position)});
+
+while (!S.empty()) {
+    auto [x, y, dist] = S.top();
+    S.pop();
+
+    if (enlarged_sketch[x][y] == 'S' && dist > 1) break;
+
+    for (vector<int> adj_pos: moves[enlarged_sketch[x][y]]) {
+        if (x + adj_pos[0] >= 0 && y + adj_pos[1] >= 0
+            && x + adj_pos[0] < enlarged_sketch.size() 
+            && y + adj_pos[1] < enlarged_sketch[0].size()
+            && (enlarged_sketch[x + adj_pos[0]][y + adj_pos[1]] == 'S' && dist > 1) || !visited.contains({x + adj_pos[0], y + adj_pos[1]})) {
+            
+            S.push({x + adj_pos[0], y + adj_pos[1], dist + 1});
+
+            if (enlarged_sketch[x][y] != 'S' && enlarged_sketch[x][y] != ' ' && enlarged_sketch[x][y] != '.') {
+                enlarged_sketch[x][y] = '#';
+            }
+        }
+    }
+
+    visited.insert({x, y});
+}
+```
+
+We should also remember to change the initial `S` to a `#` symbol.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+enlarged_sketch[get<0>(initial_position)][get<1>(initial_position)] = '#';
+```
+
+If we try to count our symbols now, we are going to have an error. We need to make sure
+we do not count the `[` symbols we added to the maze.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+for (int i = 0; i < enlarged_sketch.size(); ++i) {
+    for (int j = 0; j < enlarged_sketch[i].size(); ++j) {
+        if (enlarged_sketch[i][j] == '[')
+            enlarged_sketch[i][j] = ' ';
+    }
+}
+```
+
+Our maze is almost ready to be counted. But we need to shrink some chars to its original size.
+So we don't count the artificial chars we added to the maze.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+for (int i = 0; i < enlarged_sketch.size(); ++i)
+{
+    for (int j = 0; j < enlarged_sketch[0].size(); ++j)
+    {
+        if (enlarged_sketch[i][j] == ' ') {
+            if (enlarged_sketch[i][j+1] == 'F' && enlarged_sketch[i][j+2] == '-') {
+                enlarged_sketch[i][j+2] = ' ';
+            } else if (enlarged_sketch[i][j+1] == 'L' && enlarged_sketch[i][j+2] == '-') {
+                enlarged_sketch[i][j+2] = ' ';
+            }
+        } else if (enlarged_sketch[i][j] == '-') {
+            if (enlarged_sketch[i][j+1] == '7' && enlarged_sketch[i][j+2] == ' ') {
+                enlarged_sketch[i][j] = ' ';
+            }
+            else if (enlarged_sketch[i][j+1] == 'J' && enlarged_sketch[i][j+2] == ' ') {
+                enlarged_sketch[i][j] = ' ';
+            }
+            else if (enlarged_sketch[i][j+1] == '-' && enlarged_sketch[i][j+2] == '-') {
+                enlarged_sketch[i][j] = ' ';
+                enlarged_sketch[i][j+2] = ' ';
+            }
+        }
+    }
+}
+```
+
+Let's convert the remaining chars to `.` so we can simplify the counting.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+for (int i = 0; i < enlarged_sketch.size(); ++i)
+{
+    for (int j = 0; j < enlarged_sketch[0].size(); ++j)
+    {
+        if (enlarged_sketch[i][j] != ' ' && enlarged_sketch[i][j] != '#' && enlarged_sketch[i][j] != '.') {
+            enlarged_sketch[i][j] = '.';
+        }
+    }
+}
+```
+
+### Flood Fill
+
+Now we can count the number of tiles closed by the loop in the maze.
+We can use a `flood fill` algorithm to do that. It is quite similar to the `DFS` we used
+before. I think you'll be able to digest this code at once.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+void flood_fill(vector<vector<char>>& map_sketch) {
+	set<pair<int, int>> visited;
+	stack<pair<int, int>> S;
+
+	S.push({0, 0});
+	visited.insert({0, 0});
+
+	vector<pair<int, int>> pos = {
+		{-1, 0},
+		{1, 0},
+		{0, 1},
+		{0, -1}
+	};
+
+	while (!S.empty()) {
+		auto [x, y] = S.top(); S.pop();
+		
+		if (map_sketch[x][y] != '.' && map_sketch[x][y] != ' ') continue;
+
+		map_sketch[x][y] = ' ';
+		
+		for (auto [pos_x, pos_y]: pos) {
+			if (x+pos_x < 0 || x+pos_x >= map_sketch.size()) continue;
+			if (y+pos_y < 0 || y+pos_y >= map_sketch[0].size()) continue;
+			if (!visited.contains({x+pos_x, y+pos_y}) && (map_sketch[x+pos_x][y+pos_y] == ' ' || map_sketch[x+pos_x][y+pos_y] == '.')) {
+				S.push({x+pos_x, y+pos_y});
+			}
+		}
+		visited.insert({x, y});	
+	}
+}
+```
+
+Let's apply it to our map.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+flood_fill(enlarged_sketch);
+```
+
+Now we can count the number of tiles closed by the loop in the maze.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int count = 0;
+for (auto &rows: enlarged_sketch)
+    for (char &c: rows)
+        if (c == '.') count++;
+        
+cout << "Number of tiles closed by the loop: " << count << endl;
+```
+
+Finally, we've solved the second part of the problem! ⭐⭐️️
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>α) You can see that I'm not using the previous utility class, that is because I'm using a more
+          <b>competitive programming</b> approach from now on. Keep in mind that I'm constantly exprimenting
+            with different ways of working and solving problems. This blog is also my playground.
+</p>
+
+    <p>
+        β) I know that the solution I'm proposing here is quite hacky, and there is better ways
+           of solving it. But given the way I solved the first part, that was the fast way I could
+            think of to reuse as much as code I wrote for the first part.
+    </p>
+
+    <p>
+        I've also mentioned <b>dfs</b>, <b>bfs</b>, <b>dynamic programming</b>, <b>dijkstra</b>, and <b>a*</b>
+        before as possible more elegant solutions.
+    </p>
+
+    <!--p>
+        ɣ) You can see that I didn't optmize this code for speed. That was a deliberate choice. One quick
+        way to improve the performance is to use a avoid aditional checks if valid is already true.
+    </p>
+
+    <p>
+        ð) This solution could be improved by using some sort of <b>memoization</b> technique. But I've decided
+        to keep it simple. The performance is still good enough, and the code is easy to read as it is.
+    </p>
+
+    <p>
+        ε) <code>unordered_set</code> is a better option here, and it is also faster. But I've decided to use
+        <code>set</code> because it is a more known data structure.
+    </p-->
+</div>
