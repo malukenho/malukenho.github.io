@@ -134,11 +134,63 @@ First star of the day! ⭐
 
 Now things are getting interesting. The next challenge is to find the number of
 tiles closed by the loop in the maze. I can tell you that I spent a lot of time
-trying to figure out how to solve this problem. But here is how I did it.
+trying to figure out how to solve this problem, and here is how I did it.
+
+### 🗺️ Planing
+
+The main point of my solution is to zoom in the maze. So the free passages could be
+easier to spot. Let's say our initial maze is like this:
+
+```
+..........
+.S------7.
+.|F----7|.
+.||....||.
+.||....||.
+.|L-7F-J|.
+.|..||..|.
+.L--JL--J.
+..........
+```
+
+Enlarged, it will look something like this:
+
+```
+................................
+. .  .  .  .  .  .  .  .  .  . .
+                                
+. . -S--------------------7  . .
+     [                    [     
+. .  |  F--------------7  |  . .
+     [  [              [  [     
+. .  |  |  .  .  .  .  |  |  . .
+     [  [              [  [     
+. .  |  |  .  .  .  .  |  |  . .
+     [  [              [  [     
+. .  |  L-----7  F-----J  |  . .
+     [        [  [        [     
+. .  |  .  .  |  |  .  .  |  . .
+     [        [  [        [     
+. .  L--------J  L--------J  . .
+                                
+. .  .  .  .  .  .  .  .  .  . .
+                                
+................................
+```
+
+You can clearly see some new characters in the maze. These are virtual characters that
+were added by us to make the maze easier to solve. Thus, they should not be counted
+as part of the end result.
+
+The char `[` will be used to represent new pipes tiles. They work exactly as the `|` but
+it is easy to identify them and remove or ignore them later on. The same goes to the empty
+spaces, but they represent the `.`.
 
 ### Enlarging The Maze
 
-I've come up with a map for enlarging the maze to tree time as big as the original one.
+In order to enlarge the maze, we need to create a map that will help us to do that. In
+my map, I'm replacing a single character by three. Be careful to not add more `.` them
+what we already have in the maze, because we need to count it later on.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
 ```cpp
@@ -199,16 +251,14 @@ for (int i = 0; i < sketch.size(); ++i) {
 enlarged_sketch.push_back(line);
 ```
 
-If you look closely, you'll notice that I've added this weird character `[` to the
-maze. This is important to keep track of what we artificially added to the maze. Let's
-not forget to add this new character to our `moves` map.
+Do not forget to register `[` as a valid movement as well.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
 ```cpp
 moves['['] = { {1, 0}, {-1, 0} };
 ```
 
-For the dfs, I want to change the pipes characters, so that we have a wall represented. For
+For the DFS, I want to change the pipes characters, so that we have a wall represented. For
 that I'll use the `#` symbol.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
@@ -234,6 +284,7 @@ while (!S.empty()) {
             S.push({x + adj_pos[0], y + adj_pos[1], dist + 1});
 
             if (enlarged_sketch[x][y] != 'S' && enlarged_sketch[x][y] != ' ' && enlarged_sketch[x][y] != '.') {
+                // Change the pipe to a wall
                 enlarged_sketch[x][y] = '#';
             }
         }
@@ -264,7 +315,7 @@ for (int i = 0; i < enlarged_sketch.size(); ++i) {
 ```
 
 Our maze is almost ready to be counted. But we need to shrink some chars to its original size.
-So we don't count the artificial chars we added to the maze.
+So we don't count the virtual chars we added to the maze.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
 ```cpp
@@ -392,19 +443,4 @@ Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of
         I've also mentioned <b>dfs</b>, <b>bfs</b>, <b>dynamic programming</b>, <b>dijkstra</b>, and <b>a*</b>
         before as possible more elegant solutions.
     </p>
-
-    <!--p>
-        ɣ) You can see that I didn't optmize this code for speed. That was a deliberate choice. One quick
-        way to improve the performance is to use a avoid aditional checks if valid is already true.
-    </p>
-
-    <p>
-        ð) This solution could be improved by using some sort of <b>memoization</b> technique. But I've decided
-        to keep it simple. The performance is still good enough, and the code is easy to read as it is.
-    </p>
-
-    <p>
-        ε) <code>unordered_set</code> is a better option here, and it is also faster. But I've decided to use
-        <code>set</code> because it is a more known data structure.
-    </p-->
 </div>
