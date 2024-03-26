@@ -294,6 +294,31 @@ while (!S.empty()) {
 }
 ```
 
+The result should be:
+
+```
+................................
+. .  .  .  .  .  .  .  .  .  . .
+                                
+. . #S#####################  . .
+     #                    #     
+. .  #  ################  #  . .
+     #  #              #  #     
+. .  #  #  .  .  .  .  #  #  . .
+     #  #              #  #     
+. .  #  #  .  .  .  .  #  #  . .
+     #  #              #  #     
+. .  #  #######  #######  #  . .
+     #        #  #        #     
+. .  #  .  .  #  #  .  .  #  . .
+     #        #  #        #     
+. .  ##########  ##########  . .
+                                
+. .  .  .  .  .  .  .  .  .  . .
+                                
+................................
+```
+
 We should also remember to change the initial `S` to a `#` symbol.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
@@ -301,8 +326,35 @@ We should also remember to change the initial `S` to a `#` symbol.
 enlarged_sketch[get<0>(initial_position)][get<1>(initial_position)] = '#';
 ```
 
-If we try to count our symbols now, we are going to have an error. We need to make sure
-we do not count the `[` symbols we added to the maze.
+It is also possible that after this step we have some unused pipes in the maze. We need to
+remove them, otherwise the counting will be difficult. Take a loop at the example
+
+```
+..............................................................
+. F- ####  ###S- ####  ####  ####  ####  ####  ############# .
+[  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #           #  
+. L- #  ####  #  #  #  #  #  #  #  #  #  #  #  #  ########## .
+#        #  #  #  #  #  #  #  #  #  #  #  #  #           
+. F- #######  ####  ####  #  #  #  #  #  #  ####  ####### -7 .
+[        #              #  #  #  #  #  #              #  [  
+. ##########  ##########  #  #  ####  #### -7  ####  #### ---.
+#           #        #  #  #              [  #  #  #        
+. #############  #######  ####  .  |  | --- ####  #### -J -7 .
+#                 [  [     #              [
+. |  F- |  #######  #############  F--7 --- ####  L- | -7  | .
+[  [  [  #        #           #  [  [        #     [  [  [  
+. |  F- ####  ####  ####  #######  ####  | -J  ############# .
+[  [  #     #  #     #  #        #  #  [                 #  
+.-7 --- #######  ####  #  #  ####  #  ####  #######  ####  # .
+[                 #  #  #  #  #  #     #  #     #  #  #  #  
+. L- .  L--7  L- ####  #  #  #  #  #  ####  ####  #  #  #### .
+[     #     #  #  #  #  #  #        #  #  #        
+. L--7 -J  L--J  #######  ####  ####  ##########  ####  .  L-.
+[                                                        
+..............................................................
+```
+
+We need to make sure we do not count the `[` symbols we added to the maze.
 
 {: class="language-kotlin" theme="darcula" mode="c"}
 ```cpp
