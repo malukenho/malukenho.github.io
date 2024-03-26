@@ -141,7 +141,7 @@ trying to figure out how to solve this problem, and here is how I did it.
 The main point of my solution is to zoom in the maze. So the free passages could be
 easier to spot. Let's say our initial maze is like this:
 
-```
+<pre>
 ..........
 .S------7.
 .|F----7|.
@@ -151,11 +151,11 @@ easier to spot. Let's say our initial maze is like this:
 .|..||..|.
 .L--JL--J.
 ..........
-```
+</pre>
 
 Enlarged, it will look something like this:
 
-```
+<pre>
 ................................
 . .  .  .  .  .  .  .  .  .  . .
                                 
@@ -176,7 +176,7 @@ Enlarged, it will look something like this:
 . .  .  .  .  .  .  .  .  .  . .
                                 
 ................................
-```
+</pre>
 
 You can clearly see some new characters in the maze. These are virtual characters that
 were added by us to make the maze easier to solve. Thus, they should not be counted
@@ -296,7 +296,7 @@ while (!S.empty()) {
 
 The result should be:
 
-```
+<pre>
 ................................
 . .  .  .  .  .  .  .  .  .  . .
                                 
@@ -317,7 +317,7 @@ The result should be:
 . .  .  .  .  .  .  .  .  .  . .
                                 
 ................................
-```
+</pre>
 
 We should also remember to change the initial `S` to a `#` symbol.
 
@@ -329,7 +329,7 @@ enlarged_sketch[get<0>(initial_position)][get<1>(initial_position)] = '#';
 It is also possible that after this step we have some unused pipes in the maze. We need to
 remove them, otherwise the counting will be difficult. Take a loop at the example
 
-```
+<pre>
 ..............................................................
 . F- ####  ###S- ####  ####  ####  ####  ####  ############# .
 [  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #           #  
@@ -352,7 +352,7 @@ remove them, otherwise the counting will be difficult. Take a loop at the exampl
 . L--7 -J  L--J  #######  ####  ####  ##########  ####  .  L-.
 [                                                        
 ..............................................................
-```
+</pre>
 
 We need to make sure we do not count the `[` symbols we added to the maze.
 
