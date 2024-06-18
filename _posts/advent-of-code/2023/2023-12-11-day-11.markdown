@@ -1,0 +1,226 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 11"
+author: Jefersson Nathan
+date: Tue Dec 11 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 11"
+---
+
+## Day 11: Cosmic Expansion
+
+{: class="marginalia" }
+\* Cf. [aoc. d. xi xxiii](https://adventofcode.com/2023/day/11)
+
+**Abridged Problem Description**: return the sum of all shortest paths from every galaxy to every other galaxy. 
+
+---
+
+### Parsing The Input
+
+We have here another graph problem. The graph represents the universe where `.`
+convey empty spaces and `#` represents galaxies.
+
+I didn't took any special measure to parse the input other than breaking it up in
+lines.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+string line;
+vector<string> grid;
+while (cin >> line) {
+    grid.push_back(line);
+}
+```
+
+---
+
+### PARS I
+
+The problem states that the universe is expanding, do we need to duplicate the empty
+rows and columns in order to calculate the real distances between the galaxies.
+
+### Expanding the grid
+
+The first part of the challenge is to make sure we have the right grid, so we can make
+sure we are counting the right number of spaces between the galaxies. For that I've
+mapped the empty columns and rows coordinates.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+set<int> empty_rows, empty_cols;
+
+for (int i = 0; i < grid.size(); ++i) {
+    bool is_row_empty = true;
+    bool is_col_empty = true;
+
+    for (int j = 0; j < grid[i].size(); ++j) {
+        if (grid[i][j] == '#') is_row_empty = false;
+        if (grid[j][i] == '#') is_col_empty = false;
+    }
+    if (is_row_empty) empty_rows.insert(i);
+    if (is_col_empty) empty_cols.insert(i);
+}
+```
+
+Now we can duplicate/expand the rows and columns accordingly.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<string> row_expanded;
+for (int i = 0; i < grid.size(); ++i) {
+    row_expanded.push_back(grid[i]);
+    if (empty_rows.contains(i)) {
+        row_expanded.push_back(grid[i]);
+    }
+}
+
+vector<string> expanded_grid(row_expanded.size());
+for (int i = 0; i < row_expanded.size(); ++i) {
+    expanded_grid[i] = "";
+    for (int j = 0; j < row_expanded[i].size(); ++j)
+    {
+        expanded_grid[i] += row_expanded[i][j];
+        if (empty_cols.contains(j)) expanded_grid[i] += ".";
+    }
+}
+```
+
+### Mapping the galaxies
+
+We also need to know the coordinates of the galaxies.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<pair<int, int>> galaxies_coordinates;
+
+for (int i = 0; i < expanded_grid.size(); ++i) {
+    for (int j = 0; j < expanded_grid[i].size(); ++j)
+    {
+        if (expanded_grid[i][j] == '#') {
+            galaxies_coordinates.push_back({i, j});
+        }
+    }
+}
+```
+
+### My error
+
+Well, we're dealing with the shortest path right? Without thinking, I just wrote a BFS 
+right away.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int bfs(
+    vector<string> grid,
+    pair<int, int> initial_position,
+    pair<int, int> target
+) {
+	vector<pair<int, int>> adj_pos = { {-1, 0}, {1, 0}, {0, 1}, {0, -1} };
+
+	int R = grid.size();
+	int C = grid[0].size();
+
+	set<pair<int, int>> visited;
+	queue<tuple<int, int, int>> Q;
+
+	Q.push({initial_position.first, initial_position.second, 0});
+
+	while (!Q.empty()) {
+		tuple<int, int, int> cur = Q.front(); Q.pop();
+		visited.insert({get<0>(cur), get<1>(cur)});
+
+		for (pair<int, int> adj: adj_pos) {
+			int r = get<0>(cur) + adj.first;
+			int c = get<1>(cur) + adj.second;
+
+			if (r >= R || c >= C || r < 0 || c < 0) continue;
+			if (visited.contains({r, c})) continue;
+
+			if (target.first == r && target.second == c) {
+				return get<2>(cur) + 1;
+			}
+			Q.push({r, c, get<2>(cur) + 1});
+		}
+	}
+	return 0;
+}
+```
+
+While it worked out for the examples; It did not work for the real problem input.
+I got lucky to have $$428$$ galaxies, which would leave me with $$428 ^{428}$$. Which
+of couse, wouldn't work.
+
+### Fixing it
+
+Later on I realized that I just need to compute the Manhattan distance between the two points.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int sum = 0;
+for (int i = 0; i < galaxies_coordinates.size(); ++i) {
+    for (int j = i+1; j < galaxies_coordinates.size(); ++j) {
+        if (i == j) continue;
+        auto [x1, y1] = galaxies_coordinates[i];
+        auto [x2, y2] = galaxies_coordinates[j];
+
+
+        sum += abs(x1 - x2) + abs(y1 - y2);
+    }
+}
+
+return sum;
+```
+
+First star of the day! ⭐
+
+---
+
+### PARS II
+
+For part II we have to yet again expand the grid, but this time it is $$1.000.000$$ times bigger.
+
+### Rethinking our solution
+
+We can't reuse the previous solution, otherwise the code would take too long to compute the answer.
+We should instead come up with something better. What if the just count the empty columns or rows 
+as $$ n * 1.000.000 $$?
+
+I've created a `struct` to represent galaxies, do we can work with something better.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+struct Galaxy {
+	int row;
+	int col;
+};
+```
+
+Now, the Manhattan distance will be calculated via the method `getDist`, which will make
+sure we always multiply the empty row times $$1.000.000$$.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int getDist(const Galaxy& ga,
+	const Galaxy& gb,
+	const vector<bool>& rowIsEmpty,
+	const vector<bool>& colIsEmpty)
+{
+	int dr = abs(ga.row - gb.row);
+	int dc = abs(ga.col - gb.col);
+
+	int dist = dr + dc;
+	for (int i = min(ga.row, gb.row) + 1; i < max(gb.row, gb.row); i++) {
+		dist += (1'000'000 - 1) * rowIsEmpty[i];
+	}
+	for (int j = min(ga.col, gb.col) + 1; j < max(ga.col, gb.col); j++) {
+		dist += (1'000'000 - 1) * colIsEmpty[j];
+	}
+	return dist;
+}
+```
+
+With that we just earn our second star ⭐⭐️️
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
