@@ -1,0 +1,204 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 12"
+author: Jefersson Nathan
+date: Tue Dec 12 00:00:01 CEST 2023
+categories: [ "post" ]
+description: "🎄 Advent of Code 2'023 - Day 12"
+---
+
+## Day 12: Hot Springs
+
+{: class="marginalia" }
+\* Cf. [aoc. d. xii xxiii](https://adventofcode.com/2023/day/12)
+
+**Abridged Problem Description**: find all possible inputs that match the given criteria.
+
+---
+
+### Parsing The Input
+
+That was an easy parsing in comparison to the previous days. First of all I decided to
+create a new `struct` to represent the records, so I can work with them better.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+using int64 = long long;
+
+struct Record {
+    string springs;
+    vector<int64> groups;
+
+    void parseGroups(std::string input) {
+        input += ","; // padding value
+        string temp = "";
+        for (char c: input) {
+            if (c == ',') {
+                groups.push_back(stoll(temp));
+                temp = "";
+            } else temp += c; 
+        }
+    }
+
+    void parseSprings(string spring) {
+        springs = spring;
+    }
+}
+```
+
+That done, we can now parse the input.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<Record> conditionRecords;
+
+std::string springs;
+std::string groups;
+
+while (cin >> springs && cin >> groups) {
+    Record record;
+    record.parseSprings(springs);
+    record.parseGroups(groups);
+
+    conditionRecords.push_back(record);
+}
+```
+
+Now we have a list of `Record` that we can work with.
+
+---
+
+### PARS I
+
+As you can tell, the problem is basically a permutation problem. We need to find all possible
+combinations of the groups that match the given criteria. So I started by creating a method
+to calculate the arrangements.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+unsigned long long calculateArrangements(string S, vector<int64> damage) {
+    if (S.empty()) return damage.empty();
+
+    if (S[0] == '.') {
+        return calculateArrangements(S.substr(1), damage, cache);
+    }
+
+    if (S[0] == '?') {
+        return calculateArrangements(S.substr(1), damage, cache)
+            + calculateArrangements("#" + S.substr(1), damage, cache);
+    }
+
+    if (S[0] == '#') {
+        if (damage.empty()) return 0;
+
+        int thisDamage = damage[0];
+
+        vector<int64> remainingDamage(damage.begin() + 1, damage.end());
+        
+        for (char c: S.substr(0, thisDamage)) if (c == '.') return 0;
+
+        if (thisDamage <= S.size()) {
+            if (thisDamage == S.size()) {
+                if (remainingDamage.empty()) return 1;
+                return 0;
+            }
+
+            if (S[thisDamage] == '#') return 0;
+
+            return calculateArrangements(S.substr(thisDamage + 1), remainingDamage);
+        }
+    }
+    return 0;
+}
+```
+
+That should work for part I. The first start of the day was guaranteed! 🌟
+
+### PARS II
+
+Part II, was pushing our implementation to the limit. The challenge still the same, but the
+problem is that the input is too big; 5x its original size. We need to optimize our solution.
+When we look at it in an algorithmic way, we land on the conclusion that we need to memoize
+the results.
+
+Thanks to the way we implemented the solution, we can easily add a cache to our method.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+unsigned long long calculateArrangements(string S, vector<int64> damage, map<string, int64>& cache) {
+    string key = S + "-";
+    for (int n: damage) key += to_string(n) + ",";
+
+    if (cache.find(key) != cache.end()) return cache[key];
+
+    if (S.empty()) return damage.empty();
+
+    if (S[0] == '.') {
+        cache[key] = calculateArrangements(S.substr(1), damage, cache);
+        return cache[key];
+    }
+
+    if (S[0] == '?') {
+        cache[key] = calculateArrangements(S.substr(1), damage, cache)
+                   + calculateArrangements("#" + S.substr(1), damage, cache);
+
+        return cache[key];
+    }
+
+    if (S[0] == '#') {
+        if (damage.empty()) {
+            return 0;
+        }
+
+        int thisDamage = damage[0];
+
+        vector<int64> remainingDamage(damage.begin() + 1, damage.end());
+        
+        for (char c: S.substr(0, thisDamage)) if (c == '.') return 0;
+
+        if (thisDamage <= S.size()) {
+            if (thisDamage == S.size()) {
+                if (remainingDamage.empty()) return 1;
+                return 0;
+            }
+
+            if (S[thisDamage] == '#') return 0;
+
+            return calculateArrangements(S.substr(thisDamage + 1), remainingDamage, cache);
+        }
+    }
+    return 0;
+}
+```
+
+And to optimize the solution a bit more, we can calculate the results on the fly.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+unsigned long long sum = 0;
+
+std::string springs;
+std::string groups;
+
+while (cin >> springs && cin >> groups) {
+    // Make the input 5x bigger
+    springs = springs + "?" + springs + "?" + springs + "?" + springs + "?" + springs;
+    groups =  groups  + "," + groups  + "," + groups  + "," + groups  + "," + groups;
+
+    Record record;
+    record.parseSprings(springs);
+    record.parseGroups(groups);
+
+    map<string, int64> c; // to be used in caching
+    sum += record.calculateArrangements(record.springs, record.groups, c);
+}
+
+cout << "Sum: " << sum << endl;
+```
+
+Our second star ⭐⭐️️
+
+{% include finis.html %}
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
