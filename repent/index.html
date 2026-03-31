@@ -1,0 +1,99 @@
+---
+layout: default
+title: Confession Prep
+---
+
+<link rel="stylesheet" href="app.css">
+
+<div id="app" class="repent-app">
+    <nav class="app-nav">
+        <button onclick="app.setScreen('home')" id="nav-home">Home</button>
+        <button onclick="app.setScreen('examine')" id="nav-examine">Examine</button>
+        <button onclick="app.setScreen('prep')" id="nav-prep">Preparation</button>
+        <button onclick="app.setScreen('history')" id="nav-history">History</button>
+    </nav>
+
+    <main id="screen-container">
+        <!-- Screens will be rendered here -->
+    </main>
+</div>
+
+<template id="tpl-home">
+    <div class="screen home-screen">
+        <div class="status-card">
+            <h3>Last Confession</h3>
+            <p id="last-confession-date">Never recorded</p>
+            <p id="days-since-last">Days since: -</p>
+        </div>
+
+        <div class="quick-actions">
+            <button class="primary-btn" onclick="app.setScreen('examine')">Start Examination</button>
+            <button class="secondary-btn" onclick="app.showQuickAdd()">Quick Record Sin</button>
+            <button class="secondary-btn" onclick="app.setScreen('prep')">View My List (<span id="current-sin-count">0</span>)</button>
+        </div>
+
+        <div id="quick-add-form" class="hidden">
+            <div class="form-container">
+                <h4>Record Sin</h4>
+                <input type="text" id="quick-sin-text" placeholder="What sin? (e.g. Impatience)">
+                <div class="form-row">
+                    <input type="number" id="quick-sin-count" value="1" min="1" placeholder="Qty">
+                    <button class="primary-btn" onclick="app.submitQuickAdd()">Record</button>
+                </div>
+                <button class="link-btn" onclick="app.hideQuickAdd()">Cancel</button>
+            </div>
+        </div>
+
+        <div class="recent-sins">
+            <h4>Recent Logs</h4>
+            <ul id="recent-logs-list"></ul>
+        </div>
+    </div>
+</template>
+
+<template id="tpl-examine">
+    <div class="screen examine-screen">
+        <div class="examine-modes">
+            <button onclick="app.startExamination('daily')">Daily</button>
+            <button onclick="app.startExamination('monthly')">Monthly</button>
+            <button onclick="app.startExamination('general')">Comprehensive</button>
+        </div>
+        
+        <div id="examination-content" class="hidden">
+            <h3 id="exam-title"></h3>
+            <div id="exam-categories"></div>
+            <div class="exam-footer">
+                <button class="primary-btn" onclick="app.saveExamination()">Save & Finish</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="tpl-prep">
+    <div class="screen prep-screen">
+        <h3>My Confession List</h3>
+        <p class="subtitle">Sins recorded since last confession</p>
+        
+        <div id="prep-list-container"></div>
+
+        <div class="prayer-section">
+            <h4>Act of Contrition</h4>
+            <p class="prayer-text">
+                O my God, I am heartily sorry for having offended Thee, and I detest all my sins because of thy just punishments, but most of all because they offend Thee, my God, who art all good and deserving of all my love. I firmly resolve with the help of Thy grace to sin no more and to avoid the near occasion of sin. Amen.
+            </p>
+        </div>
+        
+        <div class="prep-footer">
+            <button class="danger-btn" onclick="app.finishConfession()">I Confessed these Sins</button>
+        </div>
+    </div>
+</template>
+
+<template id="tpl-history">
+    <div class="screen history-screen">
+        <h3>Past Confessions</h3>
+        <div id="history-list"></div>
+    </div>
+</template>
+
+<script src="app.js"></script>
