@@ -1,0 +1,989 @@
+---
+layout: post
+title: "&#9632; CubeWorld on an ESP32-C3"
+author: Jefersson Nathan
+date: Fri Feb 6 10:06:15 CET 2026
+categories: [ "post" ]
+description: "How I built my own CubeWorld desktop companion from scratch on an ESP32-C3 — sprite engine, state machine, and all the tiny pixel art details."
+tags: [esp32, embedded, c++, hardware, gamedev, iot]
+---
+
+{: class="marginalia" }
+**CubeWorld** was a<br/>2005 toy by Radica Games:<br/>tiny LCD cubes each<br/>containing a stick-figure<br/>creature that reacted to<br/>movement, connected<br/>to neighbouring cubes.
+
+I do not know if you have heard of CubeWorld. It is a tiny device that displays small
+animated characters living inside a cube — they walk, sleep, play, and react when you
+interact with them. Think Tamagotchi, but open-world and chain-able across multiple cubes.
+
+I had one as a kid. They have been discontinued for years, and the original hardware is
+essentially impossible to find. So I decided to build my own — using an
+**ESP32-C3** microcontroller and a small OLED display. Since I ended up spending a few
+weekends on this and learned a lot along the way, here is the full write-up.
+
+---
+
+<style>
+/* ─── Shared code blocks ───────────────────────────────────── */
+.code-wrap {
+  position: relative; background: #111214; border: 1px solid #2e2f35;
+  border-radius: 10px; overflow: hidden; margin: 1rem 0;
+}
+.code-lang {
+  background: #1c1d22; padding: 6px 16px; font-size: 11px;
+  color: rgba(255,255,255,.38); letter-spacing: .08em; text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.copy-btn {
+  background: transparent; border: 1px solid #3a3b40; border-radius: 4px;
+  color: rgba(255,255,255,.45); font-size: 11px; padding: 2px 8px;
+  cursor: pointer; font-family: inherit; transition: all .2s;
+}
+.copy-btn:hover, .copy-btn.copied { border-color: #7bcdab; color: #7bcdab; }
+.code-wrap pre {
+  margin: 0; padding: 16px 20px; overflow-x: auto;
+  font-family: "JetBrains Mono", monospace; font-size: 13px;
+  line-height: 1.65; color: rgba(255,255,255,.85);
+  background: transparent !important; border: none !important;
+}
+.kw { color: #cc99cd; }
+.ty { color: #7bcdab; }
+.st { color: #f8c555; }
+.cm { color: #5a6272; font-style: italic; }
+.fn { color: #89c0d0; }
+.nu { color: #f08080; }
+.pp { color: #fbef8a; }
+.at { color: #f0b429; }
+
+/* ─── Callouts ──────────────────────────────────────────────── */
+.callout { border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: .84rem; line-height: 1.7; }
+.callout-green  { background: #1a2e22; border-left: 3px solid #7bcdab; color: rgba(255,255,255,.82); }
+.callout-yellow { background: #25240e; border-left: 3px solid #fbef8a; color: rgba(255,255,255,.82); }
+.callout strong { color: #fff; }
+
+/* ─── Hardware card grid ────────────────────────────────────── */
+.hw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+@media (max-width: 560px) { .hw-grid { grid-template-columns: 1fr; } }
+.hw-card {
+  background: #1e1f24; border: 1px solid #2e2f35; border-radius: 10px;
+  padding: 1rem; font-size: .82rem; color: rgba(255,255,255,.7);
+}
+.hw-card h4 { color: #fbef8a; margin: 0 0 .5rem; font-size: .88rem; }
+.hw-card .hw-icon { font-size: 1.8rem; margin-bottom: .5rem; display: block; }
+.hw-spec { display: flex; justify-content: space-between; padding: 3px 0;
+  border-bottom: 1px solid #2a2b30; font-size: .78rem; }
+.hw-spec:last-child { border-bottom: none; }
+.hw-spec .label { color: rgba(255,255,255,.4); }
+.hw-spec .val   { color: #7bcdab; font-family: "JetBrains Mono", monospace; }
+
+/* ─── Wiring diagram ────────────────────────────────────────── */
+.wiring-wrap {
+  background: #1a1b1f; border: 1px solid #2e2f35;
+  border-radius: 12px; padding: 1.2rem; margin: 1.5rem 0; overflow-x: auto;
+}
+.wiring-wrap svg { display: block; margin: 0 auto; }
+
+/* ─── Simulator ─────────────────────────────────────────────── */
+.sim-wrap {
+  background: #1a1b1f; border: 1px solid #2e2f35;
+  border-radius: 14px; padding: 1.4rem; margin: 1.8rem 0;
+}
+.sim-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1rem; flex-wrap: wrap; gap: .5rem;
+}
+.sim-title { color: #fbef8a; font-size: .9rem; font-weight: 700; }
+.state-badge {
+  padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; transition: all .4s;
+  border: 1px solid;
+}
+.sb-idle    { background: rgba(123,205,171,.1);  border-color: rgba(123,205,171,.3);  color: #7bcdab; }
+.sb-walking { background: rgba(251,239,138,.1);  border-color: rgba(251,239,138,.3);  color: #fbef8a; }
+.sb-sleeping{ background: rgba(137,192,208,.1);  border-color: rgba(137,192,208,.3);  color: #89c0d0; }
+.sb-happy   { background: rgba(240,180,41,.1);   border-color: rgba(240,180,41,.3);   color: #f0b429; }
+.oled-screen {
+  background: #000; border-radius: 8px; display: block; margin: 0 auto;
+  border: 3px solid #2e2f35; box-shadow: 0 0 20px rgba(123,205,171,.08);
+  image-rendering: pixelated;
+}
+.sim-controls {
+  display: flex; gap: .5rem; margin-top: 1rem; flex-wrap: wrap; justify-content: center;
+}
+.ctrl-btn {
+  padding: 7px 16px; border-radius: 6px; border: 1px solid #3a3b40;
+  background: #1e1f24; color: rgba(255,255,255,.65); cursor: pointer;
+  font-family: inherit; font-size: 12px; transition: all .2s;
+}
+.ctrl-btn:hover { border-color: #7bcdab; color: #7bcdab; background: #152319; }
+.ctrl-btn.active { border-color: #7bcdab; color: #7bcdab; background: #152319; }
+
+/* ─── State machine diagram ─────────────────────────────────── */
+.fsm-wrap {
+  background: #1a1b1f; border: 1px solid #2e2f35;
+  border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+}
+.fsm-nodes {
+  display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem;
+}
+.fsm-node {
+  padding: 8px 20px; border-radius: 24px; border: 2px solid #3a3b40;
+  background: #1e1f24; color: rgba(255,255,255,.55); cursor: pointer;
+  font-size: 13px; font-weight: 700; transition: all .25s; user-select: none;
+}
+.fsm-node:hover { border-color: #7bcdab; color: #fff; }
+.fsm-node.selected { border-color: #fbef8a; background: #25240e; color: #fbef8a; }
+.fsm-detail {
+  background: #111214; border: 1px solid #2e2f35; border-radius: 8px;
+  padding: 1rem; font-size: .82rem; color: rgba(255,255,255,.7); min-height: 80px;
+  line-height: 1.7;
+}
+.fsm-detail .fsm-title { color: #fbef8a; font-weight: 700; margin-bottom: .4rem; }
+.fsm-detail .fsm-trans { color: #7bcdab; font-size: .78rem; margin-top: .5rem; }
+.fsm-detail .fsm-trans span { color: rgba(255,255,255,.4); }
+
+/* ─── Sprite viewer ──────────────────────────────────────────── */
+.sprite-viewer {
+  background: #1a1b1f; border: 1px solid #2e2f35;
+  border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+}
+.sprite-viewer h4 { color: #fbef8a; margin: 0 0 1rem; font-size: .9rem; }
+.sprite-frames { display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end; }
+.sprite-frame { text-align: center; }
+.sprite-frame .frame-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .07em;
+  color: rgba(255,255,255,.38); margin-bottom: .4rem;
+}
+.sprite-canvas { border: 1px solid #2e2f35; border-radius: 4px; }
+.sprite-frame.current .sprite-canvas {
+  border-color: #fbef8a;
+  box-shadow: 0 0 8px rgba(251,239,138,.2);
+}
+
+/* ─── Image placeholder ─────────────────────────────────────── */
+.img-placeholder {
+  background: #1a1b1f; border: 2px dashed #2e2f35; border-radius: 10px;
+  min-height: 200px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: rgba(255,255,255,.25); font-size: .85rem; margin: 1.5rem 0; gap: .5rem;
+}
+.img-placeholder .ph-icon { font-size: 2.5rem; }
+
+/* ─── Architecture overview ──────────────────────────────────── */
+.arch-stack {
+  display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0;
+}
+.arch-layer {
+  display: flex; align-items: center; gap: 1rem; padding: .7rem 1rem;
+  background: #1e1f24; border-left: 3px solid; font-size: .84rem;
+  transition: all .2s; cursor: default;
+}
+.arch-layer:first-child { border-radius: 10px 10px 0 0; }
+.arch-layer:last-child  { border-radius: 0 0 10px 10px; }
+.arch-layer:hover { background: #252629; }
+.arch-layer .al-name { font-weight: 700; color: #fff; min-width: 160px; }
+.arch-layer .al-desc { color: rgba(255,255,255,.55); font-size: .78rem; }
+.layer-1 { border-color: #fbef8a; }
+.layer-2 { border-color: #7bcdab; }
+.layer-3 { border-color: #89c0d0; }
+.layer-4 { border-color: #f0b429; }
+.layer-5 { border-color: #f08080; }
+</style>
+
+## What Is CubeWorld?
+
+{: class="marginalia" }
+The original Radica cubes<br/>connected magnetically.<br/>Walk your character to<br/>the edge and it would<br/>"jump" into the next cube.<br/>My version is a single<br/>cube, but that is enough.
+
+CubeWorld is a tiny interactive desktop companion living on a small screen. The original
+device was a 2005 toy — a plastic cube with a 1-bit LCD display showing a stick-figure
+creature that reacted to tilt, taps, and neighbouring cubes.
+
+What makes it interesting to re-implement:
+
+- **Sprite engine** — pixel art characters with multi-frame animations
+- **State machine** — creature has moods and transitions between them
+- **Input handling** — buttons and/or accelerometer for interaction
+- **Tiny display** — 128×64 OLED with 1-bit colour, every pixel matters
+
+---
+
+## Hardware
+
+<div class="hw-grid">
+  <div class="hw-card">
+    <span class="hw-icon">&#129520;</span>
+    <h4>ESP32-C3 SuperMini</h4>
+    <div class="hw-spec"><span class="label">CPU</span><span class="val">RISC-V 160 MHz</span></div>
+    <div class="hw-spec"><span class="label">Flash</span><span class="val">4 MB</span></div>
+    <div class="hw-spec"><span class="label">RAM</span><span class="val">400 KB</span></div>
+    <div class="hw-spec"><span class="label">WiFi</span><span class="val">802.11 b/g/n</span></div>
+    <div class="hw-spec"><span class="label">Size</span><span class="val">22.5 × 18 mm</span></div>
+  </div>
+  <div class="hw-card">
+    <span class="hw-icon">&#128250;</span>
+    <h4>0.96&rdquo; SSD1306 OLED</h4>
+    <div class="hw-spec"><span class="label">Resolution</span><span class="val">128 × 64 px</span></div>
+    <div class="hw-spec"><span class="label">Colours</span><span class="val">1-bit (white)</span></div>
+    <div class="hw-spec"><span class="label">Interface</span><span class="val">I&#178;C</span></div>
+    <div class="hw-spec"><span class="label">Address</span><span class="val">0x3C</span></div>
+    <div class="hw-spec"><span class="label">Voltage</span><span class="val">3.3 V / 5 V</span></div>
+  </div>
+</div>
+
+### Wiring
+
+The OLED connects over I²C — just four wires. On the ESP32-C3 SuperMini, I used the default
+I²C pins:
+
+<div class="wiring-wrap">
+<svg width="480" height="180" viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg"
+     style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+  <!-- ESP32-C3 board -->
+  <rect x="20" y="30" width="140" height="120" rx="8" fill="#1e1f24" stroke="#3a3b40" stroke-width="1.5"/>
+  <text x="90" y="52" text-anchor="middle" fill="#fbef8a" font-weight="bold" font-size="12">ESP32-C3</text>
+  <text x="90" y="66" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="9">SuperMini</text>
+  <!-- Pins left side -->
+  <circle cx="20" cy="85"  r="5" fill="#f08080" stroke="#f08080" stroke-width="1"/>
+  <text x="28" y="89" fill="rgba(255,255,255,.6)">3V3</text>
+  <circle cx="20" cy="105" r="5" fill="#555" stroke="#888" stroke-width="1"/>
+  <text x="28" y="109" fill="rgba(255,255,255,.6)">GND</text>
+  <circle cx="20" cy="125" r="5" fill="#89c0d0" stroke="#89c0d0" stroke-width="1"/>
+  <text x="28" y="129" fill="rgba(255,255,255,.6)">GPIO6 (SDA)</text>
+  <circle cx="20" cy="145" r="5" fill="#f0b429" stroke="#f0b429" stroke-width="1"/>
+  <text x="28" y="149" fill="rgba(255,255,255,.6)">GPIO7 (SCL)</text>
+
+  <!-- OLED -->
+  <rect x="300" y="30" width="160" height="120" rx="8" fill="#1e1f24" stroke="#3a3b40" stroke-width="1.5"/>
+  <text x="380" y="52" text-anchor="middle" fill="#fbef8a" font-weight="bold" font-size="12">SSD1306 OLED</text>
+  <text x="380" y="66" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="9">0.96&#34; 128&#215;64</text>
+  <!-- Pins right (OLED left side) -->
+  <circle cx="300" cy="85"  r="5" fill="#f08080" stroke="#f08080" stroke-width="1"/>
+  <text x="248" y="89" text-anchor="end" fill="rgba(255,255,255,.6)">VCC</text>
+  <circle cx="300" cy="105" r="5" fill="#555" stroke="#888" stroke-width="1"/>
+  <text x="248" y="109" text-anchor="end" fill="rgba(255,255,255,.6)">GND</text>
+  <circle cx="300" cy="125" r="5" fill="#89c0d0" stroke="#89c0d0" stroke-width="1"/>
+  <text x="248" y="129" text-anchor="end" fill="rgba(255,255,255,.6)">SDA</text>
+  <circle cx="300" cy="145" r="5" fill="#f0b429" stroke="#f0b429" stroke-width="1"/>
+  <text x="248" y="149" text-anchor="end" fill="rgba(255,255,255,.6)">SCL</text>
+
+  <!-- Wires -->
+  <line x1="20" y1="85"  x2="300" y2="85"  stroke="#f08080" stroke-width="2" stroke-dasharray="6,3"/>
+  <line x1="20" y1="105" x2="300" y2="105" stroke="#666"    stroke-width="2" stroke-dasharray="6,3"/>
+  <line x1="20" y1="125" x2="300" y2="125" stroke="#89c0d0" stroke-width="2" stroke-dasharray="6,3"/>
+  <line x1="20" y1="145" x2="300" y2="145" stroke="#f0b429" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Labels on wires -->
+  <text x="160" y="79"  text-anchor="middle" fill="#f08080"          font-size="9">power</text>
+  <text x="160" y="99"  text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="9">ground</text>
+  <text x="160" y="119" text-anchor="middle" fill="#89c0d0"           font-size="9">data</text>
+  <text x="160" y="139" text-anchor="middle" fill="#f0b429"           font-size="9">clock</text>
+</svg>
+</div>
+
+<div class="img-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span>Photo of the assembled hardware coming soon</span>
+</div>
+
+---
+
+## Architecture
+
+Before writing code, I mapped out the software layers:
+
+<div class="arch-stack">
+  <div class="arch-layer layer-1">
+    <span class="al-name">&#127918; State Machine</span>
+    <span class="al-desc">IDLE &#8594; WALKING &#8594; SLEEPING &#8594; HAPPY — drives all creature behaviour</span>
+  </div>
+  <div class="arch-layer layer-2">
+    <span class="al-name">&#127775; Sprite Engine</span>
+    <span class="al-desc">Pixel-art frames stored as byte arrays, rendered with frame cycling</span>
+  </div>
+  <div class="arch-layer layer-3">
+    <span class="al-name">&#128274; Display Driver</span>
+    <span class="al-desc">U8g2 library talking to SSD1306 over I²C — handles the 128&#215;64 buffer</span>
+  </div>
+  <div class="arch-layer layer-4">
+    <span class="al-name">&#9201; Timer Loop</span>
+    <span class="al-desc">20 ms tick (50 fps) — updates animation frame, checks state transitions</span>
+  </div>
+  <div class="arch-layer layer-5">
+    <span class="al-name">&#128214; PlatformIO / Arduino</span>
+    <span class="al-desc">Build system targeting esp32-c3 with Arduino framework</span>
+  </div>
+</div>
+
+---
+
+## Live Simulator
+
+{: class="marginalia" }
+This is a faithful<br/>recreation of what runs<br/>on the actual device.<br/>The pixel grid is 128&#215;64<br/>— exactly the OLED<br/>resolution. Each white<br/>square is one pixel.
+
+The creature below is the same character running on the real hardware.
+Press the buttons to interact — just like pushing the physical button on the cube:
+
+<div class="sim-wrap">
+  <div class="sim-top">
+    <span class="sim-title">&#9632; CubeWorld — ESP32-C3 OLED (128&#215;64)</span>
+    <span class="state-badge sb-idle" id="state-badge">IDLE</span>
+  </div>
+  <canvas id="oled" class="oled-screen" width="384" height="192"></canvas>
+  <div class="sim-controls">
+    <button class="ctrl-btn" onclick="simFeed()">&#127828; Feed</button>
+    <button class="ctrl-btn" onclick="simPet()">&#10024; Pet</button>
+    <button class="ctrl-btn" onclick="simSleep()">&#128564; Sleep</button>
+    <button class="ctrl-btn" id="btn-pause" onclick="simTogglePause()">&#9646;&#9646; Pause</button>
+  </div>
+</div>
+
+---
+
+## State Machine
+
+{: class="marginalia" }
+Every state has a<br/>**duration** (how long the<br/>creature stays in it)<br/>and **transitions** (what<br/>it does next). Randomness<br/>in the duration makes<br/>the creature feel alive.
+
+Click any state to learn about its behaviour and transitions:
+
+<div class="fsm-wrap">
+  <div class="fsm-nodes">
+    <div class="fsm-node selected" id="fsm-IDLE"     onclick="selectFSM('IDLE')">IDLE</div>
+    <div class="fsm-node"          id="fsm-WALKING"  onclick="selectFSM('WALKING')">WALKING</div>
+    <div class="fsm-node"          id="fsm-SLEEPING" onclick="selectFSM('SLEEPING')">SLEEPING</div>
+    <div class="fsm-node"          id="fsm-HAPPY"    onclick="selectFSM('HAPPY')">HAPPY</div>
+  </div>
+  <div class="fsm-detail" id="fsm-detail"></div>
+</div>
+
+---
+
+## The Sprite System
+
+The entire visual system is built around **byte arrays** stored in flash memory.
+Each character is 10×16 pixels; each row is one byte (10 bits used):
+
+<div class="sprite-viewer">
+  <h4>Animation frames &mdash; click to inspect</h4>
+  <div class="sprite-frames" id="sprite-frames"></div>
+</div>
+
+<div class="code-wrap">
+  <div class="code-lang">C++ &mdash; sprite data in flash <button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+  <pre><span class="cm">// Each row = 10 pixels packed into a uint16_t (left = MSB)</span>
+<span class="cm">// PROGMEM stores in flash instead of precious RAM</span>
+
+<span class="kw">static const</span> <span class="ty">uint16_t</span> SPRITE_IDLE[<span class="nu">2</span>][<span class="nu">16</span>] PROGMEM = {
+  { <span class="cm">/* frame 0 — eyes open */</span>
+    <span class="nu">0b0111111110</span>,  <span class="cm">// &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;  head top</span>
+    <span class="nu">0b1000000001</span>,  <span class="cm">// &#9608;          &#9608;</span>
+    <span class="nu">0b1010000101</span>,  <span class="cm">// &#9608; &#9632;    &#9632; &#9608;  eyes</span>
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b1001001001</span>,  <span class="cm">// &#9608; &#9632; &#9632; &#9632; &#9608;  smile</span>
+    <span class="nu">0b0111111110</span>,  <span class="cm">// &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;  head bot</span>
+    <span class="nu">0b0001111000</span>,  <span class="cm">//    &#9608;&#9608;&#9608;&#9608;     neck</span>
+    <span class="nu">0b0111111110</span>,  <span class="cm">// &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;  body</span>
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b0111111110</span>,
+    <span class="nu">0b0001001000</span>,  <span class="cm">//    &#9608;  &#9608;     legs</span>
+    <span class="nu">0b0001001000</span>,
+    <span class="nu">0b0011001100</span>,  <span class="cm">//   &#9608;&#9608; &#9608;&#9608;    feet</span>
+    <span class="nu">0b0000000000</span>,
+    <span class="nu">0b0000000000</span>,
+  },
+  { <span class="cm">/* frame 1 — eyes closed (blink) */</span>
+    <span class="nu">0b0111111110</span>,
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b1011100111</span>,  <span class="cm">// &#9608; &#9632;&#9632;&#9632; &#9632;&#9632; &#9608;  closed eyes</span>
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b1001001001</span>,
+    <span class="nu">0b0111111110</span>,
+    <span class="nu">0b0001111000</span>,
+    <span class="nu">0b0111111110</span>,
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b1000000001</span>,
+    <span class="nu">0b0111111110</span>,
+    <span class="nu">0b0001001000</span>,
+    <span class="nu">0b0001001000</span>,
+    <span class="nu">0b0011001100</span>,
+    <span class="nu">0b0000000000</span>,
+    <span class="nu">0b0000000000</span>,
+  }
+};</pre>
+</div>
+
+<div class="code-wrap">
+  <div class="code-lang">C++ &mdash; drawing a sprite <button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+  <pre><span class="kw">void</span> <span class="fn">drawSprite</span>(
+    U8G2&amp; u8g2,
+    <span class="kw">const</span> <span class="ty">uint16_t</span> frame[<span class="nu">16</span>],
+    <span class="ty">int</span> x, <span class="ty">int</span> y,
+    <span class="ty">bool</span> flipH = <span class="kw">false</span>
+) {
+    <span class="kw">for</span> (<span class="ty">int</span> row = <span class="nu">0</span>; row &lt; <span class="nu">16</span>; row++) {
+        <span class="ty">uint16_t</span> bits = pgm_read_word(&amp;frame[row]);
+        <span class="kw">for</span> (<span class="ty">int</span> col = <span class="nu">0</span>; col &lt; <span class="nu">10</span>; col++) {
+            <span class="ty">int</span> bit = flipH ? col : (<span class="nu">9</span> - col);
+            <span class="kw">if</span> (bits &amp; (<span class="nu">1</span> &lt;&lt; bit)) {
+                u8g2.drawPixel(x + col, y + row);
+            }
+        }
+    }
+}</pre>
+</div>
+
+---
+
+## The State Machine
+
+<div class="code-wrap">
+  <div class="code-lang">C++ &mdash; state machine <button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+  <pre><span class="kw">enum class</span> <span class="ty">State</span> { IDLE, WALKING, SLEEPING, HAPPY };
+
+<span class="kw">struct</span> <span class="ty">Creature</span> {
+    <span class="ty">State</span>    state     = <span class="ty">State</span>::IDLE;
+    <span class="ty">int</span>      x         = <span class="nu">59</span>;   <span class="cm">// centre of 128px display</span>
+    <span class="ty">int</span>      dir       = <span class="nu">1</span>;    <span class="cm">// 1 = right, -1 = left</span>
+    <span class="ty">int</span>      frame     = <span class="nu">0</span>;
+    <span class="ty">uint32_t</span> stateMs   = <span class="nu">0</span>;   <span class="cm">// when we entered this state</span>
+    <span class="ty">uint32_t</span> stateDur  = <span class="nu">3000</span>;<span class="cm">// how long to stay (ms)</span>
+    <span class="ty">int</span>      happiness = <span class="nu">80</span>;  <span class="cm">// 0-100</span>
+
+    <span class="kw">void</span> <span class="fn">update</span>(<span class="ty">uint32_t</span> now) {
+        <span class="kw">if</span> (now - stateMs &gt; stateDur) <span class="fn">transition</span>(now);
+
+        <span class="kw">switch</span> (state) {
+          <span class="kw">case</span> <span class="ty">State</span>::WALKING:
+            x = constrain(x + dir, <span class="nu">5</span>, <span class="nu">113</span>);
+            <span class="kw">if</span> (x &lt;= <span class="nu">5</span> || x &gt;= <span class="nu">113</span>) dir = -dir;
+            <span class="kw">break</span>;
+          <span class="kw">default</span>: <span class="kw">break</span>;
+        }
+    }
+
+    <span class="kw">void</span> <span class="fn">transition</span>(<span class="ty">uint32_t</span> now) {
+        <span class="cm">// randomly pick next state based on happiness</span>
+        <span class="ty">int</span> r = random(<span class="nu">100</span>);
+        <span class="kw">if</span>      (happiness &lt; <span class="nu">30</span>) state = <span class="ty">State</span>::SLEEPING;
+        <span class="kw">else if</span> (r &lt; <span class="nu">40</span>)         state = <span class="ty">State</span>::WALKING;
+        <span class="kw">else if</span> (r &lt; <span class="nu">70</span>)         state = <span class="ty">State</span>::IDLE;
+        <span class="kw">else</span>                      state = <span class="ty">State</span>::HAPPY;
+
+        stateMs  = now;
+        stateDur = <span class="nu">2000</span> + random(<span class="nu">4000</span>);  <span class="cm">// 2–6 s of variability</span>
+        frame    = <span class="nu">0</span>;
+    }
+
+    <span class="kw">void</span> <span class="fn">feed</span>()   { happiness = min(<span class="nu">100</span>, happiness + <span class="nu">20</span>); }
+    <span class="kw">void</span> <span class="fn">pet</span>()    { happiness = min(<span class="nu">100</span>, happiness + <span class="nu">10</span>); state = <span class="ty">State</span>::HAPPY; }
+    <span class="kw">void</span> <span class="fn">sleep</span>()  { state = <span class="ty">State</span>::SLEEPING; }
+};</pre>
+</div>
+
+---
+
+## Main Loop
+
+<div class="code-wrap">
+  <div class="code-lang">C++ &mdash; main loop (20 ms tick) <button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+  <pre><span class="pp">#include</span> <span class="st">&lt;U8g2lib.h&gt;</span>
+<span class="pp">#include</span> <span class="st">&lt;Wire.h&gt;</span>
+
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(
+    U8G2_R0, U8X8_PIN_NONE, <span class="cm">/* SCL= */</span> <span class="nu">7</span>, <span class="cm">/* SDA= */</span> <span class="nu">6</span>
+);
+Creature creature;
+
+<span class="kw">void</span> <span class="fn">setup</span>() {
+    u8g2.begin();
+    u8g2.setContrast(<span class="nu">200</span>);
+    randomSeed(analogRead(<span class="nu">0</span>));
+}
+
+<span class="kw">void</span> <span class="fn">loop</span>() {
+    <span class="ty">uint32_t</span> now = millis();
+    creature.<span class="fn">update</span>(now);
+
+    u8g2.clearBuffer();
+
+    <span class="cm">// draw floor line</span>
+    u8g2.drawHLine(<span class="nu">0</span>, <span class="nu">56</span>, <span class="nu">128</span>);
+
+    <span class="cm">// draw creature</span>
+    <span class="kw">const</span> <span class="ty">uint16_t</span>* frame = <span class="fn">getFrame</span>(creature);
+    <span class="fn">drawSprite</span>(u8g2, frame, creature.x, <span class="nu">40</span>, creature.dir &lt; <span class="nu">0</span>);
+
+    <span class="cm">// draw sleep ZZZ if sleeping</span>
+    <span class="kw">if</span> (creature.state == <span class="ty">State</span>::SLEEPING) {
+        u8g2.setFont(u8g2_font_4x6_tr);
+        u8g2.drawStr(creature.x + <span class="nu">12</span>, <span class="nu">38</span>, <span class="st">"z"</span>);
+        u8g2.drawStr(creature.x + <span class="nu">16</span>, <span class="nu">32</span>, <span class="st">"z"</span>);
+        u8g2.drawStr(creature.x + <span class="nu">20</span>, <span class="nu">26</span>, <span class="st">"Z"</span>);
+    }
+
+    u8g2.sendBuffer();
+    delay(<span class="nu">20</span>);   <span class="cm">// 50 fps</span>
+}</pre>
+</div>
+
+---
+
+## Result
+
+<div class="img-placeholder">
+  <span class="ph-icon">&#128247;</span>
+  <span>Photo of the finished cube on the desk — coming soon</span>
+</div>
+
+<div class="img-placeholder">
+  <span class="ph-icon">&#127916;</span>
+  <span>Video of the creature walking and sleeping — coming soon</span>
+</div>
+
+<div class="callout callout-green">
+  <strong>Total cost:</strong> ESP32-C3 SuperMini (~&#36;3) + SSD1306 OLED (~&#36;2) + small LiPo battery
+  + a 3D-printed cube enclosure. Under &#36;10 for a desktop companion that actually runs your own
+  code.
+</div>
+
+<div class="callout callout-yellow">
+  <strong>Next steps:</strong> I want to add a small accelerometer (MPU-6050) so the creature
+  reacts to being shaken or tilted — the one feature that made the original CubeWorld special.
+  The I²C bus already has room for a second device.
+</div>
+
+---
+
+*Full source on GitHub — link coming once I clean up the code.*
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  OLED SIMULATOR
+// ═══════════════════════════════════════════════════════════════
+var oledCanvas, oledCtx;
+var SCALE = 3;   // 128*3=384, 64*3=192
+var W = 128, H = 64;
+var paused = false;
+var simTimer = null;
+
+// ── Pixel-art character frames ───────────────────────────────
+// Each frame: 16 rows × 10 cols (1=white pixel)
+function makeFrame(rows) { return rows; }
+
+var F = {
+  idle0: makeFrame([
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,1,1,1,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,1,1,1,0,0,0],
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,1,1,0,0,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+  ]),
+  idle1: makeFrame([  // blink
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,1,0,1,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,1,1,1,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,1,1,1,0,0,0],
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,1,1,0,0,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+  ]),
+  walk0: makeFrame([   // left foot fwd
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,1,1,1,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,1,1,1,0,0,0],
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,1,0,0,1,0,0,0,0],  // legs spread
+    [0,1,0,0,0,0,1,0,0,0],
+    [1,1,0,0,0,0,0,1,0,0],  // feet asymmetric
+    [0,0,0,0,0,0,0,0,0,0],
+  ]),
+  walk1: makeFrame([   // right foot fwd
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,1,1,1,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,1,1,1,0,0,0],
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,0,1,0,0,0,0],  // legs together
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,1,1,0,0,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+  ]),
+  sleep: makeFrame([   // lying on side
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,0,1,0,1],  // closed eyes
+    [1,0,1,1,0,0,1,1,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+  ]),
+  happy0: makeFrame([  // bouncing - up
+    [0,0,1,1,1,1,1,1,0,0],
+    [0,1,0,0,0,0,0,0,1,0],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,1,0,0,0,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1],
+    [1,0,1,0,0,0,0,1,0,1],
+    [1,0,0,1,1,1,1,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,1,1,1,0,0,0],
+    [0,1,1,1,1,1,1,1,1,0],
+    [1,0,0,0,0,0,0,0,0,1],
+    [0,1,1,1,1,1,1,1,1,0],
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,0,1,0,0,1,0,0,0],
+    [0,0,1,1,0,0,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+  ]),
+};
+
+// ── Creature state ────────────────────────────────────────────
+var creature = {
+  state: 'IDLE',
+  x: 59,
+  dir: 1,
+  frameIdx: 0,
+  stateTimer: 0,
+  stateDur: 180,   // ticks
+  happiness: 80,
+  tick: 0,
+  zFloat: 0,       // for floating Zs
+};
+
+var STATE_COLORS = {
+  IDLE: 'sb-idle', WALKING: 'sb-walking', SLEEPING: 'sb-sleeping', HAPPY: 'sb-happy'
+};
+var STATE_NAMES = {
+  IDLE: 'IDLE', WALKING: 'WALKING', SLEEPING: 'SLEEPING', HAPPY: 'HAPPY'
+};
+
+function getFrameData(s) {
+  var t = s.tick;
+  switch (s.state) {
+    case 'IDLE':
+      // blink every ~3 seconds (150 ticks), for 2 frames
+      var inBlink = (t % 150 > 145);
+      return inBlink ? F.idle1 : F.idle0;
+    case 'WALKING':
+      return (Math.floor(t / 6) % 2 === 0) ? F.walk0 : F.walk1;
+    case 'SLEEPING':
+      return F.sleep;
+    case 'HAPPY':
+      return F.happy0;
+  }
+  return F.idle0;
+}
+
+function updateCreature() {
+  creature.tick++;
+  creature.stateTimer++;
+
+  if (creature.state === 'WALKING') {
+    creature.x += creature.dir;
+    if (creature.x <= 5)   { creature.x = 5;   creature.dir = 1;  }
+    if (creature.x >= 108) { creature.x = 108;  creature.dir = -1; }
+  }
+
+  if (creature.stateTimer >= creature.stateDur) {
+    transitionCreature();
+  }
+}
+
+function transitionCreature() {
+  creature.stateTimer = 0;
+  var r = Math.random() * 100;
+  if (creature.happiness < 30) {
+    creature.state = 'SLEEPING';
+    creature.stateDur = 200 + Math.floor(Math.random() * 200);
+  } else if (r < 40) {
+    creature.state = 'WALKING';
+    creature.stateDur = 120 + Math.floor(Math.random() * 160);
+  } else if (r < 70) {
+    creature.state = 'IDLE';
+    creature.stateDur = 100 + Math.floor(Math.random() * 200);
+  } else {
+    creature.state = 'HAPPY';
+    creature.stateDur = 80 + Math.floor(Math.random() * 60);
+  }
+  updateBadge();
+}
+
+function updateBadge() {
+  var badge = document.getElementById('state-badge');
+  badge.textContent = creature.state;
+  badge.className = 'state-badge ' + STATE_COLORS[creature.state];
+}
+
+// ── OLED rendering ────────────────────────────────────────────
+function drawOLED() {
+  oledCtx.fillStyle = '#060a08';
+  oledCtx.fillRect(0, 0, W * SCALE, H * SCALE);
+
+  // floor line
+  oledCtx.fillStyle = 'rgba(123,205,171,.25)';
+  oledCtx.fillRect(0, 56 * SCALE, W * SCALE, SCALE);
+
+  // sprite
+  var frame = getFrameData(creature);
+  var yBase = creature.state === 'SLEEPING' ? 38 : 22;
+  var yBounce = creature.state === 'HAPPY' ? -Math.abs(Math.sin(creature.tick * 0.22)) * 4 : 0;
+
+  oledCtx.fillStyle = '#c8fce0';
+  for (var row = 0; row < 16; row++) {
+    for (var col = 0; col < 10; col++) {
+      var srcCol = creature.dir < 0 ? (9 - col) : col;
+      if (frame[row][srcCol]) {
+        oledCtx.fillRect(
+          (creature.x + col) * SCALE,
+          (yBase + row + yBounce) * SCALE,
+          SCALE, SCALE
+        );
+      }
+    }
+  }
+
+  // sleeping Z bubbles
+  if (creature.state === 'SLEEPING') {
+    var zChars = ['z','z','Z'];
+    oledCtx.fillStyle = '#89c0d0';
+    oledCtx.font = 'bold ' + (SCALE * 4) + 'px "JetBrains Mono", monospace';
+    oledCtx.textAlign = 'left';
+    for (var i = 0; i < zChars.length; i++) {
+      var zx = creature.x + 14 + i * 5;
+      var zy = 34 - i * 7 - ((creature.tick * 0.3 + i * 20) % 20);
+      if (zy > 0 && zy < 50)
+        oledCtx.fillText(zChars[i], zx * SCALE, zy * SCALE);
+    }
+  }
+
+  // heart particles when happy
+  if (creature.state === 'HAPPY') {
+    var phase = (creature.tick % 30) / 30;
+    var hx = (creature.x + 5) * SCALE;
+    var hy = (yBase - 4 - phase * 12) * SCALE;
+    oledCtx.fillStyle = 'rgba(240,180,41,' + (1 - phase) + ')';
+    oledCtx.fillRect(hx,       hy, SCALE * 2, SCALE * 2);
+    oledCtx.fillRect(hx + SCALE * 3, hy, SCALE * 2, SCALE * 2);
+    oledCtx.fillRect(hx - SCALE, hy + SCALE, SCALE * 5, SCALE * 2);
+    oledCtx.fillRect(hx,       hy + SCALE * 3, SCALE * 3, SCALE);
+  }
+
+  // pixel scanline overlay for OLED feel
+  oledCtx.fillStyle = 'rgba(0,0,0,.06)';
+  for (var y2 = 0; y2 < H; y2 += 2) {
+    oledCtx.fillRect(0, y2 * SCALE, W * SCALE, 1);
+  }
+}
+
+// ── Sim controls ──────────────────────────────────────────────
+function simFeed() {
+  creature.happiness = Math.min(100, creature.happiness + 20);
+  creature.state = 'HAPPY';
+  creature.stateTimer = 0;
+  creature.stateDur = 80;
+  updateBadge();
+}
+function simPet() {
+  creature.happiness = Math.min(100, creature.happiness + 10);
+  creature.state = 'HAPPY';
+  creature.stateTimer = 0;
+  creature.stateDur = 60;
+  updateBadge();
+}
+function simSleep() {
+  creature.state = 'SLEEPING';
+  creature.stateTimer = 0;
+  creature.stateDur = 200;
+  updateBadge();
+}
+function simTogglePause() {
+  paused = !paused;
+  var btn = document.getElementById('btn-pause');
+  btn.textContent = paused ? '&#9654; Resume' : '&#9646;&#9646; Pause';
+  btn.innerHTML   = paused ? '&#9654; Resume' : '&#9646;&#9646; Pause';
+  if (!paused) tick();
+}
+
+function tick() {
+  if (paused) return;
+  updateCreature();
+  drawOLED();
+  simTimer = requestAnimationFrame(tick);
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  STATE MACHINE DIAGRAM
+// ═══════════════════════════════════════════════════════════════
+var FSM_DATA = {
+  IDLE: {
+    title: 'IDLE — standing still',
+    desc: 'The creature stands facing forward. Eyes blink every ~3 seconds. '
+        + 'This is the default state after booting and after any other state expires.',
+    trans: [
+      { to: 'WALKING',  cond: '40% chance on timer expiry' },
+      { to: 'SLEEPING', cond: 'happiness < 30 OR 30% chance' },
+      { to: 'HAPPY',    cond: '30% chance on timer expiry' },
+    ]
+  },
+  WALKING: {
+    title: 'WALKING — exploring',
+    desc: 'The creature walks left or right across the screen, bouncing off the edges. '
+        + 'Leg animation cycles every 6 ticks. Direction flips at x = 5 or x = 108.',
+    trans: [
+      { to: 'IDLE',     cond: 'timer expires (2–6 s random)' },
+      { to: 'SLEEPING', cond: 'happiness < 30' },
+    ]
+  },
+  SLEEPING: {
+    title: 'SLEEPING — recharging',
+    desc: 'The creature lies on its side. Floating Z bubbles drift upward. '
+        + 'Happiness decays while active and recharges while sleeping.',
+    trans: [
+      { to: 'IDLE',    cond: 'timer expires (4–10 s)' },
+      { to: 'WALKING', cond: 'button press (wake up)' },
+    ]
+  },
+  HAPPY: {
+    title: 'HAPPY — excited',
+    desc: 'Triggered by Feed or Pet button, or randomly. The creature bounces up and down '
+        + 'with small heart particles floating above. Wide eyes, big smile.',
+    trans: [
+      { to: 'IDLE',    cond: 'timer expires (1–3 s)' },
+      { to: 'WALKING', cond: '50% chance after happy ends' },
+    ]
+  },
+};
+
+function selectFSM(state) {
+  document.querySelectorAll('.fsm-node').forEach(function(n) {
+    n.classList.toggle('selected', n.id === 'fsm-' + state);
+  });
+  var d = FSM_DATA[state];
+  var transHtml = d.trans.map(function(t) {
+    return '<span style="color:#fbef8a;">' + t.to + '</span>'
+         + '<span> &mdash; ' + t.cond + '</span>';
+  }).join('<br/>');
+  document.getElementById('fsm-detail').innerHTML =
+    '<div class="fsm-title">' + d.title + '</div>'
+    + '<div>' + d.desc + '</div>'
+    + '<div class="fsm-trans">' + transHtml + '</div>';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  SPRITE VIEWER
+// ═══════════════════════════════════════════════════════════════
+var SPRITE_FRAMES = [
+  { name: 'Idle',    data: F.idle0 },
+  { name: 'Blink',  data: F.idle1 },
+  { name: 'Walk A', data: F.walk0 },
+  { name: 'Walk B', data: F.walk1 },
+  { name: 'Sleep',  data: F.sleep },
+  { name: 'Happy',  data: F.happy0 },
+];
+
+var selectedSpriteIdx = 0;
+
+function renderSpriteViewer() {
+  var container = document.getElementById('sprite-frames');
+  container.innerHTML = '';
+  var PXSCALE = 6;
+  SPRITE_FRAMES.forEach(function(sf, idx) {
+    var wrap = document.createElement('div');
+    wrap.className = 'sprite-frame' + (idx === selectedSpriteIdx ? ' current' : '');
+    wrap.onclick = (function(i) { return function() {
+      selectedSpriteIdx = i; renderSpriteViewer();
+    }; })(idx);
+
+    var lbl = document.createElement('div');
+    lbl.className = 'frame-label';
+    lbl.textContent = sf.name;
+
+    var cv = document.createElement('canvas');
+    cv.className = 'sprite-canvas';
+    cv.width  = 10 * PXSCALE;
+    cv.height = 16 * PXSCALE;
+    var ctx2 = cv.getContext('2d');
+
+    ctx2.fillStyle = '#060a08';
+    ctx2.fillRect(0, 0, cv.width, cv.height);
+
+    ctx2.fillStyle = idx === selectedSpriteIdx ? '#c8fce0' : '#7bcdab';
+    for (var row = 0; row < 16; row++) {
+      for (var col = 0; col < 10; col++) {
+        if (sf.data[row][col]) {
+          ctx2.fillRect(col * PXSCALE, row * PXSCALE, PXSCALE - 1, PXSCALE - 1);
+        }
+      }
+    }
+
+    wrap.appendChild(lbl);
+    wrap.appendChild(cv);
+    container.appendChild(wrap);
+  });
+}
+
+// ─── Copy buttons ──────────────────────────────────────────────
+function copyCode(btn) {
+  var pre = btn.closest('.code-wrap').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(function() {
+    btn.textContent = 'copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1600);
+  });
+}
+
+// ─── Boot ──────────────────────────────────────────────────────
+window.addEventListener('load', function() {
+  oledCanvas = document.getElementById('oled');
+  oledCtx    = oledCanvas.getContext('2d');
+  selectFSM('IDLE');
+  renderSpriteViewer();
+  tick();
+});
+</script>
