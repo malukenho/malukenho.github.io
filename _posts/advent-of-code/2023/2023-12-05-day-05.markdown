@@ -1,0 +1,332 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 05"
+author: Jefersson Nathan
+date: Tue Dec 05 00:00:01 CEST 2023
+categories: [ "aoc" ]
+description: "🎄 Advent of Code 2'023 - Day 05"
+---
+
+## Day 05: If You Give A Seed A Fertilizer
+
+{: class="marginalia" }
+\* Cf. [aoc. d. v xxiii](https://adventofcode.com/2023/day/5)
+
+Today we're dealing with a complex mapping problem where we need to transform seed numbers through a series of mappings to determine their final locations. The challenge involves parsing mapping rules and applying them sequentially to find the minimum location number.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+seeds: 79 14 55 13
+
+seed-to-soil map:
+50 98 2
+52 50 48
+
+soil-to-fertilizer map:
+0 15 37
+37 52 2
+39 0 15
+
+fertilizer-to-water map:
+49 53 8
+0 11 42
+42 0 7
+57 7 4
+
+water-to-light map:
+88 18 7
+18 25 70
+
+light-to-temperature map:
+45 77 23
+81 45 19
+68 64 13
+
+temperature-to-humidity map:
+0 69 1
+1 0 69
+
+humidity-to-location map:
+60 56 37
+56 93 4
+```
+
+The input consists of a list of seeds and several mapping sections. Each mapping section defines how numbers are transformed from one category to another.
+
+---
+
+### Parsing The Input
+
+I started by creating helper methods to parse the input data. The main challenge here is to handle the different sections of the input and extract the mapping rules correctly.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static vector<long long> parse_seeds(const string& input) {
+    vector<long long> seeds;
+    string line = input.substr(0, input.find('\n'));
+    
+    size_t pos = line.find(':') + 2;
+    while (pos < line.length()) {
+        size_t next_space = line.find(' ', pos);
+        if (next_space == string::npos) next_space = line.length();
+        
+        seeds.push_back(stoll(line.substr(pos, next_space - pos)));
+        pos = next_space + 1;
+    }
+    
+    return seeds;
+}
+```
+
+For the mappings, I created a structure to represent each mapping rule and a method to parse them:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+struct Mapping {
+    long long dest_start;
+    long long src_start;
+    long long length;
+};
+
+static vector<vector<Mapping>> parse_mappings(const string& input) {
+    vector<vector<Mapping>> mappings;
+    vector<string> lines = Utils::split_lines(input);
+    
+    vector<Mapping> current_mapping;
+    for (size_t i = 1; i < lines.size(); ++i) {
+        if (lines[i].empty()) continue;
+        
+        if (lines[i].find("map:") != string::npos) {
+            if (!current_mapping.empty()) {
+                mappings.push_back(current_mapping);
+                current_mapping.clear();
+            }
+            continue;
+        }
+        
+        vector<string> parts = Utils::split(lines[i], ' ');
+        if (parts.size() == 3) {
+            current_mapping.push_back({
+                stoll(parts[0]),
+                stoll(parts[1]),
+                stoll(parts[2])
+            });
+        }
+    }
+    
+    if (!current_mapping.empty()) {
+        mappings.push_back(current_mapping);
+    }
+    
+    return mappings;
+}
+```
+
+---
+
+### PARS I
+
+For the first part, we need to apply all mappings sequentially to each seed and find the minimum location number.
+
+{: class="marginalia" }
+α
+
+The approach is straightforward: for each seed, we apply each mapping in sequence. If a seed falls within a source range, we transform it according to the mapping rule.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static long long apply_mappings(long long seed, const vector<vector<Mapping>>& mappings) {
+    long long current = seed;
+    
+    for (const auto& mapping : mappings) {
+        for (const auto& rule : mapping) {
+            if (current >= rule.src_start && current < rule.src_start + rule.length) {
+                current = rule.dest_start + (current - rule.src_start);
+                break;
+            }
+        }
+    }
+    
+    return current;
+}
+```
+
+Now we can solve Part 1 by applying the mappings to all seeds and finding the minimum:
+
+{: class="language-kotlin" theme="darcula" mode="c" from="1" to="30"}
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
+class Solution_05 {
+public:
+    struct Mapping {
+        long long dest_start;
+        long long src_start;
+        long long length;
+    };
+
+    static long long part1(const string& input) {
+        vector<long long> seeds = parse_seeds(input);
+        vector<vector<Mapping>> mappings = parse_mappings(input);
+        
+        long long min_location = LLONG_MAX;
+        
+        for (long long seed : seeds) {
+            long long location = apply_mappings(seed, mappings);
+            min_location = min(min_location, location);
+        }
+        
+        return min_location;
+    }
+
+private:
+    static long long apply_mappings(long long seed, const vector<vector<Mapping>>& mappings) {
+        long long current = seed;
+        
+        for (const auto& mapping : mappings) {
+            for (const auto& rule : mapping) {
+                if (current >= rule.src_start && current < rule.src_start + rule.length) {
+                    current = rule.dest_start + (current - rule.src_start);
+                    break;
+                }
+            }
+        }
+        
+        return current;
+    }
+};
+```
+
+With that we unlock the first star! 🌟
+
+---
+
+### PARS II
+
+The second part is much more challenging. Instead of individual seeds, we now have ranges of seeds. The input format changes to:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+seeds: 79 14 55 13
+```
+
+This means we have seeds 79-92 (79+14-1) and seeds 55-67 (55+13-1).
+
+{: class="marginalia" }
+β
+
+The naive approach of checking every single seed in the range would be too slow for large ranges. Instead, we need to work with ranges directly and split them as we apply mappings.
+
+{: class="marginalia" }
+ɣ
+
+I created a `Range` structure to represent a range of numbers and a method to apply mappings to ranges:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+struct Range {
+    long long start;
+    long long length;
+    
+    Range(long long s, long long l) : start(s), length(l) {}
+};
+
+static vector<Range> apply_mapping_to_ranges(const vector<Range>& ranges, const vector<Mapping>& mapping) {
+    vector<Range> result;
+    vector<Range> remaining = ranges;
+    
+    for (const auto& rule : mapping) {
+        vector<Range> next_remaining;
+        
+        for (const auto& range : remaining) {
+            long long range_start = range.start;
+            long long range_end = range.start + range.length;
+            long long rule_start = rule.src_start;
+            long long rule_end = rule.src_start + rule.length;
+            
+            // No overlap
+            if (range_end <= rule_start || range_start >= rule_end) {
+                next_remaining.push_back(range);
+                continue;
+            }
+            
+            // Add part before overlap
+            if (range_start < rule_start) {
+                next_remaining.push_back({range_start, rule_start - range_start});
+            }
+            
+            // Add overlapping part (transformed)
+            long long overlap_start = max(range_start, rule_start);
+            long long overlap_end = min(range_end, rule_end);
+            long long transformed_start = rule.dest_start + (overlap_start - rule_start);
+            result.push_back({transformed_start, overlap_end - overlap_start});
+            
+            // Add part after overlap
+            if (range_end > rule_end) {
+                next_remaining.push_back({rule_end, range_end - rule_end});
+            }
+        }
+        
+        remaining = next_remaining;
+    }
+    
+    // Add any remaining ranges that didn't match any rule
+    result.insert(result.end(), remaining.begin(), remaining.end());
+    
+    return result;
+}
+```
+
+Now we can solve Part 2 by working with ranges:
+
+{: class="language-kotlin" theme="darcula" mode="c" from="32" to="60"}
+```cpp
+static long long part2(const string& input) {
+    vector<long long> seed_data = parse_seeds(input);
+    vector<vector<Mapping>> mappings = parse_mappings(input);
+    
+    vector<Range> current_ranges;
+    for (size_t i = 0; i < seed_data.size(); i += 2) {
+        current_ranges.push_back({seed_data[i], seed_data[i + 1]});
+    }
+    
+    for (const auto& mapping : mappings) {
+        current_ranges = apply_mapping_to_ranges(current_ranges, mapping);
+    }
+    
+    long long min_location = LLONG_MAX;
+    for (const auto& range : current_ranges) {
+        min_location = min(min_location, range.start);
+    }
+    
+    return min_location;
+}
+```
+
+This approach efficiently handles large ranges by working with them as units rather than individual numbers, making it much faster than the naive approach.
+
+And with that we unlock the second star! 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>
+        α) The key insight here is that we need to apply mappings in sequence, and each mapping can only be applied once per seed.
+    </p>
+
+    <p>
+        β) This is a classic example of why we need to think about algorithmic complexity. The naive approach would be O(seeds × mappings × rules), but with ranges it becomes much more efficient.
+    </p>
+
+    <p>
+        ɣ) The range splitting algorithm is the heart of the solution. It ensures that we correctly handle overlapping ranges and transform only the parts that match the mapping rules.
+    </p>
+</div>

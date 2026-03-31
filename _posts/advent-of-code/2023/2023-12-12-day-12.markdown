@@ -3,7 +3,7 @@ layout: post
 title: "🎄 Advent of Code 2'023 - Day 12"
 author: Jefersson Nathan
 date: Tue Dec 12 00:00:01 CEST 2023
-categories: [ "post" ]
+categories: [ "aoc" ]
 description: "🎄 Advent of Code 2'023 - Day 12"
 ---
 

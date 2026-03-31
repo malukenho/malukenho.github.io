@@ -1,0 +1,366 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 07"
+author: Jefersson Nathan
+date: Thu Dec 07 00:00:01 CEST 2023
+categories: [ "aoc" ]
+description: "🎄 Advent of Code 2'023 - Day 07"
+---
+
+## Day 07: Camel Cards
+
+{: class="marginalia" }
+\* Cf. [aoc. d. vii xxiii](https://adventofcode.com/2023/day/7)
+
+Today we're playing a card game called Camel Cards! We need to rank hands of cards and calculate the total winnings based on their strength. Each hand consists of five cards and has an associated bid.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483
+```
+
+The input consists of hands and their bids. We need to rank them from weakest to strongest and calculate the total winnings by multiplying each hand's bid by its rank.
+
+---
+
+### Parsing The Input
+
+I started by creating helper methods to parse the input data and represent hands and bids.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+struct Hand {
+    string cards;
+    int bid;
+    int type;
+    
+    Hand(string c, int b) : cards(c), bid(b), type(0) {}
+};
+
+static vector<Hand> parse_input(const string& input) {
+    vector<Hand> hands;
+    vector<string> lines = Utils::split_lines(input);
+    
+    for (const string& line : lines) {
+        size_t space_pos = line.find(' ');
+        string cards = line.substr(0, space_pos);
+        int bid = stoi(line.substr(space_pos + 1));
+        hands.push_back(Hand(cards, bid));
+    }
+    
+    return hands;
+}
+```
+
+---
+
+### PARS I
+
+For the first part, we need to determine the type of each hand and then sort them by strength. The hand types are ranked from weakest to strongest:
+
+1. High card
+2. One pair
+3. Two pairs
+4. Three of a kind
+5. Full house
+6. Four of a kind
+7. Five of a kind
+
+{: class="marginalia" }
+α
+
+I created a method to evaluate the hand type by counting card frequencies:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int evaluate_hand_type(const string& hand) {
+    unordered_map<char, int> counts;
+    for (char card : hand) {
+        counts[card]++;
+    }
+    
+    vector<int> frequencies;
+    for (auto& pair : counts) {
+        frequencies.push_back(pair.second);
+    }
+    sort(frequencies.rbegin(), frequencies.rend());
+    
+    if (frequencies[0] == 5) return 6; // Five of a kind
+    if (frequencies[0] == 4) return 5; // Four of a kind
+    if (frequencies[0] == 3 && frequencies[1] == 2) return 4; // Full house
+    if (frequencies[0] == 3) return 3; // Three of a kind
+    if (frequencies[0] == 2 && frequencies[1] == 2) return 2; // Two pairs
+    if (frequencies[0] == 2) return 1; // One pair
+    return 0; // High card
+}
+```
+
+Now I need to create a comparison function for sorting hands. First by type, then by card strength:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int card_strength(char card) {
+    switch (card) {
+        case 'A': return 14;
+        case 'K': return 13;
+        case 'Q': return 12;
+        case 'J': return 11;
+        case 'T': return 10;
+        default: return card - '0';
+    }
+}
+
+static bool compare_hands(const Hand& a, const Hand& b) {
+    if (a.type != b.type) {
+        return a.type < b.type;
+    }
+    
+    for (int i = 0; i < 5; i++) {
+        if (card_strength(a.cards[i]) != card_strength(b.cards[i])) {
+            return card_strength(a.cards[i]) < card_strength(b.cards[i]);
+        }
+    }
+    
+    return false;
+}
+```
+
+Here's the complete Part 1 solution:
+
+{: class="language-kotlin" theme="darcula" mode="c" from="1" to="50"}
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+class Solution_07 {
+public:
+    struct Hand {
+        string cards;
+        int bid;
+        int type;
+        
+        Hand(string c, int b) : cards(c), bid(b), type(0) {}
+    };
+
+    static long long part1(const string& input) {
+        vector<Hand> hands = parse_input(input);
+        
+        for (Hand& hand : hands) {
+            hand.type = evaluate_hand_type(hand.cards);
+        }
+        
+        sort(hands.begin(), hands.end(), compare_hands);
+        
+        long long total_winnings = 0;
+        for (int i = 0; i < hands.size(); i++) {
+            total_winnings += (i + 1) * hands[i].bid;
+        }
+        
+        return total_winnings;
+    }
+
+private:
+    static vector<Hand> parse_input(const string& input) {
+        vector<Hand> hands;
+        vector<string> lines = Utils::split_lines(input);
+        
+        for (const string& line : lines) {
+            size_t space_pos = line.find(' ');
+            string cards = line.substr(0, space_pos);
+            int bid = stoi(line.substr(space_pos + 1));
+            hands.push_back(Hand(cards, bid));
+        }
+        
+        return hands;
+    }
+
+    static int evaluate_hand_type(const string& hand) {
+        unordered_map<char, int> counts;
+        for (char card : hand) {
+            counts[card]++;
+        }
+        
+        vector<int> frequencies;
+        for (auto& pair : counts) {
+            frequencies.push_back(pair.second);
+        }
+        sort(frequencies.rbegin(), frequencies.rend());
+        
+        if (frequencies[0] == 5) return 6; // Five of a kind
+        if (frequencies[0] == 4) return 5; // Four of a kind
+        if (frequencies[0] == 3 && frequencies[1] == 2) return 4; // Full house
+        if (frequencies[0] == 3) return 3; // Three of a kind
+        if (frequencies[0] == 2 && frequencies[1] == 2) return 2; // Two pairs
+        if (frequencies[0] == 2) return 1; // One pair
+        return 0; // High card
+    }
+
+    static int card_strength(char card) {
+        switch (card) {
+            case 'A': return 14;
+            case 'K': return 13;
+            case 'Q': return 12;
+            case 'J': return 11;
+            case 'T': return 10;
+            default: return card - '0';
+        }
+    }
+
+    static bool compare_hands(const Hand& a, const Hand& b) {
+        if (a.type != b.type) {
+            return a.type < b.type;
+        }
+        
+        for (int i = 0; i < 5; i++) {
+            if (card_strength(a.cards[i]) != card_strength(b.cards[i])) {
+                return card_strength(a.cards[i]) < card_strength(b.cards[i]);
+            }
+        }
+        
+        return false;
+    }
+};
+```
+
+With that we unlock the first star! 🌟
+
+---
+
+### PARS II
+
+The second part introduces a twist: the 'J' card now acts as a joker and can represent any other card to make the strongest possible hand.
+
+{: class="marginalia" }
+β
+
+This changes both the hand evaluation logic and the card strength comparison. Jokers should be treated as the weakest card when comparing individual cards, but they can be used to form the strongest possible hand type.
+
+{: class="marginalia" }
+ɣ
+
+I need to modify the hand evaluation to consider jokers:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int evaluate_hand_type_with_jokers(const string& hand) {
+    unordered_map<char, int> counts;
+    int joker_count = 0;
+    
+    for (char card : hand) {
+        if (card == 'J') {
+            joker_count++;
+        } else {
+            counts[card]++;
+        }
+    }
+    
+    vector<int> frequencies;
+    for (auto& pair : counts) {
+        frequencies.push_back(pair.second);
+    }
+    sort(frequencies.rbegin(), frequencies.rend());
+    
+    // Add jokers to the most frequent card
+    if (!frequencies.empty()) {
+        frequencies[0] += joker_count;
+    } else {
+        // All jokers case
+        frequencies.push_back(joker_count);
+    }
+    
+    if (frequencies[0] == 5) return 6; // Five of a kind
+    if (frequencies[0] == 4) return 5; // Four of a kind
+    if (frequencies[0] == 3 && frequencies[1] == 2) return 4; // Full house
+    if (frequencies[0] == 3) return 3; // Three of a kind
+    if (frequencies[0] == 2 && frequencies[1] == 2) return 2; // Two pairs
+    if (frequencies[0] == 2) return 1; // One pair
+    return 0; // High card
+}
+```
+
+I also need to update the card strength function to make J the weakest:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+static int card_strength_with_jokers(char card) {
+    switch (card) {
+        case 'A': return 14;
+        case 'K': return 13;
+        case 'Q': return 12;
+        case 'T': return 10;
+        case 'J': return 1; // J is now the weakest
+        default: return card - '0';
+    }
+}
+```
+
+Here's the complete Part 2 solution:
+
+{: class="language-kotlin" theme="darcula" mode="c" from="52" to="80"}
+```cpp
+static long long part2(const string& input) {
+    vector<Hand> hands = parse_input(input);
+    
+    for (Hand& hand : hands) {
+        hand.type = evaluate_hand_type_with_jokers(hand.cards);
+    }
+    
+    sort(hands.begin(), hands.end(), [](const Hand& a, const Hand& b) {
+        if (a.type != b.type) {
+            return a.type < b.type;
+        }
+        
+        for (int i = 0; i < 5; i++) {
+            int strength_a = card_strength_with_jokers(a.cards[i]);
+            int strength_b = card_strength_with_jokers(b.cards[i]);
+            if (strength_a != strength_b) {
+                return strength_a < strength_b;
+            }
+        }
+        
+        return false;
+    });
+    
+    long long total_winnings = 0;
+    for (int i = 0; i < hands.size(); i++) {
+        total_winnings += (i + 1) * hands[i].bid;
+    }
+    
+    return total_winnings;
+}
+```
+
+The key insight is that jokers should be added to the most frequent non-joker card to maximize the hand strength. This ensures we get the best possible hand type.
+
+And with that we unlock the second star! 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>
+        α) The hand evaluation algorithm works by counting the frequency of each card type, 
+        then sorting these frequencies in descending order to determine the hand type.
+    </p>
+
+    <p>
+        β) The joker rule makes the problem more interesting because we need to consider 
+        all possible ways jokers can be used to form the strongest hand.
+    </p>
+
+    <p>
+        ɣ) When all cards are jokers, we treat it as five of a kind, which is the 
+        strongest possible hand type.
+    </p>
+</div>

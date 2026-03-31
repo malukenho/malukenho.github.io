@@ -1,54 +1,54 @@
 - name: Day 01 ⭐️⭐️
   icon: 🌲
   description: Trebuchet?!
-  href: /post/2023/12/01/day-01.html
+  href: /aoc/2023/12/01/day-01.html
 
 - name: Day 02 ⭐️⭐️
   icon: 🎁
   description: Cube Conundrum
-  href: /post/2023/12/02/day-02.html
+  href: /aoc/2023/12/02/day-02.html
 
 - name: Day 03 ⭐️⭐️
   icon: ✨
   description: Gear Ratios
-  href: /post/2023/12/03/day-03.html
+  href: /aoc/2023/12/03/day-03.html
 
 - name: Day 04 ⭐️⭐️
   icon: 🦃
   description: Scratchcards
-  href: /post/2023/12/04/day-04.html
+  href: /aoc/2023/12/04/day-04.html
 
 - name: Day 05
-  icon: ⚙️
-  description: Work in progress
-  href: #
+  icon: 🌿
+  description: If You Give A Seed A Fertilizer
+  href: /aoc/2023/12/05/day-05.html
 
 - name: Day 06 ⭐️⭐️
   icon: 💫
   description: Wait For It
-  href: /post/2023/12/06/day-06.html
+  href: /aoc/2023/12/06/day-06.html
 
-- name: Day 07
-  icon: ⚙️
-  description: Work in progress
-  href: #
+- name: Day 07 ⭐️⭐️
+  icon: 🃏
+  description: Camel Cards
+  href: /aoc/2023/12/07/day-07.html
 
 - name: Day 08 ⭐️⭐️
   icon: 👻
   description: Haunted Wasteland
-  href: /post/2023/12/08/day-08.html
+  href: /aoc/2023/12/08/day-08.html
 
 - name: Day 09 ⭐️⭐️
   icon: 🏜️
   description: Mirage Maintenance
-  href: /post/2023/12/09/day-09.html
+  href: /aoc/2023/12/09/day-09.html
 
 - name: Day 10 ⭐️⭐️
   icon: 🤶
   description: Pipe Maze
-  href: /post/2023/12/10/day-10.html
+  href: /aoc/2023/12/10/day-10.html
 
 - name: Day 11 ⭐️⭐️
   icon: 🪐
   description: Cosmic Expansion
-  href: /post/2023/12/11/day-11.html
+  href: /aoc/2023/12/11/day-11.html

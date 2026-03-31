@@ -1,0 +1,203 @@
+---
+layout: post
+title: "🎄 Advent of Code 2'023 - Day 09"
+author: Jefersson Nathan
+date: Mon Dec 09 00:00:01 CEST 2023
+categories: [ "aoc" ]
+description: "🎄 Advent of Code 2'023 - Day 09"
+---
+
+## Day 09: Mirage Maintenance
+
+{: class="marginalia" }
+\* Cf. [aoc. d. ix xxiii](https://adventofcode.com/2023/day/9)
+
+**Abridged Problem Description**: Given a dataset of numbers, we are required to predict
+the next number in the sequence.
+
+---
+
+### Parsing The Input
+
+First, I'd like to have a line-by-line `vector<string>` of the input. Then I can
+parse it further.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<string> input = Utils::split_lines(Utils::read_file("input/day_09_input"));
+```
+
+To parse every line into a `vector<int64>`, we can do the following:
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+vector<vector<int64>> day_09_input(input.size(), vector<int64>());
+
+for (auto &n : input) day_09_input.push_back(Utils::parse_v_numbers(n));
+```
+
+**Bene Nota**: I'm ignoring the first line because that is our instructions.
+
+---
+
+### PARS I
+
+The first part is straightforward. We need to get the last number of the input after
+each iteration, also taking into account that the result is always `n - 1`.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int64 sum = 0;
+
+for (vector<int64> data : lines) {
+  do {
+    if (data.empty()) continue;
+    sum += data.back();
+    std::adjacent_difference(data.begin(), data.end(), data.begin());
+    data.erase(data.begin());
+  } while (!std::all_of(data.begin(), data.end(), [](auto d) { return d == 0; }));
+}
+
+return sum;
+```
+
+That was an easy star 🌟
+
+---
+
+### PARS II
+
+For the second part, we need to predict the **previous** number in the sequence instead of the next one. This requires a slight modification to our approach.
+
+{: class="marginalia" }
+α
+
+The key insight is that we need to work backwards through the difference sequences. Instead of adding the last number of each level, we need to subtract the first number of each level from the previous value.
+
+{: class="language-kotlin" theme="darcula" mode="c"}
+```cpp
+int64 sum = 0;
+
+for (vector<int64> data : lines) {
+  vector<vector<int64>> sequences;
+  sequences.push_back(data);
+  
+  // Build difference sequences
+  while (true) {
+    vector<int64> diff;
+    for (size_t i = 1; i < data.size(); ++i) {
+      diff.push_back(data[i] - data[i-1]);
+    }
+    sequences.push_back(diff);
+    data = diff;
+    
+    if (all_of(diff.begin(), diff.end(), [](auto d) { return d == 0; })) {
+      break;
+    }
+  }
+  
+  // Extrapolate backwards
+  int64 prev_value = 0;
+  for (int i = sequences.size() - 2; i >= 0; --i) {
+    prev_value = sequences[i][0] - prev_value;
+  }
+  
+  sum += prev_value;
+}
+
+return sum;
+```
+
+{: class="marginalia" }
+β
+
+The algorithm works by:
+1. Building the same difference sequences as in Part 1
+2. Starting from the all-zeros sequence with `prev_value = 0`
+3. For each level going backwards, we calculate `prev_value = first_number - prev_value`
+4. The final `prev_value` is the predicted previous number in the original sequence
+
+Here's the complete solution:
+
+{: class="language-kotlin" theme="darcula" mode="c" from="1" to="50"}
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+
+using namespace std;
+
+class Solution_09 {
+public:
+    static int64 part1(const vector<vector<int64>>& lines) {
+        int64 sum = 0;
+
+        for (vector<int64> data : lines) {
+            do {
+                if (data.empty()) continue;
+                sum += data.back();
+                std::adjacent_difference(data.begin(), data.end(), data.begin());
+                data.erase(data.begin());
+            } while (!std::all_of(data.begin(), data.end(), [](auto d) { return d == 0; }));
+        }
+
+        return sum;
+    }
+
+    static int64 part2(const vector<vector<int64>>& lines) {
+        int64 sum = 0;
+
+        for (vector<int64> data : lines) {
+            vector<vector<int64>> sequences;
+            sequences.push_back(data);
+            
+            // Build difference sequences
+            while (true) {
+                vector<int64> diff;
+                for (size_t i = 1; i < data.size(); ++i) {
+                    diff.push_back(data[i] - data[i-1]);
+                }
+                sequences.push_back(diff);
+                data = diff;
+                
+                if (all_of(diff.begin(), diff.end(), [](auto d) { return d == 0; })) {
+                    break;
+                }
+            }
+            
+            // Extrapolate backwards
+            int64 prev_value = 0;
+            for (int i = sequences.size() - 2; i >= 0; --i) {
+                prev_value = sequences[i][0] - prev_value;
+            }
+            
+            sum += prev_value;
+        }
+
+        return sum;
+    }
+};
+```
+
+Awesome! We solved the spooky puzzle! 🌟🌟
+
+{% include micro.html content="
+Click here to access the blogpost from [@fefas](https://blog.fefas.dev/advent-of-code-2023){: class='external no-highlight'}" %}
+
+---
+
+<div class="footnotes">
+    <p>
+        α) The key difference between Part 1 and Part 2 is the direction of extrapolation. 
+        In Part 1, we work with the last elements and add them up. In Part 2, we work with 
+        the first elements and subtract them in reverse order.
+    </p>
+
+    <p>
+        β) This algorithm is based on the mathematical concept of finite differences, which 
+        is commonly used in numerical analysis and polynomial interpolation. The process of 
+        computing differences until we reach all zeros is equivalent to finding the degree 
+        of the polynomial that fits the sequence.
+    </p>
+</div>

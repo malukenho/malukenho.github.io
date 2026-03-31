@@ -189,6 +189,35 @@ a.logo:hover { color: rgba(255,255,255,.7) !important }
 .main-navigation div.selector:before { font-family: FontAwesome; font-size:17px; content: "\f0c9"; }
 .main-navigation div.selector span { font-weight:bold; }
 
+/* Advent of Code page styling */
+.post-description {
+    color: #666;
+    font-style: italic;
+    margin: 0.5em 0;
+}
+
+.aoc-info {
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: #f8f9fa;
+    border-left: 4px solid #28a745;
+    border-radius: 4px;
+}
+
+.aoc-info h3 {
+    margin-top: 0;
+    color: #28a745;
+}
+
+.aoc-info a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.aoc-info a:hover {
+    text-decoration: underline;
+}
+
 /* NAVIGATION */
 .main-navigation { border-style:solid; border-width:1px 0; border-color: #eee; }
 .main-navigation ul { list-style:none; padding:0; margin:0; }

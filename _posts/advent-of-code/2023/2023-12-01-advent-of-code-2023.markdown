@@ -3,7 +3,7 @@ layout: post
 title: "🎄 Advent(ure) of C(pp)ode 2'023"
 author: Jefersson Nathan
 date: Fri Dec 01 09:21:54 CEST 2023
-categories: [ "post" ]
+categories: [ "aoc" ]
 description: "A new year, a new Advent(ure) of C(pp)ode 2'023"
 ---
 
