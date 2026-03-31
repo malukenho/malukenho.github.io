@@ -3,7 +3,7 @@ layout: post
 title: "✨ Advent of Code — Day 05 <2021 />"
 author: Jefersson Nathan
 date: Sat Jun 10 11:23:16 CEST 2023
-categories: [ post ]
+categories: ["aoc" ]
 description: "Day 05 - Hydrothermal Venture"
 ---
 

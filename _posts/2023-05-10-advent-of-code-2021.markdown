@@ -3,7 +3,7 @@ layout: post
 title: "✨ Advent of Code — Day 03 <2021 />"
 author: Jefersson Nathan
 date: Sat May 9 16:29:13 CEST 2023
-categories: [ post ]
+categories: [ "aoc" ]
 description: "Day 3 - Binary Diagnostic"
 ---
 

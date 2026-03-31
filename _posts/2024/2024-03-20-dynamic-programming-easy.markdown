@@ -3,7 +3,7 @@ layout: post
 title: 💃 Dynamic Programming Climbing Stairs
 author: Jefersson Nathan
 date: Mon Mar 20 14:45:54 CEST 2024
-categories: [ "post" ]
+categories: [ "aoc" ]
 description: ""
 ---
 

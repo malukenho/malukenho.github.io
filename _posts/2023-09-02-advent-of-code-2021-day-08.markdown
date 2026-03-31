@@ -3,7 +3,7 @@ layout: post
 title: "✨ Advent of Code — Day 08 <2021 />"
 author: Jefersson Nathan
 date: Sat Sep 01 11:23:16 CEST 2023
-categories: [ post ]
+categories: [ aoc ]
 description: "Day 08 - Seven Segment Search"
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "📚 2748. Number of Beautiful Pairs"
 author: Jefersson Nathan
 date: Sat Jan 1 11:23:16 CEST 2023
-categories: [ post ]
+categories: [ post, leetcode ]
 description: "Weekly Contest 351"
 ---
 
