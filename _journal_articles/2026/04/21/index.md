@@ -4,7 +4,7 @@ date: 2026-04-21
 title: "O Matinal — terça-feira, 21 de abril de 2026"
 edition: "2026-04-21"
 sections: 7
-articles: 14
+articles: 42
 permalink: /journal_articles/2026/04/21/
 ---
 
@@ -22,76 +22,204 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Abrams ComicArts' Kana Licenses Satoshi Morie's 'My Dear, A Mystery For You' Manga</div>
+    <div class="article-headline">Netflix Streams Akane-banashi Anime With English Dub/Sub on May 17</div>
     <div class="article-subhead">ANN - Anime News</div>
     
-    <p>**NOTÍCIAS LITERÁRIAS DE ULTRAMAR – UMA OBRA ENIGMÁTICA CHEGA ÀS NOSSAS PLAGENS**<br/><br/>Prezados leitores de "O Malho", é com a mais fina galanteria que vos trazemos novas de além-mar, que prometem agitar os corações dos amantes do mistério e da boa leitura. Chega-nos a grata notícia, vinda dos prestigiados escritórios da Abrams ComicArts, por intermédio de sua estimada divisão Kana, que uma joia da literatura ilustrada japonesa está prestes a adornar as estantes de nosso continente.<br/><br/>Trata-se, meus caros, da obra intitulada "My Dear, A Mystery For You" (Minha Cara, Um Mistério Para Vós), do talentoso e imaginativo autor Satoshi Morie. Este mangá, como é conhecido este peculiar gênero de narrativas gráficas nipônicas, é um verdadeiro convite à perspicácia, um labirinto de enigmas e segredos que, segundo consta, manteve os leitores em suspense durante seu período de publicação original, que se estendeu graciosamente de 2016 a 2018.<br/><br/>Com efeito, a chegada desta obra ao Ocidente é um acontecimento digno de nota, um testemunho da universalidade do fascínio pelo desconhecido e pela intriga bem tecida. Os que apreciam um bom desafio intelectual, aqueles que se deleitam em desvendar tramas complexas e personagens enigmáticos, encontrarão em "My Dear, A Mystery For You" um banquete para a alma e para o intelecto.<br/><br/>Aguarda-se, pois, com a mais requintada expectativa, que esta incursão no universo de Satoshi Morie proporcione aos nossos leitores horas de deleite e de reflexão, provando, uma vez mais, que a arte de narrar mistérios não conhece fronteiras nem épocas, florescendo em todas as latitudes e temperamentos. Que este mistério vos seja, deveras, muito agradável!</p>
-    <a href="https://www.animenewsnetwork.com/news/2026-04-21/abrams-comicarts-kana-licenses-satoshi-morie-my-dear-a-mystery-for-you-manga/.236617" class="article-link">Leia na fonte →</a>
+    <p>1st 2 episodes stream on Netflix on May 17</p>
+    <a href="https://www.animenewsnetwork.com/news/2026-04-21/netflix-streams-akane-banashi-anime-with-english-dub-sub-on-may-17/.236637" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Kodansha House, Anime Expo Host Blue Lock, Witch Hat Atelier Manga Creators</div>
+    <div class="article-subhead">ANN - Anime News</div>
+    
+    <p>Muneyuki Kaneshiro, Yusuke Nomura, Kamome Shirahama attend Kodansha House from July 2-12</p>
+    <a href="https://www.animenewsnetwork.com/news/2026-04-21/kodansha-house-anime-expo-host-blue-lock-witch-hat-atelier-manga-creators/.236636" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Ryuya Suzuki's Debut Feature Anime Film Jinsei Reveals English-Subtitled Trailer, June 5 U.S. Debut</div>
+    <div class="article-subhead">ANN - Anime News</div>
+    
+    <p>Film opens in NY theaters on June 5 before opening nationwide on June 12</p>
+    <a href="https://www.animenewsnetwork.com/news/2026-04-21/ryuya-suzuki-debut-feature-anime-film-jinsei-reveals-english-subtitled-trailer-june-5-u.s-debut/.236562" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
     <div class="article-headline">Additional Cast for 'Tongari Boushi no Atelier' Announced</div>
     <div class="article-subhead">MyAnimeList News</div>
     
-    <p>**Novidades Encantadoras no Mundo da Animação: Mais Talentos no "Ateliê do Chapéu de Bruxa"**<br/><br/>Prezados leitores e diletos apreciadores das mais finas artes, é com indizível prazer que a nossa preclara gazeta traz, em primeiríssima mão, as mais recentes e auspiciosas novas do universo da animação japonesa, que tanto tem arrebatado corações e mentes em terras distantes. Referimo-nos, com especial regozijo, à adaptação televisiva da aclamada obra de fantasia, "Tongari Boushi no Atelier", ou, para o deleite dos lusófonos, "O Ateliê do Chapéu de Bruxa", uma criação sublime da talentosa Kamome Shirahama.<br/><br/>Desde o dia seis de abril, às onze horas da noite, os lares nipônicos têm sido agraciados com a transmissão desta joia artística, que desabrochou primeiramente nas telas da Tokyo MX e BS11, e, em seguida, espalhou seu encanto por KBS Kyoto, Sun TV e AT-X. Mas as boas novas não param por aí! O sítio oficial desta produção, que já prometia ser um marco, revelou, na última segunda-feira, a adesão de mais talentosos artistas vocais ao seu já estrelado elenco.<br/><br/>Com a graça e a destreza que lhes são peculiares, os senhores Mutsumi Tamura, conhecido por sua atuação em "Ragna Crimson", e Yoshito Yasuhara, cuja voz ressoa em "Teogonia", vêm somar-se a este empreendimento. Eles emprestarão seus dotes às personagens Tartah e Nolnoa, respectivamente, prometendo dar vida e alma a estas figuras com a maestria que os distingue.<br/><br/>Sob a batuta do exímio Ayumu Watanabe, diretor de "Summertime Render", e com a zelosa produção dos estúdios BUG FILMS, a expectativa é que esta série venha a ser um verdadeiro primor, um bálsamo para os olhos e para o espírito. Que esta empreitada, que já se anuncia como um espetáculo de magia e fantasia, continue a encantar e a inspirar, trazendo um pouco da beleza dos contos de fadas para o nosso cotidiano.</p>
+    <p>The official website of the Tongari Boushi no Atelier (Witch Hat Atelier) television anime revealed additional cast on Monday. The anime series adapting Kamome Shirahama&#039;s fantasy manga began airing on April 6 at 11:00 p.m. on Tokyo MX, BS11, followed by KBS Kyoto, Sun TV, and AT-X. Voice actors Mutsumi Tamura (Ragna Crimson) and Yoshito Yasuhara (Teogonia) are joining the cast as Tartah and Nolnoa, respectively. Ayumu Watanabe (Summertime Render) is directing the anime at BUG FILMS. Hirosh...</p>
     <a href="https://myanimelist.net/news/74156977?_location=rss" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">'Koko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita.' Announces Additional Cast</div>
+    <div class="article-subhead">MyAnimeList News</div>
+    
+    <p>The official website for the television anime adaptation of Ezogingitsune&#039;s Koko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita. (I Became a Legend After My 10 Year-Long Last Stand.) light novel announced three additional cast members on Tuesday. The anime series was previously scheduled for an April 2026 premiere but is now rescheduled to debut in July 2026. Cast Arone: Wakana Maruoka (Shijou Saikyou no Daimaou, Murabito A ni Tensei suru) Ario: Yuuki Ter...</p>
+    <a href="https://myanimelist.net/news/74156811?_location=rss" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">'Sayonara Lara' Unveils Additional Cast, Opening Theme, Second Promo</div>
+    <div class="article-subhead">MyAnimeList News</div>
+    
+    <p>The official X (formerly Twitter) account of the Sayonara Lara (Goodbye, Lara) original television anime unveiled additional cast, opening theme, and the second promotional video on Friday. The original anime series is scheduled to premiere in July 2026. Cast Yoshiya Ootsu: Tomohiro Ono (Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari) Makoto Ootsu: Mitsuaki Madono (Saiunkoku Monogatari) Ema Ootsu: Nanae Sumitomo (Hotel Inhumans) Rowan: Masaki Terasoma (Shiunji-ke no Kodomotachi) Pop...</p>
+    <a href="https://myanimelist.net/news/74138764?_location=rss" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Brasil</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">'Não tenho nada pra falar com ele, mas não sou mal educado', diz senador sobre Messias</div>
+    <div class="article-headline">A influência do caso Master nas eleições</div>
     <div class="article-subhead">Folha - Poder</div>
     
-    <p>**O SENADOR E A ETIQUETA – UM EPISÓDIO DE CORTESIA PARLAMENTAR**<br/><br/>Meus caros leitores e distintas leitoras, que a benevolência divina os ilumine nesta jornada terrena! É com a fineza de um pincel a traçar os contornos da mais delicada aquarela que lhes trago à baila um recente e, por assim dizer, pitoresco acontecimento no seio de nossa respeitável Assembleia.<br/><br/>No palco das altas deliberações, onde o destino da Pátria é incessantemente tecido, o preclaro Senador Márcio Bittar, figura de proa do Partido Liberal pelo Acre, manifestou-se com a serenidade e a retidão que se esperam de um cavalheiro de sua estirpe. Questionado sobre um possível encontro com o ilustre Ministro da Advocacia-Geral da União, o Doutor Jorge Messias, o Senador, com a fleuma de um estadista e a polidez de um fidalgo, proferiu palavras que merecem ser gravadas em pergaminho.<br/><br/>"Não possuo, para com o eminente Ministro, nenhum assunto de particular relevância a debater", declarou o Senador, com a clareza cristalina de um riacho de montanha. Contudo, e aqui reside o cerne da elegância de seu pronunciamento, prosseguiu com a altivez de quem preza pelos cânones da boa convivência: "Não sou, todavia, um indivíduo desprovido de educação, a ponto de recusar-lhe a acolhida, caso sua distinta pessoa se digne a visitar meu gabinete."<br/><br/>Ah, meus amigos! Que lição de urbanidade e civilidade nos oferece o nobre Senador! Em tempos onde a aspereza por vezes macula o trato social, eis que um de nossos representantes nos recorda a importância da cortesia, mesmo diante da ausência de pautas predefinidas. É um brinde à etiqueta, um hino à boa-vontade, um testemunho de que, mesmo nas lides políticas, a gentileza jamais deve ser relegada ao esquecimento. Que este episódio sirva de farol, iluminando os caminhos da cordialidade em todas as esferas de nossa querida sociedade.</p>
-    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/nao-tenho-nada-pra-falar-com-ele-mas-nao-sou-mal-educado-diz-senador-sobre-messias.shtml" class="article-link">Leia na fonte →</a>
+    <p>Se estiverem certas as projeções correntes no meio jurídico, as delações premiadas de Daniel Vorcaro e companhia, se aceitas pela Polícia Federal, Ministério Público e Supremo Tribunal Federal, vão chegar ao conhecimento público no auge da campanha eleitoral. Leia mais (04/21/2026 - 15h30)</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/dora-kramer/2026/04/a-influencia-do-caso-master-nas-eleicoes.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Mortes: Mãe de santo por quase 40 anos, dedicou a vida a cuidar do próximo</div>
+    <div class="article-headline">Governador de MG diz ter 'inveja branca' de Tarcísio por nomear 1ª mulher chefe da PM; veja vídeo</div>
+    <div class="article-subhead">Folha - Poder</div>
+    
+    <p>O governador de Minas Gerais, Mateus Simões (PSD), disse nesta terça (21) ter "inveja branca" de seu homólogo paulista, Tarcísio de Freitas (Republicanos), por ter nomeado a primeira mulher como comandante-geral da Polícia Militar de São Paulo. Leia mais (04/21/2026 - 14h09)</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/governador-de-mg-diz-ter-inveja-branca-de-tarcisio-por-nomear-1a-mulher-chefe-da-pm-veja-video.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Mulheres são minoria entre os servidores públicos mais bem remunerados</div>
+    <div class="article-subhead">Folha - Poder</div>
+    
+    <p>Um levantamento feito com base em dados do IBGE (Instituto Brasileiro de Geografia e Estatistica) aponta que a maioria dos servidores públicos que recebem mais de 20 salários mínimos é homem, enquanto as mulheres dominam a faixa dos que recebem até dois salários mínimos por mês. Leia mais (04/21/2026 - 13h05)</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/mulheres-sao-minoria-entre-os-servidores-publicos-mais-bem-remunerado.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Prédios do Cine Marrocos e do hotel Esplanada vão a leilão em SP</div>
     <div class="article-subhead">Folha - Cotidiano</div>
     
-    <p>**Fallecimento Digno: Uma Vida Dedicada à Caridade e ao Alívio do Próximo**<br/><br/>É com um misto de pesar e reverência que noticiamos o passamento de Marlene Guimarães Ramos da Costa, veneranda senhora que, por quase quatro décadas, dedicou sua existência ao sublime mister de servir e amparar o seu semelhante. Em tempos de tantos reveses e incertezas, a partida de uma alma tão generosa deixa um vácuo imenso naqueles corações que tiveram a ventura de cruzar seu caminho.<br/><br/>Dona Marlene, figura ímpar em sua abnegação, fez do cuidado ao próximo não uma mera ocupação, mas sim um verdadeiro apostolado. Sua residência, um porto seguro para os desamparados, era palco de cenas comoventes e edificantes. Não era raro, caros leitores, que aflitos e desvalidos ali chegassem com o fito de obter auxílio, e dali partissem não apenas com o problema mitigado, mas com a alma reconfortada e o espírito renovado.<br/><br/>Seja para debelar uma moléstia que afligia o corpo, para saciar a fome que corroía as entranhas, para auxiliar na árdua busca por uma ocupação que tardava a surgir, ou para oferecer um conselho sábio e alumiador em momentos de desorientação, Dona Marlene jamais se furtava a estender sua mão amiga. Sua sabedoria, aliada a uma compaixão sem limites, era um bálsamo para as agruras da vida, um farol a guiar os incertos em meio à escuridão.<br/><br/>A memória de Marlene Guimarães Ramos da Costa, esta benfeitora incansável, permanecerá vívida e inspiradora. Que seu exemplo de altruísmo e caridade ressoe em nossos corações, servindo de eterno convite à prática do bem e à solidariedade para com os que mais necessitam. Que descanse em paz a alma desta nobre senhora, cuja vida foi um hino à bondade e à dedicação ao próximo.</p>
-    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/mortes-mae-de-santo-por-quase-40-anos-dedicou-a-vida-a-cuidar-do-proximo.shtml" class="article-link">Leia na fonte →</a>
+    <p>O governo do Estado de São Paulo tem o desafio de dar um destino adequado para os prédios ocupados hoje por suas secretarias que serão esvaziados a partir da instalação de nova sede administrativa nos Campos Elíseos até 2030. São ao todo 40 edifícios na região central e na região circundante, com 820 mil metros quadrados de área ocupada por 22 mil a 25 mil funcionários. Das 24 secretarias estaduais, 15 ficam na região central. Leia mais (04/21/2026 - 13h59)</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/andancas-na-metropole/2026/04/predios-do-cine-marrocos-e-do-hotel-esplanada-vao-a-leilao-em-sp.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Lula defende acordo UE-Mercosul e propõe Portugal como porta de entrada para empresas brasileiras</div>
+    <div class="article-headline">Brecha permite que moradia popular vire apartamento comum e até hotel em SP</div>
+    <div class="article-subhead">Folha - Cotidiano</div>
+    
+    <p>O funcionamento de hotéis em dois empreendimentos construídos com incentivo para a habitação popular expôs uma brecha legal ainda não discutida no âmbito das denúncias de desvio de finalidade desse tipo de moradia na cidade de São Paulo. Trata-se da mudança de uso legalizada, por meio de alvará de reforma ou de projeto modificativo. Leia mais (04/21/2026 - 13h00)</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/brecha-permite-que-moradia-popular-vire-apartamento-comum-e-ate-hotel-em-sp.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">O começo do esquecimento da minha mãe</div>
+    <div class="article-subhead">Folha - Cotidiano</div>
+    
+    <p>"Você está na sua casa, meu filho? Está tudo bem por aí? O que você fez de bom neste domingo?". Congelei por alguns segundos antes de arrumar a fala da minha velha mãe, que acabara de ter o mais importante lapso de memória que eu já havia registrado em nossas longas conversas telefônicas. Leia mais (04/21/2026 - 11h51)</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/assim-como-voce/2026/04/o-comeco-do-esquecimento-da-minha-mae.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Lufthansa cancela 20 mil voos para economizar combustível em meio à guerra no Irã</div>
     <div class="article-subhead">Folha - Mercado</div>
     
-    <p>Prezados leitores e diletas leitoras de "O Malho",<br/><br/>Com a brevidade de um relâmpago, mas a imponência de um estadista, aportou em Lisboa, nesta venturosa jornada, o Exmo. Sr. Presidente da República do Brasil, Dr. Luiz Inácio Lula da Silva. Em visita de poucas horas, mas de vasto significado, nosso ilustre mandatário, ao lado do digníssimo Primeiro-Ministro português, o Sr. Luís Montenegro, brindou-nos com uma declaração conjunta que ecoa como um hino à prosperidade e à união.<br/><br/>Em meio a uma prosa eloquente, o Dr. Lula da Silva fez um vibrante elogio à globalização, esse motor do progresso que irmana as nações e encurta as distâncias. Com a sabedoria de quem vislumbra o futuro, defendeu ardorosamente o acordo entre o Mercosul e a União Europeia, pacto que promete ser um farol a guiar o comércio e a cooperação entre blocos tão significativos.<br/><br/>Mas a pérola de seu discurso, a que mais cintila aos olhos dos brasileiros de espírito empreendedor, foi a sublime proposição de que Portugal, nossa nação-irmã, poderia converter-se na "grande porta de entrada dos interesses empresariais brasileiros". Oh, que visão estratégica! Que convite honroso a essa nação lusitana, berço de nossa civilização, para ser o portal por onde a pujança econômica do Brasil adentrará o continente europeu. É um aceno de confiança, um voto de fé na secular amizade que nos une.<br/><br/>Assim, em um piscar de olhos, o Presidente brasileiro semeou as sementes de um futuro promissor, onde a cooperação transatlântica florescerá, e a bandeira do progresso tremulará, orgulhosa, sobre os laços indissolúveis que nos ligam a Portugal. Que os céus abençoem tais iniciativas!</p>
-    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/lula-defende-acordo-ue-mercosul-e-propoe-portugal-como-porta-de-entrada-para-empresas-brasileiras.shtml" class="article-link">Leia na fonte →</a>
+    <p>A Lufthansa cancelará 20 mil voos entre maio e outubro na Europa para economizar combustível, em um dos maiores cortes feitos por companhias aéreas globais após a duplicação dos preços do querosene de aviação em decorrência da guerra no Irã. Leia mais (04/21/2026 - 15h43)</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/lufthansa-cancela-20-mil-voos-para-economizar-combustivel-em-meio-a-guerra-no-ira.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">CEOs são os chefes das empresas; mas devem ser também o rosto delas?</div>
+    <div class="article-subhead">Folha - Mercado</div>
+    
+    <p>Quando o departamento de marketing do Burger King sugeriu que Tom Curtis, presidente da empresa, assumisse um papel de destaque em seu mais recente comercial de televisão, a resposta dele foi imediata: Não. Leia mais (04/21/2026 - 15h41)</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/ceos-sao-os-chefes-das-empresas-mas-devem-ser-tambem-o-rosto-delas.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Petróleo volta a rondar US$ 100 com proximidade do fim do cessar-fogo no Irã</div>
+    <div class="article-subhead">Folha - Mercado</div>
+    
+    <p>O petróleo avança nesta terça-feira (21), à medida que investidores acompanham as negociações entre EUA e Irã e adotam postura mais cautelosa diante da proximidade do fim do cessar-fogo temporário entre os países. Leia mais (04/21/2026 - 15h09)</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/petroleo-volta-a-rondar-us-100-com-proximidade-do-fim-do-cessar-fogo-no-ira.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Cultura & História</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Festival de Cannes celebra 'Thelma & Louise' em cartaz de sua nova edição; veja</div>
+    <div class="article-headline">Autenticação de desenhos de Tarsila do Amaral gera novo racha entre seus herdeiros</div>
     <div class="article-subhead">Folha - Ilustrada</div>
     
-    <p>Prezados leitores e diletos apreciadores das belas-artes,<br/><br/>Com a devida vênia e o mais profundo respeito, permita-nos este humilde periódico, "O Malho", anunciar uma novidade que, sem dúvida, fará vibrar os corações mais sensíveis e os espíritos mais curiosos. O ilustre Festival de Cannes, tão afamado por sua primorosa seleção cinematográfica, acaba de desvelar, nesta graciosa terça-feira, o cartaz oficial que adornará sua vindoura edição, a ser celebrada entre os dias 12 e 23 do mês de maio.<br/><br/>E que escolha, meus caros! Que delicado e perspicaz tributo! O pôster, em sua singela elegância em preto e branco, nos brinda com a memorável imagem das talentosas atrizes Geena Davis e Susan Sarandon, encarnando as intrépidas personagens Thelma e Louise. Sim, referimo-nos àquela obra-prima homônima, concebida pelo brilhante Ridley Scott no longínquo ano de 1991, que então cativou as plateias e a crítica.<br/><br/>Esta sublime escolha não é fruto do acaso, mas sim de uma feliz efeméride. Ela vem, com a devida pompa, comemorar os trinta e cinco anos da estreia daquele notável longa-metragem no próprio seio do festival. Uma justa homenagem, sem dúvida, a uma narrativa que, à sua maneira, soube retratar a força e a liberdade, ressoando ainda hoje nos recônditos da alma.<br/><br/>Assim, com o coração repleto de expectativas e a alma ansiosa por mais vislumbres de tamanha arte, aguardamos com fervor as festividades que se avizinham, certos de que o Festival de Cannes, uma vez mais, nos brindará com momentos de inestimável beleza e profunda reflexão.<br/><br/>Com os mais sinceros votos de uma feliz jornada,<br/>A Redação de "O Malho".</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/festival-de-cannes-celebra-thelma-louise-em-cartaz-de-sua-nova-edicao-veja.shtml" class="article-link">Leia na fonte →</a>
+    <p>Um conjunto de 16 desenhos atribuídos a Tarsila do Amaral teve sua autoria confirmada, nesta segunda-feira, por um comitê, liderado pelo perito Douglas Quintale, e ganhou um certificado de autenticidade da Tarsila S.A., empresa gerida por parte dos herdeiros da artista e que administra a sua obra. Mas outra parte da família da pintora contesta a decisão, pondo em dúvida o trabalho do perito. Leia mais (04/21/2026 - 15h51)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/autenticacao-de-desenhos-de-tarsila-do-amaral-gera-novo-racha-entre-seus-herdeiros.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Emanuelle Araújo se equilibra entre o privilégio e a inquietação em novela: 'Mulher complexa'</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    
+    <p>Para Emanuelle Araújo, 49, Marta, sua personagem em "A Nobreza do Amor", vai além da aparência sofisticada e do lugar social privilegiado. "É uma mulher cheia de privilégios, rica, inserida em uma realidade elitista, mas que também tem um pé na cultura, que se interessa, que lê, que pensa", afirma. Leia mais (04/21/2026 - 15h30)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://f5.folha.uol.com.br/televisao/2026/04/emanuelle-araujo-se-equilibra-entre-o-privilegio-e-a-inquietacao-em-novela-mulher-complexa.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">'Marty Supreme' e 'Mãos na Terra': o que ver na TV e no streaming nesta quarta</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    
+    <p>No dia da Terra, a plataforma estreia a docussérie "Mãos na Terra", que mistura comédia e educação ambiental com o ator Zach Galifianakis que vai explorar o universo da jardinagem. Leia mais (04/21/2026 - 15h00)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/marty-supreme-e-maos-na-terra-o-que-ver-na-tv-e-no-streaming-nesta-quarta.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Games</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">The Sonos Era 100 Smart Speaker Drops to Just $134 Shipped During the Earth Day Sale</div>
+    <div class="article-headline">The Sonos Arc Soundbar with Dolby Atmos Drops to Just $399 Shipped During the Earth Day Sale</div>
     <div class="article-subhead">IGN</div>
     
-    <p>**O Malho – Notícias Frescas para os Nossos Diletos Leitores!**<br/><br/>**Uma Oportunidade Ímpar para o Lar Moderno, em Celebração ao Dia da Terra!**<br/><br/>Meus caros e prezados leitores, é com o mais profundo regozijo que esta Gazeta traz à vossa distinta atenção uma novidade que, por certo, há de deleitar os corações mais exigentes e os ouvidos mais apurados. Em tempos de progresso e de inovações que transformam o nosso quotidiano, eis que surge uma ocasião verdadeiramente singular, digna de ser celebrada com o mesmo entusiasmo com que acolhemos a primavera!<br/><br/>Em honra às festividades do Dia da Terra, uma data que nos convida à reflexão sobre a beleza e a generosidade de nosso planeta, a renomada Casa Sonos – afamada por seus engenhos sonoros de primorosa qualidade – oferece aos nossos estimados concidadãos uma oportunidade de adornar seus lares com o magnífico Aparelho Inteligente Era 100. Sim, meus amigos, o Sonos Era 100, esse prodígio da acústica moderna, que promete preencher vossas salas com melodias cristalinas e as mais agradáveis informações, encontra-se agora disponível por uma quantia deveras acessível: apenas cento e trinta e quatro dólares, já com o custo do transporte incluído até a vossa residência!<br/><br/>E notem bem, prezados leitores, para que não paire sombra de dúvida sobre a excelência desta proposta: trata-se de um exemplar certificado, minuciosamente revisado e restaurado pela própria Sonos, com a garantia integral de fábrica, tal qual se fosse um produto recém-saído de seus laboratórios. É, pois, a mesma segurança, a mesma confiança e a mesma qualidade que se esperaria de um artigo novo em folha, mas com a vantagem de um preço que convida ao mais sensato dos investimentos.<br/><br/>Que tal, então, aproveitar este ensejo para modernizar o vosso lar, presenteando-vos com a mais pura experiência sonora? Certamente, as vossas reuniões familiares, os vossos momentos de leitura e os vossos serões musicais jamais serão os mesmos após a chegada deste ilustre companheiro. Uma verdadeira benção para os apreciadores da boa música e da conveniência tecnológica!<br/><br/>Com os nossos respeitosos cumprimentos,<br/><br/>A Redação d'O Malho.</p>
-    <a href="https://www.ign.com/articles/sonos-era-100-smart-speaker-deal-earth-day-sale" class="article-link">Leia na fonte →</a>
+    <p>Certified refurbished from Sonos direct with the same warranty as buying new.</p>
+    <a href="https://www.ign.com/articles/sonos-arc-soundbar-deal-earth-day-sale" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years</div>
+    <div class="article-headline">Today’s Top Deals: Ninja Gaiden: Ragebound for Switch, LEGO Sets, and an Xbox Gift Card</div>
+    <div class="article-subhead">IGN</div>
+    
+    <p>Plus, save on a 4K drone, a pre-price-hike PS5 bundle is still available, and more.</p>
+    <a href="https://www.ign.com/articles/best-deals-for-april-21-2026" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Pokémon Fan Funds Wedding With $44,000 Charizard Card Sale</div>
+    <div class="article-subhead">IGN</div>
+    
+    <p>A veteran Pokémon fan has been able to fund his own wedding, after rediscovering a trio of rare Charizard cards hidden away in his attic.</p>
+    <a href="https://www.ign.com/articles/pokemon-fan-funds-wedding-with-44000-charizard-card-sale" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">12 Things I Wish I Knew Before Playing Vampire Crawlers</div>
     <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/guy-montgomery.jpg" alt="A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Notícias Frescas da Capital! Um Espetáculo de Palavras que Encanta os Cultos!<br/><br/>Meus caros leitores e distintas leitoras do prezado "O Malho", permitam-me, com a devida vénia e a mais sincera cortesia, trazer-lhes à consideração um pasmo que tem arrebatado os espíritos mais argutos e os corações mais alegres. Em tempos que correm, onde a inovação se perfila em cada esquina, eis que surge, qual flor rara em jardim bem cuidado, um certame que, confesso-vos, é o mais divertido e edificante espetáculo a que tive o privilégio de assistir nos últimos anos de minha existência.<br/><br/>Trata-se, meus caros, de uma espécie de "jogo de salão" elevado à categoria de espetáculo público, mas com um requinte e uma inteligência que o distinguem de meras folganças. Poderíamos, com alguma licença poética, descrevê-lo como um "Dropout" para os verdadeiros diletantes da palavra, para aqueles que, com o fervor de um estudioso em sua biblioteca, deleitam-se com os meandros da nossa formosa língua portuguesa.<br/><br/>Imaginem, por obséquio, uma competição escolar, daquelas que, em nossos tempos de tenra idade, por vezes nos causavam um certo temor ou apreensão. Pois bem, esta, vos asseguro, transcende em muito tais memórias. Longe de ser um tormento, este certame de palavras é um festim para a mente, um banquete de inteligência e um manancial de gargalhadas. A cada rodada, a cada desafio linguístico, somos transportados para um universo onde o saber se conjuga com a mais pura e espontânea alegria.<br/><br/>Os participantes, com a destreza de um mestre de xadrez e a vivacidade de um orador em pleno discurso, debatem-se com enigmas, com a etimologia e a sintaxe, tudo sob os olhares atentos de uma audiência que, ora aplaude com entusiasmo, ora irrompe em sonoras gargalhadas. É um espetáculo que, com a sua fina ironia e a sua inteligência mordaz, consegue arrancar sorrisos mesmo dos mais sisudos.<br/><br/>Portanto, meus prezados, se a busca por entretenimento que eleve o espírito e divirta a alma os move, não hesitem em procurar por este "jogo de palavras". É, sem sombra de dúvida, o mais hilariante e perspicaz divertimento que tive a ventura de presenciar, e que, com certeza, deixará em vossas memórias uma impressão tão grata quanto duradoura. Uma verdadeira pérola de engenho e bom humor, digna de figurar nas páginas de nosso prezado "O Malho".</p>
-    <a href="https://kotaku.com/game-show-dropout-word-nerds-guy-montgomery-2000689430" class="article-link">Leia na fonte →</a>
+    <img src="https://kotaku.com/app/uploads/2026/04/vcrawlers.jpg" alt="12 Things I Wish I Knew Before Playing Vampire Crawlers" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>How to manage your chicken, what stats to upgrade first, and some other general tips to help you survive the dungeons in this rogue-like card game</p>
+    <a href="https://kotaku.com/12-things-i-wish-i-knew-before-playing-vampire-crawlers-2000689414" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up</div>
+    <div class="article-subhead">Kotaku</div>
+    <img src="https://kotaku.com/app/uploads/2026/04/magic-cards-1080.jpg" alt="Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>That galaxy clearly isn't far, far away enough</p>
+    <a href="https://kotaku.com/magic-the-gathering-secrets-of-strixhaven-star-wars-x-wings-2000689411" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Marathon Goes On Sale For The First Time As Fans Debate Free-To-Play Nuclear Option</div>
+    <div class="article-subhead">Kotaku</div>
+    <img src="https://kotaku.com/app/uploads/2026/04/HEG7AlxbsAAePiQ.jpg" alt="Marathon Goes On Sale For The First Time As Fans Debate Free-To-Play Nuclear Option" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Bungie's shooter is going to need fresh players sooner or later</p>
+    <a href="https://kotaku.com/marathon-sale-discount-xbox-free-to-play-2000689344" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Holanda & Brabant</span></div>
@@ -101,27 +229,75 @@ permalink: /journal_articles/2026/04/21/
     <div class="article-headline">All 3500 Dutch train conductors to have bodycams by end of year</div>
     <div class="article-subhead">DutchNews</div>
     <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/ANP-556361364-360x240.jpg" alt="All 3500 Dutch train conductors to have bodycams by end of year" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>**Novas Medidas de Civilidade nos Caminhos de Ferro Neerlandeses**<br/><br/>Caros e ilustres leitores, com a devida vênia e o mais profundo respeito que Vossa Senhoria merece, permitimo-nos trazer à luz um acontecimento deveras interessante, proveniente das longínquas, porém civilizadas, terras dos Países Baixos. É com um misto de esperança e curiosidade que reportamos as recentes providências tomadas pela insigne Companhia Nacional de Caminhos de Ferro (NS), uma entidade que, como bem sabemos, zela pela pontualidade e segurança de seus passageiros e, agora, de seus dedicados servidores.<br/><br/>Imagine-se, prezado confrade, a situação de nossos valorosos condutores, homens de brio e paciência, que diariamente enfrentam as intempéries e, por vezes, a incivilidade de alguns espíritos menos polidos. Pois bem, a NS, em um gesto de notável perspicácia e moderna administração, iniciou a equipar seus estimados 3500 condutores com engenhosos aparelhos, qual pequenos cofres de imagens, que hão de ser afixados aos seus uniformes. Estas "câmaras corporais", como são designadas na linguagem de nossos dias, têm um propósito nobre e fundamental: dissuadir, pela simples presença, qualquer ímpeto de agressão contra esses valorosos profissionais.<br/><br/>É uma medida que, esperamos, trará um sopro de tranquilidade e respeito mútuo aos vagões e estações. A ideia é que, ao final do presente ano, todos os condutores estejam munidos desses apetrechos, transformando cada um deles em um pequeno bastião da ordem e da cortesia. Não se trata, por certo, de um instrumento de vigilância inquisitorial, mas sim de um escudo, um lembrete visual de que a urbanidade deve prevalecer em todos os recantos de nossa sociedade, inclusive, e talvez principalmente, nos espaços públicos que nos conectam.<br/><br/>Que este exemplo, vindo de tão longe, possa inspirar em nossas próprias terras a busca por soluções engenhosas que garantam a paz e a segurança de todos, promovendo um ambiente onde a gentileza e o decoro sejam a regra, e não a exceção. É, afinal, um passo em direção a um futuro onde a harmonia e o bom convívio imperem, para o bem de todos os viajantes e daqueles que os servem com tanta dedicação.</p>
+    <p>Train operator NS has begun equipping its conductors with bodycams in the hope of deterring aggression against its staff. A...</p>
     <a href="https://www.dutchnews.nl/2026/04/all-3500-dutch-train-conductors-to-have-bodycams-by-end-of-year/" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Aanslag op tempel brengt Mexico opnieuw in lastig parket in aanloop naar WK</div>
+    <div class="article-headline">Court debates life sentence for Dutchman held 42 years in US</div>
+    <div class="article-subhead">DutchNews</div>
+    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/Singh--360x240.jpg" alt="Court debates life sentence for Dutchman held 42 years in US" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The public prosecution service has requested that Jaitsen Singh, the Netherlands’ longest-serving prisoner abroad, should have his US sentence converted...</p>
+    <a href="https://www.dutchnews.nl/2026/04/court-debates-life-sentence-for-dutchman-held-42-years-in-us/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Senate rejects bill to criminalise living in NL without papers</div>
+    <div class="article-subhead">DutchNews</div>
+    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/Asielstemming--360x240.jpg" alt="Senate rejects bill to criminalise living in NL without papers" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Senators have voted down a controversial asylum bill that would have made it a criminal offence to stay in the...</p>
+    <a href="https://www.dutchnews.nl/2026/04/senate-rejects-law-to-criminalise-living-in-nl-without-papers/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Terreur Joodse kolonisten neemt nog verder toe: 'Ze doen wat ze willen'</div>
     <div class="article-subhead">NOS.nl</div>
     
-    <p>Prezados Leitores de "O Malho",<br/><br/>Com a devida vênia, e com o coração a pulsar em compasso de apreensão, trazemos-lhes notícias que ecoam de terras longínquas, do México pitoresco, que se prepara para receber os festejos do futebol mundial. Ah, o futebol, esse bálsamo para as almas, que, por vezes, é ensombrado por infortúnios.<br/><br/>Pois bem, na semana passada, um incidente de triste memória abalou o venerável sítio arqueológico de Teotihuacán, onde as pirâmides milenares se erguem como sentinelas do tempo. Imagens chocantes, que circularam pelos modernos meios de comunicação, mostraram um agressor, munido de arma de fogo, a disparar contra turistas, em sua maioria estrangeiros, que ali buscavam a beleza e a história. Uma senhora canadense, infelizmente, sucumbiu a essa brutalidade, e treze almas foram feridas, incluindo duas crianças e uma dama holandesa. O algoz, um jovem de 27 anos, oriundo do estado de Guerrero, após um confronto com a polícia, ceifou a própria vida, no alto da majestosa Pirâmide da Lua.<br/><br/>A Exma. Sra. Presidente Claudia Sheinbaum, em sua habitual conferência, atribuiu o ato a um indivíduo com "problemas psíquicos", e as investigações revelaram que o infeliz nutria ideias extremistas, inspiradas por eventos trágicos ocorridos em outras plagas. As autoridades mexicanas, com veemência, asseveram tratar-se de um "lobo solitário", um caso isolado que não reflete a realidade do país.<br/><br/>Entretanto, as lembranças do ocorrido persistem, e a pergunta ressurge, qual ave agourenta: quão seguro é o México, especialmente às vésperas de um evento de tal magnitude? Convém recordar que há pouco mais de dois meses, a morte de um temido chefe do crime organizado, o "El Mencho", desencadeou uma onda de violência em vinte estados, com incêndios e bloqueios que paralisaram cidades como Guadalajara, que será palco dos jogos, e a turística Puerto Vallarta. A dimensão dos estragos e a verdadeira extensão desses "narcobloqueios" permaneceram envoltas em um véu de mistério por parte do governo.<br/><br/>Em face desses acontecimentos, a Sra. Presidente Sheinbaum prontamente anunciou o reforço da segurança em todos os sítios arqueológicos e destinos turísticos, com rigorosa fiscalização das bagagens. O governo mexicano, empenhado em apresentar uma imagem de segurança e prosperidade, tem divulgado a queda no número de homicídios, que agora se situam em uma média de cinquenta por dia, o que seria o menor índice em dez anos. Contudo, pairam dúvidas sobre a fidedignidade de tais estatísticas, e mais de sessenta por cento dos mexicanos ainda se sentem inseguros em suas próprias cidades.<br/><br/>É notório o esforço para que os problemas internos do México não transpareçam para o mundo exterior, sobretudo durante o Campeonato Mundial. Observa-se, com certa melancolia, a remoção de cartazes de pessoas desaparecidas nas cidades-sede, para a profunda tristeza dos familiares que buscam seus entes.<br/><br/>Teotihuacán, esse tesouro da humanidade, em breve reabrirá suas portas. E nas futuras conferências da Presidente Sheinbaum, o foco, certamente, recairá sobre o México pitoresco e vibrante, onde as cores e a cultura ofuscam as sombras. Pois, os verdadeiros e complexos problemas da nação, parece, não devem importunar os olhos curiosos do mundo.<br/><br/>Com os nossos mais sinceros votos de paz e prosperidade, despedimo-nos, até a próxima edição de "O Malho".</p>
-    <a href="https://nos.nl/l/2611494" class="article-link">Leia na fonte →</a>
+    <p>Mensenrechtenorganisaties slaan voor de zoveelste keer alarm over de terreur door Joodse kolonisten en de etnische zuivering van Palestijnen als gevolg van het geweld. Want met de ogen van de wereld gericht op de oorlog elders in het Midden-Oosten, grijpen Joodse kolonisten hun kans. Alleen al tijdens de eerste veertig dagen van de oorlog registreerden mensenrechtenorganisaties gemiddeld bijna tien aanvallen per dag. Zeker acht Palestijnen werden daarbij gedood en er raakten zeker 200 mensen gewond. Het doel van de kolonisten is Palestijnen verdrijven van hun land en de Westoever steeds verder etnisch zuiveren. De hopeloosheid bij Palestijnen en mensenrechtenorganisaties is groot, want de Israëlische regering grijpt nauwelijks in. De regering keurde tijdens de oorlog juist in het geheim de bouw van 34 nieuwe nederzettingen goed. En dat annexatie van de Westoever een wens is van veel coalitieleden, is geen geheim. Lynchpartijen en moorden "Aanvallen, lynchpartijen en moorden door kolonisten zijn toegenomen tot een niveau dat we niet eerder hebben gezien", zegt de Israëlische activist Omri Evron. "Als Israëliërs moeten we ons uitspreken tegen deze barbaarse daden die monsterlijk zijn voor de Palestijnen, maar ook elke kans op vrede in de weg staan." Samen met andere mensenrechtenorganisaties organiseerde hij daarom een protest in het centrum van Tel Aviv tegen de terreur door kolonisten. Het was het grootste protest aan Israëlische kant tegen het kolonistengeweld tot nu toe, hoewel het ging om maar een paar honderd mensen. Een schril contrast met andere protesten onlangs op datzelfde plein, waar tienduizenden demonstranten aan meededen. "Lang was er nauwelijks aandacht hiervoor in de mainstream media. Dat is nu wel wat aan het veranderen, ook dankzij publieke campagnes die wij organiseren", zegt Evron. Hij hoopt dat met dit soort acties meer Israëliërs zich tegen de terreur door kolonisten uitspreken. Lang niet iedereen in Israël zit op de boodschap van Evron en de andere demonstranten te wachten. Een jonge man onderbreekt het interview en schreeuwt tegen Evron dat hij een schande is voor Israël. "Zij vertegenwoordigen geen enkele Israëliër ter wereld. Zij zijn een schande voor het Israëlische volk. Zij laten dingen zien die misschien één keer per maand gebeuren, het is een uitzondering", zegt de man. "Elke dag zijn er aanvallen!", roept Evron terug. Waarop de jonge man hem voor leugenaar uitmaakt. 'Omringd door kolonisten' Dat er wel degelijk dagelijks aanvallen zijn, weten ze op de bezette Westelijke Jordaanoever maar al te goed. Zoals in het dorpje Umm al-Khair. Het Palestijnse bedoeïen-dorpje ligt verspreid over twee heuveltoppen en telt zo'n 300 inwoners. Ze leven er in simpele huizen en houden vee. Geasfalteerde wegen heeft het dorpje niet. Pal tegen Umm al-Khair aan ligt de Joodse nederzetting Carmel. Een hek van prikkeldraad vormt de scheiding tussen de twee gemeenschappen. Aan de kant van Carmel zijn er grote luxe huizen en geasfalteerde wegen. "We worden omringd door kolonisten, en 24 uur per dag, zeven dagen per week zijn er aanvallen. Het is hier onveilig", zegt Eid Hathaleen. Hij is een van de inwoners van Umm al-Khair en werkt als activist. "Huizen worden vernield, vee wordt gestolen en mensen worden gedood door kogels van kolonisten." Caravans met vlaggen Afgelopen jaar nog werd een van de inwoners in Umm al-Khair doodgeschoten door een kolonist. De man stond te filmen hoe gewapende kolonisten het dorp binnendrongen en werd vervolgens door een kogel geraakt. De dader was snel weer op vrije voeten. Maar op de plek van de moord stonden een paar maanden later een aantal caravans, bewoond door Joodse kolonisten. De caravans staan midden in Umm al-Khair, pal tegen het lokale voetbalveldje en andere woningen, met alleen een barrière van prikkeldraad en Israëlische vlaggen. "Het doel van die caravans is de twee delen van ons dorp, daar en hier, van elkaar te scheiden. En onze bewegingsvrijheid steeds verder beperken", zegt Hathaleen. Zo blokkeerden kolonisten onlangs ook de weg naar de lokale school verderop met prikkeldraad. Het leger kwam erbij, maar in plaats van de weg vrij te maken gooiden de militairen met traangas naar de kinderen en hun ouders. "De kolonisten voelen zich vrij om te doen wat ze willen tegen ons", zegt Hathaleen. "Wij willen alleen maar op ons land blijven. We kunnen niets tegen de kolonisten doen, want dan worden we meteen voor terrorist uitgemaakt en opgepakt." Dit gebeurt volgens hem op de hele Westoever. Tientallen Palestijnse gemeenschappen zijn inmiddels al gevlucht voor de aanvallen van kolonisten. Internationaal is er veel kritiek op het feit dat de Israëlische regering de kolonisten hun gang laat gaan. Maar ondanks die internationale druk blijft de terreur toenemen en de situatie voor Palestijnen alleen maar verder verslechteren.</p>
+    <a href="https://nos.nl/l/2611485" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">COA moet dwangsommen betalen om hotel in Epe</div>
+    <div class="article-subhead">NOS.nl</div>
+    
+    <p>Het gaat het Centraal Orgaan opvang asielzoekers (COA) niet lukken om mensen die zijn ondergebracht in een hotel in Epe op tijd over andere locaties te verspreiden. Het COA moet daarom vanaf morgen een dwangsom van 63.480 euro per dag betalen met een maximum van ruim 11,4 miljoen euro. De noodopvang in het Fletcher-hotel werd in maart 2024 geopend en biedt plaats aan maximaal 276 asielzoekers. De gemeente Epe had aangekondigd het hotel voor 22 april leeg te willen hebben. Volgens het COA is het niet mogelijk om de mensen er op tijd weg te krijgen vanwege een landelijk tekort aan opvangplekken. 'Medewerking van gemeenten' "We kunnen mensen niet op straat zetten", zegt een woordvoerder tegen persbureau ANP. "De oplossing ligt in de realisatie van voldoende opvangplekken. Daarvoor is de medewerking van alle gemeenten noodzakelijk." Meerdere gemeenten gebruiken de dwangsommen om het COA aan te zetten tot actie. Zo moet het COA al een dwangsom betalen aan de gemeente Hardenberg omdat daar een azc langer openblijft dan afgesproken. En in Ter Apel (gemeente Westerwolde) is dat ook het geval omdat er regelmatig meer dan de toegestane 2000 asielzoekers in het aanmeldcentrum verblijven.</p>
+    <a href="https://nos.nl/l/2611484" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer</div>
+    <div class="article-subhead">NOS.nl</div>
+    
+    <p>Aanvragen voor zware stroomaansluitingen moesten in de regio Utrecht al wachten. Maar het stroomnet gaat per 1 juli voor het deel rond de stad Utrecht helemaal op slot. Alle nieuwe aanvragen belanden op de wachtlijst, ook voor kleinverbruikers of mensen die thuis een zwaardere aansluiting willen, zegt staatssecretaris Jo-Annes de Bat (CDA) van Klimaat en Groene Groei. De Bat spreekt zelf van "het indrukken van een pauzeknop". Hij hoopt zo snel mogelijk weer aanvragen te gaan accepteren, maar het is onduidelijk wanneer dat mogelijk is. Het zou ook nog jaren kunnen duren en gaat zo'n 800.000 mensen raken die wonen in het gebied tussen Breukelen, Vianen en Driebergen. Daarin liggen onder meer de steden Utrecht en Nieuwegein. Het is voor het eerst dat er regionaal een complete stop komt. Maar veel regio's kampen al jaren met een overvol stroomnet. Dat gaat ten koste van de economie en verduurzaming. En ondanks miljardeninvesteringen door netbeheerders lijken de problemen vooralsnog niet te verminderen. De Bat had niet alleen slecht nieuws. Er is wel genoeg ruimte gevonden om in de regio Utrecht alle bekende woningbouwprojecten aan te sluiten. "Er zijn nog zo'n 35.000 woningen die wel aangesloten kunnen worden", zegt De Bat. Ook is een nog zwarter scenario (voorlopig) afgewend. In februari waarschuwde de landelijke netbeheerder Tennet nog dat er zonder "krachtig ingrijpen" vanaf 1 juli een aansluitingsstop zou komen in heel Utrecht, Gelderland en de Flevopolder. Dat gebeurt nu alleen in regio Utrecht. Daarvoor wordt het stroomnet 'opgeknipt' in vijf delen, waarvan er vier niet op slot gaan. Aansluitstop kost honderden miljoenen De gemeente Utrecht liet onderzoeken wat de gevolgen van een volledige aansluitstop zouden zijn. Jaarlijks zou de schade tussen de 75 en 225 miljoen euro zijn en dit zou gevolgen hebben voor bedrijven, scholen en vervoerders, blijkt uit het onderzoek dat vorige week naar de gemeenteraad ging. Ook zelf krijgt de gemeente te maken met de gevolgen. Zo kan Utrecht zijn zware voertuigen, zoals vuilniswagens, niet vervangen door elektrische varianten. Er passen niet voldoende oplaadpunten op het stroomnet. Utrecht verwacht dat één op de vijf woningbouwprojecten sneuvelt, vooral na 2027. Het is onduidelijk in hoeverre de toezegging van De Bat dit kan voorkomen. Avondpiek in stroomgebruik Intussen wordt er nog steeds gewerkt om meer ruimte te maken op het net. Die ruimte is er overigens het grootste deel van de dag wel. De problemen spelen vooral tijdens pieken, bijvoorbeeld als mensen 's avonds thuiskomen en tegelijk gaan koken en het licht aandoen. Door mensen of bedrijven stroom te laten gebruiken op andere momenten neemt de drukte af. Dit kan ook door batterijen of gasgeneratoren te plaatsen die stroom kunnen leveren op de drukste momenten. De problemen met het overvolle stroomnet zijn pas echt voorbij als het net flink is verzwaard. Daarvoor moet een hoogspanningsstation bij Breukelen worden uitgebreid en er moet een nieuw station komen ten noorden van Utrecht. Dat is mogelijk pas in 2031 klaar, aangezien er nog geen definitieve locatie is. Verbittering in Utrecht Het besluit leidt in Utrecht tot "een gevoel van teleurstelling" en "bitterheid", zegt Huib van Essen, gedeputeerde in de provincie Utrecht. Hij hoopt dat de aansluitstop "er zo snel mogelijk afgaat". Over een half jaar zal voor het eerst worden gekeken of dit mogelijk is, maar het is volgens Van Essen "buitengewoon optimistisch" om te denken dat het zo snel kan. In Flevoland en Gelderland overheerst de opluchting, hoewel ze ook begrijpen dat een aansluitstop niet definitief van de baan is. De huidige situatie is "een momentopname" zegt de Flevolandse gedeputeerde Harold Hofstra. Het gaat om een "precair evenwicht" en ook Flevoland moet nog maatregelen nemen.</p>
+    <a href="https://nos.nl/l/2611482" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Mundo</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Em Hannover, Lula e Merz ensaiam diálogo entre potências médias</div>
+    <div class="article-headline">Exército de Israel pune soldados que destruíram imagem de Jesus no Líbano</div>
     <div class="article-subhead">Folha - Mundo</div>
     
-    <p>**Um Encontro de Vultos e Ideias em Terras Germânicas: O Diálogo das Potências Médias**<br/><br/>Meus caros leitores, com a devida vénia e a atenção que merecem os acontecimentos de vulto no cenário político-diplomático, permitam-me narrar-lhes, em breves momentos, o que se desenrolou em Hannover, na querida Alemanha, em data recente. Nosso distinto Presidente, o Senhor Luiz Inácio Lula da Silva, figura de proa em nossa Pátria amada, empreendeu uma visita a terras teutónicas, levando consigo, em seu ilustre pensamento, duas questões de suma importância, as quais, com a firmeza que lhe é peculiar, fez questão de sublinhar.<br/><br/>Primeiramente, destacou-se o tema dos biocombustíveis, matéria de inegável progresso e que aponta para um futuro mais próspero e sustentável para as nações. Em segundo lugar, e com a gravidade que o assunto impõe, o Senhor Presidente abordou os inquietantes reflexos da guerra no Irã, conflito que, infelizmente, turva as á águas da paz global.<br/><br/>Do lado germânico, o Senhor Friedrich Merz, cavalheiro de notável perspicácia, não se furtou a discorrer sobre o delicado tema da contenda iraniana, demonstrando a necessária preocupação com a estabilidade mundial. Contudo, e por uma inclinação talvez mais pragmática, o ilustre Merz dedicou especial atenção à questão dos biocombustíveis, reconhecendo, sem dúvida, o valor intrínseco de tal inovação.<br/><br/>Foi, portanto, meus amigos, um encontro de notável significado, um ato que, mais do que natural, revelou-se sobremaneira necessário. Brasil e Alemanha, duas nações que se destacam por sua pujança e seu progressivo desenvolvimento, ensaiaram, com a elegância que se espera de tais vultos, o diálogo que se impõe nos tempos que correm: a união das potências médias. É, sem dúvida, um sinal de que a voz da razão e da colaboração se eleva, buscando um porvir de maior equilíbrio e entendimento entre os povos. Que este encontro frutifique em bons augúrios para o cenário internacional!</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/em-hannover-lula-e-merz-ensaiam-dialogo-entre-potencias-medias.shtml" class="article-link">Leia na fonte →</a>
+    <p>O Exército de Israel afastou dois soldados do serviço de combate e os colocou em prisão militar por 30 dias após destruírem um crucifixo no sul do Líbano. Leia mais (04/21/2026 - 15h59)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/exercito-de-israel-pune-soldados-que-destruiram-imagem-de-jesus-no-libano.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Rei Charles 3º diz que situação do mundo hoje teria 'perturbado profundamente' Elizabeth 2ª</div>
+    <div class="article-subhead">Folha - Mundo</div>
+    
+    <p>O rei Charles 3º divulgou nesta terça-feira (21) uma mensagem pessoal em vídeo relembrando a trajetória de serviço público de sua "amada mamãe", a falecida rainha Elizabeth 2ª (1926-2022), no que teria sido seu 100º aniversário. Leia mais (04/21/2026 - 13h16)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/rei-charles-3o-diz-que-situacao-do-mundo-hoje-teria-perturbado-profundamente-elizabeth-2a.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">A poucas horas de fim de trégua no Irã, Trump volta a dizer que não pretende prorrogar cessar-fogo</div>
+    <div class="article-subhead">Folha - Mundo</div>
+    
+    <p>O Paquistão, mediador nas negociações da guerra no Irã, pediu aos Estados Unidos que prorroguem o cessar-fogo de duas semanas, mas o presidente Donald Trump voltou a afirmar que não pretende estender a trégua, que expira na noite desta terça-feira (21). Leia mais (04/21/2026 - 12h53)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/a-poucas-horas-de-fim-de-tregua-no-ira-trump-volta-a-dizer-que-nao-pretende-prorrogar-cessar-fogo.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Tecnologia & IA</span></div>
@@ -131,24 +307,72 @@ permalink: /journal_articles/2026/04/21/
     <div class="article-headline">Framework Has a Better, More Take-Apart-Able Laptop</div>
     <div class="article-subhead">WIRED</div>
     
-    <p>NOTICIAS DO PROGRESSO!<br/><br/>**Uma Novidade Admirável no Cenário da Engenharia Moderna!**<br/><br/>Meus caros e ilustres leitores de "O Malho", é com inefável prazer que trazemos à vossa distinta atenção uma notícia que, sem sombra de dúvida, fará vibrar as almas dos mais entusiastas apreciadores do avanço tecnológico e da praticidade. No alvorecer deste século XX, onde o progresso galopa a passos largos e firmes, surge uma inovação que promete revolucionar o conceito de utilidade e durabilidade no campo dos engenhos portáteis.<br/><br/>A conceituada e engenhosa empresa Framework, cujo nome já evoca a solidez e a estrutura, acaba de presentear o mundo com uma máquina que é, por assim dizer, um verdadeiro primor de engenharia. Trata-se do seu mais recente modelo, o *Framework Laptop 13 Pro*, um aparelho que, para além de sua inegável elegância e desempenho, ostenta uma característica verdadeiramente singular: sua notável capacidade de ser desmontado e remontado com uma facilidade assombrosa. Imaginem, prezados cavalheiros e damas, um dispositivo que permite ao seu proprietário a ventura de substituir componentes, de aprimorar peças e de prolongar a vida útil de seu valioso instrumento com uma simplicidade que beira o milagre!<br/><br/>Não menos importante é o anúncio, feito pela mesma laboriosa companhia, das atualizações que foram gentilmente incorporadas ao seu já robusto e admirado modelo de dezesseis polegadas. É um testemunho claro da dedicação da Framework em manter seus produtos sempre na vanguarda do que há de mais moderno e eficiente.<br/><br/>Esta iniciativa da Framework, ao oferecer ao consumidor a liberdade de intervir em seu próprio equipamento, não só demonstra um respeito ímpar pela inteligência e pelo bolso de seus clientes, como também aponta para um futuro onde a obsolescência programada cederá lugar à longevidade e à adaptabilidade. É um passo audacioso e louvável em direção a um mundo onde a tecnologia se torna mais amiga do homem, mais sustentável e, sobretudo, mais acessível.<br/><br/>Assim, com o coração repleto de otimismo, vislumbramos os horizontes promissores que se abrem com tais invenções. Que este exemplo inspire outras mentes brilhantes a seguir o mesmo caminho de inovação e de serviço à humanidade, sempre com a elegância e a perspicácia que caracterizam o verdadeiro progresso.</p>
+    <p>The company announced its new Framework Laptop 13 Pro, along with updates to its 16-inch model.</p>
     <a href="https://www.wired.com/story/framework-laptop-13-pro/" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Apple Pulled Cal AI for Deceptive Billing Design, Not External Payments</div>
+    <div class="article-headline">OpenAI Beefs Up ChatGPT's Image Generation Model</div>
+    <div class="article-subhead">WIRED</div>
+    
+    <p>The ChatGPT Images 2.0 model is here. Our testing shows it's better at creating more detailed images and rendering text, but it still struggles with languages other than English.</p>
+    <a href="https://www.wired.com/story/openai-beefs-up-chatgpts-image-generation-model/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Mozilla Used Anthropic’s Mythos to Find and Fix 271 Bugs in Firefox</div>
+    <div class="article-subhead">WIRED</div>
+    
+    <p>The Firefox team doesn’t think emerging AI capabilities will upend cybersecurity long term, but they warn that software developers are likely in for a rocky transition.</p>
+    <a href="https://www.wired.com/story/mozilla-used-anthropics-mythos-to-find-271-bugs-in-firefox/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Apple Teases 'Incredible Road Map Ahead'</div>
     <div class="article-subhead">MacRumors</div>
-    <img src="https://images.macrumors.com/article-new/2025/12/Liquid-Glass-App-Store-Feature.jpg" alt="Apple Pulled Cal AI for Deceptive Billing Design, Not External Payments" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>**Uma Novella Digital de Nossos Dias: O Caso do "Cal AI" e a Prudência da Casa Apple**<br/><br/>Caros leitores e prezadas leitoras, eis que vos trago uma curiosa narrativa que se desenrola no palco etéreo dos aplicativos, onde a modernidade e as regras de boa conduta se entrelaçam. Permitam-me, pois, com a devida vénia, discorrer sobre um recente episódio envolvendo a afamada Casa Apple e um aplicativo de nome "Cal AI", pertencente à não menos conhecida MyFitnessPal.<br/><br/>Imaginem, por obséquio, que na vastidão da "App Store", um jardim digital onde florescem as mais diversas ferramentas para o cotidiano, surgiu uma pequena celeuma. O "Cal AI", um diligente contador de calorias, fora por um breve período retirado de circulação. A princípio, murmurava-se nos salões digitais que tal medida se devia à ousadia do aplicativo em oferecer pagamentos externos, uma novidade permitida pelas recentes deliberações judiciais nos Estados Unidos, fruto das querelas entre a Apple e a Epic Games.<br/><br/>Contudo, meus caros, a verdade, como sempre, é mais matizada. A distinta Casa Apple, com sua habitual prudência, veio a público esclarecer que a questão não se resumia a isso. O "Cal AI", embora pudesse, de fato, direcionar seus prezados usuários a opções de pagamento fora do seu domínio – como o sistema Stripe – para assinaturas, falhou em apresentar, lado a lado, a opção de compra interna, exigida para aplicativos que não se classificam como "leitores" (categoria onde se encaixam os famosos Netflix e Spotify).<br/><br/>Mas as transgressões, oh!, não pararam por aí. O aplicativo em questão, com uma certa displicência, ignorou o fluxo de compra interno obrigatório, e, com um design que a Apple considerou, com toda a urbanidade, "enganoso", exibia o preço semanal de forma mais proeminente que o valor total a ser cobrado. Ademais, o mecanismo de "teste gratuito" não deixava suficientemente claro o caráter de renovação automática da subscrição, o que, convenhamos, pode gerar alguma confusão aos menos avisados. E como se não bastasse, após um primeiro declínio de assinatura, o "Cal AI" oferecia uma segunda e distinta proposta, gerando, compreensivelmente, uma série de queixas e avaliações desfavoráveis.<br/><br/>A TechCrunch, com sua perspicácia jornalística, sugeriu que talvez o "Cal AI" estivesse, de certa forma, a "tatear o terreno", buscando verificar se a Casa Apple manteria sua vigilância após as novas regras. E, com este episódio, meus caros, a resposta foi dada com clareza cristalina: a Apple, com sua costumeira firmeza, continua a zelar pelas boas práticas no seu jardim digital.<br/><br/>Felizmente, após a devida correção dos pontos levantados pela Casa Apple, o "Cal AI" foi reintegrado à "App Store", e, para a alegria dos que buscam aprimorar sua saúde e bem-estar, já figura novamente entre os mais procurados na categoria de Saúde e Fitness.<br/><br/>Assim, conclui-se mais este capítulo das interações entre a inovação e a regulamentação, lembrando-nos que, mesmo no mundo etéreo dos bits e bytes, a transparência e a boa-fé hão de prevalecer. Que esta pequena história sirva de reflexão sobre a importância da clareza nas transações, quer sejam elas virtuais ou do mundo real.</p>
-    <a href="https://www.macrumors.com/2026/04/21/apple-cal-ai-app-store-removal/" class="article-link">Leia na fonte →</a>
+    <img src="https://images.macrumors.com/article-new/2026/01/Apple-Event-Logo.jpeg" alt="Apple Teases 'Incredible Road Map Ahead'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>In an all-hands meeting with employees today, Apple's future CEO John Ternus teased an "incredible road map ahead." "I'm not exaggerating when I say this is the most exciting time to be building products and services at Apple in my entire career," said Ternus. While the meeting was private, Ternus' comments were reported by Bloomberg's Mark Gurman. Appearing alongside Apple's current CEO Tim Cook at the Steve Jobs Theater, Ternus expressed optimism about artificial intelligence in particular. "AI is going to create almost unlimited potential," said Ternus. "We're going to be able to keep unlocking possibilities that are going to create entirely new opportunities for our products and services, and I'm so excited about what that's going to mean for our users." Unsurprisingly, he did not provide any specific details at this time. "We are about to change the world once again," he said. Ternus ensured that design remains "core" to Apple, and he promised that the company is still committed to user privacy and environmental responsibility. As for Cook, he told employees he is "healthy" and plans to serve as Apple's executive chairman for "a long time." Apple said Cook will "assist with certain aspects of the company, including engaging with policymakers around the world." Ternus will become Apple's CEO on September 1.Tags: Bloomberg, John Ternus, Mark Gurman, Tim CookThis article, "Apple Teases &#039;Incredible Road Map Ahead&#039;" first appeared on MacRumors.comDiscuss this article in our forums</p>
+    <a href="https://www.macrumors.com/2026/04/21/apple-teases-incredible-road-map-ahead/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Tim Cook Says He's 'Healthy,' Plans to Remain at Apple 'for a Long Time'</div>
+    <div class="article-subhead">MacRumors</div>
+    <img src="https://images.macrumors.com/article-new/2021/10/tim-cook-macbook-pro.jpeg" alt="Tim Cook Says He's 'Healthy,' Plans to Remain at Apple 'for a Long Time'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Tim Cook today told employees he plans to be at Apple "for a long time" in his new role as executive chairman. Cook shared the information in an all-hands meeting detailed by Bloomberg. "I am healthy. My energy is high, and I plan to be in this role for a long time," said Cook. He said he will support current hardware engineering chief John Ternus in any way necessary when Ternus takes over as CEO, and he plans to continue to offer knowledge and experience whenever it's needed. "Apple will be my top priority," he said. "It's who I am at my core, and I can't imagine it any other way." Cook is stepping down from his role as Apple CEO, handing the company over to Ternus. Apple announced the upcoming change yesterday, and said that Cook will remain on as executive chairman, where he will "assist with certain aspects of the company, including engaging with policymakers around the world." During the meeting, Cook told employees that he thinks he can help with strengthening Apple's global relationships. When asked why he is stepping down now, Cook said that it was a good time because Apple is "doing great," the product lineup is "incredible," and Ternus is ready for the role. "These three things all intersected, and they intersect now. And so now was the time," said Cook. Cook is set to remain CEO through September 1, 2026, at which point he will move into his new role and Ternus will take over as CEO. Cook will see Apple through WWDC, but Ternus will be leading the company by the time the iPhone 18 Pro and iPhone Fold launch.Tag: Tim CookThis article, "Tim Cook Says He&#039;s &#039;Healthy,&#039; Plans to Remain at Apple &#039;for a Long Time&#039;" first appeared on MacRumors.comDiscuss this article in our forums</p>
+    <a href="https://www.macrumors.com/2026/04/21/tim-cook-executive-chairman-role/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas</div>
+    <div class="article-subhead">MacRumors</div>
+    <img src="https://images.macrumors.com/article-new/2025/06/macOS-Tahoe-26-Thumb.jpg" alt="Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Apple today provided public beta testers with new releases of upcoming iOS 26.5, iPadOS 26.5, macOS Tahoe 26.5, watchOS 26.5, and tvOS 26.5 updates for testing purposes. The public betas come a day after Apple provided the betas to developers. These are the third iOS 26.5 and iPadOS 26.5 betas, but the second &zwnj;macOS Tahoe&zwnj; 26.5 public beta. After signing up for beta testing on Apple's beta site, public beta testers can download the updates using the Software Update section of the Settings app on each device. iOS 26.5, iPadOS 26.5, and &zwnj;macOS Tahoe&zwnj; 26.5 include a new Suggested Places feature for recommending nearby locations to visit, and Apple is also gearing up to start showing ads in Maps. Apple is testing end-to-end encryption for RCS messages between iPhone and Android users again, and there are proximity pairing, notification forwarding, and Live Activities for third-party wearables in the EU.Related Roundups: iOS 26, iPadOS 26, macOS TahoeRelated Forums: iOS 26, macOS TahoeThis article, "Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas" first appeared on MacRumors.comDiscuss this article in our forums</p>
+    <a href="https://www.macrumors.com/2026/04/21/apple-releases-ios-26-5-public-beta-3/" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
     <div class="article-headline">Regulador britânico de mídia investiga Telegram por conteúdos de abuso sexual infantil</div>
     <div class="article-subhead">Folha - Tec</div>
     
-    <p>**O Ofcom e o Telegram: Uma Questão Delicada**<br/><br/>Meus caros e prezados leitores do "O Malho", permitam-me trazer à vossa distinta atenção uma notícia de relevância que, embora distante em terras britânicas, ecoa preocupações universais. O respeitável regulador de mídia do Reino Unido, a instituição conhecida como Ofcom, veio a público nesta terça-feira, dia 21, com um comunicado que merece nossa ponderação.<br/><br/>Com a seriedade que o assunto impõe, o Ofcom anunciou a abertura de uma minuciosa investigação contra a popular plataforma de mensagens, o Telegram. A razão para tal medida, prezados amigos, reside em indícios que, com a devida cautela e pesar, apontam para a possível circulação de "material de abuso sexual infantil" dentro dos domínios virtuais do referido aplicativo. É, sem dúvida, uma sombra que se estende sobre a luminosidade da comunicação moderna.<br/><br/>A notícia, que nos chega com a precisão de um relógio, foi divulgada às 13 horas e 34 minutos do dia 21 de abril de 2026. Este é um momento em que a sociedade, cada vez mais conectada, é forçada a refletir sobre os desafios éticos e morais que surgem com o avanço da tecnologia. Que esta investigação, conduzida com o rigor e a diligência esperados de uma instituição tão venerável quanto o Ofcom, possa trazer à luz a verdade e, acima de tudo, salvaguardar a inocência.</p>
+    <p>O regulador britânico de mídia, Ofcom, anunciou nesta terça-feira (21) a abertura de uma investigação contra o Telegram, após indícios que sugerem que "material de abuso sexual infantil" pode ter sido compartilhado na plataforma de mensagens. Leia mais (04/21/2026 - 13h34)</p>
     <a href="https://redir.folha.com.br/redir/online/tec/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/regulador-britanico-de-midia-investiga-telegram-por-conteudos-de-abuso-sexual-infantil.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Anthropic e Amazon fecham acordo de US$ 100 bilhões em infraestrutura de IA</div>
+    <div class="article-subhead">Folha - Tec</div>
+    
+    <p>A Anthropic se comprometeu a gastar mais de US$ 100 bilhões (R$ 495,4 bi) em chips e poder computacional da Amazon, buscando ampliar sua capacidade após enfrentar restrições de oferta. Leia mais (04/20/2026 - 23h10)</p>
+    <a href="https://redir.folha.com.br/redir/online/tec/rss091/*https://www1.folha.uol.com.br/tec/2026/04/anthropic-e-amazon-fecham-acordo-de-us-100-bilhoes-em-infraestrutura-de-ia.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">As lições de Milei e Trump para a eleição brasileira</div>
+    <div class="article-subhead">Folha - Tec</div>
+    
+    <p>Ao longo da semana, dois eventos internacionais se destacaram no debate digital principalmente por conta dos paralelos que os usuários fazem com as eleições no Brasil. A esquerda brasileira explorou as notícias de que a população argentina passou a recorrer à carne de burro como maneira de contornar a fome e a inflação. Nos Estados Unidos, Donald Trump apagou, após forte reação, uma imagem feita por IA em que aparecia vestido de Jesus Cristo curando um doente. Leia mais (04/20/2026 - 04h00)</p>
+    <a href="https://redir.folha.com.br/redir/online/tec/rss091/*https://www1.folha.uol.com.br/colunas/encaminhado-com-frequencia/2026/04/as-licoes-de-milei-e-trump-para-a-eleicao-brasileira.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Piadas & Humor</span></div>
@@ -156,15 +380,15 @@ permalink: /journal_articles/2026/04/21/
   <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
 
   <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
-  </div>
-
-  <div class="joke-item">
     <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
   </div>
 
   <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
   </div>
 
   <div class="joke-item">
@@ -172,7 +396,7 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
-    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
+    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
   </div>
 
 </div>
