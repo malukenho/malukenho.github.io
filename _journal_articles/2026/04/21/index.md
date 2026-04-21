@@ -277,6 +277,14 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
+    <div class="article-headline">Exército de Israel pune soldados que destruíram imagem de Jesus no Líbano</div>
+    <div class="article-subhead">Folha - Mundo</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Exército de Israel pune soldados que destruíram imagem de Jesus no Líbano" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O Exército de Israel afastou dois soldados do serviço de combate e os colocou em prisão militar por 30 dias após destruírem um crucifixo no sul do Líbano. Leia mais (04/21/2026 - 15h59)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/exercito-de-israel-pune-soldados-que-destruiram-imagem-de-jesus-no-libano.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">Rei Charles 3º diz que situação do mundo hoje teria 'perturbado profundamente' Elizabeth 2ª</div>
     <div class="article-subhead">Folha - Mundo</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Rei Charles 3º diz que situação do mundo hoje teria 'perturbado profundamente' Elizabeth 2ª" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
@@ -292,16 +300,24 @@ permalink: /journal_articles/2026/04/21/
     <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/a-poucas-horas-de-fim-de-tregua-no-ira-trump-volta-a-dizer-que-nao-pretende-prorrogar-cessar-fogo.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="article">
-    <div class="article-headline">Quase 8.000 migrantes morreram ou desapareceram em rotas migratórias em 2025</div>
-    <div class="article-subhead">Folha - Mundo</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Quase 8.000 migrantes morreram ou desapareceram em rotas migratórias em 2025" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Quase 8.000 pessoas morreram em rotas migratórias em 2025, segundo um relatório da agência de migração das Nações Unidas divulgado nesta terça-feira (21). Leia mais (04/21/2026 - 12h35)</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/quase-8000-migrantes-morreram-ou-desapareceram-em-rotas-migratorias-em-2025.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
   <div class="section-head"><span>Tecnologia & IA</span></div>
   <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">Framework Has a Better, More Take-Apart-Able Laptop</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Framework Has a Better, More Take-Apart-Able Laptop" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The company announced its new Framework Laptop 13 Pro, along with updates to its 16-inch model.</p>
+    <a href="https://www.wired.com/story/framework-laptop-13-pro/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">OpenAI Beefs Up ChatGPT's Image Generation Model</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="OpenAI Beefs Up ChatGPT's Image Generation Model" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The ChatGPT Images 2.0 model is here. Our testing shows it's better at creating more detailed images and rendering text, but it still struggles with languages other than English.</p>
+    <a href="https://www.wired.com/story/openai-beefs-up-chatgpts-image-generation-model/" class="article-link">Leia na fonte →</a>
+  </div>
 
   <div class="article">
     <div class="article-headline">Mozilla Used Anthropic’s Mythos to Find and Fix 151 Bugs in Firefox</div>
@@ -312,19 +328,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="article">
-    <div class="article-headline">Tim Cook’s Legacy Is Turning Apple Into a Subscription</div>
-    <div class="article-subhead">WIRED</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Tim Cook’s Legacy Is Turning Apple Into a Subscription" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>The soon-to-exit Apple CEO went all in on services. Now, the incoming CEO, John Ternus, will need to embrace the AI era.</p>
-    <a href="https://www.wired.com/story/apple-tim-cook-subscription-business/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Meta Is Sued Over Scam Ads on Facebook and Instagram</div>
-    <div class="article-subhead">WIRED</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Meta Is Sued Over Scam Ads on Facebook and Instagram" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>A lawsuit from the Consumer Federation of America accuses Meta of misleading consumers about its efforts to combat scams advertisements on its platforms.</p>
-    <a href="https://www.wired.com/story/meta-is-sued-over-scam-ads-on-facebook-and-instagram/" class="article-link">Leia na fonte →</a>
+    <div class="article-headline">Apple Teases 'Incredible Road Map Ahead'</div>
+    <div class="article-subhead">MacRumors</div>
+    <img src="https://images.macrumors.com/article-new/2026/01/Apple-Event-Logo.jpeg" alt="Apple Teases 'Incredible Road Map Ahead'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>In an all-hands meeting with employees today, Apple's future CEO John Ternus teased an "incredible road map ahead." "I'm not exaggerating when I say this is the most exciting time to be building products and services at Apple in my entire career," said Ternus. While the meeting was private, Ternus' comments were reported by Bloomberg's Mark Gurman. Appearing alongside Apple's current CEO Tim Cook at the Steve Jobs Theater, Ternus expressed optimism about artificial intelligence in particular. "AI is going to create almost unlimited potential," said Ternus. "We're going to be able to keep unlocking possibilities that are going to create entirely new opportunities for our products and services, and I'm so excited about what that's going to mean for our users." Unsurprisingly, he did not prov</p>
+    <a href="https://www.macrumors.com/2026/04/21/apple-teases-incredible-road-map-ahead/" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -341,14 +349,6 @@ permalink: /journal_articles/2026/04/21/
     <img src="https://images.macrumors.com/article-new/2025/06/macOS-Tahoe-26-Thumb.jpg" alt="Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>Apple today provided public beta testers with new releases of upcoming iOS 26.5, iPadOS 26.5, macOS Tahoe 26.5, watchOS 26.5, and tvOS 26.5 updates for testing purposes. The public betas come a day after Apple provided the betas to developers. These are the third iOS 26.5 and iPadOS 26.5 betas, but the second &zwnj;macOS Tahoe&zwnj; 26.5 public beta. After signing up for beta testing on Apple's beta site, public beta testers can download the updates using the Software Update section of the Settings app on each device. iOS 26.5, iPadOS 26.5, and &zwnj;macOS Tahoe&zwnj; 26.5 include a new Suggested Places feature for recommending nearby locations to visit, and Apple is also gearing up to start showing ads in Maps. Apple is testing end-to-end encryption for RCS messages between iPhone and And</p>
     <a href="https://www.macrumors.com/2026/04/21/apple-releases-ios-26-5-public-beta-3/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">AirPods Pro 3 vs. Sony WF-1000XM6: Which Flagship Earbuds Should You Buy?</div>
-    <div class="article-subhead">MacRumors</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="AirPods Pro 3 vs. Sony WF-1000XM6: Which Flagship Earbuds Should You Buy?" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Sony refreshed its earbuds earlier this year, introducing the &#36;330 WF-1000XM6 earbuds to compete with the &#36;249 AirPods Pro 3 that came out last September. We compared Sony's new earbuds with Apple's latest model to see which is better. Subscribe to the MacRumors YouTube channel for more videos. Sony's XM6 earbuds are smaller than the &zwnj;AirPods Pro 3&zwnj; because there's no stem, but the in-ear fit is different. The &zwnj;AirPods Pro 3&zwnj; have foam-infused silicone tips that are comfortable to wear for multiple hours at a time. Sony is using a polyurethane and silicone foam hybrid that feels secure in the ears, but you'll feel them more when using them for longer periods. The XM6 aren't as likely to fall out of your ears when moving around, so they're better for workouts. Ea</p>
-    <a href="https://www.macrumors.com/2026/04/21/sony-wf1000xm6-vs-airpods-pro-3/" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -377,17 +377,18 @@ permalink: /journal_articles/2026/04/21/
 
   <div class="section-head"><span>Piadas & Humor</span></div>
   <hr class="section-rule">
+  <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
+
+  <div class="joke-item">
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
 
   <div class="joke-item">
     <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
   </div>
 
   <div class="joke-item">
-    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
+    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
   <div class="joke-item">
@@ -395,7 +396,7 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
-    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
+    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
   </div>
 
 </div>

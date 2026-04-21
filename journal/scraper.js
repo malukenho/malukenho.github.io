@@ -13,6 +13,8 @@ import { fileURLToPath } from 'url';
 import { fetchJokes } from './jokes-scraper.js';
 import { generateAndSaveWeatherImage } from './weather-image-generator.js';
 import { generateAndSaveHeaderImage } from './header-image-generator.js';
+import { generateAndSaveJokeImage } from './joke-image-generator.js';
+import { rewriteAllArticles } from './article-rewriter.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -219,7 +221,7 @@ async function fetchRSS(feed) {
   }
 }
 
-function generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage, headerImage) {
+function generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage, headerImage, jokeImage) {
   const today = new Date();
   const year = String(today.getFullYear());
   const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -326,6 +328,11 @@ permalink: /journal_articles/${year}/${month}/${day}/
   <div class="section-head"><span>Piadas & Humor</span></div>
   <hr class="section-rule">
 `;
+    // Add joke image if available
+    if (jokeImage) {
+      markdown += `  <img src="${jokeImage}" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
+`;
+    }
     jokes.forEach((joke) => {
       let jokeText;
       if (typeof joke === 'string') {
@@ -369,6 +376,11 @@ async function main() {
     allArticles.push(...articles);
   });
 
+  // Reescreve artigos no estilo de O Malho (1902)
+  // Note: Desabilitado temporariamente - API key não autorizada para generateContent
+  // const rewrittenArticles = await rewriteAllArticles(allArticles);
+  const rewrittenArticles = allArticles;
+
   // Coleta clima
   console.log('  • Coletando clima de Helmond...');
   const weather = await fetchWeatherHelmond();
@@ -395,7 +407,7 @@ async function main() {
   // Gera cabeçalho do jornal com top 3 notícias (skip se já existe)
   let headerImage = null;
   const headerImagePath = path.join(articlesDir, 'header-image.png');
-  if (allArticles.length >= 3) {
+  if (rewrittenArticles.length >= 3) {
     try {
       await fs.access(headerImagePath);
       console.log('  ✓ Cabeçalho do jornal já existe (usando arquivo existente)');
@@ -403,7 +415,7 @@ async function main() {
     } catch {
       console.log('  • Gerando cabeçalho do jornal com Imagen AI...');
       headerImage = await generateAndSaveHeaderImage(
-        allArticles,
+        rewrittenArticles,
         new Date().toISOString().split('T')[0],
         articlesDir
       );
@@ -413,13 +425,19 @@ async function main() {
   // Coleta piadas
   console.log('  • Coletando piadas de historiadoriso.com.br...');
   const jokes = await fetchJokes();
-  console.log(`✅ ${jokes.length} piadas coletadas\n`);
+  console.log(`✅ ${jokes.length} piadas coletadas`);
 
-  if (allArticles.length === 0) {
+  // Gera imagem para primeira piada (skip se já existe)
+  let jokeImage = null;
+  if (jokes.length > 0) {
+    jokeImage = await generateAndSaveJokeImage(jokes, articlesDir);
+  }
+
+  if (rewrittenArticles.length === 0) {
     console.log(`⚠️  Nenhum artigo coletado. Verificando feeds...\n`);
   }
 
-  const markdown = generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage, headerImage);
+  const markdown = generateNewspaperMarkdown(rewrittenArticles, jokes, weather, weatherImage, headerImage, jokeImage);
 
   // Cria diretório
   await fs.mkdir(articlesDir, { recursive: true });
