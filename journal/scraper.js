@@ -201,6 +201,10 @@ async function fetchRSS(feed) {
 
 function generateNewspaperMarkdown(allArticles, jokes, weather) {
   const today = new Date();
+  const year = String(today.getFullYear());
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  
   const todayBR = today.toLocaleDateString('pt-BR', {
     weekday: 'long',
     year: 'numeric',
@@ -223,12 +227,12 @@ function generateNewspaperMarkdown(allArticles, jokes, weather) {
   // Front matter YAML
   let markdown = `---
 layout: journal-vintage
-date: ${today.toISOString().split('T')[0]}
+date: ${year}-${month}-${day}
 title: "O Matinal — ${todayBR}"
-edition: "${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}"
+edition: "${year}-${month}-${day}"
 sections: ${sectionCount}
 articles: ${articleCount}
-permalink: /journal_articles/{{ page.date | date: "%Y/%m/%d" }}/index.html
+permalink: /journal_articles/${year}/${month}/${day}/
 ---
 
 `;

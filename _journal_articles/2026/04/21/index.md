@@ -5,7 +5,7 @@ title: "O Matinal — terça-feira, 21 de abril de 2026"
 edition: "2026-04-21"
 sections: 6
 articles: 30
-permalink: /journal_articles/{{ page.date | date: "%Y/%m/%d" }}/index.html
+permalink: /journal_articles/2026/04/21/
 ---
 
 <div class="cols-2">
@@ -290,19 +290,19 @@ Leia mais (04/21/2026 - 12h35)</p>
   <hr class="section-rule">
 
   <div class="joke-item">
+    <strong>O Médico Distraído: Um médico receita ao paciente: "Tome este remédio e volte daqui a uma semana." Paciente: "Doutor, se eu tomar este remédio, preciso voltar?" Médico: "Só se sobreviver!"</strong>
+  </div>
+
+  <div class="joke-item">
     <strong>A Conversa de Barbeiro: Cliente novo no barbeiro pergunta: "Você corta bem?" Barbeiro responde: "Sei, meu senhor, todos que entraram aqui saíram satisfeitos!" Cliente: "Satisfeitos? De quê?"</strong>
   </div>
 
   <div class="joke-item">
+    <strong>A Lógica do Barbeiro: Um barbeiro perguntava ao cliente: "Quer que eu corte todos os seus cabelos?" O cliente respondeu: "Não, meu amigo, pois se cortar todos, eles não crescem!"</strong>
+  </div>
+
+  <div class="joke-item">
     <strong>O Filósofo Distraído: Um filósofo estava tão concentrado em seus pensamentos que colidiu com uma coluna na rua. Um amigo perguntou: "Acertou em cheio?" Respondeu: "Não, ela acertou em mim!"</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>O Vendedor Astuto: Um vendedor de feijão alardeava: "Este feijão é tão bom que rende o dobro!" Cliente desconfiado: "Se rende tanto, por que você ainda vende?" Vendedor: "Porque tenho preguiça de cozinhar!"</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>O Corretor de Provas: Um corretor de provas encontrou um aluno que havia escrito: "Napoleão morreu em 1821, quando ainda tinha muita vida pela frente". Comentou: "Concordo, era jovem demais para morrer!"</strong>
   </div>
 
 </div>
