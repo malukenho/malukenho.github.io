@@ -50,9 +50,10 @@
   }
   .title-main {
     font-family: 'UnifrakturMaguntia', cursive;
-    font-size: clamp(42px, 9vw, 80px);
+    font-size: clamp(42px, 12vw, 80px);
     color: var(--ink); line-height: 1;
     letter-spacing: -1px;
+    margin: 8px 0;
   }
   .masthead-subtitle {
     font-family: 'Cinzel', serif;
@@ -205,7 +206,7 @@
   /* ── KINDLE OPTIMIZATION ── */
   @media (max-width: 600px) {
     body { font-size: 19px; padding: 6px 8px 30px; }
-    .title-main { font-size: 40px; }
+    .title-main { font-size: clamp(50px, 18vw, 72px); margin: 12px 0 6px; }
     .masthead-top { flex-direction: column; gap: 4px; font-size: 12px; }
     .article-headline { font-size: 18px; }
     .article-headline.large { font-size: 24px; }
