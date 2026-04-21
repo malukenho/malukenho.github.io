@@ -22,11 +22,11 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Marriage Toxin Anime Reveals English Dub Cast</div>
+    <div class="article-headline">Actor Rif Hutton Dies At 73</div>
     <div class="article-subhead">ANN - Anime News</div>
     
-    <p>Ethan Gallardo, Brittney Karbowski, more star in dub on Tuesday</p>
-    <a href="https://www.animenewsnetwork.com/news/2026-04-21/marriage-toxin-anime-reveals-english-dub-cast/.236646" class="article-link">Leia na fonte →</a>
+    <p>Actor voiced roles in Astro Boy, The Wind Rises, Kingsglaive: Final Fantasy XV, more</p>
+    <a href="https://www.animenewsnetwork.com/news/2026-04-20/actor-rif-hutton-dies-at-73/.236604" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -49,11 +49,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="article">
-    <div class="article-headline">Mortes: Mãe de santo por quase 40 anos, dedicou a vida a cuidar do próximo</div>
+    <div class="article-headline">A luz vermelha que o Planalto finge não ver</div>
     <div class="article-subhead">Folha - Cotidiano</div>
     
-    <p>Marlene Guimarães Ramos da Costa fez do cuidado uma prática na vida de quem a conhecia. Era comum que pessoas chegassem à casa dela com um pedido de ajuda e saíssem com mais do que tinham levado. Fosse para solucionar um problema de saúde, matar a fome, arranjar um emprego que não vinha ou receber um conselho. Leia mais (04/21/2026 - 17h05)</p>
-    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/mortes-mae-de-santo-por-quase-40-anos-dedicou-a-vida-a-cuidar-do-proximo.shtml" class="article-link">Leia na fonte →</a>
+    <p>Entre as mulheres, Lula e Flávio Bolsonaro empatam em rejeição. Três pesquisas de abril mostram o mesmo cenário. Na Quaest, 54% das eleitoras não votam de jeito nenhum nos dois. Datafolha e Meio/Ideia confirmam. O filho do homem mais misógino a ocupar a Presidência na Nova República tem no voto feminino o mesmo teto de rejeição do presidente que se elegeu como aliado da mulher. Leia mais (04/21/2026 - 18h00)</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/colunas/marilizpereirajorge/2026/04/a-luz-vermelha-que-o-planalto-finge-nao-ver.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -68,11 +68,11 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Festival de Cannes celebra 'Thelma & Louise' em cartaz de sua nova edição; veja</div>
+    <div class="article-headline">Novo 'O Diabo Veste Prada' é uma versão água com açúcar do original?</div>
     <div class="article-subhead">Folha - Ilustrada</div>
     
-    <p>O Festival de Cannes divulgou, nesta terça-feira, o pôster oficial da sua próxima edição, que acontece entre 12 e 23 de maio. O cartaz traz uma imagem em preto e branco de Geena Davis e Susan Sarandon como Thelma e Louise, dupla protagonista do filme homônimo lançado por Ridley Scott em 1991. A escolha marca os 35 anos da estreia do longa no festival. Leia mais (04/21/2026 - 17h17)</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/festival-de-cannes-celebra-thelma-louise-em-cartaz-de-sua-nova-edicao-veja.shtml" class="article-link">Leia na fonte →</a>
+    <p>"O Diabo Veste Prada 2" é um dos filmes mais aguardados de 2026 até agora. Mas a campanha de divulgação indica que a sátira do original foi suavizada ?assim como a vilã tóxica interpretada por Meryl Streep. Leia mais (04/21/2026 - 17h50)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/novo-o-diabo-veste-prada-e-uma-versao-agua-com-acucar-do-original.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Games</span></div>
@@ -128,7 +128,7 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Framework Has a Better, More Take-Apart-Able Laptop</div>
+    <div class="article-headline">Framework Has a Better, More Take-Apartable Laptop</div>
     <div class="article-subhead">WIRED</div>
     
     <p>The company announced its new Framework Laptop 13 Pro, along with updates to its 16-inch model.</p>
@@ -156,10 +156,6 @@ permalink: /journal_articles/2026/04/21/
   <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
 
   <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
-  </div>
-
-  <div class="joke-item">
     <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
   </div>
 
@@ -168,11 +164,15 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
+
+  <div class="joke-item">
     <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
   </div>
 
   <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
   </div>
 
 </div>
