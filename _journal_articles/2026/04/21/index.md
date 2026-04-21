@@ -13,7 +13,7 @@ permalink: /journal_articles/2026/04/21/
   <div class="feature-box">
     <div class="article-headline">☀️ Clima em Helmond</div>
     <div class="article-subhead">Helmond, Holanda</div>
-    <img src="../weather-image.svg" alt="Clima: Céu Limpo" style="width:100%;height:auto;margin:8px 0;display:block;">
+    <img src="../weather-image.png" alt="Clima: Céu Limpo" style="width:100%;height:auto;margin:8px 0;display:block;">
     <p style="text-align: center; font-size: 20px; margin: 8px 0;">12°C</p>
     <p style="text-align: center; font-size: 13px; margin: 6px 0;">Céu Limpo</p>
     <p style="text-align: center; font-size: 12px; color: var(--ink-mid);">
@@ -208,6 +208,14 @@ Leia mais (04/21/2026 - 14h15)</p>
   </div>
 
   <div class="article">
+    <div class="article-headline">COA moet dwangsommen betalen om hotel in Epe</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="COA moet dwangsommen betalen om hotel in Epe" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Het gaat het Centraal Orgaan opvang asielzoekers (COA) niet lukken om mensen die zijn ondergebracht in een hotel in Epe op tijd over andere locaties te verspreiden. Het COA moet daarom vanaf morgen een dwangsom van 63.480 euro per dag betalen met een</p>
+    <a href="https://nos.nl/l/2611484" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer</div>
     <div class="article-subhead">NOS.nl</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
@@ -221,15 +229,6 @@ Leia mais (04/21/2026 - 14h15)</p>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Opnieuw maatregelen om Groningse 'Mario Kart-bocht' veiliger te maken" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>Bij twee scherpe bochten tussen de zuidelijke en westelijke ringweg in Groningen neemt de provincie extra maatregelen om automobilisten te waarschuwen. Zo komen er betere waarschuwingsborden en antiverblindingsschermen. Een van de bochten wordt ook w</p>
     <a href="https://nos.nl/l/2611481" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Nederlanders in Istanbul stierven net als Duits gezin door bestrijdingsmiddel</div>
-    <div class="article-subhead">NOS.nl</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Nederlanders in Istanbul stierven net als Duits gezin door bestrijdingsmiddel" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>De twee minderjarige Nederlandse broers die vorig jaar augustus dood werden gevonden in hun hotelkamer in Istanbul, zijn overleden aan vergiftiging door het bestrijdingsmiddel fosfine. Dat meldt het Turkse persbureau Demirören Haber Ajansı.
-        </p>
-    <a href="https://nos.nl/l/2611476" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Mundo</span></div>
@@ -292,7 +291,7 @@ Leia mais (04/21/2026 - 12h35)</p>
   <hr class="section-rule">
 
   <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
   </div>
 
   <div class="joke-item">
@@ -300,15 +299,15 @@ Leia mais (04/21/2026 - 12h35)</p>
   </div>
 
   <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
-  </div>
-
-  <div class="joke-item">
     <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
   </div>
 
   <div class="joke-item">
-    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
+    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
   </div>
 
 </div>

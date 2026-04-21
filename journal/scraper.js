@@ -244,7 +244,7 @@ permalink: /journal_articles/${year}/${month}/${day}/
 
   // Weather section if available
   if (weather) {
-    const weatherImagePath = weatherImage ? `../weather-image.svg` : '';
+    const weatherImagePath = weatherImage ? `../${weatherImage}` : '';
     markdown += `
   <div class="feature-box">
     <div class="article-headline">☀️ Clima em Helmond</div>
