@@ -27,7 +27,7 @@ jobs:
         run: |
           cd journal
           npm install
-          npm run scrape ${{ github.event.inputs.date }}
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} npm run scrape ${{ github.event.inputs.date }}
 
       - name: Setup Ruby / Jekyll
         uses: ruby/setup-ruby@v1
