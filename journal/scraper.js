@@ -244,12 +244,19 @@ permalink: /journal_articles/${year}/${month}/${day}/
 
   // Weather section if available
   if (weather) {
-    const weatherImagePath = weatherImage ? `../${weatherImage}` : '';
-    markdown += `
+    // If we have a generated AI image, show only the image (it contains all weather info)
+    if (weatherImage) {
+      markdown += `
+  <div class="feature-box">
+    <img src="../${weatherImage}" alt="Clima de ${weather.location}: ${weather.description}" style="width:100%;height:auto;margin:0;display:block;">
+  </div>
+`;
+    } else {
+      // Fallback to text-based weather display if image generation failed
+      markdown += `
   <div class="feature-box">
     <div class="article-headline">☀️ Clima em Helmond</div>
     <div class="article-subhead">${weather.location}</div>
-    ${weatherImage ? `<img src="${weatherImagePath}" alt="Clima: ${weather.description}" style="width:100%;height:auto;margin:8px 0;display:block;">` : ''}
     <p style="text-align: center; font-size: 20px; margin: 8px 0;">${weather.temp}°C</p>
     <p style="text-align: center; font-size: 13px; margin: 6px 0;">${weather.description}</p>
     <p style="text-align: center; font-size: 12px; color: var(--ink-mid);">
@@ -258,6 +265,7 @@ permalink: /journal_articles/${year}/${month}/${day}/
     </p>
   </div>
 `;
+    }
   }
 
   // Renderiza cada seção
@@ -341,8 +349,7 @@ async function main() {
   let weatherImage = null;
   if (weather) {
     weatherImage = await generateAndSaveWeatherImage(
-      weather.description,
-      weather.temp,
+      weather,
       articlesDir
     );
   }

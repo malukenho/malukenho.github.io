@@ -11,15 +11,7 @@ permalink: /journal_articles/2026/04/21/
 <div class="cols-2">
 
   <div class="feature-box">
-    <div class="article-headline">☀️ Clima em Helmond</div>
-    <div class="article-subhead">Helmond, Holanda</div>
-    <img src="../weather-image.png" alt="Clima: Céu Limpo" style="width:100%;height:auto;margin:8px 0;display:block;">
-    <p style="text-align: center; font-size: 20px; margin: 8px 0;">12°C</p>
-    <p style="text-align: center; font-size: 13px; margin: 6px 0;">Céu Limpo</p>
-    <p style="text-align: center; font-size: 12px; color: var(--ink-mid);">
-      Máxima: 14°C | Mínima: 6°C<br>
-      Umidade: 43% | Vento: 13 km/h
-    </p>
+    <img src="../weather-image.png" alt="Clima de Helmond, Holanda: Céu Limpo" style="width:100%;height:auto;margin:0;display:block;">
   </div>
 
   <div class="section-head"><span>Brasil</span></div>
@@ -133,27 +125,35 @@ Leia mais (04/21/2026 - 14h15)</p>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">How to Train Your Dragon 2 Crew Member Suffers Major Injury</div>
+    <div class="article-headline">Today’s Top Deals: Ninja Gaiden: Ragebound for Switch, LEGO Sets, and an Xbox Gift Card</div>
     <div class="article-subhead">IGN</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="How to Train Your Dragon 2 Crew Member Suffers Major Injury" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>A crew member working on the live-action How to Train Your Dragon 2 has reportedly suffered a major injury.</p>
-    <a href="https://www.ign.com/articles/how-to-train-your-dragon-2-crew-member-suffers-major-injury" class="article-link">Leia na fonte →</a>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Today’s Top Deals: Ninja Gaiden: Ragebound for Switch, LEGO Sets, and an Xbox Gift Card" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Plus, save on a 4K drone, a pre-price-hike PS5 bundle is still available, and more.</p>
+    <a href="https://www.ign.com/articles/best-deals-for-april-21-2026" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Alien: Rogue Incursion - Part One Arrives on Nintendo Switch 2 Today</div>
+    <div class="article-headline">Pokémon Fan Funds Wedding With $44,000 Charizard Card Sale</div>
     <div class="article-subhead">IGN</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Alien: Rogue Incursion - Part One Arrives on Nintendo Switch 2 Today" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Alien: Rogue Incursion - Part One: Evolved Edition is now officially a Nintendo Switch 2 game</p>
-    <a href="https://www.ign.com/articles/alien-rogue-incursion-part-one-arrives-on-nintendo-switch-2-today" class="article-link">Leia na fonte →</a>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Pokémon Fan Funds Wedding With $44,000 Charizard Card Sale" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>A veteran Pokémon fan has been able to fund his own wedding, after rediscovering a trio of rare Charizard cards hidden away in his attic.</p>
+    <a href="https://www.ign.com/articles/pokemon-fan-funds-wedding-with-44000-charizard-card-sale" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Here's When You Can Watch the Final Episode of Invincible Season 4 on Prime Video</div>
+    <div class="article-headline">The Beginner-Friendly DJI Mini 4K Drone Fly More Combo With Extra Batteries Has a 30% Price Drop</div>
     <div class="article-subhead">IGN</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Here's When You Can Watch the Final Episode of Invincible Season 4 on Prime Video" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Invincible Season 4 is approaching its eighth and final episode.</p>
-    <a href="https://www.ign.com/articles/how-to-watch-invincible-season-4-episode-release-dates" class="article-link">Leia na fonte →</a>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="The Beginner-Friendly DJI Mini 4K Drone Fly More Combo With Extra Batteries Has a 30% Price Drop" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>FAA registration exempt, up to 93 minutes of total flight time, and 3-axis gimbal for stable 4K video.</p>
+    <a href="https://www.ign.com/articles/best-dji-mini-4k-quadcopter-drone-deals-fly-more-combo" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up</div>
+    <div class="article-subhead">Kotaku</div>
+    <img src="https://kotaku.com/app/uploads/2026/04/PXL_20260421_175632981.jpg" alt="Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>That galaxy clearly isn't far, far away enough</p>
+    <a href="https://kotaku.com/magic-the-gathering-secrets-of-strixhaven-star-wars-x-wings-2000689411" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -170,14 +170,6 @@ Leia mais (04/21/2026 - 14h15)</p>
     <img src="https://kotaku.com/app/uploads/2026/04/shantytown-9.jpg" alt="This Surrealist City Builder Is A Must For Those Seeking Stress-Free Chill Times" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>ShantyTown is a terrible name for an excellent little game about building upward</p>
     <a href="https://kotaku.com/shantytown-indie-pc-steam-city-builder-cozy-game-2000689333" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">I Can’t Draw, So I Love Low-Effort Tomodachi Life Custom Creations, Like This Single Pea On A Plate</div>
-    <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/2026041616510000_s.jpg" alt="I Can’t Draw, So I Love Low-Effort Tomodachi Life Custom Creations, Like This Single Pea On A Plate" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>You can phone it in all day long</p>
-    <a href="https://kotaku.com/low-effort-tomodachi-life-creations-pea-plate-2000689346" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Holanda & Brabant</span></div>
@@ -291,7 +283,15 @@ Leia mais (04/21/2026 - 12h35)</p>
   <hr class="section-rule">
 
   <div class="joke-item">
+    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
+  </div>
+
+  <div class="joke-item">
     <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
   <div class="joke-item">
@@ -300,14 +300,6 @@ Leia mais (04/21/2026 - 12h35)</p>
 
   <div class="joke-item">
     <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
   </div>
 
 </div>
