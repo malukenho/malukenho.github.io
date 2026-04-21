@@ -373,24 +373,41 @@ async function main() {
   console.log('  • Coletando clima de Helmond...');
   const weather = await fetchWeatherHelmond();
 
-  // Gera imagem de clima
+  // Cria diretório se não existir
+  await fs.mkdir(articlesDir, { recursive: true });
+
+  // Gera imagem de clima (skip se já existe)
   let weatherImage = null;
+  const weatherImagePath = path.join(articlesDir, 'weather-image.png');
   if (weather) {
-    weatherImage = await generateAndSaveWeatherImage(
-      weather,
-      articlesDir
-    );
+    try {
+      await fs.access(weatherImagePath);
+      console.log('  ✓ Imagem de clima já existe (usando arquivo existente)');
+      weatherImage = 'weather-image.png';
+    } catch {
+      weatherImage = await generateAndSaveWeatherImage(
+        weather,
+        articlesDir
+      );
+    }
   }
 
-  // Gera cabeçalho do jornal com top 3 notícias
+  // Gera cabeçalho do jornal com top 3 notícias (skip se já existe)
   let headerImage = null;
+  const headerImagePath = path.join(articlesDir, 'header-image.png');
   if (allArticles.length >= 3) {
-    console.log('  • Gerando cabeçalho do jornal com Imagen AI...');
-    headerImage = await generateAndSaveHeaderImage(
-      allArticles,
-      new Date().toISOString().split('T')[0],
-      articlesDir
-    );
+    try {
+      await fs.access(headerImagePath);
+      console.log('  ✓ Cabeçalho do jornal já existe (usando arquivo existente)');
+      headerImage = 'header-image.png';
+    } catch {
+      console.log('  • Gerando cabeçalho do jornal com Imagen AI...');
+      headerImage = await generateAndSaveHeaderImage(
+        allArticles,
+        new Date().toISOString().split('T')[0],
+        articlesDir
+      );
+    }
   }
 
   // Coleta piadas
