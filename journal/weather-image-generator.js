@@ -2,139 +2,127 @@
 
 /**
  * O Matinal — Weather Image Generator
- * Generates vintage crosshatching etching style images for weather using Gemini API
+ * Generates vintage weather illustrations as SVG images
+ * (SVGs are vector graphics that work as real image files)
  */
 
-import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-
-async function generateWeatherImage(weatherInfo, outputPath) {
-  if (!GEMINI_API_KEY) {
-    console.warn('⚠️  GEMINI_API_KEY not set, skipping image generation');
-    return null;
-  }
-
-  try {
-    console.log('  • Gerando imagem de clima com Gemini...');
-    
-    // Create prompt in Portuguese as requested
-    const prompt = `Create an image in crosshatching etching old vintage style (like 19th century engravings) about this weather information. 
-The image should be suitable for a journal column with dimensions 430x200 pixels.
-Weather information: ${weatherInfo}
-Style: Black and white crosshatching/etching, vintage newspaper illustration style, minimal color.
-Language: Brazilian Portuguese.
-Make it artistic and suitable for a newspaper weather section.`;
-
-    const response = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        contents: [
-          {
-            parts: [
-              {
-                text: prompt
-              }
-            ]
-          }
-        ],
-        generationConfig: {
-          temperature: 0.7,
-          topK: 40,
-          topP: 0.95,
-          maxOutputTokens: 8096
-        }
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        timeout: 30000
-      }
-    );
-
-    if (response.data?.candidates?.[0]?.content?.parts?.[0]?.text) {
-      console.log('  ✅ Resposta recebida do Gemini (usando fallback)');
-      // Note: Gemini 2.0 Flash doesn't support image generation directly via this endpoint
-      // We'll use a fallback SVG generator instead
-      return null;
-    }
-
-    return null;
-
-  } catch (error) {
-    console.warn(`⚠️  Erro ao gerar imagem de clima: ${error.message}`);
-    return null;
-  }
-}
-
 /**
- * Create a vintage SVG weather illustration as fallback
- * This provides a vintage crosshatching aesthetic while we work on Gemini image generation
+ * Generate a vintage-style weather illustration SVG
+ * Creates a beautiful 430x200px image with period-appropriate styling
  */
 function generateWeatherSVG(weatherDescription, temperature) {
-  // Create a vintage-style SVG weather illustration
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 200" width="430" height="200">
-    <defs>
-      <pattern id="crosshatch" patternUnits="userSpaceOnUse" width="4" height="4">
-        <line x1="0" y1="0" x2="4" y2="4" stroke="#1a1008" stroke-width="0.5"/>
-        <line x1="4" y1="0" x2="0" y2="4" stroke="#1a1008" stroke-width="0.5"/>
-      </pattern>
-      <pattern id="crosshatch-light" patternUnits="userSpaceOnUse" width="8" height="8">
-        <line x1="0" y1="0" x2="8" y2="8" stroke="#1a1008" stroke-width="0.3" opacity="0.3"/>
-        <line x1="8" y1="0" x2="0" y2="8" stroke="#1a1008" stroke-width="0.3" opacity="0.3"/>
-      </pattern>
-    </defs>
+  const temp = temperature || "20";
+  const description = weatherDescription || "Céu Limpo";
+  
+  // Determine weather symbol based on description
+  let weatherSymbol = '';
+  const desc = description.toLowerCase();
+  
+  if (desc.includes('chuva') || desc.includes('rain')) {
+    weatherSymbol = `
+    <!-- Rain -->
+    <g id="rain">
+      <ellipse cx="80" cy="60" rx="35" ry="25" fill="none" stroke="#1a1008" stroke-width="1.5"/>
+      <ellipse cx="110" cy="70" rx="30" ry="20" fill="none" stroke="#1a1008" stroke-width="1.5"/>
+      <line x1="60" y1="95" x2="50" y2="110" stroke="#1a1008" stroke-width="1"/>
+      <line x1="80" y1="95" x2="70" y2="110" stroke="#1a1008" stroke-width="1"/>
+      <line x1="100" y1="95" x2="90" y2="110" stroke="#1a1008" stroke-width="1"/>
+      <line x1="120" y1="95" x2="110" y2="110" stroke="#1a1008" stroke-width="1"/>
+    </g>`;
+  } else if (desc.includes('nuvem') || desc.includes('cloud')) {
+    weatherSymbol = `
+    <!-- Clouds -->
+    <g id="clouds">
+      <ellipse cx="70" cy="60" rx="35" ry="25" fill="none" stroke="#1a1008" stroke-width="1.5"/>
+      <ellipse cx="110" cy="70" rx="35" ry="22" fill="none" stroke="#1a1008" stroke-width="1.5"/>
+      <ellipse cx="90" cy="55" rx="30" ry="20" fill="none" stroke="#1a1008" stroke-width="1.5"/>
+    </g>`;
+  } else {
+    // Sunny
+    weatherSymbol = `
+    <!-- Sun -->
+    <circle cx="90" cy="70" r="22" fill="none" stroke="#1a1008" stroke-width="1.5"/>
+    <line x1="90" y1="38" x2="90" y2="22" stroke="#1a1008" stroke-width="1.5"/>
+    <line x1="90" y1="102" x2="90" y2="118" stroke="#1a1008" stroke-width="1.5"/>
+    <line x1="58" y1="70" x2="42" y2="70" stroke="#1a1008" stroke-width="1.5"/>
+    <line x1="122" y1="70" x2="138" y2="70" stroke="#1a1008" stroke-width="1.5"/>
+    <line x1="64" y1="44" x2="54" y2="34" stroke="#1a1008" stroke-width="1.5"/>
+    <line x1="116" y1="96" x2="126" y2="106" stroke="#1a1008" stroke-width="1.5"/>`;
+  }
+
+  const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 200" width="430" height="200">
+  <defs>
+    <pattern id="paper-texture" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="#f2e8d5"/>
+      <circle cx="20" cy="20" r="0.5" fill="#3d2b10" opacity="0.08"/>
+      <circle cx="50" cy="50" r="0.5" fill="#3d2b10" opacity="0.05"/>
+      <circle cx="80" cy="30" r="0.5" fill="#3d2b10" opacity="0.06"/>
+    </pattern>
+  </defs>
+  
+  <!-- Textured paper background -->
+  <rect width="430" height="200" fill="url(#paper-texture)"/>
+  
+  <!-- Double ornamental border -->
+  <rect x="6" y="6" width="418" height="188" fill="none" stroke="#1a1008" stroke-width="2"/>
+  <rect x="9" y="9" width="412" height="182" fill="none" stroke="#1a1008" stroke-width="0.5" opacity="0.6"/>
+  
+  <!-- Decorative corner flourishes -->
+  <g opacity="0.5" stroke="#1a1008" stroke-width="0.8" fill="none">
+    <!-- Top-left corner -->
+    <line x1="18" y1="18" x2="35" y2="18"/>
+    <line x1="18" y1="18" x2="18" y2="35"/>
+    <circle cx="18" cy="18" r="3" fill="none" stroke-width="0.6"/>
     
-    <!-- Paper background -->
-    <rect width="430" height="200" fill="#f2e8d5"/>
+    <!-- Top-right corner -->
+    <line x1="412" y1="18" x2="395" y2="18"/>
+    <line x1="412" y1="18" x2="412" y2="35"/>
+    <circle cx="412" cy="18" r="3" fill="none" stroke-width="0.6"/>
     
-    <!-- Ornamental border -->
-    <rect x="5" y="5" width="420" height="190" fill="none" stroke="#1a1008" stroke-width="2"/>
-    <rect x="8" y="8" width="414" height="184" fill="none" stroke="#1a1008" stroke-width="0.5" opacity="0.5"/>
+    <!-- Bottom-left corner -->
+    <line x1="18" y1="182" x2="35" y2="182"/>
+    <line x1="18" y1="182" x2="18" y2="165"/>
+    <circle cx="18" cy="182" r="3" fill="none" stroke-width="0.6"/>
     
-    <!-- Weather symbol section -->
-    <g id="weather-symbol">
-      <!-- Cloud with crosshatching for clouds -->
-      <ellipse cx="80" cy="60" rx="35" ry="25" fill="url(#crosshatch-light)" stroke="#1a1008" stroke-width="1.5"/>
-      <ellipse cx="110" cy="70" rx="30" ry="20" fill="url(#crosshatch-light)" stroke="#1a1008" stroke-width="1.5"/>
-      
-      <!-- Sun rays for sunny weather -->
-      <circle cx="310" cy="60" r="20" fill="none" stroke="#1a1008" stroke-width="1.5"/>
-      <line x1="310" y1="25" x2="310" y2="10" stroke="#1a1008" stroke-width="1.5"/>
-      <line x1="310" y1="95" x2="310" y2="110" stroke="#1a1008" stroke-width="1.5"/>
-      <line x1="275" y1="60" x2="260" y2="60" stroke="#1a1008" stroke-width="1.5"/>
-      <line x1="345" y1="60" x2="360" y2="60" stroke="#1a1008" stroke-width="1.5"/>
-    </g>
-    
-    <!-- Temperature text -->
-    <text x="215" y="140" font-family="Georgia, serif" font-size="24" font-weight="bold" 
-          text-anchor="middle" fill="#1a1008">${temperature}°C</text>
-    
-    <!-- Description text with vintage styling -->
-    <text x="215" y="165" font-family="Georgia, serif" font-size="13" 
-          text-anchor="middle" fill="#3d2b10" font-style="italic">${weatherDescription}</text>
-    
-    <!-- Decorative corner elements -->
-    <g opacity="0.3">
-      <line x1="15" y1="15" x2="25" y2="15" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="15" y1="15" x2="15" y2="25" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="415" y1="15" x2="405" y2="15" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="415" y1="15" x2="415" y2="25" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="15" y1="185" x2="25" y2="185" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="15" y1="185" x2="15" y2="175" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="415" y1="185" x2="405" y2="185" stroke="#1a1008" stroke-width="0.8"/>
-      <line x1="415" y1="185" x2="415" y2="175" stroke="#1a1008" stroke-width="0.8"/>
-    </g>
-  </svg>`;
+    <!-- Bottom-right corner -->
+    <line x1="412" y1="182" x2="395" y2="182"/>
+    <line x1="412" y1="182" x2="412" y2="165"/>
+    <circle cx="412" cy="182" r="3" fill="none" stroke-width="0.6"/>
+  </g>
+  
+  <!-- Weather symbol area (left side) -->
+  <g id="weather-area">
+    ${weatherSymbol}
+  </g>
+  
+  <!-- Decorative vertical line -->
+  <line x1="160" y1="20" x2="160" y2="180" stroke="#1a1008" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Temperature display (large, prominent) -->
+  <text x="290" y="95" font-family="Georgia, serif" font-size="52" font-weight="bold" 
+        text-anchor="middle" fill="#1a1008" letter-spacing="2">${temp}°</text>
+  
+  <!-- Celsius unit -->
+  <text x="350" y="75" font-family="Georgia, serif" font-size="20" 
+        text-anchor="middle" fill="#1a1008">C</text>
+  
+  <!-- Weather description (italic, centered below) -->
+  <text x="215" y="155" font-family="Georgia, serif" font-size="15" font-style="italic"
+        text-anchor="middle" fill="#3d2b10">${description}</text>
+  
+  <!-- Decorative dividing line -->
+  <line x1="50" y1="168" x2="380" y2="168" stroke="#1a1008" stroke-width="0.5" opacity="0.4"/>
+</svg>`;
 
   return svg;
 }
 
 /**
- * Generate and save weather image
+ * Generate and save weather image as SVG
  */
 async function generateAndSaveWeatherImage(weatherDescription, temperature, outputDir) {
   try {
@@ -143,20 +131,27 @@ async function generateAndSaveWeatherImage(weatherDescription, temperature, outp
       fs.mkdirSync(outputDir, { recursive: true });
     }
 
-    const imagePath = path.join(outputDir, 'weather-image.svg');
-
-    // Generate SVG (fallback for now until Gemini image generation is available)
+    console.log('  • Gerando imagem vintage de clima...');
+    
+    // Generate SVG
     const svg = generateWeatherSVG(weatherDescription, temperature);
     
+    // Save as SVG image file
+    const imagePath = path.join(outputDir, 'weather-image.svg');
     fs.writeFileSync(imagePath, svg, 'utf8');
-    console.log(`  ✅ Imagem de clima criada: ${imagePath}`);
+    
+    console.log(`  ✅ Imagem gerada: weather-image.svg (430x200px)`);
     
     return 'weather-image.svg';
 
   } catch (error) {
-    console.warn(`⚠️  Erro ao salvar imagem: ${error.message}`);
+    console.warn(`⚠️  Erro ao gerar imagem: ${error.message}`);
     return null;
   }
 }
 
-export { generateWeatherImage, generateAndSaveWeatherImage, generateWeatherSVG };
+export { generateAndSaveWeatherImage };
+
+
+
+
