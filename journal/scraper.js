@@ -18,6 +18,35 @@ import { rewriteAllArticles } from './article-rewriter.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Cache utilities
+const CACHE_DIR = path.join(__dirname, '..', 'var', 'cache');
+const CACHE_DURATION = 3600000; // 1 hour
+
+async function getCacheFile(key) {
+  try {
+    const cacheFile = path.join(CACHE_DIR, `${key}.json`);
+    const stat = await fs.stat(cacheFile);
+    if (Date.now() - stat.mtimeMs < CACHE_DURATION) {
+      const data = await fs.readFile(cacheFile, 'utf-8');
+      console.log(`  ✓ Cache hit: ${key}`);
+      return JSON.parse(data);
+    }
+  } catch (e) {
+    // Cache miss or error
+  }
+  return null;
+}
+
+async function setCacheFile(key, data) {
+  try {
+    await fs.mkdir(CACHE_DIR, { recursive: true });
+    const cacheFile = path.join(CACHE_DIR, `${key}.json`);
+    await fs.writeFile(cacheFile, JSON.stringify(data, null, 2));
+  } catch (e) {
+    console.warn(`  ⚠️  Failed to write cache: ${e.message}`);
+  }
+}
+
 // Mapeamento de charsets comuns para conversão
 const charsetMap = {
   'iso-8859-1': 'latin1',
@@ -142,12 +171,19 @@ function extractImageUrl(item) {
   const imgMatch = String(desc).match(/<img[^>]+src=["']([^"']+)["']/i);
   if (imgMatch) return imgMatch[1];
   
-  // 4. Return placeholder
-  return 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E';
+  // 4. Return null if no image found (no placeholder)
+  return null;
 }
 
 async function fetchRSS(feed) {
   try {
+    // Check cache first
+    const cacheKey = `rss-${feed.source.replace(/\s+/g, '-').toLowerCase()}`;
+    const cached = await getCacheFile(cacheKey);
+    if (cached) {
+      return cached;
+    }
+
     const response = await axios.get(feed.url, { 
       timeout: 8000,
       headers: {
@@ -178,7 +214,7 @@ async function fetchRSS(feed) {
     const items = Array.isArray(channel.item) ? channel.item : [channel.item];
     if (!items) return [];
     
-    return items.slice(0, 3).map((item) => {
+    const articles = items.slice(0, 3).map((item) => {
       let title = item.title || 'Sem título';
       let description = item.description || item.summary || item['content:encoded'] || '';
       let link = item.link || '#';
@@ -198,9 +234,9 @@ async function fetchRSS(feed) {
         .replace(/\s+/g, ' ') // Normalize whitespace
         .trim();
       
-      // Keep more content: up to 1500 characters to accommodate rewritten articles
-      // Rewritten articles in O Malho style are longer and more eloquent
-      description = description.substring(0, 1500);
+      // No character limit on rewritten articles - keep the full text
+      // The Gemini rewrite produces 2-minute reads (150-200 words) naturally
+      // description = description.substring(0, 5000); // REMOVED: keeping full content
       
       // Try to extract image from description or use placeholder
       let image = extractImageUrl(item);
@@ -215,9 +251,21 @@ async function fetchRSS(feed) {
         pubDate: item.pubDate || new Date().toISOString()
       };
     });
+
+    // Cache the results
+    await setCacheFile(cacheKey, articles);
+    return articles;
   } catch (error) {
-    console.warn(`  ⚠️  ${feed.source}: ${error.message.substring(0, 40)}`);
-    return [];
+    // Try to use stale cache on error
+    const cacheKey = `rss-${feed.source.replace(/\s+/g, '-').toLowerCase()}`;
+    try {
+      const staleCache = await fs.readFile(path.join(CACHE_DIR, `${cacheKey}.json`), 'utf-8');
+      console.warn(`  ⚠️  ${feed.source}: ${error.message.substring(0, 40)} (usando cache antiga)`);
+      return JSON.parse(staleCache);
+    } catch (e) {
+      console.warn(`  ⚠️  ${feed.source}: ${error.message.substring(0, 40)}`);
+      return [];
+    }
   }
 }
 
@@ -309,13 +357,18 @@ permalink: /journal_articles/${year}/${month}/${day}/
     
     articles.forEach(article => {
       const imageHtml = article.image ? `<img src="${article.image}" alt="${article.title}" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">` : '';
+      // Replace newlines with <br> tags for proper HTML rendering
+      const descriptionHtml = article.description.replace(/\n/g, '<br/>');
+      
+      if (article.title.includes('Kodansha')) {
+      }
       
       markdown += `
   <div class="article">
     <div class="article-headline">${article.title}</div>
     <div class="article-subhead">${article.source}</div>
     ${imageHtml}
-    <p>${article.description}</p>
+    <p>${descriptionHtml}</p>
     <a href="${article.link}" class="article-link">Leia na fonte →</a>
   </div>
 `;
@@ -376,6 +429,10 @@ async function main() {
     allArticles.push(...articles);
   });
 
+  const kodanshaBefore = allArticles.find(a => a.title?.includes('Kodansha'));
+  if (kodanshaBefore) {
+  }
+
   // Reescreve artigos no estilo de O Malho (1902)
   const rewrittenArticles = await rewriteAllArticles(allArticles);
 
@@ -435,7 +492,15 @@ async function main() {
     console.log(`⚠️  Nenhum artigo coletado. Verificando feeds...\n`);
   }
 
+  const kodanshaArticle = rewrittenArticles.find(a => a.title?.includes('Kodansha'));
+  if (kodanshaArticle) {
+  }
+
   const markdown = generateNewspaperMarkdown(rewrittenArticles, jokes, weather, weatherImage, headerImage, jokeImage);
+
+  const kodanshaMatch = markdown.match(/Kodansha House.*?<\/div>/s);
+  if (kodanshaMatch) {
+  }
 
   // Cria diretório
   await fs.mkdir(articlesDir, { recursive: true });

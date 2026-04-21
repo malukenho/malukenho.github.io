@@ -27,7 +27,7 @@ Requirements:
 - Use formal, elegant Portuguese from early 1900s Brazil
 - Maintain the key information from the article
 - Write as if it were published in O Malho newspaper
-- Keep it to approximately 150-200 words (2 minute read)
+- Write a complete and thorough rewrite that captures all important details
 - Use period-appropriate language and tone
 - Start with an engaging opening that suits a newspaper
 - Include vivid descriptions where appropriate
@@ -48,8 +48,11 @@ Return ONLY the rewritten article text, nothing else.`;
           }
         ],
         generationConfig: {
-          maxOutputTokens: 500,
-          temperature: 0.7
+          maxOutputTokens: 2000,
+          temperature: 0.7,
+          thinkingConfig: {
+            thinkingBudget: 0
+          }
         }
       },
       {
@@ -60,12 +63,27 @@ Return ONLY the rewritten article text, nothing else.`;
       }
     );
 
-    // Extract the generated text
+    // Extract the generated text, filtering out thinking blocks
     const candidates = response.data?.candidates;
     if (candidates && candidates.length > 0) {
-      const generatedText = candidates[0]?.content?.parts?.[0]?.text;
+      const parts = candidates[0]?.content?.parts || [];
+      
+      // Extract text parts, skip thinking blocks
+      let generatedText = parts
+        .filter(part => part.text && !part.thinking) // Only text parts, no thinking
+        .map(part => part.text)
+        .join('\n')
+        .trim();
+      
+      // If no text was found, try the first part anyway
+      if (!generatedText && parts.length > 0 && parts[0]?.text) {
+        generatedText = parts[0].text.trim();
+      }
+      
       if (generatedText) {
-        article.description = generatedText.trim();
+        article.description = generatedText;
+        if (article.title.includes('Kodansha')) {
+        }
         return article;
       }
     }

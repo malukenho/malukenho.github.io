@@ -1,0 +1,29 @@
+[
+  {
+    "section": "Tecnologia & IA",
+    "source": "WIRED",
+    "title": "Framework Has a Better, More Take-Apart-Able Laptop",
+    "description": "The company announced its new Framework Laptop 13 Pro, along with updates to its 16-inch model.",
+    "link": "https://www.wired.com/story/framework-laptop-13-pro/",
+    "image": null,
+    "pubDate": "Tue, 21 Apr 2026 19:09:11 +0000"
+  },
+  {
+    "section": "Tecnologia & IA",
+    "source": "WIRED",
+    "title": "OpenAI Beefs Up ChatGPT's Image Generation Model",
+    "description": "The ChatGPT Images 2.0 model is here. Our testing shows it's better at creating more detailed images and rendering text, but it still struggles with languages other than English.",
+    "link": "https://www.wired.com/story/openai-beefs-up-chatgpts-image-generation-model/",
+    "image": null,
+    "pubDate": "Tue, 21 Apr 2026 19:00:00 +0000"
+  },
+  {
+    "section": "Tecnologia & IA",
+    "source": "WIRED",
+    "title": "Mozilla Used Anthropic’s Mythos to Find and Fix 271 Bugs in Firefox",
+    "description": "The Firefox team doesn’t think emerging AI capabilities will upend cybersecurity long term, but they warn that software developers are likely in for a rocky transition.",
+    "link": "https://www.wired.com/story/mozilla-used-anthropics-mythos-to-find-271-bugs-in-firefox/",
+    "image": null,
+    "pubDate": "Tue, 21 Apr 2026 18:30:00 +0000"
+  }
+]
