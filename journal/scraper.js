@@ -383,7 +383,7 @@ permalink: /journal_articles/${year}/${month}/${day}/
 `;
     // Add joke image if available
     if (jokeImage) {
-      markdown += `  <img src="${jokeImage}" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
+      markdown += `  <img src="${jokeImage}" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;object-fit:cover;">
 `;
     }
     jokes.forEach((joke) => {
