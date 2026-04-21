@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 6 * * *'  # 6 AM UTC = 3 AM Brasília
   workflow_dispatch:      # Manual trigger
+    inputs:
+      date:
+        description: 'Data para gerar (YYYY-MM-DD, deixe em branco para hoje)'
+        required: false
+        type: string
 
 jobs:
   generate:
@@ -20,7 +25,7 @@ jobs:
         run: |
           cd journal
           npm install
-          npm run scrape
+          npm run scrape ${{ github.event.inputs.date }}
 
       - name: Setup Ruby / Jekyll
         uses: ruby/setup-ruby@v1
