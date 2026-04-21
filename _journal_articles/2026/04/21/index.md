@@ -49,11 +49,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="article">
-    <div class="article-headline">A luz vermelha que o Planalto finge não ver</div>
+    <div class="article-headline">Promotoria vê omissão de ex-comandante da PM em apuração sobre vazamentos para o PCC</div>
     <div class="article-subhead">Folha - Cotidiano</div>
     
-    <p>Entre as mulheres, Lula e Flávio Bolsonaro empatam em rejeição. Três pesquisas de abril mostram o mesmo cenário. Na Quaest, 54% das eleitoras não votam de jeito nenhum nos dois. Datafolha e Meio/Ideia confirmam. O filho do homem mais misógino a ocupar a Presidência na Nova República tem no voto feminino o mesmo teto de rejeição do presidente que se elegeu como aliado da mulher. Leia mais (04/21/2026 - 18h00)</p>
-    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/colunas/marilizpereirajorge/2026/04/a-luz-vermelha-que-o-planalto-finge-nao-ver.shtml" class="article-link">Leia na fonte →</a>
+    <p>O Ministério Público de São Paulo vê indícios de que o ex-comandante-geral da Polícia Militar José Augusto Coutinho foi omisso ao não apurar vazamentos de operações e de informações sigilosas relacionadas a investigações contra o PCC (Primeiro Comando da Capital), mesmo tendo sido alertado sobre o problema. Leia mais (04/21/2026 - 18h07)</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/promotoria-ve-omissao-de-ex-comandante-da-pm-em-apuracao-sobre-vazamentos-para-o-pcc.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -153,18 +153,14 @@ permalink: /journal_articles/2026/04/21/
 
   <div class="section-head"><span>Piadas & Humor</span></div>
   <hr class="section-rule">
-  <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
-
-  <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
-  </div>
+  <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;object-fit:cover;">
 
   <div class="joke-item">
     <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
   </div>
 
   <div class="joke-item">
-    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
+    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
   </div>
 
   <div class="joke-item">
@@ -172,7 +168,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
-    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
 </div>
