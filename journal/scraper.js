@@ -10,6 +10,7 @@ import xml2js from 'xml2js';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { fetchJokes } from './jokes-scraper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -41,37 +42,93 @@ async function fetchRSS(url) {
   }
 }
 
-function formatDateBR(date) {
-  return date.toLocaleDateString('pt-BR', {
+function generateNewspaperMarkdown(articles, jokes) {
+  const today = new Date();
+  const todayBR = today.toLocaleDateString('pt-BR', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
-}
 
-async function generateArticleMarkdown(article, index, todayDate, todayBR) {
-  const markdown = `---
-layout: journal
-title: "${article.title}"
-date: ${todayDate}
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+
+  let markdown = `---
+layout: journal-vintage
+title: "O Matinal — ${todayBR}"
+date: ${today.toISOString()}
 categories: journal
-source: "${article.source}"
+articles_count: ${articles.length}
+jokes_count: ${jokes.length}
+permalink: /journal_articles/${year}/${month}/${day}/
 ---
 
-# ${article.title}
-
-${article.description}
-
-**Fonte**: ${article.source}  
-[Ler na íntegra →](${article.link})
+<section class="section">
+  <h2 class="section-title">📰 Notícias Principais</h2>
 `;
+
+  // ... resto do código igual
+
+
+  // Artigo destaque (o primeiro)
+  if (articles.length > 0) {
+    const featured = articles[0];
+    markdown += `  <article class="article article-featured">
+    <div class="article-source">⭐ ${featured.source}</div>
+    <h3 class="article-title">${featured.title}</h3>
+    <div class="article-content drop-cap">${featured.description}</div>
+  </article>
+
+  <div class="separator">─────────────────────</div>
+
+`;
+  }
+
+  // Outros artigos
+  for (let i = 1; i < Math.min(articles.length, 15); i++) {
+    const article = articles[i];
+    markdown += `  <article class="article">
+    <div class="article-source">${article.source}</div>
+    <h3 class="article-title">${article.title}</h3>
+    <div class="article-content">${article.description}</div>
+  </article>
+
+`;
+  }
+
+  markdown += `</section>
+
+`;
+
+  // Seção de Piadas
+  if (jokes.length > 0) {
+    markdown += `<section class="section">
+  <h2 class="section-title">😂 Anedotas & Pilhérias</h2>
+  <p><em>"A risa é a melhor medicina" - Provérbio antigo</em></p>
+
+`;
+
+    jokes.forEach((joke, index) => {
+      markdown += `  <div class="joke">
+    <div class="joke-title">${index + 1}. ${joke.title}</div>
+    <div class="joke-content">${joke.content}</div>
+  </div>
+
+`;
+    });
+
+    markdown += `</section>
+
+`;
+  }
 
   return markdown;
 }
 
 async function main() {
-  console.log('\n📰 O Matinal — Coletando notícias...\n');
+  console.log('\n📰 O Matinal — Gerando Edição...\n');
 
   try {
     // Coleta RSS
@@ -82,34 +139,42 @@ async function main() {
       allArticles.push(...articles.map(a => ({ ...a, source: feed.name })));
     }
 
-    console.log(`\n✅ ${allArticles.length} artigos coletados\n`);
+    console.log(`✅ ${allArticles.length} artigos coletados\n`);
+
+    // Coleta piadas
+    const jokes = await fetchJokes();
+    console.log(`✅ ${jokes.length} piadas coletadas\n`);
+
+    // Gera Markdown
+    const markdown = generateNewspaperMarkdown(allArticles, jokes);
 
     // Prepara datas
     const today = new Date();
-    const todayISO = today.toISOString();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
     const day = String(today.getDate()).padStart(2, '0');
-    const todayBR = formatDateBR(today);
 
     // Cria diretório YYYY/MM/DD
     const articleDir = path.join(__dirname, '..', '_journal_articles', String(year), month, day);
     await fs.mkdir(articleDir, { recursive: true });
 
-    // Escreve cada artigo em um arquivo separado
-    for (let i = 0; i < allArticles.length; i++) {
-      const article = allArticles[i];
-      const markdown = await generateArticleMarkdown(article, i, todayISO, todayBR);
-      
-      const articleNum = String(i + 1).padStart(2, '0');
-      const filename = `${articleNum}-${article.title.toLowerCase().replace(/[^\w]/g, '-').replace(/-+/g, '-').substring(0, 30)}.md`;
-      const filepath = path.join(articleDir, filename);
-      
-      await fs.writeFile(filepath, markdown, 'utf-8');
-      console.log(`📝 ${filename}`);
+    // Remove artigos individuais antigos (se houver)
+    try {
+      const files = await fs.readdir(articleDir);
+      for (const file of files) {
+        if (file.endsWith('.md') && file !== 'index.md') {
+          await fs.unlink(path.join(articleDir, file));
+        }
+      }
+    } catch (e) {
+      // Diretório vazio, ignore
     }
 
-    console.log(`\n✅ ${allArticles.length} artigos criados em _journal_articles/${year}/${month}/${day}/`);
+    // Escreve index.md (página única)
+    const filepath = path.join(articleDir, 'index.md');
+    await fs.writeFile(filepath, markdown, 'utf-8');
+
+    console.log(`📝 Edição criada: _journal_articles/${year}/${month}/${day}/index.md`);
     console.log('✅ Pronto para Jekyll gerar o HTML!');
 
   } catch (error) {
