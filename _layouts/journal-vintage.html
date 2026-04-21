@@ -7,7 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f2e8d5;
+    /** --paper: #f2e8d5;*/
+    --paper: #ffffff;
     --paper-dark: #e8d9b8;
     --ink: #1a1008;
     --ink-mid: #3d2b10;
@@ -37,7 +38,7 @@
   .masthead {
     text-align: center;
     border-top: 4px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
+    /* border-bottom: 1px solid var(--rule); */
     padding: 6px 0 4px;
     margin-bottom: 3px;
     position: relative;
@@ -166,15 +167,6 @@
     font-weight: inherit; margin: 0; color: inherit;
   }
 
-  /* ── FEATURE BOX ── */
-  .feature-box {
-    border: 2px solid var(--rule);
-    padding: 10px 12px; margin-bottom: 14px;
-    break-inside: avoid;
-    background: rgba(61,43,16,0.04);
-  }
-  .feature-box .article-headline { font-size: 20px; }
-
   /* ── JOKE SECTION ── */
   .joke-item {
     border-bottom: 1px dashed var(--rule);
@@ -246,12 +238,12 @@
     <span style="flex:1; text-align:center">{{ page.sections }} seções</span>
     <span>{{ page.articles }} artigos</span>
   </div>
-  <h1 class="title-main">O Matinal</h1>
-  <p class="masthead-subtitle">Seu Jornal Matinal</p>
-  <hr class="masthead-rule">
+  <!-- <h1 class="title-main">O Matinal</h1> -->
+  <!-- <p class="masthead-subtitle">Seu Jornal Matinal</p> -->
+  <!-- <hr class="masthead-rule"> -->
 </div>
 
-<hr class="double">
+<!-- <hr class="double"> -->
 
 <!-- Main Content -->
 {{ content }}

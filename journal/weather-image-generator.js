@@ -32,6 +32,8 @@ HUMIDITY: ${weatherData.humidity}%
 WIND SPEED: ${weatherData.windSpeed} km/h
 
 Requirements:
+- Title: Boletim Meteorológico
+- Background color: #ffffff
 - Black and white pen and ink engraving (Victorian era newspaper aesthetic)
 - Ornamental decorative border with vintage flourishes
 - Weather-appropriate symbols (sun for clear, clouds for cloudy, rain for rainy weather)
