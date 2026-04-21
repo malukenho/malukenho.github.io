@@ -412,6 +412,14 @@ permalink: /journal_articles/${year}/${month}/${day}/
 
 async function main() {
   console.log('\n📰 O Matinal — Gerando Edição...\n');
+  
+  // Log environment check
+  const hasApiKey = !!process.env.GEMINI_API_KEY;
+  const apiKeyPreview = process.env.GEMINI_API_KEY 
+    ? `${process.env.GEMINI_API_KEY.substring(0, 10)}...${process.env.GEMINI_API_KEY.substring(process.env.GEMINI_API_KEY.length - 4)}`
+    : 'NÃO CONFIGURADA';
+  console.log(`✓ GEMINI_API_KEY: ${apiKeyPreview}`);
+  
   console.log('Coletando notícias:');
 
   const today = new Date();

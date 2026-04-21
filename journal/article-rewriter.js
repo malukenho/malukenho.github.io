@@ -12,6 +12,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 async function rewriteArticleContent(article, retryCount = 0) {
   if (!GEMINI_API_KEY) {
+    console.warn(`⚠️  GEMINI_API_KEY não configurada. Mantendo artigo original: "${article.title.substring(0, 30)}..."`);
     return article;
   }
 
@@ -92,6 +93,15 @@ Return ONLY the rewritten article text, nothing else.`;
 
   } catch (error) {
     const status = error.response?.status;
+    const errorData = error.response?.data;
+    
+    // Log detailed error information
+    console.error(`❌ Erro na API Gemini para "${article.title.substring(0, 30)}..."`);
+    console.error(`   Status: ${status}`);
+    console.error(`   Mensagem: ${error.message}`);
+    if (errorData) {
+      console.error(`   Resposta da API: ${JSON.stringify(errorData).substring(0, 200)}`);
+    }
     
     // Retry on server errors (5xx) up to 2 times
     if (status >= 500 && retryCount < 2) {
@@ -111,6 +121,11 @@ Return ONLY the rewritten article text, nothing else.`;
  */
 async function rewriteAllArticles(articles) {
   if (!articles || articles.length === 0) {
+    return articles;
+  }
+
+  if (!GEMINI_API_KEY) {
+    console.warn(`⚠️  GEMINI_API_KEY não está configurada. Usando artigos originais.`);
     return articles;
   }
 
