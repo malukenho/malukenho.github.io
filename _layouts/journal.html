@@ -1,0 +1,112 @@
+---
+layout: default
+---
+
+<article class="journal-article">
+  <header class="journal-header">
+    <h1 class="journal-title">{{ page.title }}</h1>
+    <div class="journal-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%d de %B de %Y" }}
+      </time>
+    </div>
+  </header>
+
+  <div class="journal-content">
+    {{ content }}
+  </div>
+
+  <footer class="journal-footer">
+    <p>
+      <em>Edição automática do O Matinal, gerada às 6 da manhã.</em>
+    </p>
+  </footer>
+</article>
+
+<style>
+  .journal-article {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fef9f3;
+    border: 1px solid #d4af37;
+    font-family: Georgia, serif;
+  }
+
+  .journal-header {
+    text-align: center;
+    border-bottom: 3px double #3e2723;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .journal-title {
+    font-size: 2.5rem;
+    color: #0a0705;
+    margin: 0;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  .journal-meta {
+    font-size: 0.9rem;
+    color: #a1887f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+  }
+
+  .journal-content {
+    line-height: 1.8;
+    color: #3e2723;
+  }
+
+  .journal-content h3 {
+    font-size: 1.5rem;
+    color: #0a0705;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 0.5rem;
+  }
+
+  .journal-content p {
+    margin: 1rem 0;
+  }
+
+  .journal-content a {
+    color: #8b0000;
+    text-decoration: none;
+    border-bottom: 1px solid #8b0000;
+  }
+
+  .journal-content a:hover {
+    color: #000;
+    border-bottom-color: #000;
+  }
+
+  .journal-footer {
+    border-top: 1px solid #d4af37;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: #a1887f;
+    font-size: 0.9rem;
+  }
+
+  /* Responsivo para Kindle e mobile */
+  @media (max-width: 600px) {
+    .journal-article {
+      padding: 1rem;
+      margin: 1rem;
+    }
+
+    .journal-title {
+      font-size: 1.8rem;
+    }
+
+    .journal-content h3 {
+      font-size: 1.2rem;
+    }
+  }
+</style>

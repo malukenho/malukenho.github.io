@@ -1,0 +1,40 @@
+name: 📰 Gerar O Matinal
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 6 AM UTC = 3 AM Brasília
+  workflow_dispatch:      # Manual trigger
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 📰 Coletar notícias RSS
+        run: |
+          cd journal
+          npm install
+          npm run scrape
+
+      - name: Setup Ruby / Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: 🔨 Build com Jekyll
+        run: bundle exec jekyll build
+
+      - name: 📝 Commit nova edição
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "📰 O Matinal"
+          git add _journal_articles/
+          git commit -m "📰 Gerar O Matinal de $(date +%Y-%m-%d)" || true
+          git push

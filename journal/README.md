@@ -1,221 +1,181 @@
-# 📰 O Matinal — Jornal Eletrônico Pessoal
+# 📰 O Matinal — Jornal Pessoal com Jekyll
 
-Seu jornal automatizado em português, publicado diariamente às 6 da manhã com notícias curadas por IA, otimizado para Kindle.
+Um jornal eletrônico gerado automaticamente em português brasileiro, inspirado em **O Malho** (1902).
 
-## ✨ Recursos
-
-- ✅ **Geração Automática**: Publicado diariamente às 6 AM via GitHub Actions
-- ✅ **Múltiplos Idiomas**: Português, Inglês, Japonês, Holandês, Polonês
-- ✅ **Múltiplas Regiões**: Brasil, Sergipe, Holanda (Helmond, Eindhoven), Japão
-- ✅ **Curado por IA**: Usa Google Gemini para selecionar e escrever artigos
-- ✅ **Otimizado para Kindle**: Leitura perfeita em e-readers
-- ✅ **Responsivo**: Funciona em desktop, tablet e mobile
-- ✅ **Arquivo**: Todos os edições anteriores acessíveis
-- ✅ **Ligado à Fonte**: Links para artigos originais
-- ✅ **Diversão**: Charadas, palavras do dia, curiosidades
-- ✅ **Vintage**: Inspirado no clássico jornal "O Malho"
-
-## 🎨 Templates Disponíveis
-
-Três versões de templates foram criadas. Veja [TEMPLATES.md](./TEMPLATES.md) para comparação detalhada:
-
-1. **V1 - Clássico** (`template-v1-classical.html`)
-   - Layout em 2 colunas (desktop) → 1 coluna (mobile)
-   - Estilo decorado, inspirado em "O Malho"
-   - Melhor para desktop
-
-2. **V2 - Responsivo** (`template-v2-responsive.html`) ⭐ **RECOMENDADO**
-   - Single column otimizado
-   - Perfeito em desktop e Kindle
-   - Melhor equilíbrio
-
-3. **V3 - Minimalista** (`template-v3-minimalist.html`)
-   - Ultra-simples, máxima legibilidade
-   - Ideal para Kindle puro
-   - Mais leve
-
-## 📂 Estrutura do Projeto
+## 🚀 Como Funciona
 
 ```
-journal/
-├── template-v1-classical.html      # Template clássico
-├── template-v2-responsive.html     # Template responsivo
-├── template-v3-minimalist.html     # Template minimalista
-├── config.json                     # Configuração e fontes de notícias
-├── TEMPLATES.md                    # Guia de templates
-├── README.md                       # Este arquivo
-└── archive/
-    ├── index.html                  # Índice do arquivo
-    ├── 2026-04-21.html            # Edição do dia 21 de abril
-    ├── 2026-04-20.html
-    └── ...
+RSS Feeds → Node.js Scraper → Markdown Files → Jekyll → HTML Estático
 ```
 
-## 🔧 Configuração
+### 1. **Coleta (Node.js)**
+- Script Node.js coleta feeds RSS
+- Extrai artigos de várias fontes
+- Gera arquivo Markdown com front matter Jekyll
 
-### 1. Escolha o Template
+### 2. **Geração (Jekyll)**
+- Jekyll processa o Markdown
+- Aplica layout customizado
+- Gera HTML puro e estático
+- Sem JavaScript, compatível com Kindle
 
-Edite `config.json` e mude a linha:
-```json
-"template": "template-v2-responsive.html"
+### 3. **Resultado**
+- Arquivo HTML estático (`_site/journal/YYYY-MM-DD.html`)
+- Listado em `/journal/` do seu site
+- Arquivável permanentemente
+
+## 📝 Usar Localmente
+
+### Instalação
+
+```bash
+# Instalar dependências Node.js
+cd journal
+npm install
+
+# Instalar/usar Jekyll (já no seu site)
+bundle install
 ```
 
-Para usar outro template:
-- `template-v1-classical.html` (2-colunas)
-- `template-v3-minimalist.html` (minimalista)
+### Gerar Jornal
 
-### 2. Configure as Fontes de Notícias
+```bash
+# Coletar notícias e criar Markdown
+cd journal
+npm run scrape
 
-O arquivo `config.json` já contém:
-- ✅ RSS feeds de jornais brasileiros (G1, Folha, O Globo, BBC Brasil)
-- ✅ Fontes de tecnologia (TechCrunch, Hacker News)
-- ✅ Notícias de Sergipe (G1 SE, Infonet)
-- ✅ Cobertura de Holanda (NOS.nl, AT5, Omroep Eindhoven)
-- ✅ Cobertura do Japão (NHK World, Japan Today)
-
-Você pode adicionar, remover ou modificar fontes editando `config.json`.
-
-### 3. Configure a API do Gemini
-
-Você precisará de:
-1. Uma conta Google Cloud
-2. Ativar a Google Generative AI API
-3. Gerar uma chave de API
-
-Armazene a chave em um GitHub Secret chamado `GEMINI_API_KEY`.
-
-## 🤖 Como Funciona o Pipeline
-
-```mermaid
-6:00 AM → GitHub Actions Trigger
-         ↓
-    [Fetch News Feeds]
-         ↓
-    [Gemini API Curation]
-         ↓
-    [Render Template]
-         ↓
-    [Archive Previous Issue]
-         ↓
-    [Publish to GitHub Pages]
-         ↓
-    [User Receives Notification]
+# Retorna ao raiz e faz build com Jekyll
+cd ..
+bundle exec jekyll build
 ```
 
-## 📱 Otimização para Kindle
+Novo arquivo será criado:
+- Markdown: `_journal_articles/2026-04-21-o-matinal.md`
+- HTML: `_site/journal/2026-04-21-o-matinal.html`
 
-O CSS de todos os templates foi otimizado para Kindle:
+## 🤖 Automação GitHub
 
-- ✅ Fontes legíveis em e-ink
-- ✅ Tamanhos de fonte aumentados em mobile
-- ✅ Imagens redimensionadas
-- ✅ Cores de alto contraste
-- ✅ Layout single-column
-- ✅ JavaScript mínimo
+Adicione a `.github/workflows/journal.yml`:
 
-**Para ler no Kindle:**
-1. Abra `_site/journal/` no seu navegador
-2. Clique em "Enviar para Kindle" (se usar Kindle Cloud Reader)
-3. Ou converta HTML → EPUB/MOBI com Calibre
+```yaml
+name: Gerar O Matinal
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 6 AM UTC (3 AM Brasília)
+  workflow_dispatch:      # Manual trigger
 
-## 📝 Conteúdo Incluído
-
-Cada edição diária contém:
-
-- **1 Artigo em Destaque** (notícia principal do dia)
-- **8 Artigos Adicionais** (das diversas categorias)
-- **3 Fatos do Dia** (curiosidades interessantes)
-- **1 Citação do Dia** (sabedoria relevante)
-- **Frases em 5 Idiomas** (português, inglês, japonês, holandês, polonês)
-- **Jogos** (charada, palavra do dia, curiosidade)
-- **Links para Fontes Originais** (sempre creditando)
-
-## 🔗 Acesso ao Arquivo
-
-Todas as edições anteriores ficam em `/journal/archive/`.
-
-A página `archive/index.html` lista todas as edições com:
-- Data de publicação
-- Título em destaque
-- Link para edição completa
-
-## 📚 Categorias de Conteúdo
-
-O jornal cobre:
-
-- 🚀 **Tecnologia & IA**
-- 📚 **História & Cultura**
-- 🏛️ **Política & Economia**
-- 🎨 **Literatura & Arte**
-- 🔬 **Ciência & Natureza**
-- 🇧🇷 **Notícias Brasil**
-- 🏞️ **Sergipe**
-- 🇳🇱 **Holanda** (Helmond, Eindhoven, Amsterdam)
-- 🇯🇵 **Japão**
-
-## 🛠️ Desenvolvimento
-
-### Testar Templates Localmente
-
-1. Abra `template-v1-classical.html` no navegador
-2. Use DevTools (F12) para testar responsividade
-3. Teste em Kindle Cloud Reader ou simulador online
-4. Compare com as outras versões
-
-### Adicionar Novas Fontes
-
-Edite `config.json` → `news_sources` → adicione:
-
-```json
-{
-  "name": "Nome da Fonte",
-  "category": "Categoria",
-  "rss_url": "https://...",
-  "priority": 1
-}
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Scrape RSS feeds
+        run: cd journal && npm install && npm run scrape
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      
+      - name: Build with Jekyll
+        run: bundle install && bundle exec jekyll build
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add _journal_articles/
+          git commit -m "📰 Gerar O Matinal de $(date +%Y-%m-%d)" || true
+          git push
 ```
 
-### Customizar Gemini API
+## 📁 Estrutura
 
-Edite `config.json` → `gemini_api`:
-
-```json
-{
-  "model": "gemini-2.0-flash",
-  "temperature": 0.7,
-  "max_tokens": 2000
-}
+```
+.
+├── _journal_articles/           ← Artigos Markdown (criados automaticamente)
+│   └── 2026-04-21-o-matinal.md
+├── _layouts/
+│   └── journal.html             ← Layout customizado
+├── journal/
+│   ├── scraper.js               ← Coleta RSS
+│   ├── package.json
+│   └── index.md                 ← Homepage do jornal
+└── _site/
+    └── journal/
+        ├── index.html           ← Página de índice
+        └── 2026-04-21-o-matinal.html  ← Edição final
 ```
 
-## 📋 Checklist de Setup
+## 🎨 Customização
 
-- [ ] Escolher template preferido em `config.json`
-- [ ] Ativar Google Generative AI API
-- [ ] Gerar chave de API Gemini
-- [ ] Adicionar `GEMINI_API_KEY` em GitHub Secrets
-- [ ] Testar geração local (se aplicável)
-- [ ] Configurar GitHub Actions workflow
-- [ ] Publicar primeira edição
-- [ ] Verificar em Kindle
+### Alterar RSS Feeds
 
-## 🚀 Próximos Passos
+Edite `journal/scraper.js`:
 
-1. **Script de Scraping** - Extrair notícias de RSS feeds
-2. **Integração Gemini** - Curar e escrever artigos
-3. **Renderizador de Template** - Preencher HTML com conteúdo
-4. **GitHub Actions** - Automação diária
-5. **Sistema de Arquivo** - Manter histórico
+```javascript
+const RSS_FEEDS = [
+  { name: 'Seu Fonte', url: 'https://seu-feed.rss', category: 'Categoria' },
+  // ...
+];
+```
 
-## 📖 Referências
+### Customizar Layout
 
-- **O Malho** - Jornal satírico brasileiro (1902-1980s) que inspirou o design
-- **Kindle Publishing** - Otimização para e-readers
-- **Google Gemini API** - Curação de IA
+Edite `_layouts/journal.html` para mudar estilos, cores, etc.
 
-## ❓ Dúvidas?
+### Adicionar Seções
 
-Consulte os comentários no código dos templates ou abra uma issue.
+No layout, você pode processar os dados do front matter e reorganizar o conteúdo.
 
----
+## 💡 Vantagens desta Abordagem
 
-**O Matinal** — Publicado todos os dias às 6 da manhã, porque seu dia merece bom jornalismo.
+✓ **Totalmente Jekyll** — Integrado com seu site  
+✓ **Markdown** — Versionar artigos no Git  
+✓ **HTML Puro** — Sem JavaScript, compatível com Kindle  
+✓ **Automático** — GitHub Actions dispara diariamente  
+✓ **Fácil Customização** — Tudo em um layout  
+✓ **Sem Dependências** — Node.js apenas para coleta RSS  
+✓ **Histórico** — Todos os artigos em Git  
+
+## 🔧 Troubleshooting
+
+### Erro: "Cannot find module 'axios'"
+```bash
+cd journal
+npm install
+```
+
+### Erro: "Jekyll not found"
+```bash
+bundle install
+bundle exec jekyll build
+```
+
+### Nenhum arquivo gerado
+Verifique se os RSS feeds estão acessíveis:
+```bash
+cd journal
+npm run scrape
+# Verifique _journal_articles/
+ls -la ../_journal_articles/
+```
+
+## 📱 Testar em Kindle
+
+1. Abra o HTML gerado no navegador
+2. Pressione F12 → Responsive Design Mode
+3. Selecione "Kindle Paperwhite" (540×720px)
+
+## ✨ Próximos Passos
+
+1. Testar localmente: `npm run scrape && cd .. && bundle exec jekyll build`
+2. Verificar resultado em `_site/journal/`
+3. Adicionar workflow GitHub (`.github/workflows/journal.yml`)
+4. Fazer push e ativar automação
