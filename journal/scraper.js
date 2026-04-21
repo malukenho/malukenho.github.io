@@ -242,7 +242,7 @@ permalink: /journal_articles/${year}/${month}/${day}/
   // Header image if available (replaces text title)
   if (headerImage) {
     markdown += `<div class="header-image-container">
-  <img src="../${headerImage}" alt="O Matinal — ${todayBR}" style="width:100%;height:auto;display:block;margin:0;">
+  <img src="${headerImage}" alt="O Matinal — ${todayBR}" style="width:100%;height:auto;display:block;margin:0;">
 </div>
 
 `;
@@ -258,7 +258,7 @@ permalink: /journal_articles/${year}/${month}/${day}/
     if (weatherImage) {
       markdown += `
   <div class="feature-box">
-    <img src="../${weatherImage}" alt="Clima de ${weather.location}: ${weather.description}" style="width:100%;height:auto;margin:0;display:block;">
+    <img src="${weatherImage}" alt="Clima de ${weather.location}: ${weather.description}" style="width:100%;height:auto;margin:0;display:block;">
   </div>
 `;
     } else {

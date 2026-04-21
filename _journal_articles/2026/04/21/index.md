@@ -9,17 +9,25 @@ permalink: /journal_articles/2026/04/21/
 ---
 
 <div class="header-image-container">
-  <img src="../header-image.png" alt="O Matinal — terça-feira, 21 de abril de 2026" style="width:100%;height:auto;display:block;margin:0;">
+  <img src="header-image.png" alt="O Matinal — terça-feira, 21 de abril de 2026" style="width:100%;height:auto;display:block;margin:0;">
 </div>
 
 <div class="cols-2">
 
   <div class="feature-box">
-    <img src="../weather-image.png" alt="Clima de Helmond, Holanda: Céu Limpo" style="width:100%;height:auto;margin:0;display:block;">
+    <img src="weather-image.png" alt="Clima de Helmond, Holanda: Céu Limpo" style="width:100%;height:auto;margin:0;display:block;">
   </div>
 
   <div class="section-head"><span>Brasil</span></div>
   <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">A influência do caso Master nas eleições</div>
+    <div class="article-subhead">Folha - Poder</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="A influência do caso Master nas eleições" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Se estiverem certas as projeções correntes no meio jurídico, as delações premiadas de Daniel Vorcaro e companhia, se aceitas pela Polícia Federal, Ministério Público e Supremo Tribunal Federal, vão chegar ao conhecimento público no auge da campanha e</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/dora-kramer/2026/04/a-influencia-do-caso-master-nas-eleicoes.shtml" class="article-link">Leia na fonte →</a>
+  </div>
 
   <div class="article">
     <div class="article-headline">Governador de MG diz ter 'inveja branca' de Tarcísio por nomear 1ª mulher chefe da PM; veja vídeo</div>
@@ -36,14 +44,6 @@ Leia </p>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Mulheres são minoria entre os servidores públicos mais bem remunerados" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>Um levantamento feito com base em dados do IBGE (Instituto Brasileiro de Geografia e Estatistica) aponta que a maioria dos servidores públicos que recebem mais de 20 salários mínimos é homem, enquanto as mulheres dominam a faixa dos que recebem até d</p>
     <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/mulheres-sao-minoria-entre-os-servidores-publicos-mais-bem-remunerado.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Proposta de CPI do Master esfria no Congresso, e Kassio tende a negar pedido para instauração</div>
-    <div class="article-subhead">Folha - Poder</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Proposta de CPI do Master esfria no Congresso, e Kassio tende a negar pedido para instauração" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Com o foco já voltado para as eleições de outubro, o Congresso Nacional baixou a temperatura das discussões sobre a abertura de uma CPI (Comissão Parlamentar de Inquérito) do Banco Master, o que reduz as chances de o ministro Kassio Nunes Marques, do</p>
-    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/04/proposta-de-cpi-do-master-esfria-no-congresso-e-kassio-tende-a-negar-pedido-para-instauracao.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -100,6 +100,14 @@ Leia mais (04/21/2026 - 14h29)</p>
   <hr class="section-rule">
 
   <div class="article">
+    <div class="article-headline">Emanuelle Araújo se equilibra entre o privilégio e a inquietação em novela: 'Mulher complexa'</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Emanuelle Araújo se equilibra entre o privilégio e a inquietação em novela: 'Mulher complexa'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Para Emanuelle Araújo, 49, Marta, sua personagem em "A Nobreza do Amor", vai além da aparência sofisticada e do lugar social privilegiado. "É uma mulher cheia de privilégios, rica, inserida em uma realidade elitista, mas que também tem um pé na cultu</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://f5.folha.uol.com.br/televisao/2026/04/emanuelle-araujo-se-equilibra-entre-o-privilegio-e-a-inquietacao-em-novela-mulher-complexa.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">'Marty Supreme' e 'Mãos na Terra': o que ver na TV e no streaming nesta quarta</div>
     <div class="article-subhead">Folha - Ilustrada</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="'Marty Supreme' e 'Mãos na Terra': o que ver na TV e no streaming nesta quarta" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
@@ -115,14 +123,6 @@ Leia mais (04/21/2026 - 15h00)</p>
     <p>No dia da final do BBB 26, o diretor Boninho aproveitou a atenção do público para promover seu novo reality, Casa do Patrão, que estreia no próximo dia 27 na Record.
 Leia mais (04/21/2026 - 14h15)</p>
     <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://f5.folha.uol.com.br/televisao/2026/04/boninho-anuncia-cha-revelacao-para-lancar-reality-da-record-no-dia-da-final-do-bbb-26.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Colombiana Karol G anuncia show no Brasil</div>
-    <div class="article-subhead">Folha - Ilustrada</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Colombiana Karol G anuncia show no Brasil" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Conhecida por músicas como "Si Antes te Hubiera Conocido", a colombiana Karol G anunciou show em São Paulo em fevereiro de 2027, como parte da turnê "Viajando por el Mundo", em suas redes sociais. A apresentação acontece em São Paulo, no Mercado Livr</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://guia.folha.uol.com.br/shows/2026/04/colombiana-karol-g-anuncia-show-no-brasil.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Games</span></div>
@@ -260,6 +260,14 @@ Leia mais (04/21/2026 - 12h35)</p>
   <hr class="section-rule">
 
   <div class="article">
+    <div class="article-headline">Mozilla Used Anthropic’s Mythos to Find and Fix 151 Bugs in Firefox</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Mozilla Used Anthropic’s Mythos to Find and Fix 151 Bugs in Firefox" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The Firefox team doesn’t think emerging AI capabilities will upend cybersecurity long term, but they warn that software developers are likely in for a rocky transition.</p>
+    <a href="https://www.wired.com/story/mozilla-used-anthropics-mythos-to-find-151-bugs-in-firefox/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">Tim Cook’s Legacy Is Turning Apple Into a Subscription</div>
     <div class="article-subhead">WIRED</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Tim Cook’s Legacy Is Turning Apple Into a Subscription" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
@@ -275,19 +283,11 @@ Leia mais (04/21/2026 - 12h35)</p>
     <a href="https://www.wired.com/story/meta-is-sued-over-scam-ads-on-facebook-and-instagram/" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="article">
-    <div class="article-headline">TAG Heuer Has Dropped New Polylight-Powered F1s</div>
-    <div class="article-subhead">WIRED</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="TAG Heuer Has Dropped New Polylight-Powered F1s" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>The five new Formula 1 watches are driven by light—and we have a definite favorite.</p>
-    <a href="https://www.wired.com/story/tag-heuer-has-dropped-new-pastel-powered-f1s/" class="article-link">Leia na fonte →</a>
-  </div>
-
   <div class="section-head"><span>Piadas & Humor</span></div>
   <hr class="section-rule">
 
   <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+    <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
   </div>
 
   <div class="joke-item">
@@ -295,15 +295,15 @@ Leia mais (04/21/2026 - 12h35)</p>
   </div>
 
   <div class="joke-item">
-    <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
+    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
   </div>
 
   <div class="joke-item">
     <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
 </div>
