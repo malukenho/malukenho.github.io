@@ -8,6 +8,10 @@ articles: 30
 permalink: /journal_articles/2026/04/21/
 ---
 
+<div class="header-image-container">
+  <img src="../header-image.png" alt="O Matinal — terça-feira, 21 de abril de 2026" style="width:100%;height:auto;display:block;margin:0;">
+</div>
+
 <div class="cols-2">
 
   <div class="feature-box">
@@ -151,7 +155,7 @@ Leia mais (04/21/2026 - 14h15)</p>
   <div class="article">
     <div class="article-headline">Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up</div>
     <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/PXL_20260421_175632981.jpg" alt="Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <img src="https://kotaku.com/app/uploads/2026/04/magic-cards-1080.jpg" alt="Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>That galaxy clearly isn't far, far away enough</p>
     <a href="https://kotaku.com/magic-the-gathering-secrets-of-strixhaven-star-wars-x-wings-2000689411" class="article-link">Leia na fonte →</a>
   </div>
@@ -200,6 +204,14 @@ Leia mais (04/21/2026 - 14h15)</p>
   </div>
 
   <div class="article">
+    <div class="article-headline">Terreur Joodse kolonisten neemt nog verder toe: 'Ze doen wat ze willen'</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Terreur Joodse kolonisten neemt nog verder toe: 'Ze doen wat ze willen'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Mensenrechtenorganisaties slaan voor de zoveelste keer alarm over de terreur door Joodse kolonisten en de etnische zuivering van Palestijnen als gevolg van het geweld. Want met de ogen van de wereld gericht op de oorlog elders in het Midden-Oosten, g</p>
+    <a href="https://nos.nl/l/2611485" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">COA moet dwangsommen betalen om hotel in Epe</div>
     <div class="article-subhead">NOS.nl</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="COA moet dwangsommen betalen om hotel in Epe" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
@@ -211,16 +223,8 @@ Leia mais (04/21/2026 - 14h15)</p>
     <div class="article-headline">Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer</div>
     <div class="article-subhead">NOS.nl</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Aanvragen voor zware stroomaansluitingen moesten in de regio Utrecht al wachten. Maar het stroomnet gaat per 1 juli voor een deel van de provincie helemaal op slot. Alle nieuwe aanvragen belanden op de wachtlijst, ook voor kleinverbruikers of mensen </p>
+    <p>Aanvragen voor zware stroomaansluitingen moesten in de regio Utrecht al wachten. Maar het stroomnet gaat per 1 juli voor het deel rond de stad Utrecht helemaal op slot. Alle nieuwe aanvragen belanden op de wachtlijst, ook voor kleinverbruikers of men</p>
     <a href="https://nos.nl/l/2611482" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Opnieuw maatregelen om Groningse 'Mario Kart-bocht' veiliger te maken</div>
-    <div class="article-subhead">NOS.nl</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Opnieuw maatregelen om Groningse 'Mario Kart-bocht' veiliger te maken" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Bij twee scherpe bochten tussen de zuidelijke en westelijke ringweg in Groningen neemt de provincie extra maatregelen om automobilisten te waarschuwen. Zo komen er betere waarschuwingsborden en antiverblindingsschermen. Een van de bochten wordt ook w</p>
-    <a href="https://nos.nl/l/2611481" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Mundo</span></div>
@@ -283,15 +287,11 @@ Leia mais (04/21/2026 - 12h35)</p>
   <hr class="section-rule">
 
   <div class="joke-item">
+    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+  </div>
+
+  <div class="joke-item">
     <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
   <div class="joke-item">
@@ -300,6 +300,10 @@ Leia mais (04/21/2026 - 12h35)</p>
 
   <div class="joke-item">
     <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
 </div>

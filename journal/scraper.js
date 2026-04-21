@@ -12,6 +12,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchJokes } from './jokes-scraper.js';
 import { generateAndSaveWeatherImage } from './weather-image-generator.js';
+import { generateAndSaveHeaderImage } from './header-image-generator.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -200,7 +201,7 @@ async function fetchRSS(feed) {
   }
 }
 
-function generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage) {
+function generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage, headerImage) {
   const today = new Date();
   const year = String(today.getFullYear());
   const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -237,6 +238,15 @@ permalink: /journal_articles/${year}/${month}/${day}/
 ---
 
 `;
+
+  // Header image if available (replaces text title)
+  if (headerImage) {
+    markdown += `<div class="header-image-container">
+  <img src="../${headerImage}" alt="O Matinal — ${todayBR}" style="width:100%;height:auto;display:block;margin:0;">
+</div>
+
+`;
+  }
 
   // Generate vintage newspaper HTML content
   markdown += `<div class="cols-2">
@@ -354,6 +364,17 @@ async function main() {
     );
   }
 
+  // Gera cabeçalho do jornal com top 3 notícias
+  let headerImage = null;
+  if (allArticles.length >= 3) {
+    console.log('  • Gerando cabeçalho do jornal com Imagen AI...');
+    headerImage = await generateAndSaveHeaderImage(
+      allArticles,
+      new Date().toISOString().split('T')[0],
+      articlesDir
+    );
+  }
+
   // Coleta piadas
   console.log('  • Coletando piadas de historiadoriso.com.br...');
   const jokes = await fetchJokes();
@@ -363,7 +384,7 @@ async function main() {
     console.log(`⚠️  Nenhum artigo coletado. Verificando feeds...\n`);
   }
 
-  const markdown = generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage);
+  const markdown = generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage, headerImage);
 
   // Cria diretório
   await fs.mkdir(articlesDir, { recursive: true });
