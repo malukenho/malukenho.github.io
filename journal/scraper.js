@@ -30,25 +30,34 @@ const RSS_FEEDS = [
   { section: 'Brasil', source: 'Folha - Cotidiano', url: 'https://feeds.folha.uol.com.br/cotidiano/rss091.xml' },
   { section: 'Brasil', source: 'Folha - Mercado', url: 'https://feeds.folha.uol.com.br/mercado/rss091.xml' },
   
+  // ===== BRASIL - O Globo =====
+  { section: 'Brasil', source: 'O Globo - Brasil', url: 'https://oglobo.globo.com/rss/feeds/2.xml' },
+  { section: 'Brasil', source: 'O Globo - Política', url: 'https://oglobo.globo.com/politica/rss/feeds/2.xml' },
+  
   // ===== MUNDO =====
   { section: 'Mundo', source: 'Folha - Mundo', url: 'https://feeds.folha.uol.com.br/mundo/rss091.xml' },
-  { section: 'Mundo', source: 'BBC News', url: 'https://feeds.bbc.co.uk/news/world/rss.xml' },
-  { section: 'Mundo', source: 'Reuters', url: 'https://www.reutersagency.com/feed/?taxonomy=best-topics&output=rss' },
+  { section: 'Mundo', source: 'BBC News Mundo', url: 'https://feeds.bbc.co.uk/mundo/rss.xml' },
   
-  // ===== TECNOLOGIA & IA =====
+  // ===== TECNOLOGIA & IA & APPLE =====
   { section: 'Tecnologia & IA', source: 'The Verge', url: 'https://www.theverge.com/rss/index.xml' },
   { section: 'Tecnologia & IA', source: 'WIRED', url: 'https://www.wired.com/feed/rss' },
+  { section: 'Tecnologia & IA', source: 'MacRumors', url: 'https://feeds.macrumors.com/MacRumors/macrumorsall/' },
+  { section: 'Tecnologia & IA', source: 'Folha - Tec', url: 'https://feeds.folha.uol.com.br/tec/rss091.xml' },
   
-  // ===== CULTURA & HISTÓRIA =====
+  // ===== CULTURA & HISTÓRIA & ARTE =====
   { section: 'Cultura & História', source: 'Folha - Ilustrada', url: 'https://feeds.folha.uol.com.br/ilustrada/rss091.xml' },
   
-  // ===== HOLANDA & BRABANT =====
+  // ===== HOLANDA & BRABANT & LOCAL =====
   { section: 'Holanda & Brabant', source: 'DutchNews', url: 'https://www.dutchnews.nl/feed/' },
   { section: 'Holanda & Brabant', source: 'NOS.nl', url: 'https://feeds.nos.nl/nosnieuwsalgemeen?format=rss' },
   
   // ===== GAMES =====
   { section: 'Games', source: 'IGN', url: 'https://feeds.ign.com/ign/all' },
   { section: 'Games', source: 'Kotaku', url: 'https://kotaku.com/rss' },
+  
+  // ===== ANIME & MANGA & CULTURA GEEK =====
+  { section: 'Anime & Manga', source: 'ANN - Anime News', url: 'https://www.animenewsnetwork.com/news/rss.xml' },
+  { section: 'Anime & Manga', source: 'MyAnimeList News', url: 'https://myanimelist.net/rss.php?type=news' },
 ];
 
 async function fetchWeatherHelmond() {
@@ -169,18 +178,27 @@ async function fetchRSS(feed) {
     
     return items.slice(0, 3).map((item) => {
       let title = item.title || 'Sem título';
-      let description = item.description || item.summary || '';
+      let description = item.description || item.summary || item['content:encoded'] || '';
       let link = item.link || '#';
       
       // Remove CDATA
       title = String(title).replace(/<!\[CDATA\[(.*?)\]\]>/s, '$1').trim();
       description = String(description)
         .replace(/<!\[CDATA\[(.*?)\]\]>/s, '$1')
-        .replace(/<[^>]+>/g, '') // Remove HTML tags
+        .replace(/<p[^>]*>/gi, '') // Remove opening <p> tags
+        .replace(/<\/p>/gi, ' ') // Replace closing </p> with space
+        .replace(/<[^>]+>/g, '') // Remove remaining HTML tags
         .replace(/&quot;/g, '"')
         .replace(/&amp;/g, '&')
-        .trim()
-        .substring(0, 250);
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim();
+      
+      // Keep more content: up to 800 characters (instead of 250) to get fuller articles
+      // This ensures we capture at least 2-3 sentences
+      description = description.substring(0, 800);
       
       // Try to extract image from description or use placeholder
       let image = extractImageUrl(item);
