@@ -214,7 +214,7 @@ async function fetchRSS(feed) {
     const items = Array.isArray(channel.item) ? channel.item : [channel.item];
     if (!items) return [];
     
-    const articles = items.slice(0, 3).map((item) => {
+    const articles = items.slice(0, 1).map((item) => {
       let title = item.title || 'Sem título';
       let description = item.description || item.summary || item['content:encoded'] || '';
       let link = item.link || '#';
