@@ -12,3 +12,8 @@ kramdown:
      disable: true
    math_engine: mathjax
    highlighter: none
+
+collections:
+  journal_articles:
+    output: true
+    permalink: /:collection/:path/

@@ -16,7 +16,10 @@ cd journal
 npm run scrape
 
 # Isso cria:
-# _journal_articles/2026-04-21-o-matinal.md
+# _journal_articles/2026/04/21/
+#   ├── 01-primeiro-artigo.md
+#   ├── 02-segundo-artigo.md
+#   └── 03-terceiro-artigo.md
 ```
 
 ### 3️⃣ Build Jekyll
@@ -27,7 +30,8 @@ bundle exec jekyll build
 
 # Resultado em:
 # _site/journal/index.html
-# _site/journal/2026-04-21-o-matinal.html
+# _site/journal_articles/2026/04/21/01-primeiro-artigo.html
+# _site/journal_articles/2026/04/21/02-segundo-artigo.html
 ```
 
 ### 4️⃣ Visualizar
@@ -49,7 +53,7 @@ git push origin main
 O workflow roda:
 - ✅ Automaticamente às 6 AM UTC (3 AM Brasília)
 - ✅ Manualmente via GitHub Actions
-- ✅ Cria novo artigo em `_journal_articles/`
+- ✅ Cria novos artigos em `_journal_articles/YYYY/MM/DD/`
 - ✅ Jekyll compila automaticamente
 
 ---
@@ -75,7 +79,7 @@ Edite `_layouts/journal.html` para mudar cores, fontes, layout.
 
 ## 📱 Testar em Kindle
 
-1. Abra `_site/journal/2026-04-21-o-matinal.html` no navegador
+1. Abra `_site/journal_articles/2026/04/21/01-artigo.html` no navegador
 2. F12 → Responsive Design Mode
 3. Selecione "Kindle Paperwhite" (540×720px)
 
@@ -84,11 +88,11 @@ Edite `_layouts/journal.html` para mudar cores, fontes, layout.
 ## ✅ Verificar Status
 
 ```bash
-# Ver se há artigos
-ls -la _journal_articles/
+# Ver se há artigos gerados
+find _journal_articles -type f
 
 # Ver se o site foi gerado
-ls -la _site/journal/
+ls -la _site/journal_articles/
 
 # Testar scraper manualmente
 cd journal && npm run scrape
@@ -98,16 +102,23 @@ cd journal && npm run scrape
 
 ## 🎯 Estrutura Final
 
-Seu site terá uma nova seção:
+Seu site terá uma nova seção com artigos organizados por data:
 
 ```
 seu-site.com/journal/
-├── (homepage com lista de edições)
-├── 2026-04-21-o-matinal.html
-├── 2026-04-22-o-matinal.html
-└── (...)
+├── index.html (homepage com lista de edições)
+└── journal_articles/
+    └── 2026/
+        └── 04/
+            ├── 21/
+            │   ├── 01-artigo.html
+            │   ├── 02-artigo.html
+            │   └── 03-artigo.html
+            └── 22/
+                ├── 01-artigo.html
+                └── (...)
 ```
 
 ---
 
-Pronto! Agora seu jornal é gerado automaticamente. 📰✨
+Pronto! Agora seu jornal é gerado automaticamente com artigos organizados por data. 📰✨

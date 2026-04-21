@@ -41,60 +41,31 @@ async function fetchRSS(url) {
   }
 }
 
-async function generateMarkdown(articles) {
-  const today = new Date();
-  const dateStr = today.toISOString().split('T')[0];
-  const jekyllDate = today.toLocaleDateString('pt-BR', {
+function formatDateBR(date) {
+  return date.toLocaleDateString('pt-BR', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
+}
 
-  let markdown = `---
+async function generateArticleMarkdown(article, index, todayDate, todayBR) {
+  const markdown = `---
 layout: journal
-title: "O Matinal — ${jekyllDate}"
-date: ${today.toISOString()}
+title: "${article.title}"
+date: ${todayDate}
 categories: journal
+source: "${article.source}"
 ---
 
-# 📰 O Matinal — ${jekyllDate}
-
-Edição automática gerada com as principais notícias do dia.
-
-## Notícias Principais
-
-`;
-
-  // Artigo destaque
-  if (articles.length > 0) {
-    const featured = articles[0];
-    markdown += `### ${featured.title}
-
-${featured.description}
-
-**Fonte**: ${featured.source || 'G1'}  
-[Ler na íntegra →](${featured.link})
-
----
-
-`;
-  }
-
-  // Outros artigos
-  for (let i = 1; i < Math.min(articles.length, 10); i++) {
-    const article = articles[i];
-    markdown += `### ${article.title}
+# ${article.title}
 
 ${article.description}
 
-**Fonte**: ${article.source || 'Fonte'}  
-[Leia mais →](${article.link})
-
----
-
+**Fonte**: ${article.source}  
+[Ler na íntegra →](${article.link})
 `;
-  }
 
   return markdown;
 }
@@ -113,20 +84,32 @@ async function main() {
 
     console.log(`\n✅ ${allArticles.length} artigos coletados\n`);
 
-    // Gera Markdown
-    const markdown = await generateMarkdown(allArticles);
+    // Prepara datas
+    const today = new Date();
+    const todayISO = today.toISOString();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const todayBR = formatDateBR(today);
 
-    // Salva em _journal_articles/
-    const today = new Date().toISOString().split('T')[0];
-    const filename = `${today}-o-matinal.md`;
-    const filepath = path.join(__dirname, '..', '_journal_articles', filename);
+    // Cria diretório YYYY/MM/DD
+    const articleDir = path.join(__dirname, '..', '_journal_articles', String(year), month, day);
+    await fs.mkdir(articleDir, { recursive: true });
 
-    // Garante que o diretório existe
-    await fs.mkdir(path.dirname(filepath), { recursive: true });
-    
-    await fs.writeFile(filepath, markdown, 'utf-8');
+    // Escreve cada artigo em um arquivo separado
+    for (let i = 0; i < allArticles.length; i++) {
+      const article = allArticles[i];
+      const markdown = await generateArticleMarkdown(article, i, todayISO, todayBR);
+      
+      const articleNum = String(i + 1).padStart(2, '0');
+      const filename = `${articleNum}-${article.title.toLowerCase().replace(/[^\w]/g, '-').replace(/-+/g, '-').substring(0, 30)}.md`;
+      const filepath = path.join(articleDir, filename);
+      
+      await fs.writeFile(filepath, markdown, 'utf-8');
+      console.log(`📝 ${filename}`);
+    }
 
-    console.log(`📝 Artigo criado: _journal_articles/${filename}`);
+    console.log(`\n✅ ${allArticles.length} artigos criados em _journal_articles/${year}/${month}/${day}/`);
     console.log('✅ Pronto para Jekyll gerar o HTML!');
 
   } catch (error) {

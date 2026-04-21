@@ -19,24 +19,27 @@ permalink: /journal/
   </section>
 
   <section class="journal-editions">
-    <h2>Edições Recentes</h2>
+    <h2>Artigos</h2>
     
-    {% assign journal_posts = site.posts | where: "categories", "journal" | sort: "date" | reverse %}
+    {% assign journal_articles = site.journal_articles | sort: "date" | reverse %}
     
-    {% if journal_posts.size > 0 %}
-      <ul class="editions-list">
-        {% for post in journal_posts limit: 30 %}
-          <li>
-            <a href="{{ post.url }}">
-              <span class="edition-date">{{ post.date | date: "%d de %b de %Y" }}</span>
-              <span class="edition-title">{{ post.title }}</span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
+    {% if journal_articles.size > 0 %}
+      <div class="today-articles">
+        <p class="edition-header">📰 Artigos Recentes</p>
+        <ul class="articles-list">
+          {% for article in journal_articles limit: 20 %}
+            <li class="article-item">
+              <a href="{{ article.url }}">
+                <span class="article-title">{{ article.title }}</span>
+                <span class="article-source">{{ article.source }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     {% else %}
       <p class="no-editions">
-        Nenhuma edição gerada ainda. As edições aparecerão aqui assim que forem criadas.
+        Nenhum artigo disponível ainda. Volte mais tarde!
       </p>
     {% endif %}
   </section>
@@ -120,29 +123,46 @@ permalink: /journal/
     border-bottom: 2px solid #d4af37;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
+    margin-top: 2rem;
   }
 
-  .editions-list {
+  .today-articles {
+    background: #fef9f3;
+    border: 2px solid #d4af37;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+  }
+
+  .edition-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0a0705;
+    margin: 0 0 1rem 0;
+  }
+
+  .articles-list {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
 
-  .editions-list li {
-    margin: 0.8rem 0;
+  .article-item {
+    margin: 0.6rem 0;
     padding: 0.8rem;
-    background: #fef9f3;
+    background: white;
     border: 1px solid #e8dcc8;
-    border-radius: 4px;
+    border-radius: 3px;
     transition: all 0.2s;
   }
 
-  .editions-list li:hover {
+  .article-item:hover {
     background: #f9f3e8;
-    border-color: #d4af37;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: #8b0000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .editions-list a {
+  .article-item a {
     text-decoration: none;
     color: inherit;
     display: flex;
@@ -150,16 +170,43 @@ permalink: /journal/
     align-items: center;
   }
 
-  .edition-date {
-    color: #a1887f;
-    font-weight: bold;
-    min-width: 150px;
+  .article-title {
+    color: #0a0705;
+    font-weight: 500;
+    flex: 1;
   }
 
-  .edition-title {
-    color: #0a0705;
-    flex: 1;
+  .article-source {
+    color: #a1887f;
+    font-size: 0.9rem;
     margin-left: 1rem;
+  }
+
+  .editions-archive {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .edition-group {
+    margin: 0.8rem 0;
+    padding: 1rem;
+    background: #fef9f3;
+    border: 1px solid #e8dcc8;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .edition-date {
+    color: #0a0705;
+    font-weight: bold;
+  }
+
+  .article-count {
+    color: #a1887f;
+    font-size: 0.9rem;
   }
 
   .no-editions {
@@ -215,13 +262,22 @@ permalink: /journal/
       font-size: 2rem;
     }
 
-    .editions-list a {
+    .article-item a {
       flex-direction: column;
       align-items: flex-start;
     }
 
-    .edition-title {
+    .article-source {
       margin-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .edition-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .article-count {
       margin-top: 0.5rem;
     }
   }
