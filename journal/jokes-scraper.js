@@ -23,47 +23,54 @@ async function fetchJokes() {
     const html = response.data;
     const jokes = [];
 
-    // Tenta encontrar padrões de posts/artigos
-    // Procura por títulos de post (h2, h3 com links ou em divs class="post")
+    // Look for article content divs or post containers
+    // Pattern: Find h2/h3 headers that are joke titles, followed by paragraph content
     
-    // Padrão 1: <h2><a>Título</a></h2> ou similar em posts
-    const titlePattern = /<h[2-3][^>]*>.*?<a[^>]*>([^<]+)<\/a>/gs;
+    // Extract all potential joke entries
+    const entryPattern = /<h[2-3][^>]*>([^<]+)<\/h[2-3]>([\s\S]*?)(?=<h[2-3]|$)/gi;
     let match;
     
-    const titleMatches = [];
-    while ((match = titlePattern.exec(html)) !== null) {
-      titleMatches.push(match[1].trim().substring(0, 100));
-    }
-
-    // Padrão 2: Procura por parágrafos que parecem ser conteúdo
-    const contentPattern = /<p[^>]*>([^<]{50,300})<\/p>/g;
-    const contentMatches = [];
-    while ((match = contentPattern.exec(html)) !== null) {
-      let content = match[1]
-        .replace(/<[^>]+>/g, '') // Remove tags HTML
-        .replace(/&[^;]+;/g, '') // Remove entities
+    while ((match = entryPattern.exec(html)) !== null) {
+      let title = match[1]
+        .replace(/<[^>]+>/g, '') // Remove any nested HTML
+        .replace(/&[^;]+;/g, '') // Decode some entities
         .trim();
       
-      if (content.length > 50) {
-        contentMatches.push(content.substring(0, 250));
+      // Extract paragraph content following the title
+      const following = match[2];
+      const pPattern = /<p[^>]*>([\s\S]*?)<\/p>/;
+      const pMatch = pPattern.exec(following);
+      
+      if (pMatch) {
+        let content = pMatch[1]
+          .replace(/<[^>]+>/g, '') // Remove HTML tags
+          .replace(/&quot;/g, '"')
+          .replace(/&amp;/g, '&')
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .replace(/&apos;/g, "'")
+          .trim();
+        
+        // Keep full text, no truncation
+        if (content.length > 30 && title.length > 3) {
+          jokes.push(`${title}: ${content}`);
+        }
+      } else if (title.length > 10) {
+        // If no paragraph, use just the title
+        jokes.push(title);
       }
     }
 
-    // Combina títulos com conteúdo (se tiver)
-    for (let i = 0; i < titleMatches.length && i < 10; i++) {
-      jokes.push({
-        title: titleMatches[i],
-        content: contentMatches[i] || titleMatches[i]
-      });
-    }
+    // Remove duplicates
+    const uniqueJokes = [...new Set(jokes)];
 
     // Se encontrou poucos, tenta outra estratégia
-    if (jokes.length < 3) {
+    if (uniqueJokes.length < 3) {
       return getDefaultJokes();
     }
 
     // Retorna até 5 piadas aleatórias
-    const shuffled = jokes.sort(() => Math.random() - 0.5);
+    const shuffled = uniqueJokes.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 5);
     
   } catch (error) {

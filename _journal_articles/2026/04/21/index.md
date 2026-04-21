@@ -1,119 +1,308 @@
 ---
 layout: journal-vintage
+date: 2026-04-21
 title: "O Matinal — terça-feira, 21 de abril de 2026"
-date: 2026-04-21T17:14:14.011Z
-categories: journal
-articles_count: 9
-jokes_count: 5
-permalink: /journal_articles/2026/04/21/
+edition: "2026-04-21"
+sections: 6
+articles: 30
+permalink: /journal_articles/{{ page.date | date: "%Y/%m/%d" }}/index.html
 ---
 
-<section class="section">
-  <h2 class="section-title">📰 Notícias Principais</h2>
-  <article class="article article-featured">
-    <div class="article-source">⭐ Folha - Poder</div>
-    <h3 class="article-title">Governador de MG diz ter "inveja branca" de Tarc�sio por nomear 1� mulher chefe da PM; veja v�deo</h3>
-    <div class="article-content drop-cap">
-O governador de <a href="https://www1.folha.uol.com.br/folha-topicos/minas-gerais-estado/#50" rel="" target="">Minas Gerais</a>,<a href="https://www1.folha.uol.com.br/poder/2026/03/zema-em-chapa-de-flavio-unificaria-direita-em-minas-mas-discussao-e-nacional-diz-vice-governador.shtml" rel="" target=""> Mateus Sim�es</a> (PSD), disse nesta ter�a (21) ter "inveja branca" de seu hom�logo paulista, <a href="https://www1.folha.uol.com.br/folha-topicos/tarcisio-de-freitas/">Tarc�sio de Freitas</a> (Republicanos), por ter <a href="https://www1.folha.uol.com.br/colunas/painel/2026/04/tarcisio-nomeia-primeira-mulher-comandante-geral-da-pm-de-sp.shtml" rel="" target="">nomeado a primeira mulher como comandante-geral </a>da Pol�cia Militar de <a href="https://www1.folha.uol.com.br/folha-topicos/sao-paulo/">S�o Paulo</a>.
-<a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/governador-de-mg-diz-ter-inveja-branca-de-tarcisio-por-nomear-1a-mulher-chefe-da-pm-veja-video.shtml">Leia mais</a> (04/21/2026 - 14h09)</div>
-  </article>
+<div class="cols-2">
 
-  <div class="separator">─────────────────────</div>
-
-  <article class="article">
-    <div class="article-source">Folha - Poder</div>
-    <h3 class="article-title">Mulheres s�o minorias entre os servidores p�blicos mais bem remunerados</h3>
-    <div class="article-content">
-Um levantamento feito com base em dados do IBGE (Instituto Brasileiro de Geografia e Estatistica) aponta que a maioria dos servidores p�blicos que recebem mais de 20 sal�rios m�nimos � homem, enquanto as mulheres dominam a faixa dos que recebem at� dois sal�rios m�nimos por m�s.
-<a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/mulheres-sao-minoria-entre-os-servidores-publicos-mais-bem-remunerado.shtml">Leia mais</a> (04/21/2026 - 13h05)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Poder</div>
-    <h3 class="article-title">Proposta de CPI do Master esfria no Congresso, e Kassio tende a negar pedido para instaura��o</h3>
-    <div class="article-content">
-Com o foco j� voltado para as elei��es de outubro, o <a href="https://www1.folha.uol.com.br/folha-topicos/congresso-nacional/">Congresso Nacional</a> baixou a temperatura das discuss�es sobre a abertura de uma <a href="https://www1.folha.uol.com.br/folha-topicos/cpi/">CPI</a> (Comiss�o Parlamentar de Inqu�rito) do <a href="https://www1.folha.uol.com.br/folha-topicos/banco-master/">Banco Master</a>, o que reduz as chances de o ministro <a href="https://www1.folha.uol.com.br/folha-topicos/kassio-nunes-marques/">Kassio Nunes Marques</a>, do <a href="https://www1.folha.uol.com.br/folha-topicos/stf/">STF</a> (Supremo Tribunal Federal), dar uma liminar que torne obrigat�ria a instaura��o.
-<a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/04/proposta-de-cpi-do-master-esfria-no-congresso-e-kassio-tende-a-negar-pedido-para-instauracao.shtml">Leia mais</a> (04/21/2026 - 12h04)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Mundo</div>
-    <h3 class="article-title">Rei Charles 3� diz que situa��o do mundo hoje teria 'perturbado profundamente' Elizabeth 2�</h3>
-    <div class="article-content">
-O <a href="https://www1.folha.uol.com.br/folha-topicos/rei-charles-3o/">rei Charles 3�</a> divulgou nesta ter�a-feira (21) uma mensagem pessoal em v�deo relembrando a trajet�ria de servi�o p�blico de sua "amada mam�e", a falecida <a href="https://www1.folha.uol.com.br/folha-topicos/rainha-elizabeth-2a/">rainha Elizabeth 2�</a> (1926-2022), no que teria sido seu 100� anivers�rio.
-<a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/rei-charles-3o-diz-que-situacao-do-mundo-hoje-teria-perturbado-profundamente-elizabeth-2a.shtml">Leia mais</a> (04/21/2026 - 13h16)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Mundo</div>
-    <h3 class="article-title">A poucas horas de fim de tr�gua no Ir�, Trump volta a dizer que n�o pretende prorrogar cessar-fogo</h3>
-    <div class="article-content">
-O Paquist�o, mediador nas negocia��es da guerra no Ir�, pediu aos <a href="https://www1.folha.uol.com.br/folha-topicos/estados-unidos/">Estados Unidos</a> que prorroguem o cessar-fogo de duas semanas, mas o presidente <a href="https://www1.folha.uol.com.br/folha-topicos/donald-trump/">Donald Trump</a> voltou a afirmar que n�o pretende estender <a href="https://www1.folha.uol.com.br/mundo/2026/04/trump-diz-que-nova-rodada-de-negociacao-com-ira-pode-ocorrer-nos-proximos-dias-segundo-jornal.shtml" rel="" target="">a tr�gua, que expira na noite desta ter�a-feira (21).</a>
-<a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/a-poucas-horas-de-fim-de-tregua-no-ira-trump-volta-a-dizer-que-nao-pretende-prorrogar-cessar-fogo.shtml">Leia mais</a> (04/21/2026 - 12h53)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Mundo</div>
-    <h3 class="article-title">Quase 8.000 migrantes morreram ou desapareceram em rotas migrat�rias em 2025</h3>
-    <div class="article-content">
-Quase 8 mil pessoas morreram em rotas migrat�rias em 2025, segundo um relat�rio da ag�ncia de migra��o das Na��es Unidas divulgado nesta ter�a-feira (21).
-<a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/quase-8000-migrantes-morreram-ou-desapareceram-em-rotas-migratorias-em-2025.shtml">Leia mais</a> (04/21/2026 - 12h35)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Cotidiano</div>
-    <h3 class="article-title">Pr�dios do Cine Marrocos e do hotel Esplanada v�o a leil�o em SP</h3>
-    <div class="article-content">
-O governo do <a href="https://www1.folha.uol.com.br/folha-topicos/sao-paulo-estado/" rel="" target="">Estado de S�o Paulo</a> tem o desafio de dar um destino adequado para os pr�dios ocupados hoje por suas secretarias que ser�o esvaziados a partir da instala��o de <a href="https://www1.folha.uol.com.br/cotidiano/2026/02/sede-do-governo-tarcisio-no-centro-e-aprovada-por-64-dos-moradores-de-sao-paulo-diz-datafolha.shtml" rel="" target="">nova sede administrativa</a> nos Campos El�seos at� 2030. S�o ao todo 40 edif�cios na regi�o central e na regi�o circundante, com 820 mil metros quadrados de �rea ocupada por 22 mil a 25 mil funcion�rios. Das 24 secretarias estaduais, 15 ficam na regi�o central.
-<a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/andancas-na-metropole/2026/04/predios-do-cine-marrocos-e-do-hotel-esplanada-vao-a-leilao-em-sp.shtml">Leia mais</a> (04/21/2026 - 13h59)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Cotidiano</div>
-    <h3 class="article-title">Brecha permite que moradia popular vire apartamento comum e at� hotel em SP</h3>
-    <div class="article-content">
-O funcionamento de <a href="https://www1.folha.uol.com.br/cotidiano/2026/04/predio-construido-com-incentivo-para-habitacao-social-vira-hotel-na-avenida-paulista.shtml" rel="" target="">hot�is em dois empreendimentos</a> constru�dos com incentivo para a <a href="https://www1.folha.uol.com.br/cotidiano/2025/10/so-15-das-habitacoes-populares-sao-para-menor-faixa-de-renda-em-sao-paulo.shtml" rel="" target="">habita��o popular exp�s uma brecha legal</a> ainda n�o discutida no �mbito das den�ncias de desvio de finalidade desse tipo de moradia na cidade de <a href="https://www1.folha.uol.com.br/folha-topicos/sao-paulo/">S�o Paulo</a>. Trata-se da mudan�a de uso legalizada, por meio de alvar� de reforma ou de projeto modificativo.
-<a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/brecha-permite-que-moradia-popular-vire-apartamento-comum-e-ate-hotel-em-sp.shtml">Leia mais</a> (04/21/2026 - 13h00)</div>
-  </article>
-
-  <article class="article">
-    <div class="article-source">Folha - Cotidiano</div>
-    <h3 class="article-title">O come�o do esquecimento da minha m�e</h3>
-    <div class="article-content">
-"Voc� est� na sua casa, meu filho? Est� tudo bem por a�? O que voc� fez de bom neste domingo?". Congelei por alguns segundos antes de arrumar a fala da minha velha m�e, que acabara de ter o mais importante <a href="https://www1.folha.uol.com.br/equilibrio/2026/02/falta-de-atencao-explica-por-que-voce-esquece-onde-deixou-as-chaves-veja-como-evitar-lapsos-de-memoria.shtml" rel="" target="">lapso de mem�ria</a> que eu j� havia registrado em nossas longas conversas telef�nicas.
-<a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/assim-como-voce/2026/04/o-comeco-do-esquecimento-da-minha-mae.shtml">Leia mais</a> (04/21/2026 - 11h51)</div>
-  </article>
-
-</section>
-
-<section class="section">
-  <h2 class="section-title">😂 Anedotas & Pilhérias</h2>
-  <p><em>"A risa é a melhor medicina" - Provérbio antigo</em></p>
-
-  <div class="joke">
-    <div class="joke-title">1. &laquo; Mais Antigos</div>
-    <div class="joke-content">Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e </div>
+  <div class="feature-box">
+    <div class="article-headline">☀️ Clima em Helmond</div>
+    <div class="article-subhead">Helmond, Holanda</div>
+    <p style="text-align: center; font-size: 20px; margin: 8px 0;">13°C</p>
+    <p style="text-align: center; font-size: 13px; margin: 6px 0;">Céu Limpo</p>
+    <p style="text-align: center; font-size: 12px; color: var(--ink-mid);">
+      Máxima: 14°C | Mínima: 6°C<br>
+      Umidade: 42% | Vento: 14 km/h
+    </p>
   </div>
 
-  <div class="joke">
-    <div class="joke-title">2. A PACIÊNCIA DO CAPELÃO</div>
-    <div class="joke-content">O senhor não se lembra,  dizia o enfurecido monge – que Josué fez parar o sol?</div>
+  <div class="section-head"><span>Brasil</span></div>
+  <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">Governador de MG diz ter 'inveja branca' de Tarcísio por nomear 1ª mulher chefe da PM; veja vídeo</div>
+    <div class="article-subhead">Folha - Poder</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Governador de MG diz ter 'inveja branca' de Tarcísio por nomear 1ª mulher chefe da PM; veja vídeo" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O governador de Minas Gerais, Mateus Simões (PSD), disse nesta terça (21) ter "inveja branca" de seu homólogo paulista, Tarcísio de Freitas (Republicanos), por ter nomeado a primeira mulher como comandante-geral da Polícia Militar de São Paulo.
+Leia </p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/governador-de-mg-diz-ter-inveja-branca-de-tarcisio-por-nomear-1a-mulher-chefe-da-pm-veja-video.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="joke">
-    <div class="joke-title">3. HUMOR MILITAR</div>
-    <div class="joke-content">Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol.</div>
+  <div class="article">
+    <div class="article-headline">Mulheres são minoria entre os servidores públicos mais bem remunerados</div>
+    <div class="article-subhead">Folha - Poder</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Mulheres são minoria entre os servidores públicos mais bem remunerados" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Um levantamento feito com base em dados do IBGE (Instituto Brasileiro de Geografia e Estatistica) aponta que a maioria dos servidores públicos que recebem mais de 20 salários mínimos é homem, enquanto as mulheres dominam a faixa dos que recebem até d</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/mulheres-sao-minoria-entre-os-servidores-publicos-mais-bem-remunerado.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="joke">
-    <div class="joke-title">4. EXPLICAÇÃO DA BÍBLIA</div>
-    <div class="joke-content">Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</div>
+  <div class="article">
+    <div class="article-headline">Proposta de CPI do Master esfria no Congresso, e Kassio tende a negar pedido para instauração</div>
+    <div class="article-subhead">Folha - Poder</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Proposta de CPI do Master esfria no Congresso, e Kassio tende a negar pedido para instauração" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Com o foco já voltado para as eleições de outubro, o Congresso Nacional baixou a temperatura das discussões sobre a abertura de uma CPI (Comissão Parlamentar de Inquérito) do Banco Master, o que reduz as chances de o ministro Kassio Nunes Marques, do</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/04/proposta-de-cpi-do-master-esfria-no-congresso-e-kassio-tende-a-negar-pedido-para-instauracao.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="joke">
-    <div class="joke-title">5. DOIS ANIMAIS</div>
-    <div class="joke-content">Minha senhora, advirto-lhe que tem um animal atrás de si.</div>
+  <div class="article">
+    <div class="article-headline">Prédios do Cine Marrocos e do hotel Esplanada vão a leilão em SP</div>
+    <div class="article-subhead">Folha - Cotidiano</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Prédios do Cine Marrocos e do hotel Esplanada vão a leilão em SP" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O governo do Estado de São Paulo tem o desafio de dar um destino adequado para os prédios ocupados hoje por suas secretarias que serão esvaziados a partir da instalação de nova sede administrativa nos Campos Elíseos até 2030. São ao todo 40 edifícios</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/andancas-na-metropole/2026/04/predios-do-cine-marrocos-e-do-hotel-esplanada-vao-a-leilao-em-sp.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
-</section>
+  <div class="article">
+    <div class="article-headline">Brecha permite que moradia popular vire apartamento comum e até hotel em SP</div>
+    <div class="article-subhead">Folha - Cotidiano</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Brecha permite que moradia popular vire apartamento comum e até hotel em SP" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O funcionamento de hotéis em dois empreendimentos construídos com incentivo para a habitação popular expôs uma brecha legal ainda não discutida no âmbito das denúncias de desvio de finalidade desse tipo de moradia na cidade de São Paulo. Trata-se da </p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/brecha-permite-que-moradia-popular-vire-apartamento-comum-e-ate-hotel-em-sp.shtml" class="article-link">Leia na fonte →</a>
+  </div>
 
+  <div class="article">
+    <div class="article-headline">O começo do esquecimento da minha mãe</div>
+    <div class="article-subhead">Folha - Cotidiano</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="O começo do esquecimento da minha mãe" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>"Você está na sua casa, meu filho? Está tudo bem por aí? O que você fez de bom neste domingo?". Congelei por alguns segundos antes de arrumar a fala da minha velha mãe, que acabara de ter o mais importante lapso de memória que eu já havia registrado </p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/assim-como-voce/2026/04/o-comeco-do-esquecimento-da-minha-mae.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Indicado de Trump pede uma "mudança de regime" no Fed e uma nova abordagem para inflação</div>
+    <div class="article-subhead">Folha - Mercado</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Indicado de Trump pede uma "mudança de regime" no Fed e uma nova abordagem para inflação" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Kevin Warsh, indicado para presidir o Federal Reserve, pediu uma "mudança de regime" no banco central dos Estados Unidos, que incluiria uma nova "estrutura" para o controle da inflação e uma possível revisão da forma como o banco se comunica com o pú</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/indicado-de-trump-pede-uma-mudanca-de-regime-no-fed-e-uma-nova-abordagem-para-inflacao.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Regulador britânico de mídia investiga Telegram por conteúdos de abuso sexual infantil</div>
+    <div class="article-subhead">Folha - Mercado</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Regulador britânico de mídia investiga Telegram por conteúdos de abuso sexual infantil" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O regulador britânico de mídia, Ofcom, anunciou nesta terça-feira (21) a abertura de uma investigação contra o Telegram, após indícios que sugerem que "material de abuso sexual infantil" pode ter sido compartilhado na plataforma de mensagens.
+Leia ma</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/regulador-britanico-de-midia-investiga-telegram-por-conteudos-de-abuso-sexual-infantil.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Polícia solicita mandado de prisão para Bang, fundador de agência do BTS na Coreia do Sul</div>
+    <div class="article-subhead">Folha - Mercado</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Polícia solicita mandado de prisão para Bang, fundador de agência do BTS na Coreia do Sul" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>A polícia sul-coreana solicitou um mandado de prisão preventiva contra Bang Si-hyuk, presidente da agência de K-pop HYBE, por supostas negociações ilegais relacionadas ao IPO (oferta pública inicial de ações) da empresa.
+Leia mais (04/21/2026 - 13h27</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/policia-solicita-mandado-de-prisao-para-bang-fundador-de-agencia-do-bts-na-coreia-do-sul.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="section-head"><span>Cultura & História</span></div>
+  <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">Boninho anuncia 'chá revelação' para lançar reality da Record no dia da final do BBB 26</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Boninho anuncia 'chá revelação' para lançar reality da Record no dia da final do BBB 26" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>No dia da final do BBB 26, o diretor Boninho aproveitou a atenção do público para promover seu novo reality, Casa do Patrão, que estreia no próximo dia 27 na Record.
+Leia mais (04/21/2026 - 14h15)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://f5.folha.uol.com.br/televisao/2026/04/boninho-anuncia-cha-revelacao-para-lancar-reality-da-record-no-dia-da-final-do-bbb-26.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Colombiana Karol G anuncia show no Brasil</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Colombiana Karol G anuncia show no Brasil" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Conhecida por músicas como "Si Antes te Hubiera Conocido", a colombiana Karol G anunciou show em São Paulo em fevereiro de 2027, como parte da turnê "Viajando por el Mundo", em suas redes sociais. A apresentação acontece em São Paulo, no Mercado Livr</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://guia.folha.uol.com.br/shows/2026/04/colombiana-karol-g-anuncia-show-no-brasil.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Roger Waters e outros artistas pedem que Israel fique fora do Eurovision</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Roger Waters e outros artistas pedem que Israel fique fora do Eurovision" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Artistas e outros profissionais do setor da música assinaram um manifesto que pede pela exclusão de Israel do Eurovision 2026, competição musical mais importante da Europa. O documento pede que a União Europeia de Radiodifusão, que organiza o evento,</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/roger-waters-e-outros-artistas-pedem-que-israel-fique-fora-do-eurovision.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="section-head"><span>Games</span></div>
+  <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">How to Train Your Dragon 2 Crew Member Suffers Major Injury</div>
+    <div class="article-subhead">IGN</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="How to Train Your Dragon 2 Crew Member Suffers Major Injury" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>A crew member working on the live-action How to Train Your Dragon 2 has reportedly suffered a major injury.</p>
+    <a href="https://www.ign.com/articles/how-to-train-your-dragon-2-crew-member-suffers-major-injury" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Alien: Rogue Incursion - Part One Arrives on Nintendo Switch 2 Today</div>
+    <div class="article-subhead">IGN</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Alien: Rogue Incursion - Part One Arrives on Nintendo Switch 2 Today" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Alien: Rogue Incursion - Part One: Evolved Edition is now officially a Nintendo Switch 2 game</p>
+    <a href="https://www.ign.com/articles/alien-rogue-incursion-part-one-arrives-on-nintendo-switch-2-today" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Here's When You Can Watch the Final Episode of Invincible Season 4 on Prime Video</div>
+    <div class="article-subhead">IGN</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Here's When You Can Watch the Final Episode of Invincible Season 4 on Prime Video" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Invincible Season 4 is approaching its eighth and final episode.</p>
+    <a href="https://www.ign.com/articles/how-to-watch-invincible-season-4-episode-release-dates" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">This Surrealist City Builder Is A Must For Those Seeking Stress-Free Chill Times</div>
+    <div class="article-subhead">Kotaku</div>
+    <img src="https://kotaku.com/app/uploads/2026/04/shantytown-9.jpg" alt="This Surrealist City Builder Is A Must For Those Seeking Stress-Free Chill Times" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>ShantyTown is a terrible name for an excellent little game about building upward</p>
+    <a href="https://kotaku.com/shantytown-indie-pc-steam-city-builder-cozy-game-2000689333" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">I Can’t Draw, So I Love Low-Effort Tomodachi Life Custom Creations, Like This Single Pea On A Plate</div>
+    <div class="article-subhead">Kotaku</div>
+    <img src="https://kotaku.com/app/uploads/2026/04/2026041616510000_s.jpg" alt="I Can’t Draw, So I Love Low-Effort Tomodachi Life Custom Creations, Like This Single Pea On A Plate" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>You can phone it in all day long</p>
+    <a href="https://kotaku.com/low-effort-tomodachi-life-creations-pea-plate-2000689346" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Xbox Game Pass Ditches Day-One Call Of Duty To Lower The Price</div>
+    <div class="article-subhead">Kotaku</div>
+    <img src="https://kotaku.com/app/uploads/2025/09/xbox-logo1.jpg" alt="Xbox Game Pass Ditches Day-One Call Of Duty To Lower The Price" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Starting today, Xbox is lowering the monthly price of Game Pass Ultimate from $30 to $23</p>
+    <a href="https://kotaku.com/xbox-game-pass-ditches-day-one-call-of-duty-to-lower-the-price-2000689378" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="section-head"><span>Holanda & Brabant</span></div>
+  <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">All 3500 Dutch train conductors to have bodycams by end of year</div>
+    <div class="article-subhead">DutchNews</div>
+    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/ANP-556361364-360x240.jpg" alt="All 3500 Dutch train conductors to have bodycams by end of year" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Train operator NS has begun equipping its conductors with bodycams in the hope of deterring aggression against its staff. A...</p>
+    <a href="https://www.dutchnews.nl/2026/04/all-3500-dutch-train-conductors-to-have-bodycams-by-end-of-year/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Court debates life sentence for Dutchman held 42 years in US</div>
+    <div class="article-subhead">DutchNews</div>
+    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/Singh--360x240.jpg" alt="Court debates life sentence for Dutchman held 42 years in US" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The public prosecution service has requested that Jaitsen Singh, the Netherlands’ longest-serving prisoner abroad, should have his US sentence converted...</p>
+    <a href="https://www.dutchnews.nl/2026/04/court-debates-life-sentence-for-dutchman-held-42-years-in-us/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Senate rejects bill to criminalise living in NL without papers</div>
+    <div class="article-subhead">DutchNews</div>
+    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/Asielstemming--360x240.jpg" alt="Senate rejects bill to criminalise living in NL without papers" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Senators have voted down a controversial asylum bill that would have made it a criminal offence to stay in the...</p>
+    <a href="https://www.dutchnews.nl/2026/04/senate-rejects-law-to-criminalise-living-in-nl-without-papers/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Nederlanders in Istanbul stierven net als Duits gezin door bestrijdingsmiddel</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Nederlanders in Istanbul stierven net als Duits gezin door bestrijdingsmiddel" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>De twee minderjarige Nederlandse broers die vorig jaar augustus dood werden gevonden in hun hotelkamer in Istanbul, zijn overleden aan vergiftiging door het bestrijdingsmiddel fosfine. Dat meldt het Turkse persbureau Demirören Haber Ajansı.
+        </p>
+    <a href="https://nos.nl/l/2611476" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Proef met onderzoek naar verwurging levert veel meer aanvragen op dan verwacht</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Proef met onderzoek naar verwurging levert veel meer aanvragen op dan verwacht" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Forensisch artsen in Rotterdam krijgen veel meer aanvragen dan verwacht voor onderzoeken naar pogingen tot wurging. Sinds 1 december 2025 loopt er een proef waarbij de politie en Veilig Thuis een medisch expertisecentrum inschakelen als er vermoedens</p>
+    <a href="https://nos.nl/l/2611471" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">'Meer hulp nodig voor mensen met ernstige psychische aandoeningen'</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="'Meer hulp nodig voor mensen met ernstige psychische aandoeningen'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Er is meer nodig om veiligheidsrisico's voor mensen met ernstige psychische klachten te verminderen. Dat concludeert de Onderzoeksraad voor Veiligheid (OVV) in een nieuw rapport. Inspecties concludeerden in december al dat de zorg tekortschiet en dat</p>
+    <a href="https://nos.nl/l/2611468" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="section-head"><span>Mundo</span></div>
+  <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">Rei Charles 3º diz que situação do mundo hoje teria 'perturbado profundamente' Elizabeth 2ª</div>
+    <div class="article-subhead">Folha - Mundo</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Rei Charles 3º diz que situação do mundo hoje teria 'perturbado profundamente' Elizabeth 2ª" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O rei Charles 3º divulgou nesta terça-feira (21) uma mensagem pessoal em vídeo relembrando a trajetória de serviço público de sua "amada mamãe", a falecida rainha Elizabeth 2ª (1926-2022), no que teria sido seu 100º aniversário.
+Leia mais (04/21/2026</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/rei-charles-3o-diz-que-situacao-do-mundo-hoje-teria-perturbado-profundamente-elizabeth-2a.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">A poucas horas de fim de trégua no Irã, Trump volta a dizer que não pretende prorrogar cessar-fogo</div>
+    <div class="article-subhead">Folha - Mundo</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="A poucas horas de fim de trégua no Irã, Trump volta a dizer que não pretende prorrogar cessar-fogo" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>O Paquistão, mediador nas negociações da guerra no Irã, pediu aos Estados Unidos que prorroguem o cessar-fogo de duas semanas, mas o presidente Donald Trump voltou a afirmar que não pretende estender a trégua, que expira na noite desta terça-feira (2</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/a-poucas-horas-de-fim-de-tregua-no-ira-trump-volta-a-dizer-que-nao-pretende-prorrogar-cessar-fogo.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Quase 8.000 migrantes morreram ou desapareceram em rotas migratórias em 2025</div>
+    <div class="article-subhead">Folha - Mundo</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Quase 8.000 migrantes morreram ou desapareceram em rotas migratórias em 2025" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Quase 8 mil pessoas morreram em rotas migratórias em 2025, segundo um relatório da agência de migração das Nações Unidas divulgado nesta terça-feira (21).
+Leia mais (04/21/2026 - 12h35)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/quase-8000-migrantes-morreram-ou-desapareceram-em-rotas-migratorias-em-2025.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="section-head"><span>Tecnologia & IA</span></div>
+  <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">Meta Is Sued Over Scam Ads on Facebook and Instagram</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Meta Is Sued Over Scam Ads on Facebook and Instagram" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>A lawsuit from the Consumer Federation of America accuses Meta of misleading consumers about its efforts to combat scams advertisements on its platforms.</p>
+    <a href="https://www.wired.com/story/meta-is-sued-over-scam-ads-on-facebook-and-instagram/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">TAG Heuer Has Dropped New Polylight-Powered F1s</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="TAG Heuer Has Dropped New Polylight-Powered F1s" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The five new Formula 1 watches are driven by light—and we have a definite favorite.</p>
+    <a href="https://www.wired.com/story/tag-heuer-has-dropped-new-pastel-powered-f1s/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">The Best Casio Watches You Can Wear Anywhere</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="The Best Casio Watches You Can Wear Anywhere" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>From calculators to simple daily beaters, these are my favorite Casio watches on sale today.</p>
+    <a href="https://www.wired.com/gallery/best-casio-watches/" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="section-head"><span>Piadas & Humor</span></div>
+  <hr class="section-rule">
+
+  <div class="joke-item">
+    <strong>A Conversa de Barbeiro: Cliente novo no barbeiro pergunta: "Você corta bem?" Barbeiro responde: "Sei, meu senhor, todos que entraram aqui saíram satisfeitos!" Cliente: "Satisfeitos? De quê?"</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>O Filósofo Distraído: Um filósofo estava tão concentrado em seus pensamentos que colidiu com uma coluna na rua. Um amigo perguntou: "Acertou em cheio?" Respondeu: "Não, ela acertou em mim!"</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>O Vendedor Astuto: Um vendedor de feijão alardeava: "Este feijão é tão bom que rende o dobro!" Cliente desconfiado: "Se rende tanto, por que você ainda vende?" Vendedor: "Porque tenho preguiça de cozinhar!"</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>O Corretor de Provas: Um corretor de provas encontrou um aluno que havia escrito: "Napoleão morreu em 1821, quando ainda tinha muita vida pela frente". Comentou: "Concordo, era jovem demais para morrer!"</strong>
+  </div>
+
+</div>
