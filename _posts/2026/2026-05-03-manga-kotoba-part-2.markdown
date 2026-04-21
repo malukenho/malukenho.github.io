@@ -2,6 +2,7 @@
 layout: post
 title: "Manga Kotoba, Part 2: Scraping, AI Extraction, and the Vocabulary Engine"
 date: 2026-05-03 10:00:00 +0000
+categories: ["post"]
 tags: [php, symfony, ai, gemini, scraping, japanese]
 series: manga-kotoba
 ---

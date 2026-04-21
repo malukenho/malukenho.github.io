@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Matinal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Garamond&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfaf5;
+            --text: #1a1a1a;
+            --border: #bbb;
+            --accent: #8b0000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .date {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: Garamond, Georgia, serif;
+            font-size: clamp(52px, 10vw, 80px);
+            font-weight: normal;
+            line-height: 1;
+            margin: 0 0 4px 0;
+            color: var(--text);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* FEATURED */
+        .featured {
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .featured-label {
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .featured h2 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .featured > p {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .featured .meta {
+            font-size: 13px;
+            color: #666;
+            margin: 8px 0;
+        }
+
+        .featured img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            margin: 12px 0;
+        }
+
+        .featured a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* ARTICLES */
+        .articles {
+            margin-bottom: 32px;
+        }
+
+        article {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        article:last-of-type {
+            border-bottom: none;
+        }
+
+        .category {
+            font-size: 10px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        article h3 {
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        article p {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        article img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+
+        .source {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .source a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* SIDEBAR */
+        .aside {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+        }
+
+        .box {
+            margin-bottom: 24px;
+        }
+
+        .box h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .box ul {
+            list-style: none;
+        }
+
+        .box li {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 12px;
+        }
+
+        .box li::before {
+            content: '• ';
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .quote {
+            font-size: 16px;
+            font-style: italic;
+            color: #555;
+            padding: 12px 0;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        /* GAMES */
+        .games {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+        }
+
+        .games h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text);
+        }
+
+        .game {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .game:last-child {
+            border-bottom: none;
+        }
+
+        .game h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .game p {
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 2px solid var(--border);
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* KINDLE DISPLAY */
+        @media (max-width: 480px) {
+            body {
+                font-size: 16px;
+                padding: 16px 12px;
+            }
+            h1 { font-size: 44px; }
+            .featured h2 { font-size: 22px; }
+            article h3 { font-size: 18px; }
+            .featured img,
+            article img {
+                max-height: 220px;
+            }
+        }
+
+        /* PRINT */
+        @media print {
+            body { background: white; }
+            header { page-break-after: avoid; }
+            article { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p class="date" id="data-hoje"></p>
+        <h1>O Matinal</h1>
+        <p class="subtitle">Jornal Pessoal</p>
+    </header>
+
+    <section class="featured">
+        <p class="featured-label">Destaque</p>
+        <h2 id="featured-title">Notícia em destaque será carregada aqui</h2>
+        <p id="featured-excerpt">Resumo da matéria principal...</p>
+        <p class="meta" id="featured-meta">21 de abril de 2026</p>
+        <img id="featured-image" src="" alt="" style="display:none;">
+        <p><a href="#" id="featured-source">Ler matéria →</a></p>
+    </section>
+
+    <section class="articles" id="articles-section">
+        <!-- Articles will be inserted here -->
+    </section>
+
+    <section class="aside">
+        <div class="box">
+            <h3>Fato do Dia</h3>
+            <ul id="dailyfacts">
+                <li>Carregando...</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Pensamento</h3>
+            <p class="quote" id="daily-quote">"Carregando..."</p>
+        </div>
+
+        <div class="box">
+            <h3>Multilíngue</h3>
+            <ul>
+                <li>Good morning! <em>English</em></li>
+                <li>おはよう! <em>Japonês</em></li>
+                <li>Goedemorgen! <em>Holandês</em></li>
+                <li>Dzień dobry! <em>Polonês</em></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="games">
+        <h2>Diversão</h2>
+        
+        <div class="game">
+            <h4>Charada do Dia</h4>
+            <p id="riddle">Carregando...</p>
+        </div>
+
+        <div class="game">
+            <h4>Palavra</h4>
+            <p><strong id="word-of-day">palavra</strong> — <em id="word-definition">definição</em></p>
+        </div>
+
+        <div class="game">
+            <h4>Curiosidade</h4>
+            <p id="curiosity">Carregando...</p>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>O Matinal</strong> — Jornal Eletrônico</p>
+        <p>Publicado diariamente às 6:00</p>
+        <p>Otimizado para Kindle • Acesso a fontes originárias</p>
+    </footer>
+
+
+</body>
+</html>

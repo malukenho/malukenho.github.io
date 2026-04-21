@@ -4,6 +4,7 @@ title: "System Design: How Gmail Checks Billions of Emails for Uniqueness"
 date: 2026-04-14 10:00:00 +0000
 categories: ["post"]
 tags: [system-design, bloom-filter, redis, distributed-systems, interview]
+series: "System Design Interview Series"
 ---
 
 <style>

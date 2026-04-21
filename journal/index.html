@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Matinal — Escolha seu Template</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #f5f1e8 0%, #ede8de 100%);
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #3d2b10;
+            padding-bottom: 30px;
+        }
+        h1 {
+            font-size: 56px;
+            margin-bottom: 10px;
+            color: #1a0f0a;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #8b2e2e;
+            letter-spacing: 2px;
+        }
+        .templates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .template-card {
+            background: white;
+            border: 3px solid #3d2b10;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #8b2e2e;
+        }
+        .template-card h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #8b2e2e;
+        }
+        .version {
+            background: #f5f1e8;
+            padding: 8px 12px;
+            display: inline-block;
+            font-size: 12px;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            color: #3d2b10;
+        }
+        .description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3d2b10;
+            margin-bottom: 20px;
+        }
+        .pros, .cons {
+            text-align: left;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .pros {
+            color: #2d5016;
+        }
+        .cons {
+            color: #8b2e2e;
+        }
+        .pros li::before {
+            content: '✓ ';
+            font-weight: bold;
+            color: #2d5016;
+            margin-right: 5px;
+        }
+        .cons li::before {
+            content: '✗ ';
+            font-weight: bold;
+            color: #8b2e2e;
+            margin-right: 5px;
+        }
+        .link-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #1a0f0a;
+            color: #f5f1e8;
+            text-decoration: none;
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .link-btn:hover {
+            background: #8b2e2e;
+        }
+        .recommend {
+            background: #fff8f5;
+            border: 2px solid #8b2e2e;
+        }
+        .recommend .version {
+            background: #8b2e2e;
+            color: white;
+        }
+        .docs {
+            background: #f9f9f9;
+            border-left: 4px solid #8b2e2e;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .docs h3 {
+            color: #8b2e2e;
+            margin-bottom: 15px;
+        }
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .doc-link {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-decoration: none;
+            color: #3d2b10;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        .doc-link:hover {
+            border-color: #8b2e2e;
+            background: #fff8f5;
+        }
+        .doc-link strong {
+            color: #8b2e2e;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #3d2b10;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>O Matinal</h1>
+        <p class="subtitle">Escolha seu Template</p>
+    </header>
+
+    <div class="templates">
+        <div class="template-card">
+            <div class="version">VERSÃO 1</div>
+            <h2>Clássico</h2>
+            <p class="description">2-colunas, decorado estilo "O Malho"</p>
+            <ul class="pros">
+                <li>Design vintage elegante</li>
+                <li>Inspirado em "O Malho"</li>
+                <li>Layout 2-colunas (desktop)</li>
+                <li>Visualmente rico</li>
+            </ul>
+            <ul class="cons">
+                <li>Menos otimizado para Kindle</li>
+                <li>Mais complexo</li>
+            </ul>
+            <a href="template-v1-classical.html" class="link-btn">Visualizar</a>
+        </div>
+
+        <div class="template-card recommend">
+            <div class="version">VERSÃO 2 - RECOMENDADO</div>
+            <h2>Responsivo</h2>
+            <p class="description">Perfeito em desktop e Kindle</p>
+            <ul class="pros">
+                <li>Responsivo (desktop + mobile)</li>
+                <li>Ótimo em Kindle</li>
+                <li>Equilíbrio visual/legibilidade</li>
+                <li>Moderno e rápido</li>
+                <li>Melhor compatibilidade</li>
+            </ul>
+            <ul class="cons">
+                <li>Menos decoração que V1</li>
+            </ul>
+            <a href="template-v2-responsive.html" class="link-btn">Visualizar</a>
+        </div>
+
+        <div class="template-card">
+            <div class="version">VERSÃO 3</div>
+            <h2>Minimalista</h2>
+            <p class="description">Ultra-limpo, máxima legibilidade</p>
+            <ul class="pros">
+                <li>Máxima legibilidade</li>
+                <li>Ótimo para Kindle</li>
+                <li>Arquivo leve (8.9 KB)</li>
+                <li>Rápido carregamento</li>
+                <li>Leitura focada</li>
+            </ul>
+            <ul class="cons">
+                <li>Design muito simples</li>
+                <li>Pouca decoração</li>
+            </ul>
+            <a href="template-v3-minimalist.html" class="link-btn">Visualizar</a>
+        </div>
+    </div>
+
+    <div class="docs">
+        <h3>📖 Documentação</h3>
+        <div class="docs-grid">
+            <a href="QUICKSTART.md" class="doc-link">
+                <strong>Quick Start</strong><br>
+                Comece em 5 minutos
+            </a>
+            <a href="README.md" class="doc-link">
+                <strong>README</strong><br>
+                Visão geral completa
+            </a>
+            <a href="TEMPLATES.md" class="doc-link">
+                <strong>Templates</strong><br>
+                Comparação detalhada
+            </a>
+            <a href="IMPLEMENTATION.md" class="doc-link">
+                <strong>Implementation</strong><br>
+                Código técnico
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p><strong>O Matinal</strong> — Seu jornal eletrônico personalizado, publicado todos os dias às 6 AM</p>
+    <p style="margin-top: 10px;">Otimizado para desktop e Kindle | Inspirado em "O Malho" (1902)</p>
+</footer>
+
+</body>
+</html>

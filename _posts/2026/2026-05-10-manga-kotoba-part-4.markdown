@@ -2,6 +2,7 @@
 layout: post
 title: "Manga Kotoba, Part 4: Going Live — Heroku, RDS, S3 and the Ephemeral Filesystem"
 date: 2026-05-10 10:00:00 +0000
+categories: ["post"]
 tags: [heroku, deployment, aws, s3, rds, devops, symfony]
 series: manga-kotoba
 ---

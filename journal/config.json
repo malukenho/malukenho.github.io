@@ -1,0 +1,261 @@
+{
+  "journal": {
+    "title": "O Matinal",
+    "subtitle": "Jornal Pessoal Eletrônico",
+    "language": "pt-BR",
+    "timezone": "America/Maceio",
+    "generation_time": "06:00",
+    "template": "template-premium.html"
+  },
+
+  "news_sources": {
+    "portuguese_brazil": [
+      {
+        "name": "G1 - Globo",
+        "category": "Geral",
+        "rss_url": "https://g1.globo.com/rss/feeds/geral/",
+        "priority": 1
+      },
+      {
+        "name": "G1 - Tecnologia",
+        "category": "Tecnologia",
+        "rss_url": "https://g1.globo.com/rss/feeds/tecnologia/",
+        "priority": 1
+      },
+      {
+        "name": "Folha de S.Paulo - Mundo",
+        "category": "Internacional",
+        "rss_url": "https://feeds.folha.uol.com.br/mundo/rss091.xml",
+        "priority": 1
+      },
+      {
+        "name": "Folha de S.Paulo - Poder",
+        "category": "Política",
+        "rss_url": "https://feeds.folha.uol.com.br/poder/rss091.xml",
+        "priority": 1
+      },
+      {
+        "name": "Folha de S.Paulo - Cotidiano",
+        "category": "Brasil",
+        "rss_url": "https://feeds.folha.uol.com.br/cotidiano/rss091.xml",
+        "priority": 1
+      },
+      {
+        "name": "O Globo - O País",
+        "category": "Brasil",
+        "rss_url": "https://feeds.oglobo.globo.com/oglobo/pais/feed.xml",
+        "priority": 1
+      },
+      {
+        "name": "BBC Brasil - Notícias",
+        "category": "Internacional",
+        "rss_url": "http://feeds.bbc.co.uk/portuguese/rss.xml",
+        "priority": 1
+      },
+      {
+        "name": "Reuters Brasil - Tecnologia",
+        "category": "Tecnologia",
+        "rss_url": "https://www.reuters.com/technology/feed/?taxonomy=original&taxonomy=reuters",
+        "priority": 2
+      },
+      {
+        "name": "Scielo Brasil - Artigos",
+        "category": "Ciência",
+        "rss_url": "https://www.scielo.br/rss/",
+        "priority": 2
+      }
+    ],
+
+    "portuguese_sergipe": [
+      {
+        "name": "G1 Sergipe",
+        "category": "Sergipe",
+        "rss_url": "https://g1.globo.com/rss/feeds/se/",
+        "priority": 1
+      },
+      {
+        "name": "Infonet Sergipe",
+        "category": "Sergipe",
+        "website": "https://www.infonet.com.br/",
+        "priority": 2
+      }
+    ],
+
+    "international_english": [
+      {
+        "name": "BBC News",
+        "category": "Internacional",
+        "rss_url": "http://feeds.bbc.co.uk/news/rss.xml",
+        "priority": 2
+      },
+      {
+        "name": "Reuters - Technology",
+        "category": "Tecnologia",
+        "rss_url": "https://www.reuters.com/technology",
+        "priority": 2
+      },
+      {
+        "name": "TechCrunch",
+        "category": "Tecnologia",
+        "rss_url": "https://feeds.techcrunch.com/techcrunch/",
+        "priority": 2
+      },
+      {
+        "name": "Hacker News",
+        "category": "Tecnologia",
+        "rss_url": "https://news.ycombinator.com/rss",
+        "priority": 2
+      }
+    ],
+
+    "netherlands": [
+      {
+        "name": "NOS.nl - Nieuws",
+        "category": "Holanda",
+        "rss_url": "https://nos.nl/rss/",
+        "priority": 2,
+        "language": "nl"
+      },
+      {
+        "name": "AT5 - Amsterdam",
+        "category": "Holanda",
+        "website": "https://www.at5.nl/",
+        "priority": 2,
+        "language": "nl"
+      },
+      {
+        "name": "Helmond Dagblad",
+        "category": "Holanda",
+        "website": "https://www.helmondsdagblad.nl/",
+        "priority": 3,
+        "language": "nl"
+      },
+      {
+        "name": "Omroep Eindhoven",
+        "category": "Holanda",
+        "rss_url": "https://www.omroepeindhoven.nl/",
+        "priority": 2,
+        "language": "nl"
+      }
+    ],
+
+    "japan": [
+      {
+        "name": "NHK World - Easy Japanese",
+        "category": "Japão",
+        "rss_url": "https://www3.nhk.or.jp/nhkworld/",
+        "priority": 2,
+        "language": "ja"
+      },
+      {
+        "name": "Japan Today",
+        "category": "Japão",
+        "rss_url": "https://japantoday.com/feed",
+        "priority": 2,
+        "language": "en"
+      },
+      {
+        "name": "NHK News Web Easy",
+        "category": "Japão",
+        "website": "https://www3.nhk.or.jp/news/easy/",
+        "priority": 2,
+        "language": "ja"
+      }
+    ]
+  },
+
+  "content_categories": [
+    "Tecnologia & IA",
+    "História & Cultura",
+    "Política & Economia",
+    "Literatura & Arte",
+    "Ciência & Natureza",
+    "Brasil",
+    "Sergipe",
+    "Holanda",
+    "Japão",
+    "Internacional"
+  ],
+
+  "gemini_api": {
+    "provider": "Google Gemini",
+    "model": "gemini-2.0-flash",
+    "max_tokens": 2000,
+    "temperature": 0.7,
+    "language": "pt-BR"
+  },
+
+  "content_generation": {
+    "featured_article_count": 1,
+    "article_count": 8,
+    "daily_facts_count": 3,
+    "include_games": true,
+    "games": ["charada", "palavra_do_dia", "curiosidade"],
+    "include_quotes": true,
+    "include_images": true,
+    "max_image_size_kb": 200,
+    "archive_enabled": true
+  },
+
+  "multilingual_content": {
+    "enabled": true,
+    "languages": [
+      {
+        "code": "pt-BR",
+        "name": "Português Brasileiro",
+        "phrases": {
+          "good_morning": "Bom dia!",
+          "have_great_day": "Tenha um ótimo dia!"
+        }
+      },
+      {
+        "code": "en",
+        "name": "English",
+        "phrases": {
+          "good_morning": "Good morning!",
+          "have_great_day": "Have a great day!"
+        }
+      },
+      {
+        "code": "ja",
+        "name": "日本語",
+        "phrases": {
+          "good_morning": "おはようございます",
+          "have_great_day": "良い一日を過ごしてね"
+        }
+      },
+      {
+        "code": "nl",
+        "name": "Nederlands",
+        "phrases": {
+          "good_morning": "Goedemorgen!",
+          "have_great_day": "Fijne dag!"
+        }
+      },
+      {
+        "code": "pl",
+        "name": "Polski",
+        "phrases": {
+          "good_morning": "Dzień dobry!",
+          "have_great_day": "Miłego dnia!"
+        }
+      }
+    ]
+  },
+
+  "archive": {
+    "enabled": true,
+    "path": "_site/journal/archive/",
+    "format": "YYYY-MM-DD.html",
+    "index_enabled": true
+  },
+
+  "settings": {
+    "source_attribution": true,
+    "include_reading_time": false,
+    "dark_mode_enabled": false,
+    "kindle_optimization": true,
+    "max_images_per_article": 1,
+    "min_article_length_words": 100
+  }
+}

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Matinal — Jornal Pessoal</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f2e8d5;
+    --paper-dark: #e8d9b8;
+    --ink: #1a1008;
+    --ink-mid: #3d2b10;
+    --ink-light: #6b4f2a;
+    --red: #8b1a1a;
+    --rule: #3d2b10;
+    --col-gap: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IM Fell English', 'Libre Baskerville', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8px 12px 40px;
+    /* Aged paper texture */
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(61,43,16,0.04) 27px, rgba(61,43,16,0.04) 28px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  /* ── API KEY MODAL ── */
+  #api-modal {
+    position: fixed; inset: 0; background: rgba(26,16,8,0.85);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000; padding: 20px;
+  }
+  #api-modal.hidden { display: none; }
+  .modal-box {
+    background: var(--paper);
+    border: 3px double var(--rule);
+    padding: 32px 28px;
+    max-width: 420px; width: 100%;
+    text-align: center;
+  }
+  .modal-box h2 {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 28px; color: var(--red);
+    margin-bottom: 8px;
+  }
+  .modal-box p { font-style: italic; font-size: 13px; color: var(--ink-mid); margin-bottom: 20px; }
+  .modal-box input {
+    width: 100%; padding: 8px 10px;
+    border: 1px solid var(--rule);
+    background: #fffdf7;
+    font-family: monospace; font-size: 13px;
+    color: var(--ink); margin-bottom: 12px;
+  }
+  .modal-box label { font-size: 12px; color: var(--ink-light); display: flex; align-items: center; gap: 6px; justify-content: center; margin-bottom: 16px; }
+  .btn-primary {
+    background: var(--ink); color: var(--paper);
+    border: none; padding: 10px 28px;
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 1px;
+    cursor: pointer; width: 100%;
+  }
+  .btn-primary:hover { background: var(--red); }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    border-top: 4px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 6px 0 4px;
+    margin-bottom: 3px;
+    position: relative;
+  }
+  .masthead-top {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; font-family: 'Libre Baskerville', serif;
+    color: var(--ink-mid); padding: 0 4px;
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 5px;
+  }
+  .title-main {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: clamp(42px, 9vw, 80px);
+    color: var(--ink); line-height: 1;
+    letter-spacing: -1px;
+  }
+  .masthead-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--ink-mid); margin-top: 2px;
+  }
+  .masthead-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 5px 0 0;
+  }
+  hr.double {
+    border: none;
+    border-top: 3px double var(--rule);
+    margin: 4px 0;
+  }
+
+  /* ── NAV LINKS ── */
+  .nav-links {
+    display: flex; flex-wrap: wrap; gap: 4px 12px;
+    justify-content: center;
+    padding: 5px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 3px double var(--rule);
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 1px;
+  }
+  .nav-links a {
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--red); text-decoration: underline; }
+  .nav-sep { color: var(--rule); }
+
+  /* ── LOADING STATE ── */
+  #loading-screen {
+    text-align: center; padding: 60px 20px;
+  }
+  #loading-screen h2 {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 32px; color: var(--red); margin-bottom: 12px;
+  }
+  .loading-dots span {
+    display: inline-block; width: 8px; height: 8px;
+    background: var(--ink-mid); border-radius: 50%; margin: 0 3px;
+    animation: bounce 1.2s infinite;
+  }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-8px)} }
+  .loading-progress { font-style: italic; color: var(--ink-light); font-size: 13px; margin-top: 16px; }
+
+  /* ── PAPER LAYOUT ── */
+  #paper { display: none; }
+  #paper.visible { display: block; }
+
+  /* ── SECTION HEADERS ── */
+  .section-head {
+    text-align: center;
+    margin: 16px 0 8px;
+    position: relative;
+  }
+  .section-head::before {
+    content: '';
+    position: absolute; top: 50%;
+    left: 0; right: 0;
+    border-top: 1px solid var(--rule);
+    z-index: 0;
+  }
+  .section-head span {
+    position: relative; z-index: 1;
+    background: var(--paper);
+    padding: 0 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--ink-mid); text-transform: uppercase;
+  }
+
+  .section-rule {
+    border: none;
+    border-top: 2px solid var(--rule);
+    margin: 6px 0 10px;
+  }
+
+  /* ── COLUMNS ── */
+  .cols-2 { columns: 2; column-gap: var(--col-gap); column-rule: 1px solid var(--rule); }
+  .cols-3 { columns: 3; column-gap: var(--col-gap); column-rule: 1px solid var(--rule); }
+  .cols-4 { columns: 4; column-gap: var(--col-gap); column-rule: 1px solid var(--rule); }
+  @media (max-width: 600px) {
+    .cols-2, .cols-3, .cols-4 { columns: 1; }
+  }
+
+  /* ── ARTICLE STYLES ── */
+  .article { break-inside: avoid; margin-bottom: 14px; }
+  .article-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700;
+    line-height: 1.2; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .article-headline.large {
+    font-size: 22px; font-weight: 900;
+  }
+  .article-headline.xl {
+    font-size: clamp(18px, 4vw, 28px);
+    font-weight: 900;
+  }
+  .article-subhead {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 11px; font-style: italic;
+    color: var(--ink-mid); margin-bottom: 5px;
+    border-bottom: 1px solid var(--paper-dark);
+    padding-bottom: 4px;
+  }
+  .article-byline {
+    font-family: 'Cinzel', serif;
+    font-size: 9px; letter-spacing: 1px;
+    color: var(--ink-light); margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .article p {
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .article p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    float: left; font-size: 38px; line-height: 0.8;
+    font-weight: 900; margin-right: 4px; margin-top: 4px;
+    color: var(--ink);
+  }
+  .article.no-dropcap p:first-of-type::first-letter {
+    float: none; font-size: inherit; line-height: inherit;
+    font-weight: inherit; margin: 0; color: inherit;
+  }
+
+  /* ── FEATURE BOX ── */
+  .feature-box {
+    border: 2px solid var(--rule);
+    padding: 10px 12px; margin-bottom: 14px;
+    break-inside: avoid;
+    background: rgba(61,43,16,0.04);
+  }
+  .feature-box .article-headline { font-size: 16px; }
+
+  /* ── JOKE SECTION ── */
+  .joke-item {
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 8px; margin-bottom: 8px;
+    break-inside: avoid;
+  }
+  .joke-item strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; font-style: italic;
+  }
+  .joke-item .resposta {
+    color: var(--red); font-style: italic; font-size: 12px; margin-top: 3px;
+  }
+
+  /* ── GAME SECTION ── */
+  .game-box {
+    border: 3px double var(--rule);
+    padding: 14px; margin-bottom: 14px;
+    break-inside: avoid;
+  }
+  .game-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px; letter-spacing: 2px;
+    text-align: center; margin-bottom: 10px;
+    color: var(--red);
+  }
+  .game-box pre, .game-box .puzzle-text {
+    font-family: 'Courier New', monospace;
+    font-size: 11px; line-height: 1.6;
+    white-space: pre-wrap; word-break: break-word;
+  }
+  .spoiler {
+    background: var(--ink); color: var(--ink);
+    cursor: pointer; padding: 0 4px;
+    border-radius: 2px; transition: background 0.3s;
+    display: inline-block; margin-top: 6px;
+    font-size: 12px;
+  }
+  .spoiler:hover, .spoiler.revealed { background: var(--paper-dark); color: var(--ink); }
+  .spoiler::before { content: '▶ Revelar Resposta'; }
+  .spoiler.revealed::before { content: ''; }
+
+  /* ── WORD OF THE DAY ── */
+  .word-box {
+    text-align: center; break-inside: avoid;
+    border: 1px solid var(--rule); padding: 10px;
+    margin-bottom: 10px;
+  }
+  .word-lang {
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 2px; color: var(--ink-light);
+    text-transform: uppercase;
+  }
+  .word-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 900; color: var(--red);
+    line-height: 1.1;
+  }
+  .word-pron { font-size: 11px; color: var(--ink-mid); font-style: italic; }
+  .word-def { font-size: 12px; margin-top: 5px; text-align: left; }
+
+  /* ── EFEMÉRIDE ── */
+  .efemeride {
+    background: rgba(139,26,26,0.07);
+    border-left: 3px solid var(--red);
+    padding: 8px 12px; margin-bottom: 10px;
+    break-inside: avoid;
+  }
+  .efemeride-date {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 2px; color: var(--red);
+    margin-bottom: 3px;
+  }
+
+  /* ── TRIVIA ── */
+  .trivia-item { break-inside: avoid; margin-bottom: 10px; }
+  .trivia-q {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 13px; margin-bottom: 3px;
+  }
+  .trivia-a {
+    font-size: 12px; color: var(--ink-mid);
+  }
+
+  /* ── ANAGRAM PUZZLE ── */
+  .anagram-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 900;
+    letter-spacing: 8px; text-align: center;
+    color: var(--red); margin: 10px 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px double var(--rule);
+    margin-top: 30px; padding-top: 8px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 9px; letter-spacing: 2px;
+    color: var(--ink-light);
+  }
+  footer p { margin-bottom: 3px; }
+
+  /* ── ERROR ── */
+  .error-box {
+    border: 2px solid var(--red); padding: 12px;
+    color: var(--red); font-style: italic; font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  /* Kindle-friendly tap targets */
+  a { color: var(--ink-mid); }
+  a:hover { color: var(--red); }
+
+  /* Ornamental dividers */
+  .ornament {
+    text-align: center; font-size: 16px;
+    color: var(--ink-mid); margin: 6px 0;
+    letter-spacing: 4px;
+  }
+
+  /* Print / small screen adjustments */
+  @media (max-width: 480px) {
+    .title-main { font-size: 48px; }
+    body { padding: 6px 8px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── API KEY MODAL ── -->
+<div id="api-modal">
+  <div class="modal-box">
+    <h2>O Matinal</h2>
+    <p>Jornal Pessoal · Edição Matutina<br>Insira a sua chave da API Anthropic para gerar a edição de hoje.</p>
+    <input type="password" id="api-key-input" placeholder="sk-ant-..." autocomplete="off">
+    <label>
+      <input type="checkbox" id="remember-key">
+      Lembrar nesta sessão
+    </label>
+    <button class="btn-primary" onclick="startJornal()">✦ Abrir o Jornal ✦</button>
+    <p style="margin-top:14px;font-size:10px;color:var(--ink-light)">
+      A chave nunca sai do seu dispositivo.<br>
+      Pode também adicioná-la ao URL após o #<br>
+      <em>ex: jornal/index.html#sk-ant-...</em>
+    </p>
+  </div>
+</div>
+
+<!-- ── MASTHEAD ── -->
+<header class="masthead">
+  <div class="masthead-top">
+    <span id="hdr-edicao">Edição Nº 1</span>
+    <span>✦ Fundado em MMXXV ✦</span>
+    <span id="hdr-data">—</span>
+  </div>
+  <div class="title-main">O Matinal</div>
+  <div class="masthead-subtitle">JORNAL PESSOAL DE LEITURA MATUTINA · RIO DE JANEIRO &amp; SERGIPE &amp; HELMOND</div>
+  <hr class="double">
+</header>
+
+<!-- ── NAV ── -->
+<nav class="nav-links">
+  <a href="#sec-brasil">Brasil &amp; Mundo</a><span class="nav-sep">·</span>
+  <a href="#sec-tecia">Tecnologia &amp; IA</a><span class="nav-sep">·</span>
+  <a href="#sec-historia">História &amp; Cultura</a><span class="nav-sep">·</span>
+  <a href="#sec-ciencia">Ciência &amp; Natureza</a><span class="nav-sep">·</span>
+  <a href="#sec-literatura">Literatura &amp; Arte</a><span class="nav-sep">·</span>
+  <a href="#sec-linguas">Línguas do Mundo</a><span class="nav-sep">·</span>
+  <a href="#sec-passatempo">Passatempo</a><span class="nav-sep">·</span>
+  <a href="#sec-humor">Humor</a>
+</nav>
+
+<!-- ── LOADING ── -->
+<div id="loading-screen">
+  <h2>Compondo a Edição de Hoje…</h2>
+  <div class="loading-dots"><span></span><span></span><span></span></div>
+  <p class="loading-progress" id="loading-msg">Aguardando a chave da API…</p>
+</div>
+
+<!-- ── MAIN PAPER ── -->
+<main id="paper">
+
+  <!-- PRIMEIRA PÁGINA -->
+  <section id="sec-brasil">
+    <div class="section-head"><span>✦ Brasil &amp; Mundo · Sergipe · Política &amp; Economia ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-brasil" class="cols-3"></div>
+  </section>
+
+  <!-- TECNOLOGIA & IA -->
+  <section id="sec-tecia">
+    <div class="section-head"><span>✦ Tecnologia &amp; Inteligência Artificial ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-tecia" class="cols-2"></div>
+  </section>
+
+  <!-- HISTÓRIA & CULTURA -->
+  <section id="sec-historia">
+    <div class="section-head"><span>✦ História, Cultura &amp; Holanda ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-historia" class="cols-2"></div>
+  </section>
+
+  <!-- CIÊNCIA -->
+  <section id="sec-ciencia">
+    <div class="section-head"><span>✦ Ciência &amp; Natureza ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-ciencia" class="cols-2"></div>
+  </section>
+
+  <!-- LITERATURA & ARTE -->
+  <section id="sec-literatura">
+    <div class="section-head"><span>✦ Literatura &amp; Arte ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-literatura" class="cols-2"></div>
+  </section>
+
+  <!-- JAPÃO -->
+  <section id="sec-japao">
+    <div class="section-head"><span>✦ Japão &amp; Oriente ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-japao" class="cols-2"></div>
+  </section>
+
+  <!-- LÍNGUAS -->
+  <section id="sec-linguas">
+    <div class="section-head"><span>✦ Línguas do Mundo — 言語 · Taal · Język ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-linguas" class="cols-2"></div>
+  </section>
+
+  <!-- PASSATEMPO -->
+  <section id="sec-passatempo">
+    <div class="section-head"><span>✦ Passatempo, Trivia &amp; Enigmas ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-passatempo" class="cols-2"></div>
+  </section>
+
+  <!-- HUMOR -->
+  <section id="sec-humor">
+    <div class="section-head"><span>✦ Humor &amp; Galhofa ✦</span></div>
+    <hr class="section-rule">
+    <div id="content-humor" class="cols-3"></div>
+  </section>
+
+  <div class="ornament">— ✦ — ✦ — ✦ —</div>
+
+</main>
+
+<footer>
+  <p>O MATINAL · JORNAL PESSOAL DE LEITURA MATUTINA</p>
+  <p>Gerado com Inteligência Artificial · Anthropic Claude · Uso Exclusivamente Privado</p>
+  <p id="footer-data">—</p>
+</footer>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────────────────────
+const TODAY = new Date();
+const DATA_PT = TODAY.toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+const DATA_SHORT = TODAY.toLocaleDateString('pt-BR');
+const EDICAO = Math.floor((TODAY - new Date('2025-01-01')) / 86400000) + 1;
+
+// ── INIT ─────────────────────────────────────────────────────────────────
+document.getElementById('hdr-data').textContent = DATA_PT;
+document.getElementById('hdr-edicao').textContent = `Edição Nº ${EDICAO}`;
+document.getElementById('footer-data').textContent = `${DATA_PT} · Gerado Automaticamente`;
+
+// Check URL hash for API key (convenience bookmark method)
+(function checkHashKey() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash && hash.startsWith('sk-')) {
+    document.getElementById('api-key-input').value = hash;
+  }
+})();
+
+function startJornal() {
+  const key = document.getElementById('api-key-input').value.trim();
+  if (!key) { alert('Por favor insira a chave da API.'); return; }
+  document.getElementById('api-modal').classList.add('hidden');
+  document.getElementById('loading-screen').style.display = 'block';
+  generateJornal(key);
+}
+
+// ── API HELPER ────────────────────────────────────────────────────────────
+async function callClaude(apiKey, systemPrompt, userPrompt, maxTokens = 1200) {
+  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: maxTokens,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userPrompt }]
+    })
+  });
+  if (!resp.ok) throw new Error(`API error ${resp.status}`);
+  const data = await resp.json();
+  return data.content[0].text;
+}
+
+// ── SYSTEM PROMPT ─────────────────────────────────────────────────────────
+const SISTEMA = `Você é o redator de "O Matinal", um jornal pessoal de leitura matutina estilizado ao modo dos jornais brasileiros do início do século XX, especialmente "O Malho". 
+Escreva sempre em Português do Brasil, culto mas acessível, com ligeiro sabor literário e elegante, no espírito do bom jornalismo da Belle Époque brasileira.
+Responda APENAS com o JSON solicitado, sem blocos de código ou texto extra. O JSON deve ser válido.
+Data de hoje: ${DATA_PT}.`;
+
+// ── SECTION GENERATORS ───────────────────────────────────────────────────
+
+async function genBrasil(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere 3 artigos curtos para a seção "Brasil & Mundo / Sergipe / Política & Economia".
+Inclua: 1 artigo sobre notícias gerais do Brasil, 1 sobre Sergipe (curiosidades, história, ou notícia regional), 1 sobre política/economia brasileira ou mundial.
+Os textos devem ser informativos, equilibrados, com 3-4 parágrafos curtos cada.
+Retorne JSON: {"artigos":[{"manchete":"...","subtitulo":"...","corpo":"..."},...]}`
+  , 1400);
+  const { artigos } = JSON.parse(txt);
+  return artigos.map((a, i) => `
+    <div class="article ${i === 0 ? '' : 'no-dropcap'}">
+      <div class="article-headline ${i === 0 ? 'large' : ''}">${a.manchete}</div>
+      <div class="article-subhead">${a.subtitulo}</div>
+      <div class="article-byline">Redação · ${DATA_SHORT}</div>
+      ${a.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `).join('<div class="ornament" style="font-size:10px">— ✦ —</div>');
+}
+
+async function genTecia(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere 2 artigos para "Tecnologia & Inteligência Artificial".
+1º: sobre IA ou tecnologia (tendências, conceitos, curiosidades, impacto social).
+2º: uma efeméride ou curiosidade histórica da tecnologia.
+Retorne JSON: {"artigos":[{"manchete":"...","subtitulo":"...","corpo":"..."},...]}`
+  , 1200);
+  const { artigos } = JSON.parse(txt);
+  return artigos.map((a, i) => `
+    <div class="article ${i > 0 ? 'no-dropcap' : ''}">
+      <div class="article-headline">${a.manchete}</div>
+      <div class="article-subhead">${a.subtitulo}</div>
+      ${a.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `).join('<hr style="border:none;border-top:1px dashed var(--rule);margin:10px 0">');
+}
+
+async function genHistoria(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere conteúdo para "História, Cultura & Holanda":
+1. Um artigo sobre história do Brasil ou do mundo (período pré-1950 preferencialmente).
+2. Uma nota sobre Holanda (Helmond, Eindhoven, ou Países Baixos em geral) — história, curiosidade, cultura, ou notícia.
+3. Uma efeméride: o que aconteceu hoje (${DATA_PT}) na história?
+Retorne JSON: {"artigo":{"manchete":"...","subtitulo":"...","corpo":"..."},"holanda":{"manchete":"...","corpo":"..."},"efemeride":{"evento":"...","ano":"...","descricao":"..."}}`
+  , 1300);
+  const d = JSON.parse(txt);
+  return `
+    <div class="article">
+      <div class="article-headline large">${d.artigo.manchete}</div>
+      <div class="article-subhead">${d.artigo.subtitulo}</div>
+      ${d.artigo.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+    <div class="efemeride">
+      <div class="efemeride-date">✦ EFEMÉRIDE · ${DATA_PT}</div>
+      <strong>${d.efemeride.evento} (${d.efemeride.ano})</strong>
+      <p style="font-size:12px;margin-top:4px">${d.efemeride.descricao}</p>
+    </div>
+    <div class="feature-box article no-dropcap">
+      <div class="article-headline">🌷 ${d.holanda.manchete}</div>
+      ${d.holanda.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `;
+}
+
+async function genCiencia(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere 2 artigos para "Ciência & Natureza":
+1. Uma descoberta ou conceito científico interessante (pode ser recente ou histórico).
+2. Uma curiosidade da natureza, biologia, astronomia ou física — algo que surpreenda.
+Retorne JSON: {"artigos":[{"manchete":"...","subtitulo":"...","corpo":"..."},...]}`
+  , 1200);
+  const { artigos } = JSON.parse(txt);
+  return artigos.map(a => `
+    <div class="article">
+      <div class="article-headline">${a.manchete}</div>
+      <div class="article-subhead">${a.subtitulo}</div>
+      ${a.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `).join('<hr style="border:none;border-top:1px dashed var(--rule);margin:10px 0">');
+}
+
+async function genLiteratura(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere conteúdo para "Literatura & Arte":
+1. Um artigo sobre um livro, autor, ou movimento literário interessante (brasileiro ou mundial).
+2. Uma nota sobre arte, música clássica, ou cinema de valor cultural.
+Retorne JSON: {"artigos":[{"manchete":"...","subtitulo":"...","corpo":"..."},...]}`
+  , 1200);
+  const { artigos } = JSON.parse(txt);
+  return artigos.map(a => `
+    <div class="article">
+      <div class="article-headline">${a.manchete}</div>
+      <div class="article-subhead">${a.subtitulo}</div>
+      ${a.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `).join('<hr style="border:none;border-top:1px dashed var(--rule);margin:10px 0">');
+}
+
+async function genJapao(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere conteúdo sobre Japão:
+1. Um artigo sobre Japão (cultura, história, tecnologia, sociedade, ou curiosidade).
+2. Uma palavra ou expressão japonesa do dia: a palavra em japonês (com furigana/romaji), significado, e um exemplo de uso em PT-BR.
+Retorne JSON: {"artigo":{"manchete":"...","subtitulo":"...","corpo":"..."},"palavra":{"kanji":"...","romaji":"...","significado":"...","exemplo":"..."}}`
+  , 1000);
+  const d = JSON.parse(txt);
+  return `
+    <div class="article">
+      <div class="article-headline">${d.artigo.manchete}</div>
+      <div class="article-subhead">${d.artigo.subtitulo}</div>
+      ${d.artigo.corpo.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+    <div class="word-box">
+      <div class="word-lang">🇯🇵 Palavra Japonesa do Dia</div>
+      <div class="word-main">${d.palavra.kanji}</div>
+      <div class="word-pron">${d.palavra.romaji}</div>
+      <div class="word-def"><strong>Significado:</strong> ${d.palavra.significado}<br><em>${d.palavra.exemplo}</em></div>
+    </div>
+  `;
+}
+
+async function genLinguas(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere "Palavras do Dia" em 3 idiomas: Inglês, Holandês, e Polonês.
+Para cada: a palavra no idioma original, pronúncia (fonética simples), classe gramatical, tradução PT-BR, e uma frase de exemplo em PT-BR.
+Também gere uma nota curta (2 parágrafos) sobre curiosidade linguística de um desses idiomas ou sobre aprendizado de idiomas.
+Retorne JSON: {"palavras":[{"idioma":"Inglês","bandeira":"🇬🇧","palavra":"...","pronuncia":"...","classe":"...","traducao":"...","exemplo":"..."},{"idioma":"Holandês","bandeira":"🇳🇱",...},{"idioma":"Polonês","bandeira":"🇵🇱",...}],"nota":{"titulo":"...","texto":"..."}}`
+  , 1000);
+  const d = JSON.parse(txt);
+  const palavrasHtml = d.palavras.map(p => `
+    <div class="word-box">
+      <div class="word-lang">${p.bandeira} Palavra ${p.idioma} do Dia</div>
+      <div class="word-main">${p.palavra}</div>
+      <div class="word-pron">[${p.pronuncia}] · <em>${p.classe}</em></div>
+      <div class="word-def"><strong>${p.traducao}</strong><br><em>"${p.exemplo}"</em></div>
+    </div>
+  `).join('');
+  const notaHtml = `
+    <div class="article no-dropcap">
+      <div class="article-headline">${d.nota.titulo}</div>
+      ${d.nota.texto.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `;
+  return `<div style="break-inside:avoid">${palavrasHtml}</div>${notaHtml}`;
+}
+
+async function genPassatempo(key) {
+  // Rotate game type based on day of week
+  const dow = TODAY.getDay(); // 0=Sun,1=Mon...
+  const tipos = ['trivia', 'anagrama', 'enigma', 'charada', 'trivia', 'anagrama', 'enigma'];
+  const tipo = tipos[dow];
+
+  let prompt, parser;
+
+  if (tipo === 'trivia') {
+    prompt = `Gere 5 perguntas de trivia variadas (história, ciência, cultura, Japão, Brasil, etc.) com respostas.
+Retorne JSON: {"tipo":"trivia","itens":[{"pergunta":"...","resposta":"..."},...]}`
+    parser = (d) => {
+      const items = d.itens.map(t => `
+        <div class="trivia-item">
+          <div class="trivia-q">— ${t.pergunta}</div>
+          <div class="trivia-a">↳ ${t.resposta}</div>
+        </div>
+      `).join('');
+      return `<div class="game-box"><div class="game-title">✦ TRIVIA DO DIA ✦</div>${items}</div>`;
+    };
+  } else if (tipo === 'anagrama') {
+    prompt = `Crie um passatempo de anagramas: 5 palavras em português embaralhadas. O leitor deve descobrir a palavra original.
+Retorne JSON: {"tipo":"anagrama","itens":[{"embaralhada":"...","original":"...","dica":"..."},...]}`
+    parser = (d) => {
+      const items = d.itens.map(t => `
+        <div style="break-inside:avoid;margin-bottom:12px">
+          <div class="anagram-word">${t.embaralhada.toUpperCase()}</div>
+          <div style="text-align:center;font-size:11px;color:var(--ink-mid);margin-bottom:4px"><em>Dica: ${t.dica}</em></div>
+          <div style="text-align:center"><span class="spoiler" onclick="this.classList.add('revealed');this.textContent='${t.original.toUpperCase()}'"></span></div>
+        </div>
+      `).join('<hr style="border:none;border-top:1px dashed var(--rule);margin:8px 0">');
+      return `<div class="game-box"><div class="game-title">✦ ANAGRAMAS ✦</div>${items}</div>`;
+    };
+  } else if (tipo === 'charada') {
+    prompt = `Crie 4 charadas clássicas brasileiras (podem ser de conhecimento geral ou inventadas no espírito das charadas tradicionais).
+Retorne JSON: {"tipo":"charada","itens":[{"charada":"...","resposta":"..."},...]}`
+    parser = (d) => {
+      const items = d.itens.map(t => `
+        <div class="joke-item">
+          <strong>${t.charada}</strong>
+          <div class="resposta"><span class="spoiler" onclick="this.classList.add('revealed');this.textContent='R: ${t.resposta}'"></span></div>
+        </div>
+      `).join('');
+      return `<div class="game-box"><div class="game-title">✦ CHARADAS ✦</div>${items}</div>`;
+    };
+  } else {
+    prompt = `Crie um enigma lógico de dificuldade média, adequado para leitura matutina. Explique claramente o problema.
+Retorne JSON: {"tipo":"enigma","titulo":"...","enunciado":"...","solucao":"...","explicacao":"..."}`
+    parser = (d) => {
+      return `<div class="game-box">
+        <div class="game-title">✦ ENIGMA DO DIA ✦</div>
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:14px;margin-bottom:10px">${d.titulo}</div>
+        <p style="font-size:13px;margin-bottom:12px">${d.enunciado}</p>
+        <span class="spoiler" onclick="this.classList.add('revealed');this.innerHTML='<strong>Solução:</strong> ${d.solucao.replace(/'/g,"&#39;")}<br><em>${d.explicacao.replace(/'/g,"&#39;")}</em>'"></span>
+      </div>`;
+    };
+  }
+
+  // Also add a word search (caça-palavras style list)
+  const txt = await callClaude(key, SISTEMA, prompt, 800);
+  const d = JSON.parse(txt);
+  return parser(d);
+}
+
+async function genHumor(key) {
+  const txt = await callClaude(key, SISTEMA, `
+Gere conteúdo para a seção de Humor:
+1. Três piadas curtas e elegantes (sem grosserias), no estilo do humor inteligente brasileiro.
+2. Uma "Pérola do Dia" — uma citação engraçada ou irônica de algum personagem histórico ou fictício.
+3. Uma anedota curta de 2-3 parágrafos, bem contada.
+Retorne JSON: {"piadas":[{"texto":"...","resposta":"..."},...],"perola":{"texto":"...","autor":"..."},"anedota":{"titulo":"...","texto":"..."}}`
+  , 1000);
+  const d = JSON.parse(txt);
+
+  const piadasHtml = d.piadas.map(p => `
+    <div class="joke-item">
+      <strong>${p.texto}</strong>
+      ${p.resposta ? `<div class="resposta">— ${p.resposta}</div>` : ''}
+    </div>
+  `).join('');
+
+  return `
+    <div class="article no-dropcap">
+      <div class="article-headline">Piadas &amp; Ditos</div>
+      ${piadasHtml}
+    </div>
+    <div class="feature-box article no-dropcap">
+      <div class="article-headline">Pérola do Dia</div>
+      <p style="font-style:italic;font-size:14px">"${d.perola.texto}"</p>
+      <div class="article-byline">— ${d.perola.autor}</div>
+    </div>
+    <div class="article no-dropcap">
+      <div class="article-headline">${d.anedota.titulo}</div>
+      ${d.anedota.texto.split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}
+    </div>
+  `;
+}
+
+// ── MAIN ORCHESTRATOR ────────────────────────────────────────────────────
+async function generateJornal(apiKey) {
+  const sections = [
+    { id: 'brasil',      label: 'Brasil & Mundo',        fn: genBrasil },
+    { id: 'tecia',       label: 'Tecnologia & IA',        fn: genTecia },
+    { id: 'historia',    label: 'História & Cultura',     fn: genHistoria },
+    { id: 'ciencia',     label: 'Ciência & Natureza',     fn: genCiencia },
+    { id: 'literatura',  label: 'Literatura & Arte',      fn: genLiteratura },
+    { id: 'japao',       label: 'Japão',                  fn: genJapao },
+    { id: 'linguas',     label: 'Línguas do Mundo',       fn: genLinguas },
+    { id: 'passatempo',  label: 'Passatempo',             fn: genPassatempo },
+    { id: 'humor',       label: 'Humor & Galhofa',        fn: genHumor },
+  ];
+
+  const msg = document.getElementById('loading-msg');
+  let done = 0;
+
+  // Run sequentially to avoid rate limits
+  for (const sec of sections) {
+    msg.textContent = `Redigindo: ${sec.label}… (${done + 1}/${sections.length})`;
+    try {
+      const html = await sec.fn(apiKey);
+      document.getElementById(`content-${sec.id}`).innerHTML = html;
+    } catch (e) {
+      document.getElementById(`content-${sec.id}`).innerHTML =
+        `<div class="error-box">Erro ao gerar esta seção: ${e.message}</div>`;
+    }
+    done++;
+  }
+
+  document.getElementById('loading-screen').style.display = 'none';
+  document.getElementById('paper').classList.add('visible');
+}
+</script>
+</body>
+</html>

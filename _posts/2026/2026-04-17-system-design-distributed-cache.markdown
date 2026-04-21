@@ -4,6 +4,7 @@ title: "System Design: Distributed Cache — Consistent Hashing, Eviction, and B
 date: 2026-04-17 10:00:00 +0000
 categories: ["post"]
 tags: [system-design, cache, consistent-hashing, redis, interview]
+series: "System Design Interview Series"
 ---
 
 {: class="marginalia" }

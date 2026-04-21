@@ -4,6 +4,7 @@ title: "System Design: Distributed Transactions — 2PC, Saga Pattern, and Event
 date: 2026-05-17 10:00:00 +0000
 categories: ["post"]
 tags: [system-design, transactions, saga, event-sourcing, distributed-systems, interview]
+series: "System Design Interview Series"
 ---
 
 <div style="display:inline-flex;align-items:center;gap:.5rem;background:#1e1f24;border:1px solid #2e2f35;border-radius:20px;padding:5px 14px;font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:1.5rem;">

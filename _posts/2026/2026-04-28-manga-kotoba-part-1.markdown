@@ -2,6 +2,7 @@
 layout: post
 title: "Manga Kotoba, Part 1: From Zero to First iOS Screen"
 date: 2026-04-28 10:00:00 +0000
+categories: ["post"]
 tags: [ios, swift, swiftui, japanese, manga, learning]
 series: manga-kotoba
 ---
