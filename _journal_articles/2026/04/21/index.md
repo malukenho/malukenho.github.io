@@ -117,11 +117,11 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Em Hannover, Lula e Merz ensaiam diálogo entre potências médias</div>
+    <div class="article-headline">Chefe da Comissão Eleitoral do Peru renuncia enquanto a contagem de votos se arrasta</div>
     <div class="article-subhead">Folha - Mundo</div>
     
-    <p>Luiz Inácio Lula da Silva (PT) claramente elegeu dois assuntos para martelar em sua visita à Alemanha, nesta semana: biocombustíveis e os reflexos da guerra do Irã no cenário global. Friedrich Merz não se esquivou do segundo tema, mas preferiu o primeiro. Em um ato mais necessário do que natural, Brasil e Alemanha ensaiaram o diálogo da vez no cenário internacional, a união de potências médias. Leia mais (04/21/2026 - 16h47)</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/em-hannover-lula-e-merz-ensaiam-dialogo-entre-potencias-medias.shtml" class="article-link">Leia na fonte →</a>
+    <p>O chefe da Comissão Eleitoral do Peru, Piero Corvetto, renunciou, nesta terça-feira (21), em meio à crescente pressão sobre os resultados, que estão atrasados, das eleições gerais de 12 de abril no país. Leia mais (04/21/2026 - 17h45)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/chefe-da-comissao-eleitoral-do-peru-renuncia-enquanto-a-contagem-de-votos-se-arrasta.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Tecnologia & IA</span></div>
@@ -164,15 +164,15 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
-    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
-  </div>
-
-  <div class="joke-item">
     <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
   </div>
 
   <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
 </div>
