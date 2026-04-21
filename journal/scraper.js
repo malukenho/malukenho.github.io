@@ -198,9 +198,9 @@ async function fetchRSS(feed) {
         .replace(/\s+/g, ' ') // Normalize whitespace
         .trim();
       
-      // Keep more content: up to 800 characters (instead of 250) to get fuller articles
-      // This ensures we capture at least 2-3 sentences
-      description = description.substring(0, 800);
+      // Keep more content: up to 1500 characters to accommodate rewritten articles
+      // Rewritten articles in O Malho style are longer and more eloquent
+      description = description.substring(0, 1500);
       
       // Try to extract image from description or use placeholder
       let image = extractImageUrl(item);
@@ -377,9 +377,7 @@ async function main() {
   });
 
   // Reescreve artigos no estilo de O Malho (1902)
-  // Note: Desabilitado temporariamente - API key não autorizada para generateContent
-  // const rewrittenArticles = await rewriteAllArticles(allArticles);
-  const rewrittenArticles = allArticles;
+  const rewrittenArticles = await rewriteAllArticles(allArticles);
 
   // Coleta clima
   console.log('  • Coletando clima de Helmond...');
