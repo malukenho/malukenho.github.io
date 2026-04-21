@@ -89,7 +89,7 @@ permalink: /journal_articles/2026/04/21/
   <div class="article">
     <div class="article-headline">A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years</div>
     <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/guy-montgomery.jpg" alt="A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <img src="https://kotaku.com/app/uploads/2026/04/guy-montgomery.jpg" alt="A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years" style="width:100%;height:auto;margin:8px 0;display:block;object-fit:cover;">
     <p>A dreaded school competition has never been this entertaining.</p>
     <a href="https://kotaku.com/game-show-dropout-word-nerds-guy-montgomery-2000689430" class="article-link">Leia na fonte →</a>
   </div>
@@ -100,7 +100,7 @@ permalink: /journal_articles/2026/04/21/
   <div class="article">
     <div class="article-headline">All 3500 Dutch train conductors to have bodycams by end of year</div>
     <div class="article-subhead">DutchNews</div>
-    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/ANP-556361364-360x240.jpg" alt="All 3500 Dutch train conductors to have bodycams by end of year" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/ANP-556361364-360x240.jpg" alt="All 3500 Dutch train conductors to have bodycams by end of year" style="width:100%;height:auto;margin:8px 0;display:block;object-fit:cover;">
     <p>Train operator NS has begun equipping its conductors with bodycams in the hope of deterring aggression against its staff. A...</p>
     <a href="https://www.dutchnews.nl/2026/04/all-3500-dutch-train-conductors-to-have-bodycams-by-end-of-year/" class="article-link">Leia na fonte →</a>
   </div>
@@ -117,11 +117,11 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Chefe da Comissão Eleitoral do Peru renuncia enquanto a contagem de votos se arrasta</div>
+    <div class="article-headline">Hezbollah dispara foguetes contra Israel e acusa rival de violar cessar-fogo</div>
     <div class="article-subhead">Folha - Mundo</div>
     
-    <p>O chefe da Comissão Eleitoral do Peru, Piero Corvetto, renunciou, nesta terça-feira (21), em meio à crescente pressão sobre os resultados, que estão atrasados, das eleições gerais de 12 de abril no país. Leia mais (04/21/2026 - 17h45)</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/chefe-da-comissao-eleitoral-do-peru-renuncia-enquanto-a-contagem-de-votos-se-arrasta.shtml" class="article-link">Leia na fonte →</a>
+    <p>O grupo libanês Hezbollah afirmou ter disparado foguetes e drones contra o norte de Israel nesta terça-feira (21), acusando o Exército israelense de violar o cessar-fogo antes das negociações mediadas pelos Estados Unidos entre Tel Aviv e Beirute nesta semana. Leia mais (04/21/2026 - 18h03)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/hezbollah-dispara-foguetes-contra-israel-e-acusa-rival-de-violar-cessar-fogo.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Tecnologia & IA</span></div>
@@ -138,7 +138,7 @@ permalink: /journal_articles/2026/04/21/
   <div class="article">
     <div class="article-headline">Apple TV's Hit Show 'Silo' is Returning Soon: Release Date and Trailer</div>
     <div class="article-subhead">MacRumors</div>
-    <img src="https://images.macrumors.com/article-new/2026/04/Apple-TV-Silo.jpg" alt="Apple TV's Hit Show 'Silo' is Returning Soon: Release Date and Trailer" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <img src="https://images.macrumors.com/article-new/2026/04/Apple-TV-Silo.jpg" alt="Apple TV's Hit Show 'Silo' is Returning Soon: Release Date and Trailer" style="width:100%;height:auto;margin:8px 0;display:block;object-fit:cover;">
     <p>Apple today announced that its hit sci-fi series "Silo" is returning for a third season starting Friday, July 3, and it shared a teaser trailer. "Silo" follows the lives of 10,000 people living in an underground bunker to escape the seemingly toxic wasteland outside. The people are unaware of why the silo was built, and those who seek the truth face deadly consequences. Rebecca Ferguson stars as Juliette Nichols, an engineer who attempts to unravel the mysteries surrounding the silo following a loved one's murder. The show is based on Hugh Howey's best-selling book series, and it is one of the most popular original series on the Apple TV streaming service. The third season will have 10 episodes, with one released every Friday through September 4. Apple already renewed "Silo" for a fourth and final season as well. "With the final two chapters of 'Silo,' we can't wait to give fans of the show an incredibly satisfying conclusion to the many mysteries and unanswered questions contained within the walls of these silos," said showrunner and executive producer Graham Yost, regarding the third and fourth seasons of the show. About Season Three (Spoilers Ahead) Apple says the third season "continues the saga of a dystopian society." "In the present, Juliette Nichols (Rebecca Ferguson) survives her forced 'cleaning' but returns with memory loss as the silo recovers from rebellion and faces a dangerous new threat," says Apple. "Meanwhile, in the 'Before Times,' journalist Helen Drew (Jessica Henwick) and Congressman Daniel Keene (Ashley Zukerman) uncover a conspiracy that pulls them into a chain of events with catastrophic, irreversible consequences." Trailer Apple TV In the U.S., Apple TV is priced at &#36;12.99 per month or &#36;129 per year, with a free one-week trial available for new subscribers. Apple TV is also included in Apple One and Peacock bundles, with all of the options outlined on Apple's website. You can stream Apple TV in the Apple TV app, which is available on the iPhone, iPad, Mac, Apple TV 4K, Apple Vision Pro, Android, PlayStation, Xbox, Roku, Amazon Fire TV, select smart TVs, on the web at tv.apple.com, and more.Related Roundup: Apple TVTags: Apple TV Service, Apple TV ShowsBuyer's Guide: Apple TV (Don't Buy)Related Forum: Apple TV and Home TheaterThis article, "Apple TV&#039;s Hit Show &#039;Silo&#039; is Returning Soon: Release Date and Trailer" first appeared on MacRumors.comDiscuss this article in our forums</p>
     <a href="https://www.macrumors.com/2026/04/21/apple-tv-silo-season-three-release-date/" class="article-link">Leia na fonte →</a>
   </div>
@@ -156,7 +156,11 @@ permalink: /journal_articles/2026/04/21/
   <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
 
   <div class="joke-item">
-    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
   </div>
 
   <div class="joke-item">
@@ -164,15 +168,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+    <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
   </div>
 
   <div class="joke-item">
-    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
   </div>
 
 </div>
