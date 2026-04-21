@@ -11,6 +11,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchJokes } from './jokes-scraper.js';
+import { generateAndSaveWeatherImage } from './weather-image-generator.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -199,7 +200,7 @@ async function fetchRSS(feed) {
   }
 }
 
-function generateNewspaperMarkdown(allArticles, jokes, weather) {
+function generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage) {
   const today = new Date();
   const year = String(today.getFullYear());
   const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -243,10 +244,12 @@ permalink: /journal_articles/${year}/${month}/${day}/
 
   // Weather section if available
   if (weather) {
+    const weatherImagePath = weatherImage ? `../weather-image.svg` : '';
     markdown += `
   <div class="feature-box">
     <div class="article-headline">☀️ Clima em Helmond</div>
     <div class="article-subhead">${weather.location}</div>
+    ${weatherImage ? `<img src="${weatherImagePath}" alt="Clima: ${weather.description}" style="width:100%;height:auto;margin:8px 0;display:block;">` : ''}
     <p style="text-align: center; font-size: 20px; margin: 8px 0;">${weather.temp}°C</p>
     <p style="text-align: center; font-size: 13px; margin: 6px 0;">${weather.description}</p>
     <p style="text-align: center; font-size: 12px; color: var(--ink-mid);">
@@ -334,6 +337,16 @@ async function main() {
   console.log('  • Coletando clima de Helmond...');
   const weather = await fetchWeatherHelmond();
 
+  // Gera imagem de clima
+  let weatherImage = null;
+  if (weather) {
+    weatherImage = await generateAndSaveWeatherImage(
+      weather.description,
+      weather.temp,
+      articlesDir
+    );
+  }
+
   // Coleta piadas
   console.log('  • Coletando piadas de historiadoriso.com.br...');
   const jokes = await fetchJokes();
@@ -343,7 +356,7 @@ async function main() {
     console.log(`⚠️  Nenhum artigo coletado. Verificando feeds...\n`);
   }
 
-  const markdown = generateNewspaperMarkdown(allArticles, jokes, weather);
+  const markdown = generateNewspaperMarkdown(allArticles, jokes, weather, weatherImage);
 
   // Cria diretório
   await fs.mkdir(articlesDir, { recursive: true });
