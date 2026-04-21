@@ -4,7 +4,7 @@ date: 2026-04-21
 title: "O Matinal — terça-feira, 21 de abril de 2026"
 edition: "2026-04-21"
 sections: 7
-articles: 42
+articles: 14
 permalink: /journal_articles/2026/04/21/
 ---
 
@@ -22,27 +22,11 @@ permalink: /journal_articles/2026/04/21/
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Netflix Streams Akane-banashi Anime With English Dub/Sub on May 17</div>
+    <div class="article-headline">Abrams ComicArts' Kana Licenses Satoshi Morie's 'My Dear, A Mystery For You' Manga</div>
     <div class="article-subhead">ANN - Anime News</div>
     
-    <p>1st 2 episodes stream on Netflix on May 17</p>
-    <a href="https://www.animenewsnetwork.com/news/2026-04-21/netflix-streams-akane-banashi-anime-with-english-dub-sub-on-may-17/.236637" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Kodansha House, Anime Expo Host Blue Lock, Witch Hat Atelier Manga Creators</div>
-    <div class="article-subhead">ANN - Anime News</div>
-    
-    <p>Muneyuki Kaneshiro, Yusuke Nomura, Kamome Shirahama attend Kodansha House from July 2-12</p>
-    <a href="https://www.animenewsnetwork.com/news/2026-04-21/kodansha-house-anime-expo-host-blue-lock-witch-hat-atelier-manga-creators/.236636" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Ryuya Suzuki's Debut Feature Anime Film Jinsei Reveals English-Subtitled Trailer, June 5 U.S. Debut</div>
-    <div class="article-subhead">ANN - Anime News</div>
-    
-    <p>Film opens in NY theaters on June 5 before opening nationwide on June 12</p>
-    <a href="https://www.animenewsnetwork.com/news/2026-04-21/ryuya-suzuki-debut-feature-anime-film-jinsei-reveals-english-subtitled-trailer-june-5-u.s-debut/.236562" class="article-link">Leia na fonte →</a>
+    <p>Mystery manga ran from 2016-2018</p>
+    <a href="https://www.animenewsnetwork.com/news/2026-04-21/abrams-comicarts-kana-licenses-satoshi-morie-my-dear-a-mystery-for-you-manga/.236617" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -53,173 +37,61 @@ permalink: /journal_articles/2026/04/21/
     <a href="https://myanimelist.net/news/74156977?_location=rss" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="article">
-    <div class="article-headline">'Koko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita.' Announces Additional Cast</div>
-    <div class="article-subhead">MyAnimeList News</div>
-    
-    <p>The official website for the television anime adaptation of Ezogingitsune&#039;s Koko wa Ore ni Makasete Saki ni Ike to Itte kara 10-nen ga Tattara Densetsu ni Natteita. (I Became a Legend After My 10 Year-Long Last Stand.) light novel announced three additional cast members on Tuesday. The anime series was previously scheduled for an April 2026 premiere but is now rescheduled to debut in July 2026. Cast Arone: Wakana Maruoka (Shijou Saikyou no Daimaou, Murabito A ni Tensei suru) Ario: Yuuki Ter...</p>
-    <a href="https://myanimelist.net/news/74156811?_location=rss" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">'Sayonara Lara' Unveils Additional Cast, Opening Theme, Second Promo</div>
-    <div class="article-subhead">MyAnimeList News</div>
-    
-    <p>The official X (formerly Twitter) account of the Sayonara Lara (Goodbye, Lara) original television anime unveiled additional cast, opening theme, and the second promotional video on Friday. The original anime series is scheduled to premiere in July 2026. Cast Yoshiya Ootsu: Tomohiro Ono (Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari) Makoto Ootsu: Mitsuaki Madono (Saiunkoku Monogatari) Ema Ootsu: Nanae Sumitomo (Hotel Inhumans) Rowan: Masaki Terasoma (Shiunji-ke no Kodomotachi) Pop...</p>
-    <a href="https://myanimelist.net/news/74138764?_location=rss" class="article-link">Leia na fonte →</a>
-  </div>
-
   <div class="section-head"><span>Brasil</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">A influência do caso Master nas eleições</div>
+    <div class="article-headline">Como um brasileiro buscou apoio de Thomas Jefferson, autor da independência americana, para separar o Brasil de Portugal</div>
     <div class="article-subhead">Folha - Poder</div>
     
-    <p>Se estiverem certas as projeções correntes no meio jurídico, as delações premiadas de Daniel Vorcaro e companhia, se aceitas pela Polícia Federal, Ministério Público e Supremo Tribunal Federal, vão chegar ao conhecimento público no auge da campanha eleitoral. Leia mais (04/21/2026 - 15h30)</p>
-    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/dora-kramer/2026/04/a-influencia-do-caso-master-nas-eleicoes.shtml" class="article-link">Leia na fonte →</a>
+    <p>Uma turística visita às ruínas romanas da cidade de Nimes, no sul da França, serviu como subterfúgio para o encontro secreto entre o então embaixador norte-americano Thomas Jefferson (1743-1826), principal autor da declaração de Independência dos Estados Unidos, e o estudante brasileiro de medicina José Joaquim Maia e Barbalho (1757-1788), que usava o pseudônimo Vendek. Leia mais (04/21/2026 - 17h28)</p>
+    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/poder/2026/04/como-um-brasileiro-buscou-apoio-de-thomas-jefferson-autor-da-independencia-americana-para-separar-o-brasil-de-portugal.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Governador de MG diz ter 'inveja branca' de Tarcísio por nomear 1ª mulher chefe da PM; veja vídeo</div>
-    <div class="article-subhead">Folha - Poder</div>
-    
-    <p>O governador de Minas Gerais, Mateus Simões (PSD), disse nesta terça (21) ter "inveja branca" de seu homólogo paulista, Tarcísio de Freitas (Republicanos), por ter nomeado a primeira mulher como comandante-geral da Polícia Militar de São Paulo. Leia mais (04/21/2026 - 14h09)</p>
-    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/governador-de-mg-diz-ter-inveja-branca-de-tarcisio-por-nomear-1a-mulher-chefe-da-pm-veja-video.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Mulheres são minoria entre os servidores públicos mais bem remunerados</div>
-    <div class="article-subhead">Folha - Poder</div>
-    
-    <p>Um levantamento feito com base em dados do IBGE (Instituto Brasileiro de Geografia e Estatistica) aponta que a maioria dos servidores públicos que recebem mais de 20 salários mínimos é homem, enquanto as mulheres dominam a faixa dos que recebem até dois salários mínimos por mês. Leia mais (04/21/2026 - 13h05)</p>
-    <a href="https://redir.folha.com.br/redir/online/poder/rss091/*https://www1.folha.uol.com.br/colunas/painel/2026/04/mulheres-sao-minoria-entre-os-servidores-publicos-mais-bem-remunerado.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Prédios do Cine Marrocos e do hotel Esplanada vão a leilão em SP</div>
+    <div class="article-headline">Mortes: Mãe de santo por quase 40 anos, dedicou a vida a cuidar do próximo</div>
     <div class="article-subhead">Folha - Cotidiano</div>
     
-    <p>O governo do Estado de São Paulo tem o desafio de dar um destino adequado para os prédios ocupados hoje por suas secretarias que serão esvaziados a partir da instalação de nova sede administrativa nos Campos Elíseos até 2030. São ao todo 40 edifícios na região central e na região circundante, com 820 mil metros quadrados de área ocupada por 22 mil a 25 mil funcionários. Das 24 secretarias estaduais, 15 ficam na região central. Leia mais (04/21/2026 - 13h59)</p>
-    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/andancas-na-metropole/2026/04/predios-do-cine-marrocos-e-do-hotel-esplanada-vao-a-leilao-em-sp.shtml" class="article-link">Leia na fonte →</a>
+    <p>Marlene Guimarães Ramos da Costa fez do cuidado uma prática na vida de quem a conhecia. Era comum que pessoas chegassem à casa dela com um pedido de ajuda e saíssem com mais do que tinham levado. Fosse para solucionar um problema de saúde, matar a fome, arranjar um emprego que não vinha ou receber um conselho. Leia mais (04/21/2026 - 17h05)</p>
+    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/mortes-mae-de-santo-por-quase-40-anos-dedicou-a-vida-a-cuidar-do-proximo.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Brecha permite que moradia popular vire apartamento comum e até hotel em SP</div>
-    <div class="article-subhead">Folha - Cotidiano</div>
-    
-    <p>O funcionamento de hotéis em dois empreendimentos construídos com incentivo para a habitação popular expôs uma brecha legal ainda não discutida no âmbito das denúncias de desvio de finalidade desse tipo de moradia na cidade de São Paulo. Trata-se da mudança de uso legalizada, por meio de alvará de reforma ou de projeto modificativo. Leia mais (04/21/2026 - 13h00)</p>
-    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/cotidiano/2026/04/brecha-permite-que-moradia-popular-vire-apartamento-comum-e-ate-hotel-em-sp.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">O começo do esquecimento da minha mãe</div>
-    <div class="article-subhead">Folha - Cotidiano</div>
-    
-    <p>"Você está na sua casa, meu filho? Está tudo bem por aí? O que você fez de bom neste domingo?". Congelei por alguns segundos antes de arrumar a fala da minha velha mãe, que acabara de ter o mais importante lapso de memória que eu já havia registrado em nossas longas conversas telefônicas. Leia mais (04/21/2026 - 11h51)</p>
-    <a href="https://redir.folha.com.br/redir/online/cotidiano/rss091/*https://www1.folha.uol.com.br/blogs/assim-como-voce/2026/04/o-comeco-do-esquecimento-da-minha-mae.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Lufthansa cancela 20 mil voos para economizar combustível em meio à guerra no Irã</div>
+    <div class="article-headline">Lula defende acordo UE-Mercosul e propõe Portugal como porta de entrada para empresas brasileiras</div>
     <div class="article-subhead">Folha - Mercado</div>
     
-    <p>A Lufthansa cancelará 20 mil voos entre maio e outubro na Europa para economizar combustível, em um dos maiores cortes feitos por companhias aéreas globais após a duplicação dos preços do querosene de aviação em decorrência da guerra no Irã. Leia mais (04/21/2026 - 15h43)</p>
-    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/lufthansa-cancela-20-mil-voos-para-economizar-combustivel-em-meio-a-guerra-no-ira.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">CEOs são os chefes das empresas; mas devem ser também o rosto delas?</div>
-    <div class="article-subhead">Folha - Mercado</div>
-    
-    <p>Quando o departamento de marketing do Burger King sugeriu que Tom Curtis, presidente da empresa, assumisse um papel de destaque em seu mais recente comercial de televisão, a resposta dele foi imediata: Não. Leia mais (04/21/2026 - 15h41)</p>
-    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/ceos-sao-os-chefes-das-empresas-mas-devem-ser-tambem-o-rosto-delas.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Petróleo volta a rondar US$ 100 com proximidade do fim do cessar-fogo no Irã</div>
-    <div class="article-subhead">Folha - Mercado</div>
-    
-    <p>O petróleo avança nesta terça-feira (21), à medida que investidores acompanham as negociações entre EUA e Irã e adotam postura mais cautelosa diante da proximidade do fim do cessar-fogo temporário entre os países. Leia mais (04/21/2026 - 15h09)</p>
-    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/petroleo-volta-a-rondar-us-100-com-proximidade-do-fim-do-cessar-fogo-no-ira.shtml" class="article-link">Leia na fonte →</a>
+    <p>Na declaração conjunta que deu ao lado do premiê português Luís Montenegro, durante uma visita-relâmpago de cinco horas a Lisboa, o presidente Luiz Inácio Lula da Silva elogiou a globalização, defendeu o acordo entre o Mercosul e a União Europeia e disse que Portugal poderia ser "a grande porta de entrada dos interesses empresariais brasileiros". Leia mais (04/21/2026 - 17h24)</p>
+    <a href="https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/lula-defende-acordo-ue-mercosul-e-propoe-portugal-como-porta-de-entrada-para-empresas-brasileiras.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Cultura & História</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Autenticação de desenhos de Tarsila do Amaral gera novo racha entre seus herdeiros</div>
+    <div class="article-headline">Festival de Cannes celebra 'Thelma & Louise' em cartaz de sua nova edição; veja</div>
     <div class="article-subhead">Folha - Ilustrada</div>
     
-    <p>Um conjunto de 16 desenhos atribuídos a Tarsila do Amaral teve sua autoria confirmada, nesta segunda-feira, por um comitê, liderado pelo perito Douglas Quintale, e ganhou um certificado de autenticidade da Tarsila S.A., empresa gerida por parte dos herdeiros da artista e que administra a sua obra. Mas outra parte da família da pintora contesta a decisão, pondo em dúvida o trabalho do perito. Leia mais (04/21/2026 - 15h51)</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/autenticacao-de-desenhos-de-tarsila-do-amaral-gera-novo-racha-entre-seus-herdeiros.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Emanuelle Araújo se equilibra entre o privilégio e a inquietação em novela: 'Mulher complexa'</div>
-    <div class="article-subhead">Folha - Ilustrada</div>
-    
-    <p>Para Emanuelle Araújo, 49, Marta, sua personagem em "A Nobreza do Amor", vai além da aparência sofisticada e do lugar social privilegiado. "É uma mulher cheia de privilégios, rica, inserida em uma realidade elitista, mas que também tem um pé na cultura, que se interessa, que lê, que pensa", afirma. Leia mais (04/21/2026 - 15h30)</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://f5.folha.uol.com.br/televisao/2026/04/emanuelle-araujo-se-equilibra-entre-o-privilegio-e-a-inquietacao-em-novela-mulher-complexa.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">'Marty Supreme' e 'Mãos na Terra': o que ver na TV e no streaming nesta quarta</div>
-    <div class="article-subhead">Folha - Ilustrada</div>
-    
-    <p>No dia da Terra, a plataforma estreia a docussérie "Mãos na Terra", que mistura comédia e educação ambiental com o ator Zach Galifianakis que vai explorar o universo da jardinagem. Leia mais (04/21/2026 - 15h00)</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/marty-supreme-e-maos-na-terra-o-que-ver-na-tv-e-no-streaming-nesta-quarta.shtml" class="article-link">Leia na fonte →</a>
+    <p>O Festival de Cannes divulgou, nesta terça-feira, o pôster oficial da sua próxima edição, que acontece entre 12 e 23 de maio. O cartaz traz uma imagem em preto e branco de Geena Davis e Susan Sarandon como Thelma e Louise, dupla protagonista do filme homônimo lançado por Ridley Scott em 1991. A escolha marca os 35 anos da estreia do longa no festival. Leia mais (04/21/2026 - 17h17)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/festival-de-cannes-celebra-thelma-louise-em-cartaz-de-sua-nova-edicao-veja.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Games</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">The Sonos Arc Soundbar with Dolby Atmos Drops to Just $399 Shipped During the Earth Day Sale</div>
+    <div class="article-headline">The Sonos Era 100 Smart Speaker Drops to Just $134 Shipped During the Earth Day Sale</div>
     <div class="article-subhead">IGN</div>
     
     <p>Certified refurbished from Sonos direct with the same warranty as buying new.</p>
-    <a href="https://www.ign.com/articles/sonos-arc-soundbar-deal-earth-day-sale" class="article-link">Leia na fonte →</a>
+    <a href="https://www.ign.com/articles/sonos-era-100-smart-speaker-deal-earth-day-sale" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
-    <div class="article-headline">Today’s Top Deals: Ninja Gaiden: Ragebound for Switch, LEGO Sets, and an Xbox Gift Card</div>
-    <div class="article-subhead">IGN</div>
-    
-    <p>Plus, save on a 4K drone, a pre-price-hike PS5 bundle is still available, and more.</p>
-    <a href="https://www.ign.com/articles/best-deals-for-april-21-2026" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Pokémon Fan Funds Wedding With $44,000 Charizard Card Sale</div>
-    <div class="article-subhead">IGN</div>
-    
-    <p>A veteran Pokémon fan has been able to fund his own wedding, after rediscovering a trio of rare Charizard cards hidden away in his attic.</p>
-    <a href="https://www.ign.com/articles/pokemon-fan-funds-wedding-with-44000-charizard-card-sale" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">12 Things I Wish I Knew Before Playing Vampire Crawlers</div>
+    <div class="article-headline">A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years</div>
     <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/vcrawlers.jpg" alt="12 Things I Wish I Knew Before Playing Vampire Crawlers" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>How to manage your chicken, what stats to upgrade first, and some other general tips to help you survive the dungeons in this rogue-like card game</p>
-    <a href="https://kotaku.com/12-things-i-wish-i-knew-before-playing-vampire-crawlers-2000689414" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up</div>
-    <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/magic-cards-1080.jpg" alt="Star Wars Accidentally Made It Onto Magic: The Gathering Cards As Misprints Ramp Up" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>That galaxy clearly isn't far, far away enough</p>
-    <a href="https://kotaku.com/magic-the-gathering-secrets-of-strixhaven-star-wars-x-wings-2000689411" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Marathon Goes On Sale For The First Time As Fans Debate Free-To-Play Nuclear Option</div>
-    <div class="article-subhead">Kotaku</div>
-    <img src="https://kotaku.com/app/uploads/2026/04/HEG7AlxbsAAePiQ.jpg" alt="Marathon Goes On Sale For The First Time As Fans Debate Free-To-Play Nuclear Option" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Bungie's shooter is going to need fresh players sooner or later</p>
-    <a href="https://kotaku.com/marathon-sale-discount-xbox-free-to-play-2000689344" class="article-link">Leia na fonte →</a>
+    <img src="https://kotaku.com/app/uploads/2026/04/guy-montgomery.jpg" alt="A ‘Game Show’ That’s Basically Dropout For Word Nerds Is The Funniest Thing I’ve Watched In Years" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>A dreaded school competition has never been this entertaining.</p>
+    <a href="https://kotaku.com/game-show-dropout-word-nerds-guy-montgomery-2000689430" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Holanda & Brabant</span></div>
@@ -234,70 +106,22 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="article">
-    <div class="article-headline">Court debates life sentence for Dutchman held 42 years in US</div>
-    <div class="article-subhead">DutchNews</div>
-    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/Singh--360x240.jpg" alt="Court debates life sentence for Dutchman held 42 years in US" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>The public prosecution service has requested that Jaitsen Singh, the Netherlands’ longest-serving prisoner abroad, should have his US sentence converted...</p>
-    <a href="https://www.dutchnews.nl/2026/04/court-debates-life-sentence-for-dutchman-held-42-years-in-us/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Senate rejects bill to criminalise living in NL without papers</div>
-    <div class="article-subhead">DutchNews</div>
-    <img src="https://www.dutchnews.nl/wpcms/wp-content/uploads/2026/04/Asielstemming--360x240.jpg" alt="Senate rejects bill to criminalise living in NL without papers" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Senators have voted down a controversial asylum bill that would have made it a criminal offence to stay in the...</p>
-    <a href="https://www.dutchnews.nl/2026/04/senate-rejects-law-to-criminalise-living-in-nl-without-papers/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Terreur Joodse kolonisten neemt nog verder toe: 'Ze doen wat ze willen'</div>
+    <div class="article-headline">Lufthansa schrapt 20.000 vluchten vanwege brandstofprijzen</div>
     <div class="article-subhead">NOS.nl</div>
     
-    <p>Mensenrechtenorganisaties slaan voor de zoveelste keer alarm over de terreur door Joodse kolonisten en de etnische zuivering van Palestijnen als gevolg van het geweld. Want met de ogen van de wereld gericht op de oorlog elders in het Midden-Oosten, grijpen Joodse kolonisten hun kans. Alleen al tijdens de eerste veertig dagen van de oorlog registreerden mensenrechtenorganisaties gemiddeld bijna tien aanvallen per dag. Zeker acht Palestijnen werden daarbij gedood en er raakten zeker 200 mensen gewond. Het doel van de kolonisten is Palestijnen verdrijven van hun land en de Westoever steeds verder etnisch zuiveren. De hopeloosheid bij Palestijnen en mensenrechtenorganisaties is groot, want de Israëlische regering grijpt nauwelijks in. De regering keurde tijdens de oorlog juist in het geheim de bouw van 34 nieuwe nederzettingen goed. En dat annexatie van de Westoever een wens is van veel coalitieleden, is geen geheim. Lynchpartijen en moorden "Aanvallen, lynchpartijen en moorden door kolonisten zijn toegenomen tot een niveau dat we niet eerder hebben gezien", zegt de Israëlische activist Omri Evron. "Als Israëliërs moeten we ons uitspreken tegen deze barbaarse daden die monsterlijk zijn voor de Palestijnen, maar ook elke kans op vrede in de weg staan." Samen met andere mensenrechtenorganisaties organiseerde hij daarom een protest in het centrum van Tel Aviv tegen de terreur door kolonisten. Het was het grootste protest aan Israëlische kant tegen het kolonistengeweld tot nu toe, hoewel het ging om maar een paar honderd mensen. Een schril contrast met andere protesten onlangs op datzelfde plein, waar tienduizenden demonstranten aan meededen. "Lang was er nauwelijks aandacht hiervoor in de mainstream media. Dat is nu wel wat aan het veranderen, ook dankzij publieke campagnes die wij organiseren", zegt Evron. Hij hoopt dat met dit soort acties meer Israëliërs zich tegen de terreur door kolonisten uitspreken. Lang niet iedereen in Israël zit op de boodschap van Evron en de andere demonstranten te wachten. Een jonge man onderbreekt het interview en schreeuwt tegen Evron dat hij een schande is voor Israël. "Zij vertegenwoordigen geen enkele Israëliër ter wereld. Zij zijn een schande voor het Israëlische volk. Zij laten dingen zien die misschien één keer per maand gebeuren, het is een uitzondering", zegt de man. "Elke dag zijn er aanvallen!", roept Evron terug. Waarop de jonge man hem voor leugenaar uitmaakt. 'Omringd door kolonisten' Dat er wel degelijk dagelijks aanvallen zijn, weten ze op de bezette Westelijke Jordaanoever maar al te goed. Zoals in het dorpje Umm al-Khair. Het Palestijnse bedoeïen-dorpje ligt verspreid over twee heuveltoppen en telt zo'n 300 inwoners. Ze leven er in simpele huizen en houden vee. Geasfalteerde wegen heeft het dorpje niet. Pal tegen Umm al-Khair aan ligt de Joodse nederzetting Carmel. Een hek van prikkeldraad vormt de scheiding tussen de twee gemeenschappen. Aan de kant van Carmel zijn er grote luxe huizen en geasfalteerde wegen. "We worden omringd door kolonisten, en 24 uur per dag, zeven dagen per week zijn er aanvallen. Het is hier onveilig", zegt Eid Hathaleen. Hij is een van de inwoners van Umm al-Khair en werkt als activist. "Huizen worden vernield, vee wordt gestolen en mensen worden gedood door kogels van kolonisten." Caravans met vlaggen Afgelopen jaar nog werd een van de inwoners in Umm al-Khair doodgeschoten door een kolonist. De man stond te filmen hoe gewapende kolonisten het dorp binnendrongen en werd vervolgens door een kogel geraakt. De dader was snel weer op vrije voeten. Maar op de plek van de moord stonden een paar maanden later een aantal caravans, bewoond door Joodse kolonisten. De caravans staan midden in Umm al-Khair, pal tegen het lokale voetbalveldje en andere woningen, met alleen een barrière van prikkeldraad en Israëlische vlaggen. "Het doel van die caravans is de twee delen van ons dorp, daar en hier, van elkaar te scheiden. En onze bewegingsvrijheid steeds verder beperken", zegt Hathaleen. Zo blokkeerden kolonisten onlangs ook de weg naar de lokale school verderop met prikkeldraad. Het leger kwam erbij, maar in plaats van de weg vrij te maken gooiden de militairen met traangas naar de kinderen en hun ouders. "De kolonisten voelen zich vrij om te doen wat ze willen tegen ons", zegt Hathaleen. "Wij willen alleen maar op ons land blijven. We kunnen niets tegen de kolonisten doen, want dan worden we meteen voor terrorist uitgemaakt en opgepakt." Dit gebeurt volgens hem op de hele Westoever. Tientallen Palestijnse gemeenschappen zijn inmiddels al gevlucht voor de aanvallen van kolonisten. Internationaal is er veel kritiek op het feit dat de Israëlische regering de kolonisten hun gang laat gaan. Maar ondanks die internationale druk blijft de terreur toenemen en de situatie voor Palestijnen alleen maar verder verslechteren.</p>
-    <a href="https://nos.nl/l/2611485" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">COA moet dwangsommen betalen om hotel in Epe</div>
-    <div class="article-subhead">NOS.nl</div>
-    
-    <p>Het gaat het Centraal Orgaan opvang asielzoekers (COA) niet lukken om mensen die zijn ondergebracht in een hotel in Epe op tijd over andere locaties te verspreiden. Het COA moet daarom vanaf morgen een dwangsom van 63.480 euro per dag betalen met een maximum van ruim 11,4 miljoen euro. De noodopvang in het Fletcher-hotel werd in maart 2024 geopend en biedt plaats aan maximaal 276 asielzoekers. De gemeente Epe had aangekondigd het hotel voor 22 april leeg te willen hebben. Volgens het COA is het niet mogelijk om de mensen er op tijd weg te krijgen vanwege een landelijk tekort aan opvangplekken. 'Medewerking van gemeenten' "We kunnen mensen niet op straat zetten", zegt een woordvoerder tegen persbureau ANP. "De oplossing ligt in de realisatie van voldoende opvangplekken. Daarvoor is de medewerking van alle gemeenten noodzakelijk." Meerdere gemeenten gebruiken de dwangsommen om het COA aan te zetten tot actie. Zo moet het COA al een dwangsom betalen aan de gemeente Hardenberg omdat daar een azc langer openblijft dan afgesproken. En in Ter Apel (gemeente Westerwolde) is dat ook het geval omdat er regelmatig meer dan de toegestane 2000 asielzoekers in het aanmeldcentrum verblijven.</p>
-    <a href="https://nos.nl/l/2611484" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer</div>
-    <div class="article-subhead">NOS.nl</div>
-    
-    <p>Aanvragen voor zware stroomaansluitingen moesten in de regio Utrecht al wachten. Maar het stroomnet gaat per 1 juli voor het deel rond de stad Utrecht helemaal op slot. Alle nieuwe aanvragen belanden op de wachtlijst, ook voor kleinverbruikers of mensen die thuis een zwaardere aansluiting willen, zegt staatssecretaris Jo-Annes de Bat (CDA) van Klimaat en Groene Groei. De Bat spreekt zelf van "het indrukken van een pauzeknop". Hij hoopt zo snel mogelijk weer aanvragen te gaan accepteren, maar het is onduidelijk wanneer dat mogelijk is. Het zou ook nog jaren kunnen duren en gaat zo'n 800.000 mensen raken die wonen in het gebied tussen Breukelen, Vianen en Driebergen. Daarin liggen onder meer de steden Utrecht en Nieuwegein. Het is voor het eerst dat er regionaal een complete stop komt. Maar veel regio's kampen al jaren met een overvol stroomnet. Dat gaat ten koste van de economie en verduurzaming. En ondanks miljardeninvesteringen door netbeheerders lijken de problemen vooralsnog niet te verminderen. De Bat had niet alleen slecht nieuws. Er is wel genoeg ruimte gevonden om in de regio Utrecht alle bekende woningbouwprojecten aan te sluiten. "Er zijn nog zo'n 35.000 woningen die wel aangesloten kunnen worden", zegt De Bat. Ook is een nog zwarter scenario (voorlopig) afgewend. In februari waarschuwde de landelijke netbeheerder Tennet nog dat er zonder "krachtig ingrijpen" vanaf 1 juli een aansluitingsstop zou komen in heel Utrecht, Gelderland en de Flevopolder. Dat gebeurt nu alleen in regio Utrecht. Daarvoor wordt het stroomnet 'opgeknipt' in vijf delen, waarvan er vier niet op slot gaan. Aansluitstop kost honderden miljoenen De gemeente Utrecht liet onderzoeken wat de gevolgen van een volledige aansluitstop zouden zijn. Jaarlijks zou de schade tussen de 75 en 225 miljoen euro zijn en dit zou gevolgen hebben voor bedrijven, scholen en vervoerders, blijkt uit het onderzoek dat vorige week naar de gemeenteraad ging. Ook zelf krijgt de gemeente te maken met de gevolgen. Zo kan Utrecht zijn zware voertuigen, zoals vuilniswagens, niet vervangen door elektrische varianten. Er passen niet voldoende oplaadpunten op het stroomnet. Utrecht verwacht dat één op de vijf woningbouwprojecten sneuvelt, vooral na 2027. Het is onduidelijk in hoeverre de toezegging van De Bat dit kan voorkomen. Avondpiek in stroomgebruik Intussen wordt er nog steeds gewerkt om meer ruimte te maken op het net. Die ruimte is er overigens het grootste deel van de dag wel. De problemen spelen vooral tijdens pieken, bijvoorbeeld als mensen 's avonds thuiskomen en tegelijk gaan koken en het licht aandoen. Door mensen of bedrijven stroom te laten gebruiken op andere momenten neemt de drukte af. Dit kan ook door batterijen of gasgeneratoren te plaatsen die stroom kunnen leveren op de drukste momenten. De problemen met het overvolle stroomnet zijn pas echt voorbij als het net flink is verzwaard. Daarvoor moet een hoogspanningsstation bij Breukelen worden uitgebreid en er moet een nieuw station komen ten noorden van Utrecht. Dat is mogelijk pas in 2031 klaar, aangezien er nog geen definitieve locatie is. Verbittering in Utrecht Het besluit leidt in Utrecht tot "een gevoel van teleurstelling" en "bitterheid", zegt Huib van Essen, gedeputeerde in de provincie Utrecht. Hij hoopt dat de aansluitstop "er zo snel mogelijk afgaat". Over een half jaar zal voor het eerst worden gekeken of dit mogelijk is, maar het is volgens Van Essen "buitengewoon optimistisch" om te denken dat het zo snel kan. In Flevoland en Gelderland overheerst de opluchting, hoewel ze ook begrijpen dat een aansluitstop niet definitief van de baan is. De huidige situatie is "een momentopname" zegt de Flevolandse gedeputeerde Harold Hofstra. Het gaat om een "precair evenwicht" en ook Flevoland moet nog maatregelen nemen.</p>
-    <a href="https://nos.nl/l/2611482" class="article-link">Leia na fonte →</a>
+    <p>Lufthansa schrapt tot en met oktober 20.000 korteafstandsvluchten om brandstof te besparen. Dat komt overeen met ongeveer 40.000 ton kerosine, waarvan de prijs sinds het uitbreken van de oorlog in het Midden-Oosten is verdubbeld. Het exacte plan wordt eind deze maand gepresenteerd, maar de eerste aanpassingen zijn al doorgevoerd. Zo zijn 120 dagelijkse Europese vluchten van dochteronderneming CityLine uit het schema gehaald. CityLine Het was al langer bekend dat Lufthansa CityLine in 2028 wilde opdoeken om kosten te besparen, maar dat is nu versneld gebeurd. Lufthansa meldt het opheffen van CityLine te hebben vervroegd vanwege de hoge brandstofprijzen en de lasten die het bedrijf zegt te moeten dragen als gevolg van de arbeidsconflicten. In de laatste maanden legde het personeel van de luchtvaartmaatschappij diverse keren het werk neer. Piloten en cabinepersoneel eisten een betere pensioenregeling, een nieuwe cao en een sociaal plan voor het cabinepersoneel van CityLine. De routes van Frankfurt naar Bydgoszcz en Rzeszów (Polen) en Stavanger (Noorwegen) zijn tijdelijk uit het vluchtschema gehaald. Verbindingen vanuit hubs van de Lufthansa Group in Zürich, Wenen, Brussel en Rome worden uitgebreid. Passagiers behouden daardoor toegang tot het wereldwijde routenetwerk, met name tot langeafstandsvluchten. Voorraden Vandaag kwamen de Europese ministers van Transport bijeen om plannen te bespreken om een tekort aan kerosine te voorkomen. Het Internationaal Energieagentschap waarschuwde onlangs dat Europa nog voor minder dan zes weken aan kerosine in voorraad heeft. De Europese Commissie maakt woensdag plannen bekend om de voorraden vliegtuigbrandstof beter te monitoren en over de lidstaten te verdelen. KLM Ook andere luchtvaartmaatschappijen over de hele wereld proberen de hoge brandstofkosten te compenseren. Zo hebben onder meer Delta Airlines, Cathay Pacific, AirAsia X en Air New Zealand aangekondigd routes te schrappen om brandstof te besparen. KLM schrapt de komende maand tachtig retourvluchten. Het gaat om vluchten binnen Europa waar de luchtvaartmaatschappij meerdere keren per dag op vliegt, zoals Londen en Düsseldorf.</p>
+    <a href="https://nos.nl/l/2611497" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Mundo</span></div>
   <hr class="section-rule">
 
   <div class="article">
-    <div class="article-headline">Exército de Israel pune soldados que destruíram imagem de Jesus no Líbano</div>
+    <div class="article-headline">Em Hannover, Lula e Merz ensaiam diálogo entre potências médias</div>
     <div class="article-subhead">Folha - Mundo</div>
     
-    <p>O Exército de Israel afastou dois soldados do serviço de combate e os colocou em prisão militar por 30 dias após destruírem um crucifixo no sul do Líbano. Leia mais (04/21/2026 - 15h59)</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/exercito-de-israel-pune-soldados-que-destruiram-imagem-de-jesus-no-libano.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Rei Charles 3º diz que situação do mundo hoje teria 'perturbado profundamente' Elizabeth 2ª</div>
-    <div class="article-subhead">Folha - Mundo</div>
-    
-    <p>O rei Charles 3º divulgou nesta terça-feira (21) uma mensagem pessoal em vídeo relembrando a trajetória de serviço público de sua "amada mamãe", a falecida rainha Elizabeth 2ª (1926-2022), no que teria sido seu 100º aniversário. Leia mais (04/21/2026 - 13h16)</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/rei-charles-3o-diz-que-situacao-do-mundo-hoje-teria-perturbado-profundamente-elizabeth-2a.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">A poucas horas de fim de trégua no Irã, Trump volta a dizer que não pretende prorrogar cessar-fogo</div>
-    <div class="article-subhead">Folha - Mundo</div>
-    
-    <p>O Paquistão, mediador nas negociações da guerra no Irã, pediu aos Estados Unidos que prorroguem o cessar-fogo de duas semanas, mas o presidente Donald Trump voltou a afirmar que não pretende estender a trégua, que expira na noite desta terça-feira (21). Leia mais (04/21/2026 - 12h53)</p>
-    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/a-poucas-horas-de-fim-de-tregua-no-ira-trump-volta-a-dizer-que-nao-pretende-prorrogar-cessar-fogo.shtml" class="article-link">Leia na fonte →</a>
+    <p>Luiz Inácio Lula da Silva (PT) claramente elegeu dois assuntos para martelar em sua visita à Alemanha, nesta semana: biocombustíveis e os reflexos da guerra do Irã no cenário global. Friedrich Merz não se esquivou do segundo tema, mas preferiu o primeiro. Em um ato mais necessário do que natural, Brasil e Alemanha ensaiaram o diálogo da vez no cenário internacional, a união de potências médias. Leia mais (04/21/2026 - 16h47)</p>
+    <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/em-hannover-lula-e-merz-ensaiam-dialogo-entre-potencias-medias.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Tecnologia & IA</span></div>
@@ -312,43 +136,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="article">
-    <div class="article-headline">OpenAI Beefs Up ChatGPT's Image Generation Model</div>
-    <div class="article-subhead">WIRED</div>
-    
-    <p>The ChatGPT Images 2.0 model is here. Our testing shows it's better at creating more detailed images and rendering text, but it still struggles with languages other than English.</p>
-    <a href="https://www.wired.com/story/openai-beefs-up-chatgpts-image-generation-model/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Mozilla Used Anthropic’s Mythos to Find and Fix 271 Bugs in Firefox</div>
-    <div class="article-subhead">WIRED</div>
-    
-    <p>The Firefox team doesn’t think emerging AI capabilities will upend cybersecurity long term, but they warn that software developers are likely in for a rocky transition.</p>
-    <a href="https://www.wired.com/story/mozilla-used-anthropics-mythos-to-find-271-bugs-in-firefox/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Apple Teases 'Incredible Road Map Ahead'</div>
+    <div class="article-headline">Apple TV's Hit Show 'Silo' is Returning Soon: Release Date and Trailer</div>
     <div class="article-subhead">MacRumors</div>
-    <img src="https://images.macrumors.com/article-new/2026/01/Apple-Event-Logo.jpeg" alt="Apple Teases 'Incredible Road Map Ahead'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>In an all-hands meeting with employees today, Apple's future CEO John Ternus teased an "incredible road map ahead." "I'm not exaggerating when I say this is the most exciting time to be building products and services at Apple in my entire career," said Ternus. While the meeting was private, Ternus' comments were reported by Bloomberg's Mark Gurman. Appearing alongside Apple's current CEO Tim Cook at the Steve Jobs Theater, Ternus expressed optimism about artificial intelligence in particular. "AI is going to create almost unlimited potential," said Ternus. "We're going to be able to keep unlocking possibilities that are going to create entirely new opportunities for our products and services, and I'm so excited about what that's going to mean for our users." Unsurprisingly, he did not provide any specific details at this time. "We are about to change the world once again," he said. Ternus ensured that design remains "core" to Apple, and he promised that the company is still committed to user privacy and environmental responsibility. As for Cook, he told employees he is "healthy" and plans to serve as Apple's executive chairman for "a long time." Apple said Cook will "assist with certain aspects of the company, including engaging with policymakers around the world." Ternus will become Apple's CEO on September 1.Tags: Bloomberg, John Ternus, Mark Gurman, Tim CookThis article, "Apple Teases &#039;Incredible Road Map Ahead&#039;" first appeared on MacRumors.comDiscuss this article in our forums</p>
-    <a href="https://www.macrumors.com/2026/04/21/apple-teases-incredible-road-map-ahead/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Tim Cook Says He's 'Healthy,' Plans to Remain at Apple 'for a Long Time'</div>
-    <div class="article-subhead">MacRumors</div>
-    <img src="https://images.macrumors.com/article-new/2021/10/tim-cook-macbook-pro.jpeg" alt="Tim Cook Says He's 'Healthy,' Plans to Remain at Apple 'for a Long Time'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Tim Cook today told employees he plans to be at Apple "for a long time" in his new role as executive chairman. Cook shared the information in an all-hands meeting detailed by Bloomberg. "I am healthy. My energy is high, and I plan to be in this role for a long time," said Cook. He said he will support current hardware engineering chief John Ternus in any way necessary when Ternus takes over as CEO, and he plans to continue to offer knowledge and experience whenever it's needed. "Apple will be my top priority," he said. "It's who I am at my core, and I can't imagine it any other way." Cook is stepping down from his role as Apple CEO, handing the company over to Ternus. Apple announced the upcoming change yesterday, and said that Cook will remain on as executive chairman, where he will "assist with certain aspects of the company, including engaging with policymakers around the world." During the meeting, Cook told employees that he thinks he can help with strengthening Apple's global relationships. When asked why he is stepping down now, Cook said that it was a good time because Apple is "doing great," the product lineup is "incredible," and Ternus is ready for the role. "These three things all intersected, and they intersect now. And so now was the time," said Cook. Cook is set to remain CEO through September 1, 2026, at which point he will move into his new role and Ternus will take over as CEO. Cook will see Apple through WWDC, but Ternus will be leading the company by the time the iPhone 18 Pro and iPhone Fold launch.Tag: Tim CookThis article, "Tim Cook Says He&#039;s &#039;Healthy,&#039; Plans to Remain at Apple &#039;for a Long Time&#039;" first appeared on MacRumors.comDiscuss this article in our forums</p>
-    <a href="https://www.macrumors.com/2026/04/21/tim-cook-executive-chairman-role/" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas</div>
-    <div class="article-subhead">MacRumors</div>
-    <img src="https://images.macrumors.com/article-new/2025/06/macOS-Tahoe-26-Thumb.jpg" alt="Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Apple today provided public beta testers with new releases of upcoming iOS 26.5, iPadOS 26.5, macOS Tahoe 26.5, watchOS 26.5, and tvOS 26.5 updates for testing purposes. The public betas come a day after Apple provided the betas to developers. These are the third iOS 26.5 and iPadOS 26.5 betas, but the second &zwnj;macOS Tahoe&zwnj; 26.5 public beta. After signing up for beta testing on Apple's beta site, public beta testers can download the updates using the Software Update section of the Settings app on each device. iOS 26.5, iPadOS 26.5, and &zwnj;macOS Tahoe&zwnj; 26.5 include a new Suggested Places feature for recommending nearby locations to visit, and Apple is also gearing up to start showing ads in Maps. Apple is testing end-to-end encryption for RCS messages between iPhone and Android users again, and there are proximity pairing, notification forwarding, and Live Activities for third-party wearables in the EU.Related Roundups: iOS 26, iPadOS 26, macOS TahoeRelated Forums: iOS 26, macOS TahoeThis article, "Apple Releases New iOS 26.5, iPadOS 26.5 and macOS Tahoe 26.5 Public Betas" first appeared on MacRumors.comDiscuss this article in our forums</p>
-    <a href="https://www.macrumors.com/2026/04/21/apple-releases-ios-26-5-public-beta-3/" class="article-link">Leia na fonte →</a>
+    <img src="https://images.macrumors.com/article-new/2026/04/Apple-TV-Silo.jpg" alt="Apple TV's Hit Show 'Silo' is Returning Soon: Release Date and Trailer" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Apple today announced that its hit sci-fi series "Silo" is returning for a third season starting Friday, July 3, and it shared a teaser trailer. "Silo" follows the lives of 10,000 people living in an underground bunker to escape the seemingly toxic wasteland outside. The people are unaware of why the silo was built, and those who seek the truth face deadly consequences. Rebecca Ferguson stars as Juliette Nichols, an engineer who attempts to unravel the mysteries surrounding the silo following a loved one's murder. The show is based on Hugh Howey's best-selling book series, and it is one of the most popular original series on the Apple TV streaming service. The third season will have 10 episodes, with one released every Friday through September 4. Apple already renewed "Silo" for a fourth and final season as well. "With the final two chapters of 'Silo,' we can't wait to give fans of the show an incredibly satisfying conclusion to the many mysteries and unanswered questions contained within the walls of these silos," said showrunner and executive producer Graham Yost, regarding the third and fourth seasons of the show. About Season Three (Spoilers Ahead) Apple says the third season "continues the saga of a dystopian society." "In the present, Juliette Nichols (Rebecca Ferguson) survives her forced 'cleaning' but returns with memory loss as the silo recovers from rebellion and faces a dangerous new threat," says Apple. "Meanwhile, in the 'Before Times,' journalist Helen Drew (Jessica Henwick) and Congressman Daniel Keene (Ashley Zukerman) uncover a conspiracy that pulls them into a chain of events with catastrophic, irreversible consequences." Trailer Apple TV In the U.S., Apple TV is priced at &#36;12.99 per month or &#36;129 per year, with a free one-week trial available for new subscribers. Apple TV is also included in Apple One and Peacock bundles, with all of the options outlined on Apple's website. You can stream Apple TV in the Apple TV app, which is available on the iPhone, iPad, Mac, Apple TV 4K, Apple Vision Pro, Android, PlayStation, Xbox, Roku, Amazon Fire TV, select smart TVs, on the web at tv.apple.com, and more.Related Roundup: Apple TVTags: Apple TV Service, Apple TV ShowsBuyer's Guide: Apple TV (Don't Buy)Related Forum: Apple TV and Home TheaterThis article, "Apple TV&#039;s Hit Show &#039;Silo&#039; is Returning Soon: Release Date and Trailer" first appeared on MacRumors.comDiscuss this article in our forums</p>
+    <a href="https://www.macrumors.com/2026/04/21/apple-tv-silo-season-three-release-date/" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="article">
@@ -359,36 +151,16 @@ permalink: /journal_articles/2026/04/21/
     <a href="https://redir.folha.com.br/redir/online/tec/rss091/*https://www1.folha.uol.com.br/mercado/2026/04/regulador-britanico-de-midia-investiga-telegram-por-conteudos-de-abuso-sexual-infantil.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="article">
-    <div class="article-headline">Anthropic e Amazon fecham acordo de US$ 100 bilhões em infraestrutura de IA</div>
-    <div class="article-subhead">Folha - Tec</div>
-    
-    <p>A Anthropic se comprometeu a gastar mais de US$ 100 bilhões (R$ 495,4 bi) em chips e poder computacional da Amazon, buscando ampliar sua capacidade após enfrentar restrições de oferta. Leia mais (04/20/2026 - 23h10)</p>
-    <a href="https://redir.folha.com.br/redir/online/tec/rss091/*https://www1.folha.uol.com.br/tec/2026/04/anthropic-e-amazon-fecham-acordo-de-us-100-bilhoes-em-infraestrutura-de-ia.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">As lições de Milei e Trump para a eleição brasileira</div>
-    <div class="article-subhead">Folha - Tec</div>
-    
-    <p>Ao longo da semana, dois eventos internacionais se destacaram no debate digital principalmente por conta dos paralelos que os usuários fazem com as eleições no Brasil. A esquerda brasileira explorou as notícias de que a população argentina passou a recorrer à carne de burro como maneira de contornar a fome e a inflação. Nos Estados Unidos, Donald Trump apagou, após forte reação, uma imagem feita por IA em que aparecia vestido de Jesus Cristo curando um doente. Leia mais (04/20/2026 - 04h00)</p>
-    <a href="https://redir.folha.com.br/redir/online/tec/rss091/*https://www1.folha.uol.com.br/colunas/encaminhado-com-frequencia/2026/04/as-licoes-de-milei-e-trump-para-a-eleicao-brasileira.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
   <div class="section-head"><span>Piadas & Humor</span></div>
   <hr class="section-rule">
   <img src="joke-image.png" alt="Ilustração de piada" style="width:100%;height:auto;display:block;margin:8px 0;max-height:250px;object-fit:cover;">
 
   <div class="joke-item">
-    <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
-  </div>
-
-  <div class="joke-item">
     <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>MOTIVO DE PREOCUPAÇÃO: Quando morreu o padre de uma paróquia, puseram um aviso à porta da igreja onde ele costumava rezar missa: “O nosso estimado Padre Fulano de Tal, partiu para encontra-se com Cristo, esta manhã às 10 horas.” Uma mão irreverente escreveu mais embaixo, a lápis: “Três horas da tarde. Ainda não voltou. Começamos a ficar inquietos.”</strong>
   </div>
 
   <div class="joke-item">
@@ -396,7 +168,11 @@ permalink: /journal_articles/2026/04/21/
   </div>
 
   <div class="joke-item">
-    <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
   </div>
 
 </div>
