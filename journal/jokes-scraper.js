@@ -23,41 +23,61 @@ async function fetchJokes() {
     const html = response.data;
     const jokes = [];
 
-    // Look for article content divs or post containers
-    // Pattern: Find h2/h3 headers that are joke titles, followed by paragraph content
-    
-    // Extract all potential joke entries
-    const entryPattern = /<h[2-3][^>]*>([^<]+)<\/h[2-3]>([\s\S]*?)(?=<h[2-3]|$)/gi;
+    // Pattern: Find article divs with class "art-Post"
+    // Each contains h2.art-PostHeader with title, then div.art-PostContent with paragraphs
+    const articlePattern = /<h2[^>]*class="art-PostHeader"[^>]*>[\s\S]*?>([^<]+)<\/a>\s*<\/h2>([\s\S]*?)(?=<div class="art-Post">|$)/gi;
     let match;
     
-    while ((match = entryPattern.exec(html)) !== null) {
+    while ((match = articlePattern.exec(html)) !== null) {
       let title = match[1]
-        .replace(/<[^>]+>/g, '') // Remove any nested HTML
-        .replace(/&[^;]+;/g, '') // Decode some entities
+        .replace(/&[^;]+;/g, (ent) => {
+          const entities = {
+            '&#8211;': '—',
+            '&ndash;': '–',
+            '&mdash;': '—',
+            '&quot;': '"',
+            '&amp;': '&',
+            '&lt;': '<',
+            '&gt;': '>',
+            '&apos;': "'",
+            '&nbsp;': ' '
+          };
+          return entities[ent] || ent;
+        })
         .trim();
       
-      // Extract paragraph content following the title
+      // Extract ALL paragraph content following the title
       const following = match[2];
-      const pPattern = /<p[^>]*>([\s\S]*?)<\/p>/;
-      const pMatch = pPattern.exec(following);
+      const pPattern = /<p[^>]*>([\s\S]*?)<\/p>/gi;
       
-      if (pMatch) {
+      let allParagraphs = [];
+      let pMatch;
+      
+      while ((pMatch = pPattern.exec(following)) !== null) {
         let content = pMatch[1]
-          .replace(/<[^>]+>/g, '') // Remove HTML tags
+          .replace(/<[^>]+>/g, '') // Remove HTML tags (including <em>, <strong>, etc)
+          .replace(/&#8211;/g, '—')
+          .replace(/&ndash;/g, '–')
+          .replace(/&mdash;/g, '—')
           .replace(/&quot;/g, '"')
           .replace(/&amp;/g, '&')
           .replace(/&lt;/g, '<')
           .replace(/&gt;/g, '>')
           .replace(/&apos;/g, "'")
+          .replace(/&nbsp;/g, ' ')
+          .replace(/\s+/g, ' ')
           .trim();
         
-        // Keep full text, no truncation
-        if (content.length > 30 && title.length > 3) {
-          jokes.push(`${title}: ${content}`);
+        if (content.length > 20) {
+          allParagraphs.push(content);
         }
-      } else if (title.length > 10) {
-        // If no paragraph, use just the title
-        jokes.push(title);
+      }
+      
+      if (allParagraphs.length > 0) {
+        let fullContent = allParagraphs.join(' ');
+        if (fullContent.length > 50 && title.length > 3) {
+          jokes.push(`${title}: ${fullContent}`);
+        }
       }
     }
 
