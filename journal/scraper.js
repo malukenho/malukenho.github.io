@@ -356,7 +356,7 @@ permalink: /journal_articles/${year}/${month}/${day}/
 `;
     
     articles.forEach(article => {
-      const imageHtml = article.image ? `<img src="${article.image}" alt="${article.title}" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">` : '';
+      const imageHtml = article.image ? `<img src="${article.image}" alt="${article.title}" style="width:100%;height:auto;margin:8px 0;display:block;object-fit:cover;">` : '';
       // Replace newlines with <br> tags for proper HTML rendering
       const descriptionHtml = article.description.replace(/\n/g, '<br/>');
       
