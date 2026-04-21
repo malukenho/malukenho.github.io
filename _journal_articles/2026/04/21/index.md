@@ -13,11 +13,11 @@ permalink: /journal_articles/2026/04/21/
   <div class="feature-box">
     <div class="article-headline">☀️ Clima em Helmond</div>
     <div class="article-subhead">Helmond, Holanda</div>
-    <p style="text-align: center; font-size: 20px; margin: 8px 0;">13°C</p>
+    <p style="text-align: center; font-size: 20px; margin: 8px 0;">12°C</p>
     <p style="text-align: center; font-size: 13px; margin: 6px 0;">Céu Limpo</p>
     <p style="text-align: center; font-size: 12px; color: var(--ink-mid);">
       Máxima: 14°C | Mínima: 6°C<br>
-      Umidade: 43% | Vento: 14 km/h
+      Umidade: 43% | Vento: 13 km/h
     </p>
   </div>
 
@@ -103,6 +103,15 @@ Leia ma</p>
   <hr class="section-rule">
 
   <div class="article">
+    <div class="article-headline">'Marty Supreme' e 'Mãos na Terra': o que ver na TV e no streaming nesta quarta</div>
+    <div class="article-subhead">Folha - Ilustrada</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="'Marty Supreme' e 'Mãos na Terra': o que ver na TV e no streaming nesta quarta" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>No dia da Terra, a plataforma estreia a docussérie "Mãos na Terra", que mistura comédia e educação ambiental com o ator Zach Galifianakis que vai explorar o universo da jardinagem.
+Leia mais (04/21/2026 - 15h00)</p>
+    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/marty-supreme-e-maos-na-terra-o-que-ver-na-tv-e-no-streaming-nesta-quarta.shtml" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">Boninho anuncia 'chá revelação' para lançar reality da Record no dia da final do BBB 26</div>
     <div class="article-subhead">Folha - Ilustrada</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Boninho anuncia 'chá revelação' para lançar reality da Record no dia da final do BBB 26" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
@@ -117,14 +126,6 @@ Leia mais (04/21/2026 - 14h15)</p>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Colombiana Karol G anuncia show no Brasil" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>Conhecida por músicas como "Si Antes te Hubiera Conocido", a colombiana Karol G anunciou show em São Paulo em fevereiro de 2027, como parte da turnê "Viajando por el Mundo", em suas redes sociais. A apresentação acontece em São Paulo, no Mercado Livr</p>
     <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://guia.folha.uol.com.br/shows/2026/04/colombiana-karol-g-anuncia-show-no-brasil.shtml" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Roger Waters e outros artistas pedem que Israel fique fora do Eurovision</div>
-    <div class="article-subhead">Folha - Ilustrada</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Roger Waters e outros artistas pedem que Israel fique fora do Eurovision" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Artistas e outros profissionais do setor da música assinaram um manifesto que pede pela exclusão de Israel do Eurovision 2026, competição musical mais importante da Europa. O documento pede que a União Europeia de Radiodifusão, que organiza o evento,</p>
-    <a href="https://redir.folha.com.br/redir/online/ilustrada/rss091/*https://www1.folha.uol.com.br/ilustrada/2026/04/roger-waters-e-outros-artistas-pedem-que-israel-fique-fora-do-eurovision.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Games</span></div>
@@ -206,28 +207,28 @@ Leia mais (04/21/2026 - 14h15)</p>
   </div>
 
   <div class="article">
+    <div class="article-headline">Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Stroomnet Utrecht nu echt vol, helemaal geen nieuwe of zwaardere aansluitingen meer" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Aanvragen voor zware stroomaansluitingen moesten in de regio Utrecht al wachten. Maar het stroomnet gaat per 1 juli voor een deel van de provincie helemaal op slot. Alle nieuwe aanvragen belanden op de wachtlijst, ook voor kleinverbruikers of mensen </p>
+    <a href="https://nos.nl/l/2611482" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
+    <div class="article-headline">Opnieuw maatregelen om Groningse 'Mario Kart-bocht' veiliger te maken</div>
+    <div class="article-subhead">NOS.nl</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Opnieuw maatregelen om Groningse 'Mario Kart-bocht' veiliger te maken" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>Bij twee scherpe bochten tussen de zuidelijke en westelijke ringweg in Groningen neemt de provincie extra maatregelen om automobilisten te waarschuwen. Zo komen er betere waarschuwingsborden en antiverblindingsschermen. Een van de bochten wordt ook w</p>
+    <a href="https://nos.nl/l/2611481" class="article-link">Leia na fonte →</a>
+  </div>
+
+  <div class="article">
     <div class="article-headline">Nederlanders in Istanbul stierven net als Duits gezin door bestrijdingsmiddel</div>
     <div class="article-subhead">NOS.nl</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Nederlanders in Istanbul stierven net als Duits gezin door bestrijdingsmiddel" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
     <p>De twee minderjarige Nederlandse broers die vorig jaar augustus dood werden gevonden in hun hotelkamer in Istanbul, zijn overleden aan vergiftiging door het bestrijdingsmiddel fosfine. Dat meldt het Turkse persbureau Demirören Haber Ajansı.
         </p>
     <a href="https://nos.nl/l/2611476" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">Proef met onderzoek naar verwurging levert veel meer aanvragen op dan verwacht</div>
-    <div class="article-subhead">NOS.nl</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Proef met onderzoek naar verwurging levert veel meer aanvragen op dan verwacht" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Forensisch artsen in Rotterdam krijgen veel meer aanvragen dan verwacht voor onderzoeken naar pogingen tot wurging. Sinds 1 december 2025 loopt er een proef waarbij de politie en Veilig Thuis een medisch expertisecentrum inschakelen als er vermoedens</p>
-    <a href="https://nos.nl/l/2611471" class="article-link">Leia na fonte →</a>
-  </div>
-
-  <div class="article">
-    <div class="article-headline">'Meer hulp nodig voor mensen met ernstige psychische aandoeningen'</div>
-    <div class="article-subhead">NOS.nl</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="'Meer hulp nodig voor mensen met ernstige psychische aandoeningen'" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Er is meer nodig om veiligheidsrisico's voor mensen met ernstige psychische klachten te verminderen. Dat concludeert de Onderzoeksraad voor Veiligheid (OVV) in een nieuw rapport. Inspecties concludeerden in december al dat de zorg tekortschiet en dat</p>
-    <a href="https://nos.nl/l/2611468" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Mundo</span></div>
@@ -254,13 +255,21 @@ Leia mais (04/21/2026</p>
     <div class="article-headline">Quase 8.000 migrantes morreram ou desapareceram em rotas migratórias em 2025</div>
     <div class="article-subhead">Folha - Mundo</div>
     <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Quase 8.000 migrantes morreram ou desapareceram em rotas migratórias em 2025" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>Quase 8 mil pessoas morreram em rotas migratórias em 2025, segundo um relatório da agência de migração das Nações Unidas divulgado nesta terça-feira (21).
+    <p>Quase 8.000 pessoas morreram em rotas migratórias em 2025, segundo um relatório da agência de migração das Nações Unidas divulgado nesta terça-feira (21).
 Leia mais (04/21/2026 - 12h35)</p>
     <a href="https://redir.folha.com.br/redir/online/mundo/rss091/*https://www1.folha.uol.com.br/mundo/2026/04/quase-8000-migrantes-morreram-ou-desapareceram-em-rotas-migratorias-em-2025.shtml" class="article-link">Leia na fonte →</a>
   </div>
 
   <div class="section-head"><span>Tecnologia & IA</span></div>
   <hr class="section-rule">
+
+  <div class="article">
+    <div class="article-headline">Tim Cook's Legacy Is Turning Apple Into a Subscription</div>
+    <div class="article-subhead">WIRED</div>
+    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="Tim Cook's Legacy Is Turning Apple Into a Subscription" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
+    <p>The soon-to-exit Apple CEO went all in on services. Now, the incoming CEO, John Ternus, will need to embrace the AI era.</p>
+    <a href="https://www.wired.com/story/apple-tim-cook-subscription-business/" class="article-link">Leia na fonte →</a>
+  </div>
 
   <div class="article">
     <div class="article-headline">Meta Is Sued Over Scam Ads on Facebook and Instagram</div>
@@ -278,27 +287,11 @@ Leia mais (04/21/2026 - 12h35)</p>
     <a href="https://www.wired.com/story/tag-heuer-has-dropped-new-pastel-powered-f1s/" class="article-link">Leia na fonte →</a>
   </div>
 
-  <div class="article">
-    <div class="article-headline">The Best Casio Watches You Can Wear Anywhere</div>
-    <div class="article-subhead">WIRED</div>
-    <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3E[Imagem]%3C/text%3E%3C/svg%3E" alt="The Best Casio Watches You Can Wear Anywhere" style="width:100%;height:auto;margin:8px 0;display:block;max-height:200px;object-fit:cover;">
-    <p>From calculators to simple daily beaters, these are my favorite Casio watches on sale today.</p>
-    <a href="https://www.wired.com/gallery/best-casio-watches/" class="article-link">Leia na fonte →</a>
-  </div>
-
   <div class="section-head"><span>Piadas & Humor</span></div>
   <hr class="section-rule">
 
   <div class="joke-item">
-    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
-  </div>
-
-  <div class="joke-item">
     <strong>DOIS ANIMAIS: Em uma função pública estava um mancebo, mui tímido, sentado atrás de uma senhora, de quem gostava muito, e que não reparava nele. Desejoso de travar conversação, aproveitou a circunstância de ver uma mosca pousada na manta da sua formosa vizinha, e disse-lhe: — Minha senhora, advirto-lhe que tem um animal atrás de si. — Ai me Deus! – respondeu a senhora, muito assustada – não sabia que o sr. estava aí.</strong>
-  </div>
-
-  <div class="joke-item">
-    <strong>HUMOR MILITAR: Entre a soldadesca brasileira que participava da Guerra do Paraguai, era hábito, como em todos os exércitos, e em todas as eras; inventar pilhérias e atribuí-las a certos oficiais. A principal vítima dessas gaiatices era um velho brigadeiro, tão conhecido pela bravura como pela ignorância. Dele se contava que, ditando ao secretário a parte relativa a um combate, dissera: “Não se esqueça de escrever que o inimigo fugiu tomado de terror pândego!” A conversa deste brigadeiro era uma série de batatadas, como se dizia então no Exército. De uma formosa rapariga por quem um oficial fazia grandes sacrifícios, referia: “Aquela rapariga sustenta um luxo asinático”, asiático, queria exprimir o bom homem. Casa aritmeticamente fechada, casa de genealogias verdes, eram coisas que lhe atribuíam entre muitas outras. Por exemplo, relatavam que uma vez fizera com ar pesaroso a seguinte observação, ao contemplar enormes rolos de fio telegráfico, deixados numa estação pelos paraguaios: — Que pena não nos poder servir tudo isto! — Mas por que, General? — Ora e que palerma! Não passariam senão palavras em guarani!</strong>
   </div>
 
   <div class="joke-item">
@@ -306,7 +299,15 @@ Leia mais (04/21/2026 - 12h35)</p>
   </div>
 
   <div class="joke-item">
+    <strong>EXPLICAÇÃO DA BÍBLIA: Um frade disputava acaloradamente com um militar, porque este dizia que a terra girava em roda do sol. — O senhor não se lembra, — dizia o enfurecido monge – que Josué fez parar o sol? — Por essa mesma razão lhe digo, — respondeu mui gravemente o militar – que desde essa ocasião ficou imóvel!</strong>
+  </div>
+
+  <div class="joke-item">
     <strong>A PACIÊNCIA DO CAPELÃO: Na época da Guerra do Paraguai, um capelão após rezar uma missa para as tropas brasileiras, onde proferira uma homilia em que fizera certa citação histórica, juntou-se à roda dos oficiais para conversar. Um oficial implicante, que, aliás, vivia a atormentá-lo com remoques insolentes, o questionou: — Padre, como é isto? Se em França nunca houve D. Manuel I, como é que o senhor descobriu este D. Manuel III?. Apesar de já a ira lhe subir às faces, anda contemporizou o frade: — Ora esta! Pouco importa a questão do nome do rei, o que vale é a filosofia, a essência do caso! Se não era D. Manuel, seria D. Antônio ou D. José&#8230; — Também nunca os houve em França – redargüiu o pouco amável oficial. Aí perdeu o bom padre as estribeiras, e respondeu-lhe com veemência: — Olhe, quer saber de uma coisa? Se não era D. Manuel, D. Antônio ou D. José, seria D&#8230; Vá Plantar Batatas ou D&#8230; Vá Para o Diabo que o Carregue!</strong>
+  </div>
+
+  <div class="joke-item">
+    <strong>INQUÉRITO: O tropeiro apeia-se à porta de um armazém e pede a um pequeno para lhe segurar o cavalo. — Não morde? – perguntou o pequeno. — E não são precisos dois para o segurar? — Nesse caso, segure-o você, que tem idade para isso.</strong>
   </div>
 
 </div>

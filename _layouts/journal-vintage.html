@@ -23,8 +23,8 @@
     background: var(--paper);
     color: var(--ink);
     font-family: 'IM Fell English', 'Libre Baskerville', Georgia, serif;
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 18px;
+    line-height: 1.65;
     max-width: 900px;
     margin: 0 auto;
     padding: 8px 12px 40px;
@@ -44,7 +44,7 @@
   }
   .masthead-top {
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 10px; font-family: 'Libre Baskerville', serif;
+    font-size: 13px; font-family: 'Libre Baskerville', serif;
     color: var(--ink-mid); padding: 0 4px;
     border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 5px;
   }
@@ -56,7 +56,7 @@
   }
   .masthead-subtitle {
     font-family: 'Cinzel', serif;
-    font-size: 10px; letter-spacing: 3px;
+    font-size: 13px; letter-spacing: 3px;
     color: var(--ink-mid); margin-top: 2px;
   }
   .masthead-rule {
@@ -88,7 +88,7 @@
     background: var(--paper);
     padding: 0 12px;
     font-family: 'Cinzel', serif;
-    font-size: 11px; letter-spacing: 3px;
+    font-size: 14px; letter-spacing: 3px;
     color: var(--ink-mid); text-transform: uppercase;
   }
 
@@ -109,27 +109,27 @@
   .article { break-inside: avoid; margin-bottom: 14px; }
   .article-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 15px; font-weight: 700;
+    font-size: 20px; font-weight: 700;
     line-height: 1.2; color: var(--ink);
     margin-bottom: 4px;
   }
   .article-headline.large {
-    font-size: 22px; font-weight: 900;
+    font-size: 28px; font-weight: 900;
   }
   .article-headline.xl {
-    font-size: clamp(18px, 4vw, 28px);
+    font-size: clamp(24px, 5vw, 36px);
     font-weight: 900;
   }
   .article-subhead {
     font-family: 'Libre Baskerville', serif;
-    font-size: 11px; font-style: italic;
+    font-size: 14px; font-style: italic;
     color: var(--ink-mid); margin-bottom: 5px;
     border-bottom: 1px solid var(--paper-dark);
     padding-bottom: 4px;
   }
   .article-byline {
     font-family: 'Cinzel', serif;
-    font-size: 9px; letter-spacing: 1px;
+    font-size: 12px; letter-spacing: 1px;
     color: var(--ink-light); margin-bottom: 5px;
     text-transform: uppercase;
   }
@@ -137,7 +137,7 @@
     text-align: justify;
     hyphens: auto;
     margin-bottom: 6px;
-    font-size: 13px;
+    font-size: 16px;
   }
   .article p:first-of-type::first-letter {
     font-family: 'Playfair Display', serif;
@@ -157,7 +157,7 @@
     break-inside: avoid;
     background: rgba(61,43,16,0.04);
   }
-  .feature-box .article-headline { font-size: 16px; }
+  .feature-box .article-headline { font-size: 20px; }
 
   /* ── JOKE SECTION ── */
   .joke-item {
@@ -167,10 +167,10 @@
   }
   .joke-item strong {
     font-family: 'Playfair Display', serif;
-    font-size: 13px; font-style: italic;
+    font-size: 16px; font-style: italic;
   }
   .joke-item .resposta {
-    color: var(--red); font-style: italic; font-size: 12px; margin-top: 3px;
+    color: var(--red); font-style: italic; font-size: 15px; margin-top: 3px;
   }
 
   /* ── ARTICLE LINK ── */
@@ -179,7 +179,7 @@
     margin-top: 6px;
     color: var(--red);
     font-family: 'Cinzel', serif;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 1px;
     text-decoration: none;
     border-bottom: 1px solid var(--red);
@@ -196,7 +196,7 @@
     border-top: 2px solid var(--rule);
     padding-top: 6px;
     margin-top: 20px;
-    font-size: 9px;
+    font-size: 12px;
     color: var(--ink-light);
     font-family: 'Cinzel', serif;
     letter-spacing: 1px;
@@ -204,11 +204,15 @@
 
   /* ── KINDLE OPTIMIZATION ── */
   @media (max-width: 600px) {
-    body { font-size: 13px; padding: 6px 8px 30px; }
-    .title-main { font-size: 32px; }
-    .masthead-top { flex-direction: column; gap: 4px; }
-    .article-headline { font-size: 14px; }
-    .article p { font-size: 12px; }
+    body { font-size: 17px; padding: 6px 8px 30px; }
+    .title-main { font-size: 40px; }
+    .masthead-top { flex-direction: column; gap: 4px; font-size: 12px; }
+    .article-headline { font-size: 18px; }
+    .article-headline.large { font-size: 24px; }
+    .article-headline.xl { font-size: clamp(18px, 5vw, 28px); }
+    .article-subhead { font-size: 13px; }
+    .article p { font-size: 15px; }
+    .joke-item strong { font-size: 15px; }
     .cols-2, .cols-3 { columns: 1; }
   }
 
