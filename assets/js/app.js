@@ -247,7 +247,7 @@ function renderBio({ animate = true } = {}) {
   const sample = scene.sample ? ` <span class="sample">${escapeHtml(t().sample)}</span>` : "";
   const address = scene.address ? `<span class="address">${escapeHtml(scene.address)}</span>` : "";
   bio.innerHTML = `${escapeHtml(t().bio("§", "¶"))}`
-    .replace("§", `<button type="button" class="text-link" data-open-map>${escapeHtml(seen)}</button>${sample}`)
+    .replace("§,", `<button type="button" class="text-link" data-open-map>${escapeHtml(seen)},</button>${sample}`)
     .replace("¶", escapeHtml(when)) + address;
   if (animate && !reduceMotion && !state.scrubbing) {
     bio.classList.remove("is-swap");
@@ -278,7 +278,7 @@ function renderStrip() {
   strip.innerHTML = rows.map(({ scene, index }) => `
     <button class="card${index === state.index ? " is-current" : ""}" type="button" data-index="${index}">
       <p class="when">${escapeHtml(whenText(scene.date, false))}</p>
-      <img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false">
+      <span class="poster"><img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false"></span>
       <p class="name">${escapeHtml(scene.name[state.lang])}</p>
       <p class="meta">${scene.sample ? escapeHtml(t().sample) : escapeHtml(scene.where[state.lang])}</p>
     </button>`).join("");
