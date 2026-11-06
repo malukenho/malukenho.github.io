@@ -256,8 +256,8 @@ function renderBio({ animate = true } = {}) {
   }
   const phi = polar(scene.cameraOrbit);
   $("viewer").alt = `${scene.name[state.lang]}. ${t().drag}`;
-  $("viewer").setAttribute("min-camera-orbit", `auto ${Math.max(0, phi - 2)}deg auto`);
-  $("viewer").setAttribute("max-camera-orbit", `auto ${Math.min(180, phi + 2)}deg auto`);
+  $("viewer").setAttribute("min-camera-orbit", `auto ${Math.max(0, phi - 2)}deg 0.4m`);
+  $("viewer").setAttribute("max-camera-orbit", `auto ${Math.min(180, phi + 2)}deg 8m`);
 }
 
 function escapeHtml(value) {
@@ -836,8 +836,10 @@ async function main() {
   renderChrome();
   const initial = state.scenes[state.index];
   const initialView = viewOf(initial);
-  $("viewer").dataset.baked = initialView.baked;
-  $("viewer").setAttribute("src", initialView.model);
+  const viewer = $("viewer");
+  customElements.get("model-viewer").meshoptDecoderLocation = new URL("meshopt_decoder.js", import.meta.url).href;
+  viewer.dataset.baked = initialView.baked;
+  viewer.setAttribute("src", initialView.model);
   $("viewer").setAttribute("poster", initialView.poster);
   $("viewer").setAttribute("camera-orbit", initial.cameraOrbit);
   $("viewer").setAttribute("camera-target", initial.cameraTarget);
