@@ -21,13 +21,17 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_DIR = ROOT / "assets" / "models"
 POSTER_DIR = ROOT / "assets" / "posters"
+# Decorative lancets, roses and the door stay on. Their colours, and the
+# repeating brick and slate, are generated to match the Ospel photograph.
+PHOTO = False
 
-BRICK = (186, 104, 68)
-MORTAR = (214, 204, 190)
-SLATE = (104, 112, 122)
-SLATE_GAP = (78, 84, 92)
-PAVE = (176, 170, 160)
-PAVE_GAP = (150, 144, 134)
+# Sunlit south wall, measured from the photograph: orange-red brick, warm mortar.
+BRICK = (206, 152, 106)
+MORTAR = (174, 166, 154)
+SLATE = (128, 136, 146)
+SLATE_GAP = (72, 78, 86)
+PAVE = (164, 154, 142)
+PAVE_GAP = (118, 110, 100)
 
 
 def sub(a, b):
@@ -144,87 +148,86 @@ def _noise(x, y):
     return ((n ^ (n >> 16)) & 255) / 255
 
 
+def _paint_wrapped(img, y0, y1, x0, width, color):
+    """Write a horizontal run, wrapping across the left and right edges."""
+    size = img.shape[1]
+    x0 %= size
+    x1 = x0 + width
+    if x1 <= size:
+        img[y0:y1, x0:x1] = color
+        return
+    img[y0:y1, x0:] = color[:, : size - x0]
+    img[y0:y1, : x1 - size] = color[:, size - x0 :]
+
+
+def _courses(size, rows, cols, body, gap, mortar, rng, darken=0.16, jitter=None):
+    """A seamless running-bond of rectangular units. One tile equals one metre."""
+    img = np.empty((size, size, 3), np.float32)
+    noise = rng.normal(0, 5, img.shape).astype(np.float32)
+    img[:] = np.array(mortar, np.float32) + noise
+    ch = size // rows
+    pitch = size // cols
+    bh = ch - gap[1]
+    bw = pitch - gap[0]
+    # jitter is (lightness, warmth). Warmth stays on the body hue: brick stays
+    # orange, slate stays blue-grey. Independent channel noise turns both muddy.
+    light_std, warm_std = (jitter if jitter is not None else (12.0, 4.0))
+    body = np.array(body, np.float32)
+    for row in range(rows):
+        y0 = row * ch
+        y1 = y0 + bh
+        off = pitch // 2 if row % 2 else 0
+        for col in range(cols):
+            warmth = float(rng.normal(0, warm_std))
+            tone = body + float(rng.normal(0, light_std)) + np.array(
+                [warmth, warmth * 0.15, -warmth * 0.4], np.float32
+            )
+            if rng.random() < darken:
+                tone *= float(rng.uniform(0.80, 0.92))
+            patch = tone + rng.normal(0, 2.4, (bh, bw, 1))
+            shade = np.ones((bh, bw, 1), np.float32)
+            shade[-max(2, bh // 18) :] *= 0.84
+            shade[:, -max(2, bw // 18) :] *= 0.90
+            shade[:1] *= 1.05
+            _paint_wrapped(img, y0, y1, col * pitch + gap[0] // 2 - off, bw, np.clip(patch * shade, 0, 255))
+    return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8), "RGB")
+
+
 def make_brick():
-    w = h = 512
-    img = np.zeros((h, w, 3), np.uint8)
-    bw, bh, m = 0.210, 0.050, 0.011
-    course = bh + m
-    for y in range(h):
-        v = y / h
-        row = int(v / course)
-        off = 0.5 * (bw + m) if row % 2 else 0.0
-        cv = v % course
-        for x in range(w):
-            u = (x / w + off) % 1.0
-            cu = u % (bw + m)
-            if cu < m or cv < m:
-                shade = 0.94 + 0.08 * _noise(x, y)
-                img[y, x] = tuple(int(c * shade) for c in MORTAR)
-            else:
-                tint = _noise(row * 17, int(u / (bw + m)) * 13)
-                tint2 = _noise(x // 3, y // 3)
-                col = (
-                    BRICK[0] + int((tint - 0.5) * 36 + (tint2 - 0.5) * 10),
-                    BRICK[1] + int((tint - 0.45) * 24 + (tint2 - 0.5) * 8),
-                    BRICK[2] + int((tint - 0.5) * 16),
-                )
-                img[y, x] = tuple(max(0, min(255, c)) for c in col)
-    return Image.fromarray(img, "RGB")
+    # About four bricks across and sixteen courses: the size of the real wall.
+    rng = np.random.default_rng(4)
+    return _courses(1024, 16, 4, BRICK, (8, 6), MORTAR, rng, darken=0.14, jitter=(11.0, 5.0))
 
 
 def make_slate():
-    w = h = 512
-    img = np.empty((h, w, 3), np.uint8)
-    tw, th, g = 0.24, 0.14, 0.008
-    for y in range(h):
-        v = y / h
-        row = int(v / (th + g))
-        off = 0.5 * (tw + g) if row % 2 else 0.0
-        cv = v % (th + g)
-        for x in range(w):
-            u = (x / w + off) % 1.0
-            cu = u % (tw + g)
-            if cu < g or cv < g:
-                img[y, x] = SLATE_GAP
-            else:
-                tint = _noise(row * 3, int(u / (tw + g)) * 5)
-                base = 0.86 + tint * 0.28
-                img[y, x] = tuple(int(c * base) for c in SLATE)
-    return Image.fromarray(img, "RGB")
+    rng = np.random.default_rng(11)
+    return _courses(1024, 8, 5, SLATE, (5, 4), SLATE_GAP, rng, darken=0.34, jitter=(9.0, 2.0))
 
 
 def make_pave():
-    w = h = 256
-    img = np.empty((h, w, 3), np.uint8)
-    tile = 0.62
-    for y in range(h):
-        for x in range(w):
-            u, v = x / w, y / h
-            if u % tile < 0.018 or v % tile < 0.018:
-                img[y, x] = PAVE_GAP
-            else:
-                n = _noise(x // 2, y // 2)
-                img[y, x] = tuple(int(c * (0.94 + n * 0.1)) for c in PAVE)
-    return Image.fromarray(img, "RGB")
+    rng = np.random.default_rng(19)
+    return _courses(512, 8, 8, PAVE, (4, 4), PAVE_GAP, rng, darken=0.18, jitter=(7.0, 2.5))
 
 
 MATERIALS = {
     "brick": {"rough": 0.9, "metal": 0.0, "color": (1, 1, 1, 1), "tex": "brick"},
-    "plinth": {"rough": 0.92, "metal": 0.0, "color": (0.62, 0.42, 0.34, 1), "tex": "brick"},
+    "plinth": {"rough": 0.92, "metal": 0.0, "color": (0.66, 0.55, 0.58, 1), "tex": "brick"},
     "slate": {"rough": 0.72, "metal": 0.04, "color": (1, 1, 1, 1), "tex": "slate"},
-    "stone": {"rough": 0.78, "metal": 0.0, "color": (0.78, 0.75, 0.69, 1), "tex": None},
-    "wood": {"rough": 0.7, "metal": 0.0, "color": (0.32, 0.18, 0.11, 1), "tex": None},
+    "stone": {"rough": 0.8, "metal": 0.0, "color": (0.74, 0.72, 0.68, 1), "tex": None},
+    "frame": {"rough": 0.7, "metal": 0.0, "color": (0.91, 0.80, 0.66, 1), "tex": None},
+    "wood": {"rough": 0.72, "metal": 0.0, "color": (0.34, 0.18, 0.10, 1), "tex": None},
     "ground": {"rough": 0.95, "metal": 0.0, "color": (1, 1, 1, 1), "tex": "pave"},
     "metal": {"rough": 0.35, "metal": 0.7, "color": (0.18, 0.19, 0.2, 1), "tex": None},
-    "win": {"rough": 0.08, "metal": 0.0, "color": (0.07, 0.09, 0.12, 1), "tex": None},
+    "win": {"rough": 0.12, "metal": 0.0, "color": (0.20, 0.16, 0.11, 1), "tex": None},
     "winlamp": {"rough": 0.4, "metal": 0.2, "color": (0.45, 0.38, 0.28, 1), "tex": None},
 }
 
 NIGHT_COLOR = {
     "brick": (0.22, 0.2, 0.26, 1),
-    "plinth": (0.12, 0.1, 0.12, 1),
+    "plinth": (0.14, 0.11, 0.12, 1),
     "slate": (0.16, 0.17, 0.22, 1),
-    "stone": (0.26, 0.27, 0.31, 1),
+    "stone": (0.26, 0.26, 0.28, 1),
+    "frame": (0.32, 0.27, 0.22, 1),
     "wood": (0.28, 0.14, 0.07, 1),
     "ground": (0.18, 0.18, 0.2, 1),
     "metal": (0.22, 0.23, 0.26, 1),
@@ -238,14 +241,19 @@ NIGHT_EMISSIVE = {
 }
 
 
-def build_glb(builder: Builder, images: dict[str, bytes], night: bool) -> bytes:
+def build_glb(builder: Builder, images: dict[str, bytes], night: bool, mimes=None, clamp=None) -> bytes:
     blobs = []
     buffer_views = []
     accessors = []
     materials = []
     textures = []
     image_defs = []
-    samplers = [{"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]
+    mimes = mimes or {}
+    clamp = set(clamp or [])
+    samplers = [
+        {"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497},
+        {"magFilter": 9729, "minFilter": 9987, "wrapS": 33071, "wrapT": 33071},
+    ]
     tex_index = {}
 
     def push(data: bytes, target: int | None = None) -> int:
@@ -259,8 +267,8 @@ def build_glb(builder: Builder, images: dict[str, bytes], night: bool) -> bytes:
 
     for name, raw in images.items():
         view = push(raw)
-        image_defs.append({"bufferView": view, "mimeType": "image/png"})
-        textures.append({"sampler": 0, "source": len(image_defs) - 1})
+        image_defs.append({"bufferView": view, "mimeType": mimes.get(name, "image/png")})
+        textures.append({"sampler": 1 if name in clamp else 0, "source": len(image_defs) - 1})
         tex_index[name] = len(textures) - 1
 
     primitives = []
@@ -297,7 +305,14 @@ def build_glb(builder: Builder, images: dict[str, bytes], night: bool) -> bytes:
         if spec["tex"]:
             pbr["baseColorTexture"] = {"index": tex_index[spec["tex"]]}
         material = {"name": mat_name, "pbrMetallicRoughness": pbr, "doubleSided": False}
-        if night and mat_name in NIGHT_EMISSIVE:
+        glow = spec.get("glow")
+        if night and glow and glow in tex_index:
+            material["emissiveTexture"] = {"index": tex_index[glow]}
+            material["emissiveFactor"] = [1.35, 0.85, 0.42]
+        elif night and mat_name == "photo" and "emit" in tex_index:
+            material["emissiveTexture"] = {"index": tex_index["emit"]}
+            material["emissiveFactor"] = [1.2, 0.78, 0.32]
+        elif night and mat_name in NIGHT_EMISSIVE:
             material["emissiveFactor"] = list(NIGHT_EMISSIVE[mat_name])
         materials.append(material)
         primitives.append({
@@ -368,21 +383,23 @@ def pointed(b: Builder, mat, origin, right, up, normal, w, h):
 
 def lancet(b: Builder, sill, normal, w, h, panes=1):
     """A stone-framed lancet sitting just proud of a wall. `sill` is the centre of the sill."""
+    if PHOTO:
+        return
     right, up = basis(normal)
     stone_o = add(sill, mul(normal, 0.045))
     glass_o = add(sill, mul(normal, 0.09))
-    pointed(b, "stone", stone_o, right, up, normal, w + 0.28, h + 0.06)
+    pointed(b, "frame", stone_o, right, up, normal, w + 0.28, h + 0.06)
     pointed(b, "win", glass_o, right, up, normal, w, h)
     # mullions and a small roundel in the head
     if panes > 1:
         gap = w / panes
         for i in range(1, panes):
             cx = add(glass_o, add(mul(right, -w / 2 + gap * i), mul(up, h * 0.34)))
-            b.box("stone", cx[0], cx[1], cx[2], *(
+            b.box("frame", cx[0], cx[1], cx[2], *(
                 (0.07, h * 0.62, 0.05) if abs(normal[0]) > 0.5 else (0.05, h * 0.62, 0.07)
             ))
     head = add(glass_o, mul(up, h * 0.78))
-    disk(b, "stone", head, right, up, 0.16 if panes == 1 else 0.22, 0.02)
+    disk(b, "frame", head, right, up, 0.16 if panes == 1 else 0.22, 0.02)
     disk(b, "win", add(head, mul(normal, 0.02)), right, up, 0.09 if panes == 1 else 0.13, 0.02)
 
 
@@ -408,16 +425,18 @@ def ring(b: Builder, mat, center, right, up, inner, outer):
 
 
 def rose(b: Builder, center, normal, radius):
+    if PHOTO:
+        return
     right, up = basis(normal)
     c = add(center, mul(normal, 0.08))
-    disk(b, "stone", add(center, mul(normal, 0.04)), right, up, radius + 0.16)
+    disk(b, "frame", add(center, mul(normal, 0.04)), right, up, radius + 0.16)
     disk(b, "win", c, right, up, radius)
-    ring(b, "stone", add(c, mul(normal, 0.03)), right, up, radius * 0.34, radius * 0.48)
+    ring(b, "frame", add(c, mul(normal, 0.03)), right, up, radius * 0.34, radius * 0.48)
     for i in range(8):
         a = math.tau * i / 8
         spoke = add(c, add(mul(right, math.cos(a) * radius * 0.48), mul(up, math.sin(a) * radius * 0.48)))
         b.box(
-            "stone", spoke[0], spoke[1], spoke[2],
+            "frame", spoke[0], spoke[1], spoke[2],
             0.06 if abs(normal[0]) < 0.5 else 0.05,
             0.06,
             0.05 if abs(normal[0]) < 0.5 else 0.06,
@@ -425,18 +444,20 @@ def rose(b: Builder, center, normal, radius):
         # radial bar
         mid = add(c, add(mul(right, math.cos(a) * radius * 0.72), mul(up, math.sin(a) * radius * 0.22)))
     # a stone cross in the rose
-    b.box("stone", c[0], c[1], c[2], *(
+    b.box("frame", c[0], c[1], c[2], *(
         (0.05, radius * 1.15, 0.05) if abs(normal[0]) > 0.5 else (0.05, radius * 1.15, 0.05)
     ))
     horiz = (radius * 0.7, 0.05, 0.05) if abs(normal[2]) > 0.5 else (0.05, 0.05, radius * 0.7)
     if abs(normal[0]) > 0.5:
         horiz = (0.05, 0.05, radius * 0.7)
-    b.box("stone", c[0], c[1], c[2], *horiz)
+    b.box("frame", c[0], c[1], c[2], *horiz)
 
 
 def door(b: Builder, sill, normal, w, h):
+    if PHOTO:
+        return
     right, up = basis(normal)
-    pointed(b, "stone", add(sill, mul(normal, 0.05)), right, up, normal, w + 0.36, h + 0.08)
+    pointed(b, "frame", add(sill, mul(normal, 0.05)), right, up, normal, w + 0.36, h + 0.08)
     pointed(b, "wood", add(sill, mul(normal, 0.1)), right, up, normal, w, h)
     # two leaves suggested by a centre stile
     stile = add(sill, add(mul(normal, 0.14), mul(up, h * 0.32)))
@@ -448,6 +469,8 @@ def door(b: Builder, sill, normal, w, h):
 
 def buttress(b: Builder, x, z, normal, height):
     """A pier with a sloped stone cap, standing against a wall."""
+    if PHOTO:
+        return
     depth = 0.55
     width = 0.48
     ox = normal[0] * (depth / 2 + 0.02)
@@ -462,6 +485,8 @@ def buttress(b: Builder, x, z, normal, height):
 
 
 def string_course(b: Builder, x0, x1, y, z0, z1, normal, thick=0.14):
+    if PHOTO:
+        return
     cx, cz = (x0 + x1) / 2, (z0 + z1) / 2
     sx, sz = abs(x1 - x0), abs(z1 - z0)
     if abs(normal[2]) > 0.5:
@@ -566,6 +591,8 @@ def pinnacle(b: Builder, x, z, y, h=2.7):
 
 def belfry(b: Builder, cx, cz, y, half):
     """Two louvered lancets on each face of the tower."""
+    if PHOTO:
+        return
     for normal, along in (
         ((0, 0, 1), (1, 0, 0)),
         ((0, 0, -1), (-1, 0, 0)),
@@ -589,6 +616,8 @@ def belfry(b: Builder, cx, cz, y, half):
 
 
 def blind_arcade(b: Builder, cx, cz, y, half):
+    if PHOTO:
+        return
     for normal, along in (
         ((0, 0, 1), (1, 0, 0)),
         ((0, 0, -1), (-1, 0, 0)),
@@ -612,16 +641,15 @@ def tower(b: Builder):
     # shaft
     b.box("plinth", cx, 0.7, cz, TOWER_W, 1.4, TOWER_W)
     b.box("brick", cx, 10.6, cz, TOWER_W, 18.4, TOWER_W)
-    # quoins
-    for sx in (-1, 1):
-        for sz in (-1, 1):
-            b.box("stone", cx + sx * (half - 0.08), 10.4, cz + sz * (half - 0.08), 0.28, 18.6, 0.28)
-    for y in (4.15, 8.4, 13.15, 17.55):
-        b.box("stone", cx, y, cz, TOWER_W + 0.12, 0.16, TOWER_W + 0.12)
-    # west door and rose
+    if not PHOTO:
+        for sx in (-1, 1):
+            for sz in (-1, 1):
+                b.box("stone", cx + sx * (half - 0.08), 10.4, cz + sz * (half - 0.08), 0.28, 18.6, 0.28)
+        for y in (4.15, 8.4, 13.15, 17.55):
+            b.box("stone", cx, y, cz, TOWER_W + 0.12, 0.16, TOWER_W + 0.12)
+        b.box("stone", 0, 0.12, cz + half + 0.35, 2.1, 0.24, 0.7)
+        b.box("stone", 0, 0.34, cz + half + 0.55, 1.7, 0.2, 0.45)
     door(b, (0, 0.15, cz + half), (0, 0, 1), 1.35, 3.15)
-    b.box("stone", 0, 0.12, cz + half + 0.35, 2.1, 0.24, 0.7)
-    b.box("stone", 0, 0.34, cz + half + 0.55, 1.7, 0.2, 0.45)
     rose(b, (0, 5.55, cz + half), (0, 0, 1), 0.62)
     # a tall recessed lancet above the rose, on the west face
     lancet(b, (0, 7.15, cz + half), (0, 0, 1), 1.15, 4.4, panes=1)
@@ -631,7 +659,8 @@ def tower(b: Builder):
     blind_arcade(b, cx, cz, 13.35, half)
     # parapet stage and roundels just under the spire
     b.box("brick", cx, 19.55, cz, TOWER_W + 0.08, 1.5, TOWER_W + 0.08)
-    b.box("stone", cx, 20.35, cz, TOWER_W + 0.28, 0.18, TOWER_W + 0.28)
+    if not PHOTO:
+        b.box("stone", cx, 20.35, cz, TOWER_W + 0.28, 0.18, TOWER_W + 0.28)
     for normal in ((0, 0, 1), (0, 0, -1), (1, 0, 0), (-1, 0, 0)):
         rose(b, (cx + normal[0] * half, 19.55, cz + normal[2] * half), normal, 0.38)
     for sx in (-1, 1):
@@ -693,9 +722,8 @@ def nave_body(b: Builder):
     # volume solid so the roof and the west/east ends read correctly.
     b.box("brick", 0, EAVE / 2, (z0 + z1) / 2, (x1 - x0), EAVE, length)
     gable_roof(b, x0 - 0.25, x1 + 0.25, z0 - 0.15, z1 + 0.15, EAVE - 0.05, RIDGE)
-    # clerestory is hidden behind the aisle roof on the south; a stone cornice
-    # still shows above the aisle where the nave wall rises.
-    b.box("stone", 0, EAVE - 0.05, (z0 + z1) / 2, (x1 - x0) + 0.2, 0.16, length)
+    if not PHOTO:
+        b.box("stone", 0, EAVE - 0.05, (z0 + z1) / 2, (x1 - x0) + 0.2, 0.16, length)
 
 
 def aisle(b: Builder, side: int):
@@ -881,7 +909,8 @@ def build() -> Builder:
     north_bays(b)
     apse(b)
     tower(b)
-    lamps(b)
+    if not PHOTO:
+        lamps(b)
     return b
 
 
@@ -938,7 +967,7 @@ def frame_camera(builder: Builder, theta_deg=56, phi_deg=70, fov_deg=12):
     }
 
 
-def preview(builder: Builder, path: Path, cam: dict, night=False):
+def preview(builder: Builder, path: Path, cam: dict, night=False, textures=None):
     w, h = 760, 520
     theta = math.radians(cam["theta"])
     phi = math.radians(cam["phi"])
@@ -961,20 +990,31 @@ def preview(builder: Builder, path: Path, cam: dict, night=False):
         "brick": (176, 96, 64),
         "plinth": (122, 64, 48),
         "slate": (96, 104, 114),
-        "stone": (198, 192, 180),
+        "stone": (186, 181, 171),
+        "frame": (232, 204, 168),
         "wood": (92, 52, 32),
         "ground": (168, 162, 152),
         "metal": (40, 42, 46),
         "win": (255, 186, 80) if night else (28, 36, 48),
         "winlamp": (255, 210, 120) if night else (120, 100, 70),
+        "photo": (190, 120, 80),
+        "ph-west": (190, 110, 74),
+        "ph-south": (186, 108, 72),
+        "ph-wall": (184, 100, 68),
+        "ph-roof": (90, 98, 108),
+        "ph-spire": (70, 76, 86),
+        "ph-east": (176, 96, 64),
     }
+    textures = textures or {}
     img = np.zeros((h, w, 3), np.uint8)
     img[:] = (18, 24, 48) if night else (176, 206, 232)
     zbuf = np.full((h, w), np.inf)
     for mat, positions in builder.pos.items():
-        col = np.array(colors[mat], np.float32)
+        col = np.array(colors.get(mat, (180, 140, 110)), np.float32)
         pos = np.array(positions, np.float32)
         nrm = np.array(builder.nrm[mat], np.float32)
+        uvs_all = np.array(builder.uv[mat], np.float32)
+        tex = textures.get(mat)
         idx = np.array(builder.idx[mat], np.int32).reshape(-1, 3)
         for tri in idx:
             p = pos[tri]
@@ -984,6 +1024,7 @@ def preview(builder: Builder, path: Path, cam: dict, night=False):
                 shade = col
             else:
                 shade = col * (0.55 + 0.5 * light) * (0.45 if night and mat not in ("win", "winlamp") else 1)
+            uv = uvs_all[tri]
             rel = p - eye
             z = -rel @ back
             if np.any(z < 0.2):
@@ -1018,9 +1059,34 @@ def preview(builder: Builder, path: Path, cam: dict, night=False):
             update = mask & (zz < region)
             region[update] = zz[update]
             block = img[miny:maxy + 1, minx:maxx + 1]
-            block[update] = np.clip(shade, 0, 255).astype(np.uint8)
+            if tex is not None and np.any(update):
+                th, tw = tex.shape[:2]
+                inv = 1.0 / np.maximum(z, 1e-3)
+                w0z, w1z, w2z = w0 * inv[0], w1 * inv[1], w2 * inv[2]
+                denom = w0z + w1z + w2z
+                uu = (w0z * uv[0, 0] + w1z * uv[1, 0] + w2z * uv[2, 0]) / denom
+                vv = (w0z * uv[0, 1] + w1z * uv[1, 1] + w2z * uv[2, 1]) / denom
+                px = np.clip((uu * (tw - 1)).astype(np.int32), 0, tw - 1)
+                py = np.clip((vv * (th - 1)).astype(np.int32), 0, th - 1)
+                sampled = tex[py, px].astype(np.float32)
+                if night and not str(mat).startswith("ph-"):
+                    sampled *= 0.45
+                elif night and str(mat).startswith("ph-"):
+                    sampled *= 0.55
+                sampled *= 0.72 + 0.35 * light
+                block[update] = np.clip(sampled[update], 0, 255).astype(np.uint8)
+            else:
+                block[update] = np.clip(shade, 0, 255).astype(np.uint8)
     Image.fromarray(img, "RGB").save(path, quality=90)
     print("preview", path)
+
+
+
+def _pil_jpeg(image: Image.Image, quality=88) -> bytes:
+    import io
+    buf = io.BytesIO()
+    image.save(buf, format="JPEG", quality=quality)
+    return buf.getvalue()
 
 
 def main():
@@ -1029,7 +1095,17 @@ def main():
     tris = sum(len(v) // 3 for v in builder.idx.values())
     lo, hi = builder.bounds()
     print(f"triangles {tris} bounds {lo} {hi}")
-    cam = frame_camera(builder)
+    brick, slate, pave = make_brick(), make_slate(), make_pave()
+    brick.save("/tmp/church/tile-brick.jpg", quality=90)
+    slate.save("/tmp/church/tile-slate.jpg", quality=90)
+    pave.save("/tmp/church/tile-pave.jpg", quality=90)
+    images = {
+        "brick": _pil_jpeg(brick),
+        "slate": _pil_jpeg(slate),
+        "pave": _pil_jpeg(pave),
+    }
+    mimes = {name: "image/jpeg" for name in images}
+    cam = frame_camera(builder, theta_deg=54, phi_deg=70, fov_deg=12)
     print(
         "camera",
         f"{cam['theta']}deg {cam['phi']}deg {cam['radius']:.2f}m",
@@ -1037,29 +1113,30 @@ def main():
         " ".join(f"{v:.3f}m" for v in cam["target"]),
         f"fov {cam['fov']}deg",
     )
-    images = {
-        "brick": png_bytes(make_brick()),
-        "slate": png_bytes(make_slate()),
-        "pave": png_bytes(make_pave()),
-    }
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
-    day = build_glb(builder, images, night=False)
-    night = build_glb(builder, images, night=True)
+    day = build_glb(builder, images, night=False, mimes=mimes)
+    night = build_glb(builder, images, night=True, mimes=mimes)
     (MODEL_DIR / "church-day.glb").write_bytes(day)
     (MODEL_DIR / "church-night.glb").write_bytes(night)
     print("glb", len(day), len(night))
-    preview(builder, Path("/tmp/church/preview-day.jpg"), cam, night=False)
-    preview(builder, Path("/tmp/church/preview-night.jpg"), cam, night=True)
-    # a second azimuth to check the front
+    rgb = {
+        "brick": np.asarray(brick),
+        "plinth": np.asarray(brick),
+        "slate": np.asarray(slate),
+        "ground": np.asarray(pave),
+    }
+    preview(builder, Path("/tmp/church/preview-day.jpg"), cam, night=False, textures=rgb)
+    preview(builder, Path("/tmp/church/preview-night.jpg"), cam, night=True, textures=rgb)
     front = dict(cam)
     front["theta"] = 8
-    preview(builder, Path("/tmp/church/preview-front.jpg"), front, night=False)
+    preview(builder, Path("/tmp/church/preview-front.jpg"), front, night=False, textures=rgb)
     meta = {
         "cameraOrbit": f"{cam['theta']}deg {cam['phi']}deg {cam['radius']:.2f}m",
         "cameraTarget": " ".join(f"{v:.3f}m" for v in cam["target"]),
         "fieldOfView": f"{cam['fov']}deg",
     }
     Path("/tmp/church/camera.json").write_text(json.dumps(meta, indent=2))
+    print(json.dumps(meta))
 
 
 if __name__ == "__main__":
