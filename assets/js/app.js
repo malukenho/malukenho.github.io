@@ -15,7 +15,7 @@ const COPY = {
   pt: {
     bio: (seen, when) => `Jefersson Nathan faz software em PHP e Swift, e um pouco demais de inteligência artificial. Mora em Helmond, nos Países Baixos. Visto por último ${seen}, ${when}.`,
     sample: "amostra",
-    work: "Code",
+    work: "Work",
     timeline: "Linha do tempo",
     map: "Mapa",
     search: "Buscar",
@@ -38,7 +38,7 @@ const COPY = {
   en: {
     bio: (seen, when) => `Jefersson Nathan builds software in PHP and Swift, and a little too much AI. He lives in Helmond, the Netherlands. Last seen at ${seen}, ${when}.`,
     sample: "sample",
-    work: "Code",
+    work: "Work",
     timeline: "Timeline",
     map: "Maps",
     search: "Search",
@@ -212,7 +212,7 @@ function renderChrome() {
   $("compass").setAttribute("aria-label", copy.north);
   $("proj-mini").textContent = copy.mini;
   $("proj-globe").textContent = copy.globe;
-  $("work-label").textContent = copy.work;
+  $("work-label").innerHTML = `<a href="https://www.linkedin.com/in/malukenho/" target="_blank" rel="noopener noreferrer">${escapeHtml(copy.work)}</a>`;
   $("scrubber").setAttribute("aria-label", copy.scrub);
   $("view-timeline").setAttribute("aria-label", copy.timeline);
   $("view-map").setAttribute("aria-label", copy.map);
