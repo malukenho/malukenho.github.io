@@ -26,5 +26,37 @@
       "pt": "Ospel",
       "en": "Ospel"
     }
+  },
+  {
+    "id": "2026-10-22-alexa-centre",
+    "date": "2026-10-22",
+    "model": "assets/models/alexa-day.glb",
+    "modelNight": "assets/models/alexa-night.glb",
+    "poster": "assets/posters/alexa-day.png",
+    "posterNight": "assets/posters/alexa-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 52.5192,
+    "lng": 13.4156,
+    "category": "marco",
+    "sample": false,
+    "address": "Grunerstraße 20, 10179 Berlin",
+    "name": {
+      "pt": "Alexa Centre",
+      "en": "Alexa Centre"
+    },
+    "seen": {
+      "pt": "no Alexa Centre",
+      "en": "the Alexa Centre"
+    },
+    "where": {
+      "pt": "Berlim",
+      "en": "Berlin"
+    },
+    "with": {
+      "pt": "o time da Angi",
+      "en": "the Angi team"
+    }
   }
 ]
