@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jefersson Nathan</title>
-  <meta name="description" content="Jefersson Nathan, in Helmond. A timeline of places.">
-  <meta name="theme-color" content="#faf2e9">
+  <meta name="description" content="Jefersson Nathan, in the Netherlands. A timeline of places.">
+  <meta name="theme-color" content="#1d2f51">
   <meta property="og:title" content="Jefersson Nathan">
-  <meta property="og:description" content="Jefersson Nathan, in Helmond. A timeline of places.">
+  <meta property="og:description" content="Jefersson Nathan, in the Netherlands. A timeline of places.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://malukenho.github.io/">
-  <meta property="og:image" content="https://malukenho.github.io/assets/posters/alexa-day.png">
+  <meta property="og:image" content="https://malukenho.github.io/assets/posters/alexa-night.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/posters/alexa-day.png">
+  <link rel="preload" as="image" href="assets/posters/alexa-night.png">
   <link rel="stylesheet" href="assets/css/site.css">
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <script type="module" src="assets/js/app.js"></script>
 </head>
 <body data-mode="home">
@@ -26,26 +25,9 @@
 
   <main class="view view-home is-active" id="view-home" data-view="home">
     <div class="stage-wrap">
-      <model-viewer
-        id="viewer"
-        poster="assets/posters/alexa-day.png"
-        alt="Alexa Centre, Berlin"
-        camera-controls
-        disable-zoom
-        disable-pan
-        interaction-prompt="none"
-        touch-action="pan-y"
-        interpolation-decay="20"
-        camera-orbit="315deg 68deg 2.2m"
-        camera-target="0m 0.26m 0m"
-        field-of-view="32deg"
-        min-camera-orbit="auto 66deg 0.4m"
-        max-camera-orbit="auto 70deg 8m"
-        shadow-intensity="0"
-        exposure="1"
-        tone-mapping="aces"
-        environment-image="neutral">
-      </model-viewer>
+      <button type="button" class="hero" id="hero">
+        <img id="hero-still" src="assets/posters/alexa-night.png" alt="Alexa Centre" width="1024" height="1024" draggable="false">
+      </button>
     </div>
     <div class="copy">
       <p class="bio" id="bio"></p>
@@ -54,8 +36,9 @@
         <ul class="work-list" id="work-list"></ul>
       </section>
     </div>
-    <footer class="foot" id="foot"></footer>
   </main>
+
+  <footer class="foot" id="foot"></footer>
 
   <section class="view view-timeline" id="view-timeline" data-view="timeline" aria-label="Timeline" inert>
     <div class="strip" id="strip" tabindex="0"></div>
@@ -97,13 +80,13 @@
           <span id="time-readout"></span>
           <button type="button" id="time-now"></button>
         </div>
-        <input id="time-range" type="range" min="0" max="1440" step="5" value="720">
+        <input id="time-range" type="range" min="0" max="1440" step="5" value="1255">
       </div>
     </div>
   </div>
 
   <noscript>
-    <p class="noscript">This page needs JavaScript for the 3D timeline.</p>
+    <p class="noscript">This page needs JavaScript for the timeline.</p>
   </noscript>
 </body>
 </html>

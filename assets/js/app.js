@@ -1,4 +1,4 @@
-import { applySky, clockParts, mountStars, nightAmount, skyAt } from "./sky.js";
+import { applySky, mountStars, skyAt } from "./sky.js";
 import { createAudio } from "./audio.js";
 
 const WORKS = [
@@ -13,7 +13,7 @@ const WORKS = [
 
 const COPY = {
   pt: {
-    bio: (seen, when) => `Jefersson Nathan faz software em PHP e Swift, e um pouco demais de inteligência artificial. Mora em Helmond, nos Países Baixos. Visto por último ${seen}, ${when}.`,
+    bio: (seen, when) => `Jefersson Nathan é cientista da computação, com mais de 17 anos de experiência, e um pouco demais de inteligência artificial. Mora nos Países Baixos. Visto por último ${seen}, ${when}.`,
     sample: "amostra",
     work: "Work",
     timeline: "Linha do tempo",
@@ -36,7 +36,7 @@ const COPY = {
     hourCycle: "h23",
   },
   en: {
-    bio: (seen, when) => `Jefersson Nathan builds software in PHP and Swift, and a little too much AI. He lives in Helmond, the Netherlands. Last seen at ${seen}, ${when}.`,
+    bio: (seen, when) => `Jefersson Nathan is a computer scientist with 17+ years of experience, and a little too much AI. He lives in the Netherlands. Last seen at ${seen}, ${when}.`,
     sample: "sample",
     work: "Work",
     timeline: "Timeline",
@@ -66,6 +66,7 @@ const MAP_CSS = "https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.css";
 
 const params = new URLSearchParams(location.search);
 const audio = createAudio();
+const FROZEN_MINUTES = 20 * 60 + 55;
 
 function initialLang() {
   const query = params.get("lang");
@@ -84,9 +85,7 @@ const state = {
   mode: "home",
   filter: "all",
   query: "",
-  hourOverride: params.has("hour") ? clamp(parseFloat(params.get("hour")), 0, 24) : null,
   scrubbing: false,
-  variant: "",
 };
 
 const $ = (id) => document.getElementById(id);
@@ -121,74 +120,32 @@ function formatClock(date) {
   }).format(date);
 }
 function currentHour() {
-  if (state.hourOverride != null) return state.hourOverride;
-  return clockParts().hour;
+  return FROZEN_MINUTES / 60;
 }
 function skyDate() {
-  if (state.hourOverride == null) return new Date();
-  const d = new Date();
-  const h = Math.floor(state.hourOverride);
-  const m = Math.round((state.hourOverride - h) * 60);
-  d.setHours(h, m, 0, 0);
-  return d;
+  const date = new Date();
+  date.setHours(20, 55, 0, 0);
+  return date;
 }
 
 const setStars = mountStars($("stars"));
-const materialBase = new WeakMap();
-let nightApplied = -1;
 
 function viewOf(scene) {
-  const baked = Boolean(scene?.modelNight) && nightAmount(currentHour()) >= 0.45;
-  return {
-    model: baked ? scene.modelNight : scene.model,
-    poster: baked ? (scene.posterNight || scene.poster) : scene.poster,
-    baked: baked ? "night" : "day",
-  };
+  return { poster: scene.posterNight };
 }
 
 function paint() {
   const sky = skyAt(currentHour());
   applySky(document.documentElement, sky);
   setStars(sky.night);
-  const mv = $("viewer");
-  if (state.scenes.length) syncVariant();
-  if (mv?.model && mv.dataset.baked !== "night" && Math.abs(sky.night - nightApplied) > 0.04) {
-    nightApplied = sky.night;
-    applyNight(mv, sky.night);
-  } else if (mv?.dataset.baked === "night") {
-    mv.exposure = 0.92;
-    nightApplied = sky.night;
-  }
   const clock = $("clock-btn");
-  clock.textContent = formatClock(skyDate());
-  clock.classList.toggle("is-preview", state.hourOverride != null);
+  const label = formatClock(skyDate());
+  clock.textContent = label;
+  clock.classList.remove("is-preview");
   const readout = $("time-readout");
-  if (readout) readout.textContent = formatClock(skyDate());
-}
-
-function applyNight(mv, night) {
-  if (!mv.model) return;
-  mv.exposure = 1.02 - night * 0.2;
-  for (const mat of mv.model.materials) {
-    try {
-      const slot = mat.pbrMetallicRoughness;
-      let base = materialBase.get(mat);
-      if (!base) {
-        const factor = slot.baseColorFactor;
-        base = [factor[0], factor[1], factor[2], factor[3] ?? 1];
-        materialBase.set(mat, base);
-      }
-      const [r, g, b, a] = base;
-      const glow = (mat.name || "").startsWith("win");
-      const warm = glow ? night * night : 0;
-      const dim = glow ? 1 : 1 - night * 0.8;
-      const color = warm > 0.12
-        ? [r * (1 - warm) + warm, g * (1 - warm) + 0.7 * warm, b * (1 - warm) + 0.32 * warm, a]
-        : [r * dim, g * dim * (1 - night * 0.08), b * dim, a];
-      slot.setBaseColorFactor(color);
-      mat.setEmissiveFactor(glow ? [2.6 * warm, 1.45 * warm, 0.5 * warm] : [0, 0, 0]);
-    } catch { /* material not ready yet */ }
-  }
+  if (readout) readout.textContent = label;
+  const range = $("time-range");
+  if (range) range.value = String(FROZEN_MINUTES);
 }
 
 function visible() {
@@ -233,6 +190,8 @@ function renderWork() {
 
 function renderFooter() {
   $("foot").innerHTML = `
+    <a href="https://www.linkedin.com/in/malukenho" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <span class="dot" aria-hidden="true">·</span>
     <a href="https://github.com/malukenho" target="_blank" rel="noopener noreferrer">GitHub</a>
     <span class="dot" aria-hidden="true">·</span>
     <a href="https://x.com/malukenho" target="_blank" rel="noopener noreferrer">X</a>`;
@@ -254,18 +213,11 @@ function renderBio({ animate = true } = {}) {
     void bio.offsetWidth;
     bio.classList.add("is-swap");
   }
-  const phi = polar(scene.cameraOrbit);
-  $("viewer").alt = `${scene.name[state.lang]}. ${t().drag}`;
-  $("viewer").setAttribute("min-camera-orbit", `auto ${Math.max(0, phi - 2)}deg 0.4m`);
-  $("viewer").setAttribute("max-camera-orbit", `auto ${Math.min(180, phi + 2)}deg 8m`);
+  $("hero-still").alt = scene.name[state.lang];
 }
 
 function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
-}
-
-function polar(orbit) {
-  return parseFloat(String(orbit).split(/\s+/)[1]) || 80;
 }
 
 function renderStrip() {
@@ -330,38 +282,6 @@ function renderRange() {
   ).join("");
 }
 
-function syncVariant() {
-  const scene = state.scenes[state.index];
-  if (!scene) return;
-  const view = viewOf(scene);
-  const mv = $("viewer");
-  mv.dataset.baked = view.baked;
-  const current = mv.getAttribute("src") || "";
-  if (current && !current.endsWith(view.model) && state.variantPending !== view.model) {
-    state.variantPending = view.model;
-    mv.classList.add("is-out");
-    window.setTimeout(() => {
-      if (state.variantPending !== view.model) return;
-      state.variantPending = "";
-      mv.setAttribute("poster", view.poster);
-      mv.setAttribute("src", view.model);
-    }, reduceMotion ? 0 : 160);
-  }
-  if (state.variant === view.baked) return;
-  state.variant = view.baked;
-  document.querySelectorAll(".card").forEach((card) => {
-    const img = card.querySelector("img");
-    const item = state.scenes[Number(card.dataset.index)];
-    if (img && item) img.src = viewOf(item).poster;
-  });
-  if (mapApi) {
-    for (const item of mapApi.markers) {
-      const img = item.button.querySelector("img");
-      if (img) img.src = viewOf(state.scenes[item.index]).poster;
-    }
-  }
-}
-
 let sceneToken = 0;
 function showScene(index, { sound = true, swapCamera = true } = {}) {
   if (!state.scenes.length) return;
@@ -375,36 +295,20 @@ function showScene(index, { sound = true, swapCamera = true } = {}) {
   });
   renderRange();
   if (!state.scrubbing) renderScrubber();
-  const mv = $("viewer");
-  const view = viewOf(scene);
-  mv.dataset.baked = view.baked;
-  state.variant = view.baked;
-  const same = (mv.getAttribute("src") || "").endsWith(view.model);
-  state.variantPending = "";
+  const still = $("hero-still");
+  const poster = viewOf(scene).poster;
+  const same = (still.getAttribute("src") || "").endsWith(poster);
   if (swapCamera && !same) {
     const token = ++sceneToken;
-    mv.classList.add("is-out");
+    still.classList.add("is-out");
     window.setTimeout(() => {
       if (token !== sceneToken) return;
-      mv.setAttribute("poster", view.poster);
-      mv.setAttribute("src", view.model);
-      mv.setAttribute("camera-orbit", scene.cameraOrbit);
-      mv.setAttribute("camera-target", scene.cameraTarget);
-      mv.setAttribute("field-of-view", scene.fieldOfView);
+      still.src = poster;
+      still.classList.remove("is-out");
     }, reduceMotion ? 0 : 160);
-  } else if (swapCamera) {
-    mv.setAttribute("camera-orbit", scene.cameraOrbit);
-    mv.setAttribute("camera-target", scene.cameraTarget);
-    mv.setAttribute("field-of-view", scene.fieldOfView);
   }
   if (sound && changed) audio.play("open", index / Math.max(1, state.scenes.length - 1));
   if (mapApi) syncMap(false);
-}
-
-function onViewerLoad() {
-  $("viewer").classList.remove("is-out");
-  nightApplied = -1;
-  paint();
 }
 
 function setMode(mode, { push = true, sound = true } = {}) {
@@ -416,9 +320,6 @@ function setMode(mode, { push = true, sound = true } = {}) {
     view.classList.toggle("is-active", on);
     view.inert = !on;
   }
-  const mv = $("viewer");
-  if (mode === "home") mv.play?.();
-  else mv.pause?.();
   if (mode === "timeline") {
     scrollLock = true;
     requestAnimationFrame(() => {
@@ -694,8 +595,7 @@ function bind() {
   });
 
   $("clock-btn").addEventListener("click", () => {
-    const date = skyDate();
-    $("time-range").value = String(date.getHours() * 60 + date.getMinutes());
+    $("time-range").value = String(FROZEN_MINUTES);
     togglePopover("time-menu", $("clock-btn"));
   });
   $("lang-btn").addEventListener("click", () => {
@@ -706,16 +606,11 @@ function bind() {
     audio.play("tap", 0.8);
   });
   $("time-range").addEventListener("input", () => {
-    const minutes = Number($("time-range").value);
-    state.hourOverride = minutes / 60;
+    $("time-range").value = String(FROZEN_MINUTES);
     paint();
-    if (mapApi) tuneSky(mapApi.map);
-    if (minutes % 20 === 0) audio.play("turn", (minutes / 1440));
   });
   $("time-now").addEventListener("click", () => {
-    state.hourOverride = null;
-    const now = new Date();
-    $("time-range").value = String(now.getHours() * 60 + now.getMinutes());
+    $("time-range").value = String(FROZEN_MINUTES);
     paint();
     if (mapApi) tuneSky(mapApi.map);
     audio.play("tap", currentHour() / 24);
@@ -772,17 +667,8 @@ function bind() {
     event.preventDefault();
   }, { passive: false });
 
-  $("viewer").addEventListener("load", onViewerLoad);
-  let press = null;
-  $("viewer").addEventListener("pointerdown", (event) => {
-    if (event.button !== 0) return;
-    press = { x: event.clientX, y: event.clientY };
-  });
-  $("viewer").addEventListener("pointerup", (event) => {
-    if (!press || state.mode !== "home") { press = null; return; }
-    const moved = Math.hypot(event.clientX - press.x, event.clientY - press.y);
-    press = null;
-    if (moved > 8) return;
+  $("hero").addEventListener("click", () => {
+    if (state.mode !== "home") return;
     setMode("timeline");
   });
   addEventListener("pointerdown", () => audio.unlock(), { once: false });
@@ -795,7 +681,6 @@ function bind() {
       if (!$("time-menu").hidden) closePopovers();
       else if (state.mode !== "home") setMode("home");
     }
-    if (event.target.closest?.("model-viewer")) return;
     if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
       event.preventDefault();
       step(event.key === "ArrowRight" ? 1 : -1);
@@ -839,19 +724,10 @@ async function main() {
   bind();
   renderChrome();
   const initial = state.scenes[state.index];
-  const initialView = viewOf(initial);
-  const viewer = $("viewer");
-  customElements.get("model-viewer").meshoptDecoderLocation = new URL("meshopt_decoder.js", import.meta.url).href;
-  viewer.dataset.baked = initialView.baked;
-  viewer.setAttribute("src", initialView.model);
-  $("viewer").setAttribute("poster", initialView.poster);
-  $("viewer").setAttribute("camera-orbit", initial.cameraOrbit);
-  $("viewer").setAttribute("camera-target", initial.cameraTarget);
-  $("viewer").setAttribute("field-of-view", initial.fieldOfView);
+  $("hero-still").src = viewOf(initial).poster;
   if (location.hash) applyHash(false);
   else showScene(state.index, { sound: false });
   paint();
-  setInterval(paint, 30000);
   for (const view of document.querySelectorAll(".view")) view.inert = !view.classList.contains("is-active");
 }
 
