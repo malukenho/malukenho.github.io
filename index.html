@@ -1,239 +1,136 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jefersson Nathan</title>
+  <meta name="description" content="Jefersson Nathan, em Helmond. Uma linha do tempo de lugares.">
+  <meta name="theme-color" content="#faf2e9">
+  <meta property="og:title" content="Jefersson Nathan">
+  <meta property="og:description" content="Jefersson Nathan, em Helmond. Uma linha do tempo de lugares.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://malukenho.github.io/">
+  <meta property="og:image" content="https://malukenho.github.io/assets/posters/cozinha.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/posters/cozinha.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body data-mode="home">
+  <h1 class="sr-only">Jefersson Nathan</h1>
+  <canvas class="stars" id="stars" aria-hidden="true"></canvas>
 
-<style>
-/* ── Hero ── */
-.home-hero {
-  padding: 3rem 0 2.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-.home-hero-avatar {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(123,205,171,0.15);
-  border: 1.5px solid rgba(123,205,171,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #7bcdab;
-  letter-spacing: -0.02em;
-}
-.home-hero-text h1 {
-  margin: 0 0 0.35rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.92);
-  line-height: 1.2;
-}
-.home-hero-text p {
-  margin: 0 0 0.75rem;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.6;
-  max-width: 480px;
-}
-.home-hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-.home-hero-links a {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.4);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.home-hero-links a:hover { color: #7bcdab; }
-.home-hero-links a::before { content: "↗ "; }
+  <main class="view view-home is-active" id="view-home" data-view="home">
+    <div class="stage-wrap">
+      <model-viewer
+        id="viewer"
+        src="assets/models/cozinha.glb"
+        poster="assets/posters/cozinha.png"
+        alt="Cozinha, uma cena de exemplo"
+        camera-controls
+        disable-zoom
+        disable-pan
+        interaction-prompt="none"
+        touch-action="pan-y"
+        interpolation-decay="20"
+        camera-orbit="18deg 74deg 16.57m"
+        camera-target="0.000m 0.759m 0.000m"
+        field-of-view="12.5deg"
+        min-camera-orbit="auto 72deg auto"
+        max-camera-orbit="auto 76deg auto"
+        shadow-intensity="0.75"
+        shadow-softness="0.85"
+        exposure="1.05"
+        tone-mapping="aces"
+        environment-image="neutral">
+      </model-viewer>
+    </div>
+    <div class="copy">
+      <p class="bio" id="bio"></p>
+      <section class="work" aria-labelledby="work-label">
+        <h2 class="work-label" id="work-label"></h2>
+        <ul class="work-list" id="work-list"></ul>
+      </section>
+    </div>
+    <footer class="foot" id="foot"></footer>
+  </main>
 
-/* ── Series filter ── */
-.series-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  align-items: center;
-}
-.series-filter-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.3);
-  margin-right: 0.25rem;
-  flex-shrink: 0;
-}
-.series-btn {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.5);
-  border-radius: 20px;
-  padding: 0.28rem 0.85rem;
-  font-size: 0.74rem;
-  font-family: "JetBrains Mono", monospace;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-}
-.series-btn:hover { border-color: #7bcdab; color: #7bcdab; }
-.series-btn.active {
-  background: rgba(123,205,171,0.12);
-  border-color: #7bcdab;
-  color: #7bcdab;
-}
+  <section class="view view-timeline" id="view-timeline" data-view="timeline" aria-label="Linha do tempo" inert>
+    <div class="strip" id="strip" tabindex="0"></div>
+  </section>
 
-/* ── Post cards ── */
-.post-feed { list-style: none; margin: 0; padding: 0; }
-.post-card {
-  display: flex;
-  gap: 1.25rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  transition: opacity 0.2s ease;
-  align-items: flex-start;
-}
-.post-card.hidden { display: none; }
-.post-card-date {
-  flex-shrink: 0;
-  width: 72px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.25);
-  padding-top: 0.25rem;
-  line-height: 1.4;
-}
-.post-card-date .month-year {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.post-card-date .day {
-  display: block;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.14);
-  line-height: 1.1;
-}
-.post-card-body { flex: 1; min-width: 0; }
-.post-card-body h3 {
-  margin: 0 0 0.3rem;
-  font-size: 0.975rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.post-card-body h3 a {
-  color: rgba(255,255,255,0.85);
-  transition: color 0.15s ease;
-}
-.post-card-body h3 a:hover { color: #fbef8a; }
-.post-card-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.series-badge {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.64rem;
-  background: rgba(251,239,138,0.08);
-  color: rgba(251,239,138,0.6);
-  border: 1px solid rgba(251,239,138,0.2);
-  border-radius: 4px;
-  padding: 0.1rem 0.45rem;
-  white-space: nowrap;
-  max-width: 220px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.post-tag-primary {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.64rem;
-  color: rgba(255,255,255,0.28);
-}
+  <section class="view view-map" id="view-map" data-view="map" aria-label="Mapa" inert>
+    <div id="map"></div>
+    <p class="map-note" id="map-note" hidden></p>
+    <div class="map-compass">
+      <button class="compass-btn" id="compass" type="button" aria-label="Norte">
+        <svg id="compass-rose" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M12 3.5 14.2 12 12 10.2 9.8 12Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="map-proj">
+      <div class="pill" id="proj-pill">
+        <button type="button" id="proj-mini" aria-pressed="true"></button>
+        <button type="button" id="proj-globe" aria-pressed="false"></button>
+      </div>
+      <div class="minimap" id="minimap"></div>
+    </div>
+    <div class="range" id="range" role="tablist"></div>
+  </section>
 
-@media (max-width: 600px) {
-  .home-hero { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .post-card { gap: 0.75rem; }
-  .post-card-date { width: 52px; }
-  .post-card-date .day { font-size: 1.1rem; }
-}
-</style>
+  <div class="scrubber" id="scrubber" role="slider" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" tabindex="0">
+    <div class="playhead" id="playhead"></div>
+  </div>
+  <div class="ring" id="ring" hidden></div>
 
-<div class="home-hero">
-  <div class="home-hero-avatar">JN</div>
-  <div class="home-hero-text">
-    <h1>Jefersson Nathan</h1>
-    <p>Building things with Swift, PHP, and too much AI. Writing about what I learn along the way.</p>
-    <div class="home-hero-links">
-      <a href="https://github.com/malukenho" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://twitter.com/malukenho" target="_blank" rel="noopener">Twitter</a>
+  <div class="dock dock-left">
+    <div class="pill" id="mode-pill">
+      <button type="button" data-mode="timeline" id="open-timeline"></button>
+      <button type="button" data-mode="map" id="open-map"></button>
+    </div>
+    <div class="pill" id="filter-pill">
+      <button type="button" id="filter-btn" aria-expanded="false"></button>
+      <span class="split" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" id="search-btn" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M15 15.2 19 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <input id="search" type="search" autocomplete="off" enterkeyhint="search">
+      <div class="popover" id="filter-menu" hidden></div>
     </div>
   </div>
-</div>
 
-{% assign series_list = site.posts | map: "series" | compact | uniq | sort %}
-
-<div class="series-filter" id="seriesFilter">
-  <span class="series-filter-label">filter</span>
-  <button class="series-btn active" data-series="all">all posts</button>
-  {% for s in series_list %}
-    {% if s != "" %}
-  <button class="series-btn" data-series="{{ s }}">{{ s }}</button>
-    {% endif %}
-  {% endfor %}
-  <button class="series-btn" data-series="standalone">standalone</button>
-</div>
-
-<ul class="post-feed" id="postFeed">
-{% for post in site.posts %}
-  {% if post.categories contains 'post' %}
-  <li class="post-card" data-series="{{ post.series }}">
-    <div class="post-card-date">
-      <span class="month-year">{{ post.date | date: "%b %Y" }}</span>
-      <span class="day">{{ post.date | date: "%-d" }}</span>
+  <div class="dock dock-right">
+    <div class="pill">
+      <button type="button" class="icon-btn" id="sound-btn" aria-pressed="false" aria-expanded="false">
+        <svg id="sound-icon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+      </button>
+      <div class="popover" id="sound-menu" hidden></div>
     </div>
-    <div class="post-card-body">
-      <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-      <div class="post-card-meta">
-        {% if post.series %}<span class="series-badge">{{ post.series }}</span>{% endif %}
-        {% if post.tags.size > 0 %}<span class="post-tag-primary">{{ post.tags | first }}</span>{% endif %}
+    <div class="pill" id="clock-pill">
+      <button type="button" id="clock-btn" aria-expanded="false"></button>
+      <span class="split" aria-hidden="true"></span>
+      <button type="button" id="lang-btn"></button>
+      <div class="popover" id="time-menu" hidden>
+        <div class="time-head">
+          <span id="time-readout"></span>
+          <button type="button" id="time-now"></button>
+        </div>
+        <input id="time-range" type="range" min="0" max="1440" step="5" value="720">
       </div>
     </div>
-  </li>
-  {% endif %}
-{% endfor %}
-</ul>
+  </div>
 
-<script>
-(function() {
-  var filterBtns = document.querySelectorAll('.series-btn');
-  var cards = document.querySelectorAll('.post-card');
-
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var active = btn.getAttribute('data-series');
-      filterBtns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-
-      cards.forEach(function(card) {
-        var series = (card.getAttribute('data-series') || '').trim();
-        if (active === 'all') {
-          card.classList.remove('hidden');
-        } else if (active === 'standalone') {
-          if (!series) { card.classList.remove('hidden'); }
-          else { card.classList.add('hidden'); }
-        } else {
-          if (series === active) { card.classList.remove('hidden'); }
-          else { card.classList.add('hidden'); }
-        }
-      });
-    });
-  });
-})();
-</script>
+  <noscript>
+    <p class="noscript">Esta página precisa de JavaScript para a linha do tempo em 3D.</p>
+  </noscript>
+</body>
+</html>
