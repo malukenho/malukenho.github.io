@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jefersson Nathan</title>
-  <meta name="description" content="Jefersson Nathan, em Helmond. Uma linha do tempo de lugares.">
+  <meta name="description" content="Jefersson Nathan, in Helmond. A timeline of places.">
   <meta name="theme-color" content="#faf2e9">
   <meta property="og:title" content="Jefersson Nathan">
-  <meta property="og:description" content="Jefersson Nathan, em Helmond. Uma linha do tempo de lugares.">
+  <meta property="og:description" content="Jefersson Nathan, in Helmond. A timeline of places.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://malukenho.github.io/">
-  <meta property="og:image" content="https://malukenho.github.io/assets/posters/cozinha.png">
+  <meta property="og:image" content="https://malukenho.github.io/assets/posters/church-day.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/posters/cozinha.png">
+  <link rel="preload" as="image" href="assets/posters/church-day.png">
   <link rel="stylesheet" href="assets/css/site.css">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <script type="module" src="assets/js/app.js"></script>
@@ -28,20 +28,20 @@
     <div class="stage-wrap">
       <model-viewer
         id="viewer"
-        src="assets/models/cozinha.glb"
-        poster="assets/posters/cozinha.png"
-        alt="Cozinha, uma cena de exemplo"
+        src="assets/models/church-day.glb"
+        poster="assets/posters/church-day.png"
+        alt="Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk, Ospel"
         camera-controls
         disable-zoom
         disable-pan
         interaction-prompt="none"
         touch-action="pan-y"
         interpolation-decay="20"
-        camera-orbit="18deg 74deg 16.57m"
-        camera-target="0.000m 0.759m 0.000m"
-        field-of-view="12.5deg"
-        min-camera-orbit="auto 72deg auto"
-        max-camera-orbit="auto 76deg auto"
+        camera-orbit="56deg 70deg 262.44m"
+        camera-target="0.600m 15.842m -1.412m"
+        field-of-view="12deg"
+        min-camera-orbit="auto 68deg auto"
+        max-camera-orbit="auto 72deg auto"
         shadow-intensity="0.75"
         shadow-softness="0.85"
         exposure="1.05"
@@ -59,11 +59,11 @@
     <footer class="foot" id="foot"></footer>
   </main>
 
-  <section class="view view-timeline" id="view-timeline" data-view="timeline" aria-label="Linha do tempo" inert>
+  <section class="view view-timeline" id="view-timeline" data-view="timeline" aria-label="Timeline" inert>
     <div class="strip" id="strip" tabindex="0"></div>
   </section>
 
-  <section class="view view-map" id="view-map" data-view="map" aria-label="Mapa" inert>
+  <section class="view view-map" id="view-map" data-view="map" aria-label="Maps" inert>
     <div id="map"></div>
     <p class="map-note" id="map-note" hidden></p>
     <div class="map-compass">
@@ -109,12 +109,6 @@
   </div>
 
   <div class="dock dock-right">
-    <div class="pill">
-      <button type="button" class="icon-btn" id="sound-btn" aria-pressed="false" aria-expanded="false">
-        <svg id="sound-icon" viewBox="0 0 24 24" aria-hidden="true"></svg>
-      </button>
-      <div class="popover" id="sound-menu" hidden></div>
-    </div>
     <div class="pill" id="clock-pill">
       <button type="button" id="clock-btn" aria-expanded="false"></button>
       <span class="split" aria-hidden="true"></span>
@@ -125,12 +119,13 @@
           <button type="button" id="time-now"></button>
         </div>
         <input id="time-range" type="range" min="0" max="1440" step="5" value="720">
+        <div class="themes" id="theme-list"></div>
       </div>
     </div>
   </div>
 
   <noscript>
-    <p class="noscript">Esta página precisa de JavaScript para a linha do tempo em 3D.</p>
+    <p class="noscript">This page needs JavaScript for the 3D timeline.</p>
   </noscript>
 </body>
 </html>

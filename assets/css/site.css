@@ -167,14 +167,21 @@ model-viewer.is-out {
   padding: 0;
   text-align: center;
 }
-.work-list li { margin: 0.18rem 0; font-size: 1rem; }
-.work-list a { color: var(--text); font-weight: 600; }
-.work-list a:hover { color: var(--link); }
-.year {
+.work-list li { margin: 0.85rem 0; font-size: 1rem; }
+.job-title { margin: 0; font-weight: 600; letter-spacing: -0.015em; }
+.job-title .org { font-weight: 500; }
+.job-meta {
+  margin: 0.08rem 0 0;
   color: var(--secondary);
+  font-size: 0.84rem;
   font-weight: 500;
-  margin-left: 0.35rem;
-  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+.address {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--secondary);
+  font-size: 0.92rem;
 }
 .foot {
   margin-top: auto;
@@ -532,6 +539,26 @@ body[data-mode="timeline"] .scrubber { display: block; }
   margin: 0.35rem 0.3rem 0.45rem;
   accent-color: var(--text);
 }
+.themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  width: min(16.5rem, 72vw);
+  padding: 0.1rem 0.3rem 0.25rem;
+}
+.themes button {
+  width: auto;
+  padding: 0.16rem 0.48rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  color: var(--secondary);
+}
+.themes button[aria-pressed="true"] {
+  background: color-mix(in srgb, white 72%, transparent);
+  color: var(--text);
+}
+.themes button[aria-pressed="true"]::after { display: none; }
 
 body[data-mode="home"] #filter-pill,
 body[data-mode="timeline"] #mode-pill,

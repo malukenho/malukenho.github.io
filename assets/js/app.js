@@ -1,27 +1,26 @@
-import { applySky, clockParts, mountStars, skyAt } from "./sky.js";
-import { THEME_LABELS, createAudio } from "./audio.js";
+import { applySky, clockParts, mountStars, nightAmount, skyAt } from "./sky.js";
+import { createAudio } from "./audio.js";
 
 const WORKS = [
-  { name: "OpenWhisper", year: "2026", href: "https://github.com/malukenho/OpenWhisper" },
-  { name: "mcbumpface", year: "2018", href: "https://github.com/malukenho/mcbumpface" },
-  { name: "docheader", year: "2016", href: "https://github.com/malukenho/docheader" },
-  { name: "PsyGit", year: "2016", href: "https://github.com/malukenho/PsyGit" },
-  { name: "MigrateDB", year: "2013", href: "https://github.com/malukenho/MigrateDB" },
+  { role: "Senior Software Engineer", org: "Angi", meta: "Full-time · Oct 2025 – present · 1 yr 2 mo · On-site" },
+  { role: "Senior Software Engineer", org: "Werkspot", meta: "Full-time · Aug 2017 – Nov 2025 · 8 yrs 4 mo · Amsterdam, North Holland, Netherlands · On-site" },
+  { role: "", org: "Marco Pivetta Web Development", meta: "Aug 2014 – Aug 2017 · 3 yrs 1 mo" },
+  { role: "Full-stack Developer", org: "Alfama Web", meta: "Full-time · Feb 2014 – Oct 2014 · 9 mo · Aracaju, Sergipe, Brazil · On-site" },
+  { role: "", org: "Swapi - Agência Digital", meta: "Full-time · Jun 2012 – Nov 2013 · 1 yr 6 mo · Aracaju, Sergipe, Brazil · On-site" },
+  { role: "Freelancer", org: "DivaWeb", meta: "Temporary · Mar 2011 – Jan 2012 · 11 mo · Aracaju, Sergipe, Brazil" },
+  { role: "Full stack Developer", org: "mundozero", meta: "Full-time · Jan 2010 – Feb 2011 · 1 yr 2 mo · Aracaju, Sergipe, Brazil · On-site" },
 ];
 
 const COPY = {
   pt: {
     bio: (seen, when) => `Jefersson Nathan faz software em PHP e Swift, e um pouco demais de inteligência artificial. Mora em Helmond, nos Países Baixos. Visto por último ${seen}, ${when}.`,
     sample: "amostra",
-    work: "Código",
+    work: "Code",
     timeline: "Linha do tempo",
     map: "Mapa",
     search: "Buscar",
     searchPlaceholder: "Buscar lugar",
     empty: "Nenhuma cena com esse nome.",
-    soundOn: "Silenciar",
-    soundOff: "Ativar som",
-    themes: "Som",
     now: "Agora",
     north: "Apontar para o norte",
     mini: "Mini mapa",
@@ -45,9 +44,6 @@ const COPY = {
     search: "Search",
     searchPlaceholder: "Search places",
     empty: "No scenes match.",
-    soundOn: "Mute",
-    soundOff: "Unmute",
-    themes: "Sound",
     now: "Now",
     north: "Point north",
     mini: "Mini map",
@@ -70,10 +66,19 @@ const MAP_CSS = "https://unpkg.com/maplibre-gl@5.15.0/dist/maplibre-gl.css";
 
 const params = new URLSearchParams(location.search);
 const audio = createAudio();
+
+function initialLang() {
+  const query = params.get("lang");
+  if (query === "en" || query === "pt") return query;
+  try {
+    const stored = localStorage.getItem("lang");
+    if (stored === "en" || stored === "pt") return stored;
+  } catch { /* private mode */ }
+  return "en";
+}
+
 const state = {
-  lang: params.get("lang") === "en" || params.get("lang") === "pt"
-    ? params.get("lang")
-    : (localStorage.getItem("lang") === "en" ? "en" : "pt"),
+  lang: initialLang(),
   scenes: [],
   index: 0,
   mode: "home",
@@ -81,6 +86,7 @@ const state = {
   query: "",
   hourOverride: params.has("hour") ? clamp(parseFloat(params.get("hour")), 0, 24) : null,
   scrubbing: false,
+  variant: "",
 };
 
 const $ = (id) => document.getElementById(id);
@@ -130,14 +136,27 @@ const setStars = mountStars($("stars"));
 const materialBase = new WeakMap();
 let nightApplied = -1;
 
+function viewOf(scene) {
+  const baked = Boolean(scene?.modelNight) && nightAmount(currentHour()) >= 0.45;
+  return {
+    model: baked ? scene.modelNight : scene.model,
+    poster: baked ? (scene.posterNight || scene.poster) : scene.poster,
+    baked: baked ? "night" : "day",
+  };
+}
+
 function paint() {
   const sky = skyAt(currentHour());
   applySky(document.documentElement, sky);
   setStars(sky.night);
   const mv = $("viewer");
-  if (mv?.model && Math.abs(sky.night - nightApplied) > 0.04) {
+  if (state.scenes.length) syncVariant();
+  if (mv?.model && mv.dataset.baked !== "night" && Math.abs(sky.night - nightApplied) > 0.04) {
     nightApplied = sky.night;
     applyNight(mv, sky.night);
+  } else if (mv?.dataset.baked === "night") {
+    mv.exposure = 0.92;
+    nightApplied = sky.night;
   }
   const clock = $("clock-btn");
   clock.textContent = formatClock(skyDate());
@@ -178,7 +197,7 @@ function visible() {
     .filter(({ scene }) => {
       if (state.filter !== "all" && scene.category !== state.filter) return false;
       if (!q) return true;
-      const blob = `${scene.name.pt} ${scene.name.en} ${scene.where.pt} ${scene.where.en}`.toLowerCase();
+      const blob = `${scene.name.pt} ${scene.name.en} ${scene.where.pt} ${scene.where.en} ${scene.address || ""}`.toLowerCase();
       return blob.includes(q);
     });
 }
@@ -193,8 +212,6 @@ function renderChrome() {
   $("search").placeholder = copy.searchPlaceholder;
   $("lang-btn").textContent = state.lang === "pt" ? "EN" : "PT";
   $("lang-btn").setAttribute("aria-label", state.lang === "pt" ? "English" : "Português");
-  $("sound-btn").setAttribute("aria-label", audio.muted ? copy.soundOff : copy.soundOn);
-  $("sound-btn").setAttribute("aria-pressed", audio.muted ? "false" : "true");
   $("time-now").textContent = copy.now;
   $("compass").setAttribute("aria-label", copy.north);
   $("proj-mini").textContent = copy.mini;
@@ -203,7 +220,6 @@ function renderChrome() {
   $("scrubber").setAttribute("aria-label", copy.scrub);
   $("view-timeline").setAttribute("aria-label", copy.timeline);
   $("view-map").setAttribute("aria-label", copy.map);
-  drawSoundIcon();
   renderWork();
   renderFooter();
   renderSoundMenu();
@@ -216,9 +232,12 @@ function renderChrome() {
 }
 
 function renderWork() {
-  $("work-list").innerHTML = WORKS.map((item) =>
-    `<li><a href="${item.href}" target="_blank" rel="noopener noreferrer">${item.name}</a><span class="year">${item.year}</span></li>`
-  ).join("");
+  $("work-list").innerHTML = WORKS.map((item) => {
+    const title = item.role
+      ? `<span class="role">${escapeHtml(item.role)}</span> <span class="org">${escapeHtml(item.org)}</span>`
+      : `<span class="role">${escapeHtml(item.org)}</span>`;
+    return `<li><p class="job-title">${title}</p><p class="job-meta">${escapeHtml(item.meta)}</p></li>`;
+  }).join("");
 }
 
 function renderFooter() {
@@ -235,9 +254,10 @@ function renderBio({ animate = true } = {}) {
   const seen = scene.seen[state.lang];
   const when = whenText(scene.date, true).replace(/\.$/, "");
   const sample = scene.sample ? ` <span class="sample">${escapeHtml(t().sample)}</span>` : "";
+  const address = scene.address ? `<span class="address">${escapeHtml(scene.address)}</span>` : "";
   bio.innerHTML = `${escapeHtml(t().bio("§", "¶"))}`
     .replace("§", `<button type="button" class="text-link" data-open-map>${escapeHtml(seen)}</button>${sample}`)
-    .replace("¶", escapeHtml(when));
+    .replace("¶", escapeHtml(when)) + address;
   if (animate && !reduceMotion && !state.scrubbing) {
     bio.classList.remove("is-swap");
     void bio.offsetWidth;
@@ -267,7 +287,7 @@ function renderStrip() {
   strip.innerHTML = rows.map(({ scene, index }) => `
     <button class="card${index === state.index ? " is-current" : ""}" type="button" data-index="${index}">
       <p class="when">${escapeHtml(whenText(scene.date, false))}</p>
-      <img src="${scene.poster}" alt="" width="380" height="260" draggable="false">
+      <img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false">
       <p class="name">${escapeHtml(scene.name[state.lang])}</p>
       <p class="meta">${scene.sample ? escapeHtml(t().sample) : escapeHtml(scene.where[state.lang])}</p>
     </button>`).join("");
@@ -325,17 +345,43 @@ function renderFilterMenu() {
 }
 
 function renderSoundMenu() {
-  $("sound-menu").innerHTML = `<button type="button" data-theme="" aria-pressed="${audio.muted}">${escapeHtml(audio.muted ? t().soundOff : t().soundOn)}</button>` +
-    audio.themes.map((name) =>
-      `<button type="button" data-theme="${name}" aria-pressed="${!audio.muted && audio.theme === name}">${escapeHtml(THEME_LABELS[name][state.lang])}</button>`
-    ).join("");
+  const list = $("theme-list");
+  if (!list) return;
+  list.innerHTML = audio.themes.map((name) =>
+    `<button type="button" data-theme="${name}" aria-pressed="${audio.theme === name}">${escapeHtml(name)}</button>`
+  ).join("");
 }
 
-function drawSoundIcon() {
-  const on = !audio.muted;
-  $("sound-icon").innerHTML = on
-    ? `<path d="M4 10h3.2L11 6.5v11L7.2 14H4Z" fill="currentColor"/><path d="M14 9.2a3.6 3.6 0 0 1 0 5.6M16.4 7a6.2 6.2 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>`
-    : `<path d="M4 10h3.2L11 6.5v11L7.2 14H4Z" fill="currentColor"/><path d="M15 10.2 19 14.2M19 10.2 15 14.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>`;
+function syncVariant() {
+  const scene = state.scenes[state.index];
+  if (!scene) return;
+  const view = viewOf(scene);
+  const mv = $("viewer");
+  mv.dataset.baked = view.baked;
+  const current = mv.getAttribute("src") || "";
+  if (current && !current.endsWith(view.model) && state.variantPending !== view.model) {
+    state.variantPending = view.model;
+    mv.classList.add("is-out");
+    window.setTimeout(() => {
+      if (state.variantPending !== view.model) return;
+      state.variantPending = "";
+      mv.setAttribute("poster", view.poster);
+      mv.setAttribute("src", view.model);
+    }, reduceMotion ? 0 : 160);
+  }
+  if (state.variant === view.baked) return;
+  state.variant = view.baked;
+  document.querySelectorAll(".card").forEach((card) => {
+    const img = card.querySelector("img");
+    const item = state.scenes[Number(card.dataset.index)];
+    if (img && item) img.src = viewOf(item).poster;
+  });
+  if (mapApi) {
+    for (const item of mapApi.markers) {
+      const img = item.button.querySelector("img");
+      if (img) img.src = viewOf(state.scenes[item.index]).poster;
+    }
+  }
 }
 
 let sceneToken = 0;
@@ -352,15 +398,18 @@ function showScene(index, { sound = true, swapCamera = true } = {}) {
   renderRange();
   if (!state.scrubbing) renderScrubber();
   const mv = $("viewer");
-  const src = new URL(scene.model, location.href).pathname;
-  const same = (mv.getAttribute("src") || "").endsWith(scene.model);
+  const view = viewOf(scene);
+  mv.dataset.baked = view.baked;
+  state.variant = view.baked;
+  const same = (mv.getAttribute("src") || "").endsWith(view.model);
+  state.variantPending = "";
   if (swapCamera && !same) {
     const token = ++sceneToken;
     mv.classList.add("is-out");
     window.setTimeout(() => {
       if (token !== sceneToken) return;
-      mv.setAttribute("poster", scene.poster);
-      mv.setAttribute("src", scene.model);
+      mv.setAttribute("poster", view.poster);
+      mv.setAttribute("src", view.model);
       mv.setAttribute("camera-orbit", scene.cameraOrbit);
       mv.setAttribute("camera-target", scene.cameraTarget);
       mv.setAttribute("field-of-view", scene.fieldOfView);
@@ -372,7 +421,6 @@ function showScene(index, { sound = true, swapCamera = true } = {}) {
   }
   if (sound && changed) audio.play("open", index / Math.max(1, state.scenes.length - 1));
   if (mapApi) syncMap(false);
-  void src;
 }
 
 function onViewerLoad() {
@@ -418,9 +466,8 @@ function scrollCard(index, behavior) {
 }
 
 function closePopovers() {
-  for (const id of ["filter-menu", "sound-menu", "time-menu"]) $(id).hidden = true;
+  for (const id of ["filter-menu", "time-menu"]) $(id).hidden = true;
   $("filter-btn").setAttribute("aria-expanded", "false");
-  $("sound-btn").setAttribute("aria-expanded", "false");
   $("clock-btn").setAttribute("aria-expanded", "false");
 }
 
@@ -543,18 +590,22 @@ async function ensureMap() {
       note.textContent = "";
       map.jumpTo({ pitch: 62, bearing: -22 });
       map.getContainer().dataset.pitch = String(Math.round(map.getPitch()));
-      const city = document.createElement("div");
-      city.className = "city-pill";
-      city.textContent = `Helmond ${state.scenes.length}`;
-      const cityMarker = new maplibregl.Marker({ element: city, anchor: "center" })
-        .setLngLat([5.657, 51.489])
-        .addTo(map);
-      mapApi.city = cityMarker;
+      mapApi.cities = [
+        { name: "Helmond", lng: 5.657, lat: 51.481 },
+        { name: "Ospel", lng: 5.7853, lat: 51.2986 },
+      ].map((place) => {
+        const city = document.createElement("div");
+        city.className = "city-pill";
+        city.textContent = place.name;
+        return new maplibregl.Marker({ element: city, anchor: "center" })
+          .setLngLat([place.lng, place.lat])
+          .addTo(map);
+      });
       state.scenes.forEach((item, index) => {
         const button = document.createElement("button");
         button.type = "button";
         button.className = "pin";
-        button.innerHTML = `<img alt="" src="${item.poster}"><span>${escapeHtml(item.name[state.lang])}</span>`;
+        button.innerHTML = `<img alt="" src="${viewOf(item).poster}"><span>${escapeHtml(item.name[state.lang])}</span>`;
         button.addEventListener("click", () => {
           showScene(index);
           setMode("home", { sound: false });
@@ -610,9 +661,10 @@ function syncMap(fly = true) {
     item.button.style.display = !globe && rows.has(item.index) ? "" : "none";
     item.button.querySelector("span").textContent = state.scenes[item.index].name[state.lang];
   }
-  if (mapApi.city) mapApi.city.getElement().style.display = globe ? "none" : "";
+  for (const city of mapApi.cities || []) city.getElement().style.display = globe ? "none" : "";
   if (mapApi.projection === "globe") return;
-  const move = { center: [scene.lng, scene.lat], zoom: 15.1, pitch: 62, bearing: -22, duration: reduceMotion ? 0 : 700 };
+  const zoom = String(scene.id).includes("ospel") ? 16.3 : 15.1;
+  const move = { center: [scene.lng, scene.lat], zoom, pitch: 62, bearing: -22, duration: reduceMotion ? 0 : 700 };
   if (fly) mapApi.map.easeTo(move);
   tuneSky(mapApi.map);
 }
@@ -630,7 +682,7 @@ function setProjection(kind) {
   } catch { /* older builds */ }
   if (globe) {
     for (const item of mapApi.markers) item.button.style.display = "none";
-    if (mapApi.city) mapApi.city.getElement().style.display = "none";
+    for (const city of mapApi.cities || []) city.getElement().style.display = "none";
     mapApi.map.easeTo({ center: [5.66, 51.48], zoom: 2.2, pitch: 0, bearing: 0, duration: 900 });
   } else syncMap(true);
   audio.play("open", globe ? 0.2 : 0.8);
@@ -638,7 +690,7 @@ function setProjection(kind) {
 
 function savedSound() {
   try {
-    if (localStorage.getItem("sound") === "on") audio.setMuted(false);
+    localStorage.removeItem("sound");
     const theme = localStorage.getItem("sound-theme");
     if (theme) audio.theme = theme;
   } catch { /* ignore */ }
@@ -671,19 +723,10 @@ function bind() {
       return;
     }
     const themeBtn = event.target.closest("[data-theme]");
-    if (themeBtn && $("sound-menu").contains(themeBtn)) {
-      const name = themeBtn.dataset.theme;
-      if (!name) audio.setMuted(!audio.muted);
-      else {
-        audio.theme = name;
-        audio.setMuted(false);
-      }
-      store("sound", audio.muted ? "off" : "on");
+    if (themeBtn && $("theme-list")?.contains(themeBtn)) {
+      audio.theme = themeBtn.dataset.theme;
       store("sound-theme", audio.theme);
       renderSoundMenu();
-      drawSoundIcon();
-      $("sound-btn").setAttribute("aria-label", audio.muted ? t().soundOff : t().soundOn);
-      $("sound-btn").setAttribute("aria-pressed", audio.muted ? "false" : "true");
       audio.play("open", 0.62);
       return;
     }
@@ -692,13 +735,12 @@ function bind() {
       showScene(Number(rangeBtn.dataset.index));
       return;
     }
-    if (!event.target.closest(".popover") && !event.target.closest("#filter-btn") && !event.target.closest("#sound-btn") && !event.target.closest("#clock-btn")) {
+    if (!event.target.closest(".popover") && !event.target.closest("#filter-btn") && !event.target.closest("#clock-btn")) {
       closePopovers();
     }
   });
 
   $("filter-btn").addEventListener("click", () => togglePopover("filter-menu", $("filter-btn")));
-  $("sound-btn").addEventListener("click", () => togglePopover("sound-menu", $("sound-btn")));
   $("clock-btn").addEventListener("click", () => {
     const date = skyDate();
     $("time-range").value = String(date.getHours() * 60 + date.getMinutes());
@@ -802,7 +844,7 @@ function bind() {
       return;
     }
     if (event.key === "Escape") {
-      if (!$("filter-menu").hidden || !$("sound-menu").hidden || !$("time-menu").hidden) closePopovers();
+      if (!$("filter-menu").hidden || !$("time-menu").hidden) closePopovers();
       else if (state.mode !== "home") setMode("home");
     }
     if (event.target.closest?.("model-viewer")) return;
@@ -849,8 +891,10 @@ async function main() {
   bind();
   renderChrome();
   const initial = state.scenes[state.index];
-  $("viewer").setAttribute("src", initial.model);
-  $("viewer").setAttribute("poster", initial.poster);
+  const initialView = viewOf(initial);
+  $("viewer").dataset.baked = initialView.baked;
+  $("viewer").setAttribute("src", initialView.model);
+  $("viewer").setAttribute("poster", initialView.poster);
   $("viewer").setAttribute("camera-orbit", initial.cameraOrbit);
   $("viewer").setAttribute("camera-target", initial.cameraTarget);
   $("viewer").setAttribute("field-of-view", initial.fieldOfView);

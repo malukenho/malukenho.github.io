@@ -173,5 +173,33 @@
       "pt": "Helmond",
       "en": "Helmond"
     }
+  },
+  {
+    "id": "2026-11-06-ospel-kerk",
+    "date": "2026-11-06",
+    "model": "assets/models/church-day.glb",
+    "modelNight": "assets/models/church-night.glb",
+    "poster": "assets/posters/church-day.png",
+    "posterNight": "assets/posters/church-night.png",
+    "cameraOrbit": "56deg 70deg 262.44m",
+    "cameraTarget": "0.600m 15.842m -1.412m",
+    "fieldOfView": "12deg",
+    "lat": 51.298559,
+    "lng": 5.785298,
+    "category": "marco",
+    "sample": false,
+    "address": "Onze Lieve Vrouwestraat 38, 6035 AR Ospel",
+    "name": {
+      "pt": "Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk",
+      "en": "Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk"
+    },
+    "seen": {
+      "pt": "na Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk",
+      "en": "Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk"
+    },
+    "where": {
+      "pt": "Ospel",
+      "en": "Ospel"
+    }
   }
 ]
