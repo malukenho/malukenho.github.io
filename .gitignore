@@ -1,5 +1,4 @@
+.DS_Store
 .jekyll-cache/
 _site/
-.idea/
-_posts/2020-01-01-preview.markdown
-*preview*.markdown
+node_modules/
