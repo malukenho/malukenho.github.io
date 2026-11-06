@@ -2,7 +2,7 @@
 
 Página pessoal do Jefersson Nathan: um lugar em miniatura, uma linha do tempo e o céu da hora em que você abre o site.
 
-Os lugares publicados são a Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk, em Ospel, datada de 20 de setembro de 2026, e o Alexa Centre, em Berlim, datado de 22 de outubro de 2026. Um toque no modelo abre a linha do tempo; Escape volta à página.
+Os lugares publicados são a Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk, em Ospel, datada de 20 de setembro de 2026, a Avonturenboerderij Molenwaard, em Groot-Ammers, datada de 3 de outubro de 2026, e o Alexa Centre, em Berlim, datado de 22 de outubro de 2026. A página inicial é o lugar com a data mais recente, por isso o Alexa Centre continua em destaque. Molenwaard entra só com cartazes de dia e de noite, sem modelo. Um toque na imagem abre a linha do tempo; Escape volta à página.
 
 ## Acrescentar uma cena
 
@@ -29,7 +29,7 @@ Os lugares publicados são a Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk, em Ospel,
 }
 ```
 
-`category` pode ser `rua`, `interior`, `verde` ou `marco`. `seen` entra na frase (“visto por último …”). `lat` / `lng` posicionam o pino no mapa; use um ponto público, não um endereço de casa. `with` é opcional e bilingue (`{ "pt": "…", "en": "…" }`). Quando existe, aparece só no cartão da linha do tempo.
+`category` pode ser `rua`, `interior`, `verde` ou `marco`. `seen` entra na frase (“visto por último …”). `lat` / `lng` posicionam o pino no mapa; use um ponto público, não um endereço de casa. `with` é opcional e bilingue (`{ "pt": "…", "en": "…" }`). Quando existe, aparece só no cartão da linha do tempo. Uma cena só de cartazes pode omitir `model` e `modelNight`. O hero e a linha do tempo usam `posterNight` e não carregam 3D.
 
 O script `node scripts/build-scenes.mjs` **recria as amostras e reescreve** `scenes.json`. Não o rode depois de acrescentar cenas suas, a menos que queira gerar as amostras de novo.
 
@@ -47,4 +47,4 @@ A igreja de Ospel (`church-day.glb` / `church-night.glb`) e o Alexa Centre (`ale
 
 ## English
 
-Personal page for Jefersson Nathan: a miniature place, a timeline, and a sky that follows the time of day. The page loads in English. Sound has no mute control and no theme picker; the first gesture unlocks Airy and it stays on. Published places are Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk in Ospel, dated 20 September 2026, and the Alexa Centre in Berlin, dated 22 October 2026, each with a day model and a night model. Clicking the model opens the timeline; Escape returns to the page. The day and night models are compressed clay miniatures (meshopt, WebP), and the night textures already have glowing windows. An optional bilingual `with` field shows on the timeline card only. Add another by dropping a `.glb` plus a poster and an entry in `assets/data/scenes.json`, as above. `node scripts/build-scenes.mjs` regenerates the samples and overwrites that file.
+Personal page for Jefersson Nathan: a miniature place, a timeline, and a sky that follows the time of day. The page loads in English. Sound has no mute control and no theme picker; the first gesture unlocks Airy and it stays on. Published places are Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk in Ospel, dated 20 September 2026, and the Alexa Centre in Berlin, dated 22 October 2026, each with a day model and a night model, plus Avonturenboerderij Molenwaard in Groot-Ammers, dated 3 October 2026, which is stills only (day and night posters, no model). The homepage is the newest date, so the Alexa Centre stays current. Clicking the image opens the timeline; Escape returns to the page. The day and night models are compressed clay miniatures (meshopt, WebP), and the night textures already have glowing windows. The hero and timeline show `posterNight` and do not load 3D. An optional bilingual `with` field shows on the timeline card only. Add another by dropping a `.glb` plus a poster and an entry in `assets/data/scenes.json`, as above, or omit `model` and `modelNight` for a stills-only scene. `node scripts/build-scenes.mjs` regenerates the samples and overwrites that file.

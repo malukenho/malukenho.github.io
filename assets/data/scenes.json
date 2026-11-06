@@ -28,6 +28,32 @@
     }
   },
   {
+    "id": "2026-10-03-avonturenboerderij-molenwaard",
+    "date": "2026-10-03",
+    "poster": "assets/posters/molenwaard-day.png",
+    "posterNight": "assets/posters/molenwaard-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 51.93013,
+    "lng": 4.84167,
+    "category": "verde",
+    "sample": false,
+    "address": "Wilgenweg 3, 2964 AM Groot-Ammers",
+    "name": {
+      "pt": "Avonturenboerderij Molenwaard",
+      "en": "Avonturenboerderij Molenwaard"
+    },
+    "seen": {
+      "pt": "na Avonturenboerderij Molenwaard",
+      "en": "Avonturenboerderij Molenwaard"
+    },
+    "where": {
+      "pt": "Groot-Ammers",
+      "en": "Groot-Ammers"
+    }
+  },
+  {
     "id": "2026-10-22-alexa-centre",
     "date": "2026-10-22",
     "model": "assets/models/alexa-day.glb",
