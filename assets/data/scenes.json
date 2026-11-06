@@ -1,5 +1,22 @@
 [
   {
+    "id": "2026-08-22-lourdesgrot-mariahout",
+    "date": "2026-08-22",
+    "poster": "assets/posters/lourdesgrot-mariahout-day.png",
+    "posterNight": "assets/posters/lourdesgrot-mariahout-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 51.5397,
+    "lng": 5.57192,
+    "category": "marco",
+    "sample": false,
+    "address": "Mariastraat 25, 5738 AH Mariahout",
+    "name": { "pt": "Lourdesgrot Mariahout", "en": "Lourdesgrot Mariahout" },
+    "seen": { "pt": "na Lourdesgrot Mariahout", "en": "the Lourdesgrot Mariahout" },
+    "where": { "pt": "Mariahout", "en": "Mariahout" }
+  },
+  {
     "id": "2026-09-20-ospel-kerk",
     "date": "2026-09-20",
     "model": "assets/models/church-day.glb",
