@@ -21,7 +21,6 @@ const COPY = {
     search: "Buscar",
     searchPlaceholder: "Buscar lugar",
     empty: "Nenhuma cena com esse nome.",
-    now: "Agora",
     north: "Apontar para o norte",
     mini: "Mini mapa",
     globe: "Globo",
@@ -44,7 +43,6 @@ const COPY = {
     search: "Search",
     searchPlaceholder: "Search places",
     empty: "No scenes match.",
-    now: "Now",
     north: "Point north",
     mini: "Mini map",
     globe: "Globe",
@@ -132,13 +130,16 @@ function formatClock(date) {
     hourCycle: t().hourCycle,
   }).format(date);
 }
+function updateClockReadout() {
+  const clock = $("clock-readout");
+  if (!clock) return;
+  const now = new Date();
+  clock.dateTime = now.toISOString();
+  clock.textContent = formatClock(now);
+  clock.classList.remove("is-preview");
+}
 function currentHour() {
   return FROZEN_MINUTES / 60;
-}
-function skyDate() {
-  const date = new Date();
-  date.setHours(20, 55, 0, 0);
-  return date;
 }
 
 const setStars = mountStars($("stars"));
@@ -151,14 +152,7 @@ function paint() {
   const sky = skyAt(currentHour());
   applySky(document.documentElement, sky);
   setStars(sky.night);
-  const clock = $("clock-btn");
-  const label = formatClock(skyDate());
-  clock.textContent = label;
-  clock.classList.remove("is-preview");
-  const readout = $("time-readout");
-  if (readout) readout.textContent = label;
-  const range = $("time-range");
-  if (range) range.value = String(FROZEN_MINUTES);
+  updateClockReadout();
 }
 
 function visible() {
@@ -178,7 +172,6 @@ function renderChrome() {
   document.documentElement.lang = state.lang === "pt" ? "pt" : "en";
   $("lang-btn").textContent = state.lang === "pt" ? "EN" : "PT";
   $("lang-btn").setAttribute("aria-label", state.lang === "pt" ? "English" : "Português");
-  $("time-now").textContent = copy.now;
   $("compass").setAttribute("aria-label", copy.north);
   $("proj-mini").textContent = copy.mini;
   $("proj-globe").textContent = copy.globe;
@@ -341,7 +334,6 @@ function setMode(mode, { push = true, sound = true } = {}) {
     });
   }
   if (mode === "map") ensureMap().then(() => mapApi && syncMap(true));
-  closePopovers();
   if (push) {
     const hash = mode === "home" ? state.scenes[state.index]?.id || "" : mode;
     history.pushState({ mode }, "", hash ? `#${hash}` : location.pathname);
@@ -355,20 +347,6 @@ function scrollCard(index, behavior) {
   const strip = $("strip");
   const left = card.offsetLeft - (strip.clientWidth - card.clientWidth) / 2;
   strip.scrollTo({ left, behavior: reduceMotion ? "auto" : behavior });
-}
-
-function closePopovers() {
-  $("time-menu").hidden = true;
-  $("clock-btn").setAttribute("aria-expanded", "false");
-}
-
-function togglePopover(id, button) {
-  const el = $(id);
-  const open = el.hidden;
-  closePopovers();
-  el.hidden = !open;
-  button?.setAttribute("aria-expanded", open ? "true" : "false");
-  if (open) audio.play("tap", 0.55);
 }
 
 let scrollLock = false;
@@ -602,31 +580,14 @@ function bind() {
       showScene(Number(rangeBtn.dataset.index));
       return;
     }
-    if (!event.target.closest(".popover") && !event.target.closest("#clock-btn")) {
-      closePopovers();
-    }
   });
 
-  $("clock-btn").addEventListener("click", () => {
-    $("time-range").value = String(FROZEN_MINUTES);
-    togglePopover("time-menu", $("clock-btn"));
-  });
   $("lang-btn").addEventListener("click", () => {
     state.lang = state.lang === "pt" ? "en" : "pt";
     store("lang", state.lang);
     renderChrome();
     if (mapApi) syncMap(false);
     audio.play("tap", 0.8);
-  });
-  $("time-range").addEventListener("input", () => {
-    $("time-range").value = String(FROZEN_MINUTES);
-    paint();
-  });
-  $("time-now").addEventListener("click", () => {
-    $("time-range").value = String(FROZEN_MINUTES);
-    paint();
-    if (mapApi) tuneSky(mapApi.map);
-    audio.play("tap", currentHour() / 24);
   });
   $("compass").addEventListener("click", () => {
     mapApi?.map.easeTo({ bearing: 0, duration: 500 });
@@ -687,12 +648,10 @@ function bind() {
   addEventListener("pointerdown", () => audio.unlock(), { once: false });
   addEventListener("keydown", (event) => {
     if (event.target instanceof HTMLInputElement) {
-      if (event.key === "Escape") closePopovers();
       return;
     }
     if (event.key === "Escape") {
-      if (!$("time-menu").hidden) closePopovers();
-      else if (state.mode !== "home") setMode("home");
+      if (state.mode !== "home") setMode("home");
     }
     if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
       event.preventDefault();
@@ -701,6 +660,9 @@ function bind() {
   });
   addEventListener("popstate", () => applyHash(false));
   addEventListener("resize", () => mapApi?.map.resize());
+
+  const clockTickMs = reduceMotion ? 60000 : 1000;
+  window.setInterval(updateClockReadout, clockTickMs);
 }
 
 function step(dir) {
