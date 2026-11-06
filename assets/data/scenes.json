@@ -17,6 +17,24 @@
     "where": { "pt": "Mariahout", "en": "Mariahout" }
   },
   {
+    "id": "2026-08-25-mcdonalds-best",
+    "date": "2026-08-25",
+    "poster": "assets/posters/mcdonalds-best-day.png",
+    "posterNight": "assets/posters/mcdonalds-best-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 51.503923,
+    "lng": 5.413325,
+    "category": "marco",
+    "sample": false,
+    "address": "Eindhovenseweg Zuid 59, 5683 PW Best",
+    "name": { "pt": "McDonald's Best", "en": "McDonald's Best" },
+    "seen": { "pt": "no McDonald's Best", "en": "McDonald's Best" },
+    "where": { "pt": "Best", "en": "Best" },
+    "with": { "pt": "a família", "en": "family" }
+  },
+  {
     "id": "2026-09-20-ospel-kerk",
     "date": "2026-09-20",
     "model": "assets/models/church-day.glb",
