@@ -275,13 +275,17 @@ function renderStrip() {
     strip.innerHTML = `<p class="empty">${escapeHtml(t().empty)}</p>`;
     return;
   }
-  strip.innerHTML = rows.map(({ scene, index }) => `
+  strip.innerHTML = rows.map(({ scene, index }) => {
+    const withText = scene.with?.[state.lang];
+    return `
     <button class="card${index === state.index ? " is-current" : ""}" type="button" data-index="${index}">
       <p class="when">${escapeHtml(whenText(scene.date, false))}</p>
       <span class="poster"><img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false"></span>
       <p class="name">${escapeHtml(scene.name[state.lang])}</p>
       <p class="meta">${scene.sample ? escapeHtml(t().sample) : escapeHtml(scene.where[state.lang])}</p>
-    </button>`).join("");
+      ${withText ? `<p class="with">${escapeHtml(withText)}</p>` : ""}
+    </button>`;
+  }).join("");
 }
 
 function renderScrubber() {

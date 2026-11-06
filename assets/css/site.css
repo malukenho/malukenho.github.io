@@ -239,6 +239,7 @@ model-viewer.is-out {
 }
 .name { margin: 0.55rem 0 0; font-size: 1.25rem; font-weight: 500; color: var(--text); }
 .meta { margin: 0.2rem 0 0; color: var(--secondary); font-size: 1.0625rem; }
+.card .with { margin: 0.12rem 0 0; color: var(--faint); font-size: 0.9375rem; }
 .empty {
   margin: auto;
   color: var(--secondary);
@@ -574,6 +575,7 @@ body[data-mode="timeline"] .range { display: none; }
   .when { font-size: 1.125rem; }
   .name { font-size: 1.375rem; }
   .meta { font-size: 1.125rem; }
+  .card .with { font-size: 1rem; }
   .dock { gap: 0.28rem; }
   .dock-left { left: 0.4rem; }
   .dock-right { right: 0.4rem; }
