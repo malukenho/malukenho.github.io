@@ -247,7 +247,7 @@ function renderBio({ animate = true } = {}) {
   const sample = scene.sample ? ` <span class="sample">${escapeHtml(t().sample)}</span>` : "";
   const address = scene.address ? `<span class="address">${escapeHtml(scene.address)}</span>` : "";
   bio.innerHTML = `${escapeHtml(t().bio("§", "¶"))}`
-    .replace("§", `<button type="button" class="text-link" data-open-map>${escapeHtml(seen)}</button>${sample}`)
+    .replace("§,", `<button type="button" class="text-link" data-open-map>${escapeHtml(seen)},</button>${sample}`)
     .replace("¶", escapeHtml(when)) + address;
   if (animate && !reduceMotion && !state.scrubbing) {
     bio.classList.remove("is-swap");
@@ -256,8 +256,8 @@ function renderBio({ animate = true } = {}) {
   }
   const phi = polar(scene.cameraOrbit);
   $("viewer").alt = `${scene.name[state.lang]}. ${t().drag}`;
-  $("viewer").setAttribute("min-camera-orbit", `auto ${Math.max(0, phi - 2)}deg auto`);
-  $("viewer").setAttribute("max-camera-orbit", `auto ${Math.min(180, phi + 2)}deg auto`);
+  $("viewer").setAttribute("min-camera-orbit", `auto ${Math.max(0, phi - 2)}deg 0.4m`);
+  $("viewer").setAttribute("max-camera-orbit", `auto ${Math.min(180, phi + 2)}deg 8m`);
 }
 
 function escapeHtml(value) {
@@ -278,7 +278,7 @@ function renderStrip() {
   strip.innerHTML = rows.map(({ scene, index }) => `
     <button class="card${index === state.index ? " is-current" : ""}" type="button" data-index="${index}">
       <p class="when">${escapeHtml(whenText(scene.date, false))}</p>
-      <img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false">
+      <span class="poster"><img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false"></span>
       <p class="name">${escapeHtml(scene.name[state.lang])}</p>
       <p class="meta">${scene.sample ? escapeHtml(t().sample) : escapeHtml(scene.where[state.lang])}</p>
     </button>`).join("");
@@ -836,8 +836,10 @@ async function main() {
   renderChrome();
   const initial = state.scenes[state.index];
   const initialView = viewOf(initial);
-  $("viewer").dataset.baked = initialView.baked;
-  $("viewer").setAttribute("src", initialView.model);
+  const viewer = $("viewer");
+  customElements.get("model-viewer").meshoptDecoderLocation = new URL("meshopt_decoder.js", import.meta.url).href;
+  viewer.dataset.baked = initialView.baked;
+  viewer.setAttribute("src", initialView.model);
   $("viewer").setAttribute("poster", initialView.poster);
   $("viewer").setAttribute("camera-orbit", initial.cameraOrbit);
   $("viewer").setAttribute("camera-target", initial.cameraTarget);
