@@ -2,13 +2,13 @@ import { applySky, clockParts, mountStars, nightAmount, skyAt } from "./sky.js";
 import { createAudio } from "./audio.js";
 
 const WORKS = [
-  { role: "Senior Software Engineer", org: "Angi", meta: "Full-time · Oct 2025 – present · 1 yr 2 mo · On-site" },
-  { role: "Senior Software Engineer", org: "Werkspot", meta: "Full-time · Aug 2017 – Nov 2025 · 8 yrs 4 mo · Amsterdam, North Holland, Netherlands · On-site" },
-  { role: "", org: "Marco Pivetta Web Development", meta: "Aug 2014 – Aug 2017 · 3 yrs 1 mo" },
-  { role: "Full-stack Developer", org: "Alfama Web", meta: "Full-time · Feb 2014 – Oct 2014 · 9 mo · Aracaju, Sergipe, Brazil · On-site" },
-  { role: "", org: "Swapi - Agência Digital", meta: "Full-time · Jun 2012 – Nov 2013 · 1 yr 6 mo · Aracaju, Sergipe, Brazil · On-site" },
-  { role: "Freelancer", org: "DivaWeb", meta: "Temporary · Mar 2011 – Jan 2012 · 11 mo · Aracaju, Sergipe, Brazil" },
-  { role: "Full stack Developer", org: "mundozero", meta: "Full-time · Jan 2010 – Feb 2011 · 1 yr 2 mo · Aracaju, Sergipe, Brazil · On-site" },
+  { org: "Angi", year: "2025" },
+  { org: "Werkspot", year: "2017" },
+  { org: "Marco Pivetta Web Development", year: "2014" },
+  { org: "Alfama Web", year: "2014" },
+  { org: "Swapi - Agência Digital", year: "2012" },
+  { org: "DivaWeb", year: "2011" },
+  { org: "mundozero", year: "2010" },
 ];
 
 const COPY = {
@@ -110,7 +110,8 @@ function whenText(iso, sentence) {
   const diff = dayDiff(iso);
   const pair = diff === 0 ? t().when.today : diff === 1 ? t().when.yesterday : null;
   if (pair) return sentence ? pair[0] : pair[1];
-  return new Intl.DateTimeFormat(t().locale, { day: "numeric", month: "short" }).format(parseDate(iso));
+  const locale = state.lang === "pt" ? "pt-BR" : "en-GB";
+  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(parseDate(iso));
 }
 function formatClock(date) {
   return new Intl.DateTimeFormat(t().locale, {
@@ -205,11 +206,6 @@ function visible() {
 function renderChrome() {
   const copy = t();
   document.documentElement.lang = state.lang === "pt" ? "pt" : "en";
-  $("open-timeline").textContent = copy.timeline;
-  $("open-map").textContent = copy.map;
-  $("filter-btn").textContent = copy.cats[state.filter] || copy.cats.all;
-  $("search-btn").setAttribute("aria-label", copy.search);
-  $("search").placeholder = copy.searchPlaceholder;
   $("lang-btn").textContent = state.lang === "pt" ? "EN" : "PT";
   $("lang-btn").setAttribute("aria-label", state.lang === "pt" ? "English" : "Português");
   $("time-now").textContent = copy.now;
@@ -222,8 +218,6 @@ function renderChrome() {
   $("view-map").setAttribute("aria-label", copy.map);
   renderWork();
   renderFooter();
-  renderSoundMenu();
-  renderFilterMenu();
   renderBio();
   renderStrip();
   renderScrubber();
@@ -232,12 +226,9 @@ function renderChrome() {
 }
 
 function renderWork() {
-  $("work-list").innerHTML = WORKS.map((item) => {
-    const title = item.role
-      ? `<span class="role">${escapeHtml(item.role)}</span> <span class="org">${escapeHtml(item.org)}</span>`
-      : `<span class="role">${escapeHtml(item.org)}</span>`;
-    return `<li><p class="job-title">${title}</p><p class="job-meta">${escapeHtml(item.meta)}</p></li>`;
-  }).join("");
+  $("work-list").innerHTML = WORKS.map((item) =>
+    `<li><p class="job-title">${escapeHtml(item.org)} <span class="year">— ${escapeHtml(item.year)}</span></p></li>`
+  ).join("");
 }
 
 function renderFooter() {
@@ -332,23 +323,6 @@ function renderRange() {
   const rows = visible();
   range.innerHTML = rows.map(({ scene, index }) =>
     `<button type="button" data-index="${index}" class="${index === state.index ? "is-on" : ""}" aria-label="${escapeHtml(scene.name[state.lang])}"></button>`
-  ).join("");
-}
-
-function renderFilterMenu() {
-  const counts = { all: state.scenes.length };
-  for (const scene of state.scenes) counts[scene.category] = (counts[scene.category] || 0) + 1;
-  const cats = ["all", ...Object.keys(t().cats).filter((key) => key !== "all" && counts[key])];
-  $("filter-menu").innerHTML = cats.map((cat) =>
-    `<button type="button" data-cat="${cat}" aria-pressed="${state.filter === cat}">${escapeHtml(t().cats[cat])}<span>${counts[cat] || 0}</span></button>`
-  ).join("");
-}
-
-function renderSoundMenu() {
-  const list = $("theme-list");
-  if (!list) return;
-  list.innerHTML = audio.themes.map((name) =>
-    `<button type="button" data-theme="${name}" aria-pressed="${audio.theme === name}">${escapeHtml(name)}</button>`
   ).join("");
 }
 
@@ -466,8 +440,7 @@ function scrollCard(index, behavior) {
 }
 
 function closePopovers() {
-  for (const id of ["filter-menu", "time-menu"]) $(id).hidden = true;
-  $("filter-btn").setAttribute("aria-expanded", "false");
+  $("time-menu").hidden = true;
   $("clock-btn").setAttribute("aria-expanded", "false");
 }
 
@@ -591,7 +564,6 @@ async function ensureMap() {
       map.jumpTo({ pitch: 62, bearing: -22 });
       map.getContainer().dataset.pitch = String(Math.round(map.getPitch()));
       mapApi.cities = [
-        { name: "Helmond", lng: 5.657, lat: 51.481 },
         { name: "Ospel", lng: 5.7853, lat: 51.2986 },
       ].map((place) => {
         const city = document.createElement("div");
@@ -691,15 +663,12 @@ function setProjection(kind) {
 function savedSound() {
   try {
     localStorage.removeItem("sound");
-    const theme = localStorage.getItem("sound-theme");
-    if (theme) audio.theme = theme;
+    localStorage.removeItem("sound-theme");
   } catch { /* ignore */ }
 }
 
 function bind() {
   document.body.addEventListener("click", (event) => {
-    const modeBtn = event.target.closest("#mode-pill [data-mode]");
-    if (modeBtn) { setMode(modeBtn.dataset.mode); return; }
     if (event.target.closest("[data-open-map]")) {
       setMode("map");
       return;
@@ -710,37 +679,16 @@ function bind() {
       setMode("home", { sound: false });
       return;
     }
-    const cat = event.target.closest("[data-cat]")?.dataset.cat;
-    if (cat) {
-      state.filter = cat;
-      if (!visible().some((row) => row.index === state.index) && visible()[0]) {
-        state.index = visible()[visible().length - 1].index;
-      }
-      renderChrome();
-      closePopovers();
-      audio.play("tap", 0.35);
-      if (state.mode === "timeline") scrollCard(state.index, "auto");
-      return;
-    }
-    const themeBtn = event.target.closest("[data-theme]");
-    if (themeBtn && $("theme-list")?.contains(themeBtn)) {
-      audio.theme = themeBtn.dataset.theme;
-      store("sound-theme", audio.theme);
-      renderSoundMenu();
-      audio.play("open", 0.62);
-      return;
-    }
     const rangeBtn = event.target.closest("#range button");
     if (rangeBtn) {
       showScene(Number(rangeBtn.dataset.index));
       return;
     }
-    if (!event.target.closest(".popover") && !event.target.closest("#filter-btn") && !event.target.closest("#clock-btn")) {
+    if (!event.target.closest(".popover") && !event.target.closest("#clock-btn")) {
       closePopovers();
     }
   });
 
-  $("filter-btn").addEventListener("click", () => togglePopover("filter-menu", $("filter-btn")));
   $("clock-btn").addEventListener("click", () => {
     const date = skyDate();
     $("time-range").value = String(date.getHours() * 60 + date.getMinutes());
@@ -752,22 +700,6 @@ function bind() {
     renderChrome();
     if (mapApi) syncMap(false);
     audio.play("tap", 0.8);
-  });
-  $("search-btn").addEventListener("click", () => {
-    const input = $("search");
-    const open = !input.classList.contains("is-open");
-    input.classList.toggle("is-open", open);
-    $("search-btn").setAttribute("aria-pressed", open ? "true" : "false");
-    if (open) input.focus();
-    else { input.value = ""; state.query = ""; renderStrip(); renderScrubber(); renderRange(); }
-    audio.play("tap", 0.5);
-  });
-  $("search").addEventListener("input", () => {
-    state.query = $("search").value;
-    renderStrip();
-    renderScrubber();
-    renderRange();
-    if (mapApi) syncMap(false);
   });
   $("time-range").addEventListener("input", () => {
     const minutes = Number($("time-range").value);
@@ -837,14 +769,26 @@ function bind() {
   }, { passive: false });
 
   $("viewer").addEventListener("load", onViewerLoad);
+  let press = null;
+  $("viewer").addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    press = { x: event.clientX, y: event.clientY };
+  });
+  $("viewer").addEventListener("pointerup", (event) => {
+    if (!press || state.mode !== "home") { press = null; return; }
+    const moved = Math.hypot(event.clientX - press.x, event.clientY - press.y);
+    press = null;
+    if (moved > 8) return;
+    setMode("timeline");
+  });
   addEventListener("pointerdown", () => audio.unlock(), { once: false });
   addEventListener("keydown", (event) => {
     if (event.target instanceof HTMLInputElement) {
-      if (event.key === "Escape") $("search-btn").click();
+      if (event.key === "Escape") closePopovers();
       return;
     }
     if (event.key === "Escape") {
-      if (!$("filter-menu").hidden || !$("time-menu").hidden) closePopovers();
+      if (!$("time-menu").hidden) closePopovers();
       else if (state.mode !== "home") setMode("home");
     }
     if (event.target.closest?.("model-viewer")) return;

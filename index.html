@@ -89,25 +89,6 @@
   </div>
   <div class="ring" id="ring" hidden></div>
 
-  <div class="dock dock-left">
-    <div class="pill" id="mode-pill">
-      <button type="button" data-mode="timeline" id="open-timeline"></button>
-      <button type="button" data-mode="map" id="open-map"></button>
-    </div>
-    <div class="pill" id="filter-pill">
-      <button type="button" id="filter-btn" aria-expanded="false"></button>
-      <span class="split" aria-hidden="true"></span>
-      <button type="button" class="icon-btn" id="search-btn" aria-pressed="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="10.5" cy="10.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-          <path d="M15 15.2 19 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <input id="search" type="search" autocomplete="off" enterkeyhint="search">
-      <div class="popover" id="filter-menu" hidden></div>
-    </div>
-  </div>
-
   <div class="dock dock-right">
     <div class="pill" id="clock-pill">
       <button type="button" id="clock-btn" aria-expanded="false"></button>
@@ -119,7 +100,6 @@
           <button type="button" id="time-now"></button>
         </div>
         <input id="time-range" type="range" min="0" max="1440" step="5" value="720">
-        <div class="themes" id="theme-list"></div>
       </div>
     </div>
   </div>

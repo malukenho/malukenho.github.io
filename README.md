@@ -2,7 +2,7 @@
 
 Página pessoal do Jefersson Nathan: um lugar em miniatura, uma linha do tempo e o céu da hora em que você abre o site.
 
-As cenas de exemplo são dioramas originais (Helmond, interiores genéricos). Não são fotografias nem modelos de outra pessoa. Quando uma cena tiver `sample: true`, a interface marca **amostra**.
+O único lugar publicado é a Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk, em Ospel, datada de 20 de setembro de 2026. Um toque no modelo abre a linha do tempo; Escape volta à página.
 
 ## Acrescentar uma cena
 
@@ -41,10 +41,10 @@ Qualquer servidor estático na raiz do repositório. GitHub Pages publica esta p
 python3 -m http.server 4173
 ```
 
-A página abre em inglês. O som não tem mute: o primeiro toque ou tecla destrava o áudio e ele permanece ligado. O relógio abre a hora do céu e os temas (airy, blend, blendchord, bowl, breath, chimes, droplets, felt, glide, hum, kalimba, recipe, twinkle). `#timeline` e `#map` abrem essas vistas.
+A página abre em inglês. O som não tem mute nem escolha de tema: o primeiro toque ou tecla destrava o áudio Airy e ele permanece ligado. O relógio só muda a hora do céu. Um toque no modelo abre a linha do tempo; Escape volta à página. `#timeline` e `#map` abrem essas vistas.
 
 A igreja de Ospel (`church-day.glb` / `church-night.glb`) troca com o céu. `python3 scripts/build-church.py` regenera os dois modelos. O tijolo, a ardósia e a pedra são superfícies geradas na cor da igreja, e de noite as janelas acendem.
 
 ## English
 
-Personal page for Jefersson Nathan: a miniature place, a timeline, and a sky that follows the time of day. The page loads in English. Sound has no mute control; the first gesture unlocks it and it stays on. Sample scenes are original dioramas. The Ospel church is a reconstructed place with a day model and a night model, chosen from the sky. Brick, slate and stone are generated surfaces in the church’s own colours, and the windows glow at night. `python3 scripts/build-church.py` regenerates both models. Add another by dropping a `.glb` plus a poster and an entry in `assets/data/scenes.json`, as above. `node scripts/build-scenes.mjs` regenerates the samples and overwrites that file.
+Personal page for Jefersson Nathan: a miniature place, a timeline, and a sky that follows the time of day. The page loads in English. Sound has no mute control and no theme picker; the first gesture unlocks Airy and it stays on. The only published place is Onze-Lieve-Vrouw Onbevlekt Ontvangenkerk in Ospel, dated 20 September 2026, with a day model and a night model. Clicking the model opens the timeline; Escape returns to the page. Brick, slate and stone are generated surfaces in the church’s own colours, and the windows glow at night. `python3 scripts/build-church.py` regenerates both models. Add another by dropping a `.glb` plus a poster and an entry in `assets/data/scenes.json`, as above. `node scripts/build-scenes.mjs` regenerates the samples and overwrites that file.
