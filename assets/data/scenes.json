@@ -54,6 +54,33 @@
     }
   },
   {
+    "id": "2026-10-19-the-social-hub-berlin",
+    "date": "2026-10-19",
+    "dateEnd": "2026-10-23",
+    "poster": "assets/posters/social-hub-day.png",
+    "posterNight": "assets/posters/social-hub-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 52.5178,
+    "lng": 13.4186,
+    "category": "marco",
+    "sample": false,
+    "address": "Alexanderstraße 40, 10179 Berlin",
+    "name": {
+      "pt": "The Social Hub Berlin",
+      "en": "The Social Hub Berlin"
+    },
+    "seen": {
+      "pt": "no The Social Hub Berlin",
+      "en": "The Social Hub Berlin"
+    },
+    "where": {
+      "pt": "Berlim",
+      "en": "Berlin"
+    }
+  },
+  {
     "id": "2026-10-22-alexa-centre",
     "date": "2026-10-22",
     "model": "assets/models/alexa-day.glb",

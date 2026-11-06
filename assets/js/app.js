@@ -112,6 +112,19 @@ function whenText(iso, sentence) {
   const locale = state.lang === "pt" ? "pt-BR" : "en-GB";
   return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(parseDate(iso));
 }
+function sceneWhen(scene, sentence) {
+  if (!scene.dateEnd || scene.dateEnd === scene.date) return whenText(scene.date, sentence);
+  const locale = state.lang === "pt" ? "pt-BR" : "en-GB";
+  const fmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" });
+  const startParts = fmt.formatToParts(parseDate(scene.date));
+  const endParts = fmt.formatToParts(parseDate(scene.dateEnd));
+  const part = (parts, type) => parts.find((item) => item.type === type)?.value ?? "";
+  if (part(startParts, "month") === part(endParts, "month") && part(startParts, "year") === part(endParts, "year")) {
+    const tail = endParts.filter((item) => item.type !== "day").map((item) => item.value).join("");
+    return `${part(startParts, "day")}–${part(endParts, "day")}${tail}`;
+  }
+  return fmt.formatRange(parseDate(scene.date), parseDate(scene.dateEnd)).replaceAll("\u2009", "");
+}
 function formatClock(date) {
   return new Intl.DateTimeFormat(t().locale, {
     hour: "numeric",
@@ -202,7 +215,7 @@ function renderBio({ animate = true } = {}) {
   if (!scene) return;
   const bio = $("bio");
   const seen = scene.seen[state.lang];
-  const when = whenText(scene.date, true).replace(/\.$/, "");
+  const when = sceneWhen(scene, true).replace(/\.$/, "");
   const sample = scene.sample ? ` <span class="sample">${escapeHtml(t().sample)}</span>` : "";
   const address = scene.address ? `<span class="address">${escapeHtml(scene.address)}</span>` : "";
   bio.innerHTML = `${escapeHtml(t().bio("§", "¶"))}`
@@ -231,7 +244,7 @@ function renderStrip() {
     const withText = scene.with?.[state.lang];
     return `
     <button class="card${index === state.index ? " is-current" : ""}" type="button" data-index="${index}">
-      <p class="when">${escapeHtml(whenText(scene.date, false))}</p>
+      <p class="when">${escapeHtml(sceneWhen(scene, false))}</p>
       <span class="poster"><img src="${viewOf(scene).poster}" alt="" width="380" height="260" draggable="false"></span>
       <p class="name">${escapeHtml(scene.name[state.lang])}</p>
       <p class="meta">${scene.sample ? escapeHtml(t().sample) : escapeHtml(scene.where[state.lang])}</p>
@@ -410,7 +423,7 @@ function scrubToClientX(clientX, { snap = false, sound = true } = {}) {
     scrub.appendChild(label);
   }
   label.hidden = false;
-  label.textContent = whenText(best.scene.date, false);
+  label.textContent = sceneWhen(best.scene, false);
   label.style.left = `${(snap ? (parseDate(best.scene.date).getTime() - start) / span : fraction) * 100}%`;
 }
 
@@ -637,7 +650,7 @@ function bind() {
       ring.hidden = false;
       ring.style.left = `${event.clientX}px`;
       ring.style.top = `${event.clientY}px`;
-      ring.textContent = whenText(state.scenes[state.index].date, false);
+      ring.textContent = sceneWhen(state.scenes[state.index], false);
     }, 420);
   });
   scrub.addEventListener("pointermove", (event) => {
