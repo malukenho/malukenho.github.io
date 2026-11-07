@@ -1,5 +1,35 @@
 [
   {
+    "id": "2025-05-20-efteling",
+    "date": "2025-05-20",
+    "poster": "assets/posters/efteling-day.png",
+    "posterNight": "assets/posters/efteling-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 51.6502,
+    "lng": 5.0525,
+    "category": "verde",
+    "sample": false,
+    "address": "Europalaan 1, 5171 KW Kaatsheuvel",
+    "name": {
+      "pt": "Efteling",
+      "en": "Efteling"
+    },
+    "seen": {
+      "pt": "no Efteling",
+      "en": "Efteling"
+    },
+    "where": {
+      "pt": "Kaatsheuvel",
+      "en": "Kaatsheuvel"
+    },
+    "with": {
+      "pt": "amigos, a esposa e os filhos",
+      "en": "friends, my wife, and our kids"
+    }
+  },
+  {
     "id": "2026-08-22-lourdesgrot-mariahout",
     "date": "2026-08-22",
     "poster": "assets/posters/lourdesgrot-mariahout-day.png",
@@ -33,6 +63,36 @@
     "seen": { "pt": "no McDonald's Best", "en": "McDonald's Best" },
     "where": { "pt": "Best", "en": "Best" },
     "with": { "pt": "a família", "en": "family" }
+  },
+  {
+    "id": "2026-09-12-helmond-castle",
+    "date": "2026-09-12",
+    "poster": "assets/posters/helmond-castle-day.png",
+    "posterNight": "assets/posters/helmond-castle-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "lat": 51.4792,
+    "lng": 5.6578,
+    "category": "marco",
+    "sample": false,
+    "address": "Kasteelplein 1, 5701 RH Helmond",
+    "name": {
+      "pt": "Castelo de Helmond",
+      "en": "Helmond Castle"
+    },
+    "seen": {
+      "pt": "no Castelo de Helmond",
+      "en": "Helmond Castle"
+    },
+    "where": {
+      "pt": "Helmond",
+      "en": "Helmond"
+    },
+    "with": {
+      "pt": "a esposa e os filhos",
+      "en": "my wife and our kids"
+    }
   },
   {
     "id": "2026-09-20-ospel-kerk",

@@ -659,7 +659,9 @@ function bind() {
     }
   });
   addEventListener("popstate", () => applyHash(false));
-  addEventListener("resize", () => mapApi?.map.resize());
+  addEventListener("resize", () => {
+    mapApi?.map.resize();
+  });
 
   const clockTickMs = reduceMotion ? 60000 : 1000;
   window.setInterval(updateClockReadout, clockTickMs);

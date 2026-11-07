@@ -97,7 +97,9 @@ a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
   width: min(640px, 96vw);
   height: min(420px, 46vh);
   min-height: 140px;
+  isolation: isolate;
 }
+
 .hero {
   display: block;
   width: 100%;
