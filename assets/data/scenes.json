@@ -206,5 +206,31 @@
       "pt": "o time da Angi",
       "en": "the Angi team"
     }
+  },
+  {
+    "id": "2026-11-07-cacaofabriek",
+    "date": "2026-11-07",
+    "poster": "assets/posters/cacaofabriek-day.png",
+    "posterNight": "assets/posters/cacaofabriek-night.png",
+    "cameraOrbit": "315deg 68deg 2.2m",
+    "cameraTarget": "0m 0.26m 0m",
+    "fieldOfView": "32deg",
+    "sample": false,
+    "name": {
+      "pt": "De Cacaofabriek",
+      "en": "De Cacaofabriek"
+    },
+    "seen": {
+      "pt": "na De Cacaofabriek",
+      "en": "De Cacaofabriek"
+    },
+    "where": {
+      "pt": "Helmond",
+      "en": "Helmond"
+    },
+    "with": {
+      "pt": "amigos",
+      "en": "friends"
+    }
   }
 ]
